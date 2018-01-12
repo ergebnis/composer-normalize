@@ -1,0 +1,41 @@
+{
+  "name": "localheinz/composer-normalize",
+  "description": "Provides a composer plugin for normalizing composer.json.",
+  "type": "composer-plugin",
+  "license": "MIT",
+  "keywords": [
+    "composer",
+    "normalizer",
+    "normalize",
+    "plugin"
+  ],
+  "authors": [
+    {
+      "name": "Andreas Möller",
+      "email": "am@localheinz.com"
+    }
+  ],
+  "config": {
+    "preferred-install": "dist",
+    "sort-packages": true
+  },
+  "require": {
+    "php": "^7.0"
+  },
+  "require-dev": {
+    "infection/infection": "~0.7.0",
+    "localheinz/php-cs-fixer-config": "~1.11.0",
+    "localheinz/test-util": "0.6.1",
+    "phpunit/phpunit": "^6.5.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "Localheinz\\Composer\\Normalize\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Localheinz\\Composer\\Normalize\\Test\\": "test/"
+    }
+  }
+}
