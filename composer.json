@@ -21,10 +21,11 @@
   },
   "require": {
     "php": "^7.0",
+    "composer-plugin-api": "^1.1.0",
     "localheinz/json-normalizer": "dev-master#3a07f98"
   },
   "require-dev": {
-    "composer/composer": "^1.0.0",
+    "composer/composer": "^1.1.0",
     "infection/infection": "~0.7.0",
     "localheinz/php-cs-fixer-config": "~1.11.0",
     "localheinz/test-util": "0.6.1",
@@ -40,5 +41,8 @@
     "psr-4": {
       "Localheinz\\Composer\\Normalize\\Test\\": "test/"
     }
+  },
+  "extra": {
+    "class": "Localheinz\\Composer\\Normalize\\NormalizePlugin"
   }
 }
