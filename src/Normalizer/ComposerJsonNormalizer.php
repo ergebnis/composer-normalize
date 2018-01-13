@@ -27,6 +27,7 @@ final class ComposerJsonNormalizer implements NormalizerInterface
     public function __construct()
     {
         $this->normalizer = new AutoFormatNormalizer(new ChainNormalizer(
+            new BinNormalizer(),
             new ConfigHashNormalizer(),
             new PackageHashNormalizer()
         ));

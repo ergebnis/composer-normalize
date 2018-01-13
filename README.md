@@ -42,9 +42,17 @@ The `ComposerJsonNormalizer` composes normalizers provided by [`localheinz/json-
  
 as well as the following normalizers provided by this package:
 
+* [`Localheinz\Composer\Normalize\Normalizer\BinNormalizer`](#binnormalizer)
 * [`Localheinz\Composer\Normalize\Normalizer\ConfigHashNormalizer`](#confighashnormalizer)
 * [`Localheinz\Composer\Normalize\Normalizer\PackageHashNormalizer`](#packagehashnormalizer)
 
+### `BinNormalizer`
+
+If `composer.json` contains an array of scripts in the `bin` section, 
+the `BinNormalizer` will sort the elements of the `bin` section by value in ascending order.
+
+:bulb: Find out more about the `bin` section at https://getcomposer.org/doc/04-schema.md#bin.
+  
 ### `ConfigHashNormalizer`
 
 If `composer.json` contains any configuration in the `config` section, 

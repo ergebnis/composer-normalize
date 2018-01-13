@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Localheinz\Composer\Normalize\Test\Unit\Normalizer;
 
+use Localheinz\Composer\Normalize\Normalizer\BinNormalizer;
 use Localheinz\Composer\Normalize\Normalizer\ComposerJsonNormalizer;
 use Localheinz\Composer\Normalize\Normalizer\ConfigHashNormalizer;
 use Localheinz\Composer\Normalize\Normalizer\PackageHashNormalizer;
@@ -35,6 +36,7 @@ final class ComposerJsonNormalizerTest extends AbstractNormalizerTestCase
         $chainNormalizer = $this->composedNormalizer($autoFormatNormalizer);
 
         $normalizerClassNames = [
+            BinNormalizer::class,
             ConfigHashNormalizer::class,
             PackageHashNormalizer::class,
         ];
@@ -84,7 +86,11 @@ final class ComposerJsonNormalizerTest extends AbstractNormalizerTestCase
     "psr-4": {
       "Helmut\\Foo\\Bar\\Test\\": "test/"
     }
-  }
+  },
+  "bin": [
+    "scripts/null-null.php",
+    "hasenbein.php"
+  ]
 }
 JSON;
 
@@ -128,7 +134,11 @@ JSON;
     "psr-4": {
       "Helmut\\Foo\\Bar\\Test\\": "test/"
     }
-  }
+  },
+  "bin": [
+    "hasenbein.php",
+    "scripts/null-null.php"
+  ]
 }
 JSON;
 
