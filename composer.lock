@@ -4,23 +4,90 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "025c68a91a39097e3a36a7a2dbeb6536",
+    "content-hash": "c800ab52a7324928da14422f234dd59e",
     "packages": [
         {
-            "name": "localheinz/json-normalizer",
-            "version": "dev-master",
+            "name": "justinrainbow/json-schema",
+            "version": "5.2.6",
             "source": {
                 "type": "git",
-                "url": "https://github.com/localheinz/json-normalizer.git",
-                "reference": "3a07f98"
+                "url": "https://github.com/justinrainbow/json-schema.git",
+                "reference": "d283e11b6e14c6f4664cf080415c4341293e5bbd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localheinz/json-normalizer/zipball/3a07f98",
-                "reference": "3a07f98",
+                "url": "https://api.github.com/repos/justinrainbow/json-schema/zipball/d283e11b6e14c6f4664cf080415c4341293e5bbd",
+                "reference": "d283e11b6e14c6f4664cf080415c4341293e5bbd",
                 "shasum": ""
             },
             "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.1",
+                "json-schema/json-schema-test-suite": "1.2.0",
+                "phpunit/phpunit": "^4.8.22"
+            },
+            "bin": [
+                "bin/validate-json"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "JsonSchema\\": "src/JsonSchema/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bruno Prieto Reis",
+                    "email": "bruno.p.reis@gmail.com"
+                },
+                {
+                    "name": "Justin Rainbow",
+                    "email": "justin.rainbow@gmail.com"
+                },
+                {
+                    "name": "Igor Wiedler",
+                    "email": "igor@wiedler.ch"
+                },
+                {
+                    "name": "Robert Schönthal",
+                    "email": "seroscho@googlemail.com"
+                }
+            ],
+            "description": "A library to validate a json schema.",
+            "homepage": "https://github.com/justinrainbow/json-schema",
+            "keywords": [
+                "json",
+                "schema"
+            ],
+            "time": "2017-10-21T13:15:38+00:00"
+        },
+        {
+            "name": "localheinz/json-normalizer",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/localheinz/json-normalizer.git",
+                "reference": "443a53cef0a8adc96f857a79fb7c818fc7be388d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/localheinz/json-normalizer/zipball/443a53cef0a8adc96f857a79fb7c818fc7be388d",
+                "reference": "443a53cef0a8adc96f857a79fb7c818fc7be388d",
+                "shasum": ""
+            },
+            "require": {
+                "justinrainbow/json-schema": "^4.0.0 || ^5.0.0",
                 "localheinz/json-printer": "^1.0.0",
                 "php": "^7.0"
             },
@@ -53,7 +120,7 @@
                 "json",
                 "normalizer"
             ],
-            "time": "2018-01-12T16:48:02+00:00"
+            "time": "2018-01-13T21:59:29+00:00"
         },
         {
             "name": "localheinz/json-printer",
@@ -784,72 +851,6 @@
                 "unit testing"
             ],
             "time": "2017-12-22T23:03:31+00:00"
-        },
-        {
-            "name": "justinrainbow/json-schema",
-            "version": "5.2.6",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/justinrainbow/json-schema.git",
-                "reference": "d283e11b6e14c6f4664cf080415c4341293e5bbd"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/justinrainbow/json-schema/zipball/d283e11b6e14c6f4664cf080415c4341293e5bbd",
-                "reference": "d283e11b6e14c6f4664cf080415c4341293e5bbd",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3"
-            },
-            "require-dev": {
-                "friendsofphp/php-cs-fixer": "^2.1",
-                "json-schema/json-schema-test-suite": "1.2.0",
-                "phpunit/phpunit": "^4.8.22"
-            },
-            "bin": [
-                "bin/validate-json"
-            ],
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "5.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "JsonSchema\\": "src/JsonSchema/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Bruno Prieto Reis",
-                    "email": "bruno.p.reis@gmail.com"
-                },
-                {
-                    "name": "Justin Rainbow",
-                    "email": "justin.rainbow@gmail.com"
-                },
-                {
-                    "name": "Igor Wiedler",
-                    "email": "igor@wiedler.ch"
-                },
-                {
-                    "name": "Robert Schönthal",
-                    "email": "seroscho@googlemail.com"
-                }
-            ],
-            "description": "A library to validate a json schema.",
-            "homepage": "https://github.com/justinrainbow/json-schema",
-            "keywords": [
-                "json",
-                "schema"
-            ],
-            "time": "2017-10-21T13:15:38+00:00"
         },
         {
             "name": "localheinz/classy",
@@ -3646,9 +3647,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "localheinz/json-normalizer": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
