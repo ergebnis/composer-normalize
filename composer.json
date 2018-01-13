@@ -28,6 +28,7 @@
     "infection/infection": "~0.7.0",
     "localheinz/php-cs-fixer-config": "~1.11.0",
     "localheinz/test-util": "0.6.1",
+    "mikey179/vfsStream": "^1.6.5",
     "phpunit/phpunit": "^6.5.5"
   },
   "autoload": {
