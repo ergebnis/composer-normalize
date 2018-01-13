@@ -48,7 +48,8 @@ final class NormalizePlugin implements Plugin\PluginInterface, Plugin\Capable, P
     {
         return [
             new Command\NormalizeCommand(new AutoFormatNormalizer(new ChainNormalizer(
-                new Normalizer\ConfigHashNormalizer()
+                new Normalizer\ConfigHashNormalizer(),
+                new Normalizer\PackageHashNormalizer()
             ))),
         ];
     }
