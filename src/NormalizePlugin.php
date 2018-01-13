@@ -16,8 +16,6 @@ namespace Localheinz\Composer\Normalize;
 use Composer\Composer;
 use Composer\IO;
 use Composer\Plugin;
-use Localheinz\Json\Normalizer\AutoFormatNormalizer;
-use Localheinz\Json\Normalizer\ChainNormalizer;
 
 final class NormalizePlugin implements Plugin\PluginInterface, Plugin\Capable, Plugin\Capability\CommandProvider
 {
@@ -47,10 +45,7 @@ final class NormalizePlugin implements Plugin\PluginInterface, Plugin\Capable, P
     public function getCommands(): array
     {
         return [
-            new Command\NormalizeCommand(new AutoFormatNormalizer(new ChainNormalizer(
-                new Normalizer\ConfigHashNormalizer(),
-                new Normalizer\PackageHashNormalizer()
-            ))),
+            new Command\NormalizeCommand(new Normalizer\ComposerJsonNormalizer()),
         ];
     }
 }

@@ -29,18 +29,18 @@ The `NormalizeCommand` provided by the `NormalizePlugin` within this package wil
 
 * determine whether a `composer.json` exists
 * determine whether a `composer.lock` exists, and if so, whether it is up to date
-* pass the content of `composer.json` through a chain of normalizers
+* use the `ComposerJsonNormalizer` to normalize the content of `composer.json`
 * write the normalized content of `composer.json` back to the file
 * update the hash in `composer.lock` if it exists and if an update is necessary
 
 ## Normalizers
 
-This package makes use of the following normalizers provided by [`localheinz/json-normalizer`](https://github.com/localheinz/json-normalizer).
+The `ComposerJsonNormalizer` composes normalizers provided by [`localheinz/json-normalizer`](https://github.com/localheinz/json-normalizer):
 
 * [`Localheinz\Json\Normalizer\AutoFormatNormalizer`](https://github.com/localheinz/json-normalizer#autoformatnormalizer)
 * [`Localheinz\Json\Normalizer\ChainNormalizer`](https://github.com/localheinz/json-normalizer#chainnormalizer)
-
-Additionally, it provides and makes use of the following normalizers:
+ 
+as well as the following normalizers provided by this package:
 
 * [`Localheinz\Composer\Normalize\Normalizer\ConfigHashNormalizer`](#confighashnormalizer)
 * [`Localheinz\Composer\Normalize\Normalizer\PackageHashNormalizer`](#packagehashnormalizer)
