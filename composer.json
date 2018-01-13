@@ -21,6 +21,7 @@
   },
   "require": {
     "php": "^7.0",
+    "composer-plugin-api": "^1.1.0",
     "localheinz/json-normalizer": "dev-master#3a07f98"
   },
   "require-dev": {
