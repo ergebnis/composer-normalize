@@ -43,6 +43,7 @@ This package makes use of the following normalizers provided by [`localheinz/jso
 Additionally, it provides and makes use of the following normalizers:
 
 * [`Localheinz\Composer\Normalize\Normalizer\ConfigHashNormalizer`](#confighashnormalizer)
+* [`Localheinz\Composer\Normalize\Normalizer\PackageHashNormalizer`](#packagehashnormalizer)
 
 ### `ConfigHashNormalizer`
 
@@ -50,6 +51,24 @@ If `composer.json` contains any configuration in the `config` section,
 the `ConfigHashNormalizer` will sort the `config` section by key in ascending order.
 
 :bulb: Find out more about the `config` section at https://getcomposer.org/doc/06-config.md.  
+
+### `PackageHashNormalizer`
+
+If `composer.json` contains any configuration in the 
+
+* `conflict`
+* `provide`
+* `replaces`
+* `require`
+* `require-dev`
+* `suggest`
+
+sections, the `PackageHashNormalizer` will sort the content of these sections.
+
+:bulb: This transfers the behaviour from using the `--sort-packages` or 
+`sort-packages` configuration flag to other sections. Find out more about 
+the `--sort-packages` flag and configuration at https://getcomposer.org/doc/06-config.md#sort-packages 
+and https://getcomposer.org/doc/03-cli.md#require.
 
 ## Contributing
 
@@ -62,3 +81,11 @@ Please have a look at [`CODE_OF_CONDUCT.md`](.github/CODE_OF_CONDUCT.md).
 ## License
 
 This package is licensed using the MIT License.
+
+## Credits
+
+The algorithm for sorting packages in the [`PackageHashNormalizer`](src/Normalizer/PackageHashNormalizer.php) has 
+been adopted from [`Composer\Json\JsonManipulator::sortPackages()`](https://github.com/composer/composer/blob/1.6.2/src/Composer/Json/JsonManipulator.php#L110-L146) 
+(originally licensed under MIT by [Nils Adermann](https://github.com/naderman) and [Jordi Boggiano](https://github.com/seldaek)), 
+which I initially contributed to `composer/composer` with [`composer/composer#3549`](https://github.com/composer/composer/pull/3549)
+and [`composer/composer#3872`](https://github.com/composer/composer/pull/3872).
