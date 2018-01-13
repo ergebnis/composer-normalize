@@ -167,7 +167,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         $this->assertStringEqualsFile($composerFile, $original);
     }
 
-    public function testExecuteFailsIfComposerLockFileExistsAndIsNotFresh()
+    public function testExecuteFailsIfLockerIsLockedButNotFresh()
     {
         $original = $this->composerFileContent();
 
@@ -286,7 +286,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         }
     }
 
-    public function testExecuteSucceedsIfComposerLockFileDoesNotExistAndComposerFileIsAlreadyNormalized()
+    public function testExecuteSucceedsIfLockerIsNotLockedAndComposerFileIsAlreadyNormalized()
     {
         $original = $this->composerFileContent();
 
@@ -336,7 +336,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         $this->assertStringEqualsFile($composerFile, $original);
     }
 
-    public function testExecuteSucceedsIfComposerLockFileExistsIsFreshAndComposerFileIsAlreadyNormalized()
+    public function testExecuteSucceedsIfLockerIsLockedAndFreshButComposerFileIsAlreadyNormalized()
     {
         $original = $this->composerFileContent();
 
@@ -391,7 +391,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         $this->assertStringEqualsFile($composerFile, $original);
     }
 
-    public function testExecuteSucceedsIfComposerLockFileDoesNotExistAndComposerFileIsNotNormalized()
+    public function testExecuteSucceedsIfLockerIsNotLockedAndComposerFileWasNormalizedSuccessfully()
     {
         $original = $this->composerFileContent();
 
@@ -446,93 +446,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         $this->assertStringEqualsFile($composerFile, $normalized);
     }
 
-    public function testExecuteSucceedsIfComposerLockFileExistsIsFreshAndComposerFileIsNotNormalized()
-    {
-        $original = $this->composerFileContent();
-
-        $normalized = \json_encode(\array_reverse(\json_decode(
-            $original,
-            true
-        )));
-
-        $composerFile = $this->pathToComposerFileWithContent($original);
-
-        $io = $this->prophesize(IO\ConsoleIO::class);
-
-        $io
-            ->write(Argument::is(\sprintf(
-                '<info>Successfully normalized %s.</info>',
-                $composerFile
-            )))
-            ->shouldBeCalled();
-
-        $locker = $this->prophesize(Package\Locker::class);
-
-        $locker
-            ->isLocked()
-            ->shouldBeCalled()
-            ->willReturn(true);
-
-        $locker
-            ->isFresh()
-            ->shouldBeCalled()
-            ->willReturn(true);
-
-        $composer = $this->prophesize(Composer::class);
-
-        $composer
-            ->getLocker()
-            ->shouldBeCalled()
-            ->willReturn($locker);
-
-        $application = $this->prophesize(Application::class);
-
-        $application
-            ->getHelperSet()
-            ->shouldBeCalled()
-            ->willReturn(new Console\Helper\HelperSet());
-
-        $application
-            ->getDefinition()
-            ->shouldBeCalled()
-            ->willReturn($this->createDefinitionProphecy()->reveal());
-
-        $application
-            ->run(
-                Argument::allOf(
-                    Argument::type(Console\Input\StringInput::class),
-                    Argument::that(function (Console\Input\StringInput $input) {
-                        return 'update --lock' === (string) $input;
-                    })
-                ),
-                Argument::type(Console\Output\NullOutput::class)
-            )
-            ->shouldBeCalled()
-            ->willReturn(0);
-
-        $normalizer = $this->prophesize(Normalizer\NormalizerInterface::class);
-
-        $normalizer
-            ->normalize(Argument::is($original))
-            ->shouldBeCalled()
-            ->willReturn($normalized);
-
-        $command = new NormalizeCommand($normalizer->reveal());
-
-        $command->setIO($io->reveal());
-        $command->setComposer($composer->reveal());
-        $command->setApplication($application->reveal());
-
-        $tester = new Console\Tester\CommandTester($command);
-
-        $tester->execute([]);
-
-        $this->assertSame(0, $tester->getStatusCode());
-        $this->assertFileExists($composerFile);
-        $this->assertStringEqualsFile($composerFile, $normalized);
-    }
-
-    public function testExecuteFailsIfComposerLockFileExistsIsFreshComposerFileIsNotNormalizedAndLockerCouldNotBeUpdated()
+    public function testExecuteFailsIfLockerIsLockedAndFreshButLockerCouldNotBeUpdatedAfterNormalization()
     {
         $original = $this->composerFileContent();
 
@@ -618,7 +532,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         $this->assertStringEqualsFile($composerFile, $normalized);
     }
 
-    public function testExecuteSucceedsIfComposerLockFileExistsIsFreshComposerFileIsNotNormalizedAndLockerCouldBeUpdated()
+    public function testExecuteSucceedsIfLockerIsLockedAndLockerCouldBeUpdatedAfterNormalization()
     {
         $original = $this->composerFileContent();
 
