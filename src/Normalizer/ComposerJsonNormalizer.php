@@ -16,6 +16,7 @@ namespace Localheinz\Composer\Normalize\Normalizer;
 use Localheinz\Json\Normalizer\AutoFormatNormalizer;
 use Localheinz\Json\Normalizer\ChainNormalizer;
 use Localheinz\Json\Normalizer\NormalizerInterface;
+use Localheinz\Json\Normalizer\SchemaNormalizer;
 
 final class ComposerJsonNormalizer implements NormalizerInterface
 {
@@ -24,9 +25,10 @@ final class ComposerJsonNormalizer implements NormalizerInterface
      */
     private $normalizer;
 
-    public function __construct()
+    public function __construct(string $schemaUri = 'https://getcomposer.org/schema.json')
     {
         $this->normalizer = new AutoFormatNormalizer(new ChainNormalizer(
+            new SchemaNormalizer($schemaUri),
             new BinNormalizer(),
             new ConfigHashNormalizer(),
             new PackageHashNormalizer()
