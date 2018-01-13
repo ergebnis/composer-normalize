@@ -24,6 +24,7 @@
     "localheinz/json-normalizer": "dev-master#3a07f98"
   },
   "require-dev": {
+    "composer/composer": "^1.0.0",
     "infection/infection": "~0.7.0",
     "localheinz/php-cs-fixer-config": "~1.11.0",
     "localheinz/test-util": "0.6.1",
