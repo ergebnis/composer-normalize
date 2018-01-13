@@ -4,8 +4,106 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "2af070ef991d194baf2fb3c89b9eb741",
-    "packages": [],
+    "content-hash": "65d6e023f506a7b480855f2c0a8fb495",
+    "packages": [
+        {
+            "name": "localheinz/json-normalizer",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/localheinz/json-normalizer.git",
+                "reference": "3a07f98"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/localheinz/json-normalizer/zipball/3a07f98",
+                "reference": "3a07f98",
+                "shasum": ""
+            },
+            "require": {
+                "localheinz/json-printer": "^1.0.0",
+                "php": "^7.0"
+            },
+            "require-dev": {
+                "infection/infection": "~0.7.0",
+                "localheinz/php-cs-fixer-config": "~1.11.0",
+                "localheinz/test-util": "0.6.1",
+                "phpbench/phpbench": "~0.14.0",
+                "phpspec/prophecy": "^1.7.1",
+                "phpunit/phpunit": "^6.5.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Localheinz\\Json\\Normalizer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Möller",
+                    "email": "am@localheinz.com"
+                }
+            ],
+            "description": "Provides normalizers for normalizing JSON documents.",
+            "keywords": [
+                "json",
+                "normalizer"
+            ],
+            "time": "2018-01-12T16:48:02+00:00"
+        },
+        {
+            "name": "localheinz/json-printer",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/localheinz/json-printer.git",
+                "reference": "c5aba96ad796560651770bcd16be8b19f324c343"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/localheinz/json-printer/zipball/c5aba96ad796560651770bcd16be8b19f324c343",
+                "reference": "c5aba96ad796560651770bcd16be8b19f324c343",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0"
+            },
+            "require-dev": {
+                "infection/infection": "~0.7.0",
+                "localheinz/php-cs-fixer-config": "~1.9.0",
+                "localheinz/test-util": "0.6.1",
+                "phpbench/phpbench": "~0.14.0",
+                "phpunit/phpunit": "^6.5.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Localheinz\\Json\\Printer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Möller",
+                    "email": "am@localheinz.com"
+                }
+            ],
+            "description": "Provides a JSON printer, allowing for flexible indentation.",
+            "keywords": [
+                "formatter",
+                "json",
+                "printer"
+            ],
+            "time": "2018-01-05T18:08:01+00:00"
+        }
+    ],
     "packages-dev": [
         {
             "name": "composer/semver",
@@ -3101,7 +3199,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "localheinz/json-normalizer": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

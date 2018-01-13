@@ -20,7 +20,8 @@
     "sort-packages": true
   },
   "require": {
-    "php": "^7.0"
+    "php": "^7.0",
+    "localheinz/json-normalizer": "dev-master#3a07f98"
   },
   "require-dev": {
     "infection/infection": "~0.7.0",
