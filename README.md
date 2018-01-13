@@ -39,6 +39,7 @@ The `ComposerJsonNormalizer` composes normalizers provided by [`localheinz/json-
 
 * [`Localheinz\Json\Normalizer\AutoFormatNormalizer`](https://github.com/localheinz/json-normalizer#autoformatnormalizer)
 * [`Localheinz\Json\Normalizer\ChainNormalizer`](https://github.com/localheinz/json-normalizer#chainnormalizer)
+* [`Localheinz\Json\Normalizer\SchemaNormalizer`](https://github.com/localheinz/json-normalizer#schemanormalizer)
  
 as well as the following normalizers provided by this package:
 

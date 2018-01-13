@@ -20,6 +20,7 @@ use Localheinz\Composer\Normalize\Normalizer\PackageHashNormalizer;
 use Localheinz\Json\Normalizer\AutoFormatNormalizer;
 use Localheinz\Json\Normalizer\ChainNormalizer;
 use Localheinz\Json\Normalizer\NormalizerInterface;
+use Localheinz\Json\Normalizer\SchemaNormalizer;
 
 final class ComposerJsonNormalizerTest extends AbstractNormalizerTestCase
 {
@@ -36,12 +37,20 @@ final class ComposerJsonNormalizerTest extends AbstractNormalizerTestCase
         $chainNormalizer = $this->composedNormalizer($autoFormatNormalizer);
 
         $normalizerClassNames = [
+            SchemaNormalizer::class,
             BinNormalizer::class,
             ConfigHashNormalizer::class,
             PackageHashNormalizer::class,
         ];
 
         $this->assertComposesNormalizers($normalizerClassNames, $chainNormalizer);
+
+        $chainedNormalizers = $this->composedNormalizers($chainNormalizer);
+
+        $schemaNormalizer = \array_shift($chainedNormalizers);
+
+        $this->assertInstanceOf(SchemaNormalizer::class, $schemaNormalizer);
+        $this->assertAttributeSame('https://getcomposer.org/schema.json', 'schemaUri', $schemaNormalizer);
     }
 
     public function testNormalizeNormalizes()
@@ -60,7 +69,7 @@ final class ComposerJsonNormalizerTest extends AbstractNormalizerTestCase
   "authors": [
     {
       "role": "Lieutenant",
-      "url": "https://de.wikipedia.org/wiki/Helmut_Körschgen",
+      "homepage": "http://example.org",
       "name": "Helmut Körschgen"
     }
   ],
@@ -97,25 +106,21 @@ JSON;
         $normalized = <<<'JSON'
 {
   "name": "foo/bar",
-  "description": "In der Fantasie geht alles",
   "type": "library",
-  "license": "MIT",
+  "description": "In der Fantasie geht alles",
   "keywords": [
     "null",
     "helmut",
     "körschgen"
   ],
+  "license": "MIT",
   "authors": [
     {
-      "role": "Lieutenant",
-      "url": "https://de.wikipedia.org/wiki/Helmut_Körschgen",
-      "name": "Helmut Körschgen"
+      "name": "Helmut Körschgen",
+      "homepage": "http://example.org",
+      "role": "Lieutenant"
     }
   ],
-  "config": {
-    "preferred-install": "dist",
-    "sort-packages": true
-  },
   "require": {
     "php": "^7.0",
     "localheinz/json-printer": "^1.0.0"
@@ -124,6 +129,10 @@ JSON;
     "localheinz/php-cs-fixer-config": "~1.11.0",
     "localheinz/test-util": "0.6.1",
     "phpunit/phpunit": "^6.5.5"
+  },
+  "config": {
+    "preferred-install": "dist",
+    "sort-packages": true
   },
   "autoload": {
     "psr-4": {
@@ -142,7 +151,10 @@ JSON;
 }
 JSON;
 
-        $normalizer = new ComposerJsonNormalizer();
+        $normalizer = new ComposerJsonNormalizer(\sprintf(
+            'file://%s',
+            \realpath(__DIR__ . '/../../Fixture/composer-schema.json')
+        ));
 
         $this->assertSame($normalized, $normalizer->normalize($json));
     }
