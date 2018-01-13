@@ -18,6 +18,7 @@ use Composer\IO;
 use Composer\Plugin;
 use Localheinz\Composer\Normalize\Command\NormalizeCommand;
 use Localheinz\Composer\Normalize\NormalizePlugin;
+use Localheinz\Composer\Normalize\Normalizer;
 use Localheinz\Test\Util\Helper;
 use PHPUnit\Framework;
 
@@ -82,5 +83,6 @@ final class NormalizePluginTest extends Framework\TestCase
         $command = \array_shift($commands);
 
         $this->assertInstanceOf(NormalizeCommand::class, $command);
+        $this->assertAttributeInstanceOf(Normalizer\ComposerJsonNormalizer::class, 'normalizer', $command);
     }
 }
