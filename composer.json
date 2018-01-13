@@ -41,5 +41,8 @@
     "psr-4": {
       "Localheinz\\Composer\\Normalize\\Test\\": "test/"
     }
+  },
+  "extra": {
+    "class": "Localheinz\\Composer\\Normalize\\NormalizePlugin"
   }
 }
