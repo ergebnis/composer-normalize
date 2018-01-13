@@ -657,26 +657,6 @@ final class NormalizeCommandTest extends Framework\TestCase
             ->shouldBeCalled()
             ->willReturn($locker);
 
-        /**
-         * @see \Symfony\Component\Console\Tester\CommandTester::execute()
-         */
-        $definition = $this->prophesize(Console\Input\InputDefinition::class);
-
-        $definition
-            ->hasArgument('command')
-            ->shouldBeCalled()
-            ->willReturn(false);
-
-        $definition
-            ->getArguments()
-            ->shouldBeCalled()
-            ->willReturn([]);
-
-        $definition
-            ->getOptions()
-            ->shouldBeCalled()
-            ->willReturn([]);
-
         $application = $this->prophesize(Application::class);
 
         $application
@@ -687,7 +667,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         $application
             ->getDefinition()
             ->shouldBeCalled()
-            ->willReturn($definition);
+            ->willReturn($this->createDefinitionProphecy());
 
         $application
             ->run(
