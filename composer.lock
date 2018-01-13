@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "3f5804aa904846246dfcc5fe213115b7",
+    "content-hash": "025c68a91a39097e3a36a7a2dbeb6536",
     "packages": [
         {
             "name": "localheinz/json-normalizer",
