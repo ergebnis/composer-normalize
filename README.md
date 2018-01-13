@@ -13,6 +13,19 @@ Run
 $ composer global require localheinz/composer-normalize
 ```
 
+## Usage
+
+This package comes with the following normalizers:
+
+* [`Localheinz\Composer\Normalize\Normalizer\ConfigHashNormalizer`](#confighashnormalizer)
+
+### `ConfigHashNormalizer`
+
+If `composer.json` contains any configuration in the `config` section, 
+the `ConfigHashNormalizer` will sort the `config` section by key in ascending order.
+
+:bulb: Find out more about the `config` section at https://getcomposer.org/doc/06-config.md.  
+
 ## Contributing
 
 Please have a look at [`CONTRIBUTING.md`](.github/CONTRIBUTING.md).
