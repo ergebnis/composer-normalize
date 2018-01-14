@@ -34,6 +34,10 @@ final class ConfigHashNormalizer implements NormalizerInterface
 
         $config = (array) $decoded->config;
 
+        if (!\count($config)) {
+            return $json;
+        }
+
         \ksort($config);
 
         $decoded->config = $config;

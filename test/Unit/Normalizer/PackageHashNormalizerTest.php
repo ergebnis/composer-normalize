@@ -38,6 +38,24 @@ JSON;
      *
      * @param string $property
      */
+    public function testNormalizeIgnoresEmptyPackageHash(string $property)
+    {
+        $json = <<<JSON
+{
+  "${property}": {}
+}
+JSON;
+
+        $normalizer = new PackageHashNormalizer();
+
+        $this->assertSame(\json_encode(\json_decode($json)), $normalizer->normalize($json));
+    }
+
+    /**
+     * @dataProvider providerProperty
+     *
+     * @param string $property
+     */
     public function testNormalizeSortsPackageHashIfPropertyExists(string $property)
     {
         $json = <<<JSON
