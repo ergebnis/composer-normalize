@@ -25,7 +25,6 @@ use Localheinz\Test\Util\Helper;
 use org\bovigo\vfs;
 use PHPUnit\Framework;
 use Prophecy\Argument;
-use Prophecy\Prophecy;
 use Symfony\Component\Console;
 
 final class NormalizeCommandTest extends Framework\TestCase
@@ -446,92 +445,6 @@ final class NormalizeCommandTest extends Framework\TestCase
         $this->assertStringEqualsFile($composerFile, $normalized);
     }
 
-    public function testExecuteFailsIfLockerIsLockedAndFreshButLockerCouldNotBeUpdatedAfterNormalization()
-    {
-        $original = $this->composerFileContent();
-
-        $normalized = \json_encode(\array_reverse(\json_decode(
-            $original,
-            true
-        )));
-
-        $composerFile = $this->pathToComposerFileWithContent($original);
-
-        $io = $this->prophesize(IO\ConsoleIO::class);
-
-        $io
-            ->writeError(Argument::is(\sprintf(
-                '<error>Successfully normalized %s, but could not update lock file.</error>',
-                $composerFile
-            )))
-            ->shouldBeCalled();
-
-        $locker = $this->prophesize(Package\Locker::class);
-
-        $locker
-            ->isLocked()
-            ->shouldBeCalled()
-            ->willReturn(true);
-
-        $locker
-            ->isFresh()
-            ->shouldBeCalled()
-            ->willReturn(true);
-
-        $composer = $this->prophesize(Composer::class);
-
-        $composer
-            ->getLocker()
-            ->shouldBeCalled()
-            ->willReturn($locker);
-
-        $application = $this->prophesize(Application::class);
-
-        $application
-            ->getHelperSet()
-            ->shouldBeCalled()
-            ->willReturn(new Console\Helper\HelperSet());
-
-        $application
-            ->getDefinition()
-            ->shouldBeCalled()
-            ->willReturn($this->createDefinitionProphecy()->reveal());
-
-        $application
-            ->run(
-                Argument::allOf(
-                    Argument::type(Console\Input\StringInput::class),
-                    Argument::that(function (Console\Input\StringInput $input) {
-                        return 'update --lock --no-plugins' === (string) $input;
-                    })
-                ),
-                Argument::type(Console\Output\NullOutput::class)
-            )
-            ->shouldBeCalled()
-            ->willReturn(1);
-
-        $normalizer = $this->prophesize(Normalizer\NormalizerInterface::class);
-
-        $normalizer
-            ->normalize(Argument::is($original))
-            ->shouldBeCalled()
-            ->willReturn($normalized);
-
-        $command = new NormalizeCommand($normalizer->reveal());
-
-        $command->setIO($io->reveal());
-        $command->setComposer($composer->reveal());
-        $command->setApplication($application->reveal());
-
-        $tester = new Console\Tester\CommandTester($command);
-
-        $tester->execute([]);
-
-        $this->assertSame(1, $tester->getStatusCode());
-        $this->assertFileExists($composerFile);
-        $this->assertStringEqualsFile($composerFile, $normalized);
-    }
-
     public function testExecuteSucceedsIfLockerIsLockedAndLockerCouldBeUpdatedAfterNormalization()
     {
         $original = $this->composerFileContent();
@@ -571,6 +484,26 @@ final class NormalizeCommandTest extends Framework\TestCase
             ->shouldBeCalled()
             ->willReturn($locker);
 
+        /**
+         * @see Console\Tester\CommandTester::execute()
+         */
+        $definition = $this->prophesize(Console\Input\InputDefinition::class);
+
+        $definition
+            ->hasArgument('command')
+            ->shouldBeCalled()
+            ->willReturn(false);
+
+        $definition
+            ->getArguments()
+            ->shouldBeCalled()
+            ->willReturn([]);
+
+        $definition
+            ->getOptions()
+            ->shouldBeCalled()
+            ->willReturn([]);
+
         $application = $this->prophesize(Application::class);
 
         $application
@@ -581,7 +514,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         $application
             ->getDefinition()
             ->shouldBeCalled()
-            ->willReturn($this->createDefinitionProphecy());
+            ->willReturn($definition);
 
         $application
             ->run(
@@ -690,32 +623,5 @@ final class NormalizeCommandTest extends Framework\TestCase
     private function clearComposerFile()
     {
         \putenv('COMPOSER');
-    }
-
-    /**
-     * @see Console\Tester\CommandTester::execute()
-     *
-     * @return Prophecy\ObjectProphecy
-     */
-    private function createDefinitionProphecy(): Prophecy\ObjectProphecy
-    {
-        $definition = $this->prophesize(Console\Input\InputDefinition::class);
-
-        $definition
-            ->hasArgument('command')
-            ->shouldBeCalled()
-            ->willReturn(false);
-
-        $definition
-            ->getArguments()
-            ->shouldBeCalled()
-            ->willReturn([]);
-
-        $definition
-            ->getOptions()
-            ->shouldBeCalled()
-            ->willReturn([]);
-
-        return $definition;
     }
 }
