@@ -111,21 +111,16 @@ final class NormalizeCommand extends Command\BaseCommand
 
         \file_put_contents($file, $normalized);
 
-        if ($locker->isLocked() && 0 !== $this->updateLocker()) {
-            $io->writeError(\sprintf(
-                '<error>Successfully normalized %s, but could not update lock file.</error>',
-                $file
-            ));
-
-            return 1;
-        }
-
         $io->write(\sprintf(
             '<info>Successfully normalized %s.</info>',
             $file
         ));
 
-        return 0;
+        if (!$locker->isLocked()) {
+            return 0;
+        }
+
+        return $this->updateLocker();
     }
 
     private function updateLocker(): int
