@@ -33,6 +33,19 @@ JSON;
         $this->assertSame($json, $normalizer->normalize($json));
     }
 
+    public function testNormalizeIgnoresEmptyConfigHash()
+    {
+        $json = <<<'JSON'
+{
+  "config": {}
+}
+JSON;
+
+        $normalizer = new ConfigHashNormalizer();
+
+        $this->assertSame($json, $normalizer->normalize($json));
+    }
+
     public function testNormalizeSortsConfigHashIfPropertyExists()
     {
         $json = <<<'JSON'

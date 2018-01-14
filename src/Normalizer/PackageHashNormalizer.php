@@ -51,7 +51,13 @@ final class PackageHashNormalizer implements NormalizerInterface
         }
 
         foreach ($objectProperties as $name => $value) {
-            $decoded->{$name} = $this->sortPackages((array) $decoded->{$name});
+            $packages = (array) $decoded->{$name};
+
+            if (!\count($packages)) {
+                continue;
+            }
+
+            $decoded->{$name} = $this->sortPackages($packages);
         }
 
         return \json_encode($decoded);
