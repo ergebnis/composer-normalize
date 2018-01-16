@@ -521,7 +521,7 @@ final class NormalizeCommandTest extends Framework\TestCase
                 Argument::allOf(
                     Argument::type(Console\Input\StringInput::class),
                     Argument::that(function (Console\Input\StringInput $input) {
-                        return 'update --lock --no-plugins' === (string) $input;
+                        return 'update --lock --no-plugins --no-scripts' === (string) $input;
                     })
                 ),
                 Argument::type(Console\Output\NullOutput::class)
