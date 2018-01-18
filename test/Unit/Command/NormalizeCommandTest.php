@@ -524,7 +524,7 @@ final class NormalizeCommandTest extends Framework\TestCase
                         return 'update --lock --no-plugins --no-scripts' === (string) $input;
                     })
                 ),
-                Argument::type(Console\Output\NullOutput::class)
+                Argument::type(Console\Output\OutputInterface::class)
             )
             ->shouldBeCalled()
             ->willReturn(0);
