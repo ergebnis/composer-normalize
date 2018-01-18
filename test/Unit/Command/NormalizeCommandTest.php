@@ -465,6 +465,10 @@ final class NormalizeCommandTest extends Framework\TestCase
             )))
             ->shouldBeCalled();
 
+        $io
+            ->write(Argument::is('<info>Updating lock file.</info>'))
+            ->shouldBeCalled();
+
         $locker = $this->prophesize(Package\Locker::class);
 
         $locker

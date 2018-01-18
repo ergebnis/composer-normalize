@@ -120,6 +120,8 @@ final class NormalizeCommand extends Command\BaseCommand
             return 0;
         }
 
+        $io->write('<info>Updating lock file.</info>');
+
         return $this->updateLocker($output);
     }
 
