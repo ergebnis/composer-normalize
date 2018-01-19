@@ -46,7 +46,7 @@ as well as the following normalizers provided by this package:
 * [`Localheinz\Composer\Normalize\Normalizer\BinNormalizer`](#binnormalizer)
 * [`Localheinz\Composer\Normalize\Normalizer\ConfigHashNormalizer`](#confighashnormalizer)
 * [`Localheinz\Composer\Normalize\Normalizer\PackageHashNormalizer`](#packagehashnormalizer)
-* [`Localheinz\Composer\Normalize\Normalizer\VersionOrConstraintNormalizer`](#versionconstraintnormalizer)
+* [`Localheinz\Composer\Normalize\Normalizer\VersionConstraintNormalizer`](#versionconstraintnormalizer)
 
 ### `BinNormalizer`
 
