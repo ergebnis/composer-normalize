@@ -31,7 +31,8 @@ final class ComposerJsonNormalizer implements NormalizerInterface
             new SchemaNormalizer($schemaUri),
             new BinNormalizer(),
             new ConfigHashNormalizer(),
-            new PackageHashNormalizer()
+            new PackageHashNormalizer(),
+            new VersionConstraintNormalizer()
         ));
     }
 

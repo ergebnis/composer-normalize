@@ -17,6 +17,7 @@ use Localheinz\Composer\Normalize\Normalizer\BinNormalizer;
 use Localheinz\Composer\Normalize\Normalizer\ComposerJsonNormalizer;
 use Localheinz\Composer\Normalize\Normalizer\ConfigHashNormalizer;
 use Localheinz\Composer\Normalize\Normalizer\PackageHashNormalizer;
+use Localheinz\Composer\Normalize\Normalizer\VersionConstraintNormalizer;
 use Localheinz\Json\Normalizer\AutoFormatNormalizer;
 use Localheinz\Json\Normalizer\ChainNormalizer;
 use Localheinz\Json\Normalizer\NormalizerInterface;
@@ -41,6 +42,7 @@ final class ComposerJsonNormalizerTest extends AbstractNormalizerTestCase
             BinNormalizer::class,
             ConfigHashNormalizer::class,
             PackageHashNormalizer::class,
+            VersionConstraintNormalizer::class,
         ];
 
         $this->assertComposesNormalizers($normalizerClassNames, $chainNormalizer);
@@ -84,7 +86,7 @@ final class ComposerJsonNormalizerTest extends AbstractNormalizerTestCase
   "require-dev": {
     "localheinz/test-util": "0.6.1",
     "phpunit/phpunit": "^6.5.5",
-    "localheinz/php-cs-fixer-config": "~1.11.0"
+    "localheinz/php-cs-fixer-config": "~1.0.0|~1.11.0"
   },
   "autoload": {
     "psr-4": {
@@ -126,7 +128,7 @@ JSON;
     "localheinz/json-printer": "^1.0.0"
   },
   "require-dev": {
-    "localheinz/php-cs-fixer-config": "~1.11.0",
+    "localheinz/php-cs-fixer-config": "~1.0.0 || ~1.11.0",
     "localheinz/test-util": "0.6.1",
     "phpunit/phpunit": "^6.5.5"
   },

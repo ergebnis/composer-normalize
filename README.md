@@ -46,6 +46,7 @@ as well as the following normalizers provided by this package:
 * [`Localheinz\Composer\Normalize\Normalizer\BinNormalizer`](#binnormalizer)
 * [`Localheinz\Composer\Normalize\Normalizer\ConfigHashNormalizer`](#confighashnormalizer)
 * [`Localheinz\Composer\Normalize\Normalizer\PackageHashNormalizer`](#packagehashnormalizer)
+* [`Localheinz\Composer\Normalize\Normalizer\VersionOrConstraintNormalizer`](#versionconstraintnormalizer)
 
 ### `BinNormalizer`
 
@@ -78,6 +79,25 @@ sections, the `PackageHashNormalizer` will sort the content of these sections.
 `sort-packages` configuration flag to other sections. Find out more about 
 the `--sort-packages` flag and configuration at https://getcomposer.org/doc/06-config.md#sort-packages 
 and https://getcomposer.org/doc/03-cli.md#require.
+
+### `VersionConstraintNormalizer`
+
+If `composer.json` contains version constraints in the  
+
+* `conflict`
+* `provide`
+* `replaces`
+* `require`
+* `require-dev`
+
+sections, the `VersionConstraintNormalizer` will ensure that 
+
+* all constraints are trimmed
+* *and* constraints are separated by a single space (` `) or a comma (`,`)
+* *or* constraints are separated by double-pipe with a single space before and after (` || `)
+* *range* constraints are separated by a single space (` `)
+
+:bulb: Find out more about version constraints at https://getcomposer.org/doc/articles/versions.md.
 
 ## Contributing
 
