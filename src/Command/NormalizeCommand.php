@@ -125,6 +125,15 @@ final class NormalizeCommand extends Command\BaseCommand
         return $this->updateLocker($output);
     }
 
+    /**
+     * @see https://getcomposer.org/doc/03-cli.md#update
+     *
+     * @param Console\Output\OutputInterface $output
+     *
+     * @throws \Exception
+     *
+     * @return int
+     */
     private function updateLocker(Console\Output\OutputInterface $output): int
     {
         return $this->getApplication()->run(
