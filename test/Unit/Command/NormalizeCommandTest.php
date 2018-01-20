@@ -68,13 +68,20 @@ final class NormalizeCommandTest extends Framework\TestCase
         $this->assertCount(0, $definition->getArguments());
     }
 
-    public function testHasNoOptions()
+    public function testHasNoUpdateLockOption()
     {
         $command = new NormalizeCommand($this->prophesize(Normalizer\NormalizerInterface::class)->reveal());
 
         $definition = $command->getDefinition();
 
-        $this->assertCount(0, $definition->getOptions());
+        $this->assertTrue($definition->hasOption('no-update-lock'));
+
+        $option = $definition->getOption('no-update-lock');
+
+        $this->assertNull($option->getShortcut());
+        $this->assertFalse($option->isValueRequired());
+        $this->assertFalse($option->getDefault());
+        $this->assertSame('Do not update lock file if it exists', $option->getDescription());
     }
 
     public function testExecuteFailsIfComposerFileDoesNotExist()
@@ -599,6 +606,85 @@ final class NormalizeCommandTest extends Framework\TestCase
         $tester = new Console\Tester\CommandTester($command);
 
         $tester->execute([]);
+
+        $this->assertSame(0, $tester->getStatusCode());
+        $this->assertFileExists($composerFile);
+        $this->assertStringEqualsFile($composerFile, $normalized);
+    }
+
+    public function testExecuteSucceedsIfLockerIsLockedButSkipsUpdatingLockerIfNoUpdateLockOptionIsUsed()
+    {
+        $original = $this->composerFileContent();
+
+        $normalized = \json_encode(\array_reverse(\json_decode(
+            $original,
+            true
+        )));
+
+        $composerFile = $this->pathToComposerFileWithContent($original);
+
+        $io = $this->prophesize(IO\ConsoleIO::class);
+
+        $io
+            ->write(Argument::is(\sprintf(
+                '<info>Successfully normalized %s.</info>',
+                $composerFile
+            )))
+            ->shouldBeCalled();
+
+        $locker = $this->prophesize(Package\Locker::class);
+
+        $locker
+            ->isLocked()
+            ->shouldBeCalled()
+            ->willReturn(true);
+
+        $locker
+            ->isFresh()
+            ->shouldBeCalled()
+            ->willReturn(true);
+
+        $composer = $this->prophesize(Composer::class);
+
+        $composer
+            ->getLocker()
+            ->shouldBeCalled()
+            ->willReturn($locker);
+
+        $application = $this->prophesize(Application::class);
+
+        $application
+            ->getHelperSet()
+            ->shouldBeCalled()
+            ->willReturn(new Console\Helper\HelperSet());
+
+        $application
+            ->getDefinition()
+            ->shouldBeCalled()
+            ->willReturn($this->createDefinitionMock());
+
+        $application
+            ->run()
+            ->shouldNotBeCalled();
+
+        $normalizer = $this->prophesize(Normalizer\NormalizerInterface::class);
+
+        $normalizer
+            ->normalize(Argument::is($original))
+            ->shouldBeCalled()
+            ->willReturn($normalized);
+
+        $command = new NormalizeCommand($normalizer->reveal());
+
+        $command->setIO($io->reveal());
+        $command->setComposer($composer->reveal());
+        $command->setApplication($application->reveal());
+
+        $tester = new Console\Tester\CommandTester($command);
+
+        $tester->execute([
+            '--no-update-lock' => null,
+        ]);
 
         $this->assertSame(0, $tester->getStatusCode());
         $this->assertFileExists($composerFile);

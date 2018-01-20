@@ -33,6 +33,10 @@ The `NormalizeCommand` provided by the `NormalizePlugin` within this package wil
 * write the normalized content of `composer.json` back to the file
 * update the hash in `composer.lock` if it exists and if an update is necessary
 
+### Options
+
+* `--no-update-lock`: Do not update lock file if it exists
+
 ## Normalizers
 
 The `ComposerJsonNormalizer` composes normalizers provided by [`localheinz/json-normalizer`](https://github.com/localheinz/json-normalizer):

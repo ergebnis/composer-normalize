@@ -35,6 +35,14 @@ final class NormalizeCommand extends Command\BaseCommand
     protected function configure()
     {
         $this->setDescription('Normalizes composer.json according to its JSON schema (https://getcomposer.org/schema.json).');
+        $this->setDefinition([
+            new Console\Input\InputOption(
+                'no-update-lock',
+                null,
+                Console\Input\InputOption::VALUE_NONE,
+                'Do not update lock file if it exists'
+            ),
+        ]);
     }
 
     protected function execute(Console\Input\InputInterface $input, Console\Output\OutputInterface $output): int
@@ -116,13 +124,15 @@ final class NormalizeCommand extends Command\BaseCommand
             $file
         ));
 
-        if (!$locker->isLocked()) {
-            return 0;
+        $noUpdateLock = $input->getOption('no-update-lock');
+
+        if (!$noUpdateLock && $locker->isLocked()) {
+            $io->write('<info>Updating lock file.</info>');
+
+            return $this->updateLocker($output);
         }
 
-        $io->write('<info>Updating lock file.</info>');
-
-        return $this->updateLocker($output);
+        return 0;
     }
 
     /**
