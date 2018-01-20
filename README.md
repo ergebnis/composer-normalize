@@ -118,3 +118,7 @@ been adopted from [`Composer\Json\JsonManipulator::sortPackages()`](https://gith
 (originally licensed under MIT by [Nils Adermann](https://github.com/naderman) and [Jordi Boggiano](https://github.com/seldaek)), 
 which I initially contributed to `composer/composer` with [`composer/composer#3549`](https://github.com/composer/composer/pull/3549)
 and [`composer/composer#3872`](https://github.com/composer/composer/pull/3872).
+
+## Services
+
+`localheinz/composer-normalize` is currently in use by [FlintCI](https://flintci.io), see https://flintci.io/docs#composernormalize. 
