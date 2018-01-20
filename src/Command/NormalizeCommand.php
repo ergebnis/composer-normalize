@@ -154,7 +154,7 @@ final class NormalizeCommand extends Command\BaseCommand
     private function updateLocker(Console\Output\OutputInterface $output): int
     {
         return $this->getApplication()->run(
-            new Console\Input\StringInput('update --lock --no-plugins --no-scripts'),
+            new Console\Input\StringInput('update --lock --no-autoloader --no-plugins --no-scripts --no-suggest'),
             $output
         );
     }
