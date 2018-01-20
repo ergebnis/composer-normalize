@@ -211,13 +211,97 @@ final class NormalizeCommandTest extends Framework\TestCase
         $this->assertStringEqualsFile($composerFile, $original);
     }
 
-    /**
-     * @dataProvider providerNormalizerException
-     *
-     * @param \Exception $exception
-     */
-    public function testExecuteFailsIfNormalizerThrowsException(\Exception $exception)
+    public function testExecuteFailsIfNormalizerThrowsInvalidArgumentException()
     {
+        $faker = $this->faker();
+
+        $exitCode = $faker->numberBetween(2);
+
+        $exception = new \InvalidArgumentException($faker->sentence);
+
+        $original = $this->composerFileContent();
+
+        $composerFile = $this->pathToComposerFileWithContent($original);
+
+        $io = $this->prophesize(IO\ConsoleIO::class);
+
+        $io
+            ->writeError(Argument::is(\sprintf(
+                '<error>%s</error>',
+                $exception->getMessage()
+            )))
+            ->shouldBeCalled();
+
+        $locker = $this->prophesize(Package\Locker::class);
+
+        $locker
+            ->isLocked()
+            ->shouldBeCalled()
+            ->willReturn(true);
+
+        $locker
+            ->isFresh()
+            ->shouldBeCalled()
+            ->willReturn(true);
+
+        $composer = $this->prophesize(Composer::class);
+
+        $composer
+            ->getLocker()
+            ->shouldBeCalled()
+            ->willReturn($locker);
+
+        $application = $this->prophesize(Application::class);
+
+        $application
+            ->getHelperSet()
+            ->shouldBeCalled()
+            ->willReturn(new Console\Helper\HelperSet());
+
+        $application
+            ->getDefinition()
+            ->shouldBeCalled()
+            ->willReturn($this->createDefinitionMock());
+
+        $application
+            ->run(
+                Argument::allOf(
+                    Argument::type(Console\Input\StringInput::class),
+                    Argument::that(function (Console\Input\StringInput $input) {
+                        return 'validate --no-check-all --no-check-lock --no-check-publish --strict' === (string) $input;
+                    })
+                ),
+                Argument::type(Console\Output\OutputInterface::class)
+            )
+            ->shouldBeCalled()
+            ->willReturn($exitCode);
+
+        $normalizer = $this->prophesize(Normalizer\NormalizerInterface::class);
+
+        $normalizer
+            ->normalize(Argument::is($original))
+            ->shouldBeCalled()
+            ->willThrow($exception);
+
+        $command = new NormalizeCommand($normalizer->reveal());
+
+        $command->setIO($io->reveal());
+        $command->setComposer($composer->reveal());
+        $command->setApplication($application->reveal());
+
+        $tester = new Console\Tester\CommandTester($command);
+
+        $tester->execute([]);
+
+        $this->assertSame($exitCode, $tester->getStatusCode());
+        $this->assertFileExists($composerFile);
+        $this->assertStringEqualsFile($composerFile, $original);
+    }
+
+    public function testExecuteFailsIfNormalizerThrowsRuntimeException()
+    {
+        $exception = new \RuntimeException($this->faker()->sentence);
+
         $original = $this->composerFileContent();
 
         $composerFile = $this->pathToComposerFileWithContent($original);
@@ -269,20 +353,6 @@ final class NormalizeCommandTest extends Framework\TestCase
         $this->assertSame(1, $tester->getStatusCode());
         $this->assertFileExists($composerFile);
         $this->assertStringEqualsFile($composerFile, $original);
-    }
-
-    public function providerNormalizerException(): \Generator
-    {
-        $classNames = [
-            \InvalidArgumentException::class,
-            \RuntimeException::class,
-        ];
-
-        foreach ($classNames as $className) {
-            yield $className => [
-                new $className($this->faker()->sentence),
-            ];
-        }
     }
 
     public function testExecuteSucceedsIfLockerIsNotLockedAndComposerFileIsAlreadyNormalized()
@@ -488,26 +558,6 @@ final class NormalizeCommandTest extends Framework\TestCase
             ->shouldBeCalled()
             ->willReturn($locker);
 
-        /**
-         * @see Console\Tester\CommandTester::execute()
-         */
-        $definition = $this->prophesize(Console\Input\InputDefinition::class);
-
-        $definition
-            ->hasArgument('command')
-            ->shouldBeCalled()
-            ->willReturn(false);
-
-        $definition
-            ->getArguments()
-            ->shouldBeCalled()
-            ->willReturn([]);
-
-        $definition
-            ->getOptions()
-            ->shouldBeCalled()
-            ->willReturn([]);
-
         $application = $this->prophesize(Application::class);
 
         $application
@@ -518,7 +568,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         $application
             ->getDefinition()
             ->shouldBeCalled()
-            ->willReturn($definition);
+            ->willReturn($this->createDefinitionMock());
 
         $application
             ->run(
@@ -627,5 +677,32 @@ final class NormalizeCommandTest extends Framework\TestCase
     private function clearComposerFile()
     {
         \putenv('COMPOSER');
+    }
+
+    /**
+     * @see Console\Tester\CommandTester::execute()
+     *
+     * @return Console\Input\InputDefinition
+     */
+    private function createDefinitionMock(): Console\Input\InputDefinition
+    {
+        $definition = $this->prophesize(Console\Input\InputDefinition::class);
+
+        $definition
+            ->hasArgument('command')
+            ->shouldBeCalled()
+            ->willReturn(false);
+
+        $definition
+            ->getArguments()
+            ->shouldBeCalled()
+            ->willReturn([]);
+
+        $definition
+            ->getOptions()
+            ->shouldBeCalled()
+            ->willReturn([]);
+
+        return $definition->reveal();
     }
 }

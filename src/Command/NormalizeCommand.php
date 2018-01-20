@@ -90,7 +90,7 @@ final class NormalizeCommand extends Command\BaseCommand
                 $exception->getMessage()
             ));
 
-            return 1;
+            return $this->validateComposerFile($output);
         } catch (\RuntimeException $exception) {
             $io->writeError(\sprintf(
                 '<error>%s</error>',
@@ -123,6 +123,23 @@ final class NormalizeCommand extends Command\BaseCommand
         $io->write('<info>Updating lock file.</info>');
 
         return $this->updateLocker($output);
+    }
+
+    /**
+     * @see https://getcomposer.org/doc/03-cli.md#validate
+     *
+     * @param Console\Output\OutputInterface $output
+     *
+     * @throws \Exception
+     *
+     * @return int
+     */
+    private function validateComposerFile(Console\Output\OutputInterface $output): int
+    {
+        return $this->getApplication()->run(
+            new Console\Input\StringInput('validate --no-check-all --no-check-lock --no-check-publish --strict'),
+            $output
+        );
     }
 
     /**
