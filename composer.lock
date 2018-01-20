@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c800ab52a7324928da14422f234dd59e",
+    "content-hash": "c19a78fe1c706f680e1fa93b776e2082",
     "packages": [
         {
             "name": "justinrainbow/json-schema",
@@ -74,16 +74,16 @@
         },
         {
             "name": "localheinz/json-normalizer",
-            "version": "0.1.0",
+            "version": "0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localheinz/json-normalizer.git",
-                "reference": "443a53cef0a8adc96f857a79fb7c818fc7be388d"
+                "reference": "0ef5140e1669812ad69a50c2dad73c293bc3cdb6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localheinz/json-normalizer/zipball/443a53cef0a8adc96f857a79fb7c818fc7be388d",
-                "reference": "443a53cef0a8adc96f857a79fb7c818fc7be388d",
+                "url": "https://api.github.com/repos/localheinz/json-normalizer/zipball/0ef5140e1669812ad69a50c2dad73c293bc3cdb6",
+                "reference": "0ef5140e1669812ad69a50c2dad73c293bc3cdb6",
                 "shasum": ""
             },
             "require": {
@@ -120,7 +120,7 @@
                 "json",
                 "normalizer"
             ],
-            "time": "2018-01-13T21:59:29+00:00"
+            "time": "2018-01-20T16:50:13+00:00"
         },
         {
             "name": "localheinz/json-printer",

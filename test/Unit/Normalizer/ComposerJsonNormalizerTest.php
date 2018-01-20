@@ -93,6 +93,15 @@ final class ComposerJsonNormalizerTest extends AbstractNormalizerTestCase
       "Helmut\\Foo\\Bar\\": "src/"
     }
   },
+  "scripts": {
+    "foo": "foo.sh",
+    "bar": "bar.sh",
+    "post-install-cmd": "@foo",
+    "pre-install-cmd": [
+      "@foo",
+      "@bar"
+    ]
+  },
   "autoload-dev": {
     "psr-4": {
       "Helmut\\Foo\\Bar\\Test\\": "test/"
@@ -149,7 +158,16 @@ JSON;
   "bin": [
     "hasenbein.php",
     "scripts/null-null.php"
-  ]
+  ],
+  "scripts": {
+    "pre-install-cmd": [
+      "@foo",
+      "@bar"
+    ],
+    "post-install-cmd": "@foo",
+    "bar": "bar.sh",
+    "foo": "foo.sh"
+  }
 }
 JSON;
 
