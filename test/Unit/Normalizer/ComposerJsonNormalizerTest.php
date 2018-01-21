@@ -90,6 +90,7 @@ final class ComposerJsonNormalizerTest extends AbstractNormalizerTestCase
   },
   "autoload": {
     "psr-4": {
+      "": "/foo",
       "Helmut\\Foo\\Bar\\": "src/"
     }
   },
@@ -147,6 +148,7 @@ JSON;
   },
   "autoload": {
     "psr-4": {
+      "": "/foo",
       "Helmut\\Foo\\Bar\\": "src/"
     }
   },
