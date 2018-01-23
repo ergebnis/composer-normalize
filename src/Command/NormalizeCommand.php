@@ -32,7 +32,7 @@ final class NormalizeCommand extends Command\BaseCommand
         $this->normalizer = $normalizer;
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setDescription('Normalizes composer.json according to its JSON schema (https://getcomposer.org/schema.json).');
         $this->setDefinition([

@@ -17,7 +17,7 @@ use Localheinz\Composer\Normalize\Normalizer\ConfigHashNormalizer;
 
 final class ConfigHashNormalizerTest extends AbstractNormalizerTestCase
 {
-    public function testNormalizeDoesNotModifyOtherProperty()
+    public function testNormalizeDoesNotModifyOtherProperty(): void
     {
         $json = <<<'JSON'
 {
@@ -33,7 +33,7 @@ JSON;
         $this->assertSame($json, $normalizer->normalize($json));
     }
 
-    public function testNormalizeIgnoresEmptyConfigHash()
+    public function testNormalizeIgnoresEmptyConfigHash(): void
     {
         $json = <<<'JSON'
 {
@@ -46,7 +46,7 @@ JSON;
         $this->assertSame($json, $normalizer->normalize($json));
     }
 
-    public function testNormalizeSortsConfigHashIfPropertyExists()
+    public function testNormalizeSortsConfigHashIfPropertyExists(): void
     {
         $json = <<<'JSON'
 {

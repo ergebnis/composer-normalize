@@ -85,7 +85,7 @@ final class VersionConstraintNormalizer implements NormalizerInterface
     {
         $normalized = $versionConstraint;
 
-        foreach (self::$map as list($pattern, $glue)) {
+        foreach (self::$map as [$pattern, $glue]) {
             $split = \preg_split(
                 $pattern,
                 $normalized

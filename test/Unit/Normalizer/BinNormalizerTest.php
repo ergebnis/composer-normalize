@@ -17,7 +17,7 @@ use Localheinz\Composer\Normalize\Normalizer\BinNormalizer;
 
 final class BinNormalizerTest extends AbstractNormalizerTestCase
 {
-    public function testNormalizeDoesNotModifyOtherProperty()
+    public function testNormalizeDoesNotModifyOtherProperty(): void
     {
         $json = <<<'JSON'
 {
@@ -33,7 +33,7 @@ JSON;
         $this->assertSame($json, $normalizer->normalize($json));
     }
 
-    public function testNormalizeDoesNotModifyBinIfPropertyExistsAsString()
+    public function testNormalizeDoesNotModifyBinIfPropertyExistsAsString(): void
     {
         $json = <<<'JSON'
 {
@@ -50,7 +50,7 @@ JSON;
         $this->assertSame($json, $normalizer->normalize($json));
     }
 
-    public function testNormalizeSortsBinIfPropertyExistsAsArray()
+    public function testNormalizeSortsBinIfPropertyExistsAsArray(): void
     {
         $json = <<<'JSON'
 {

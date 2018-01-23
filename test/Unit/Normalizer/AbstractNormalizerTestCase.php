@@ -21,12 +21,12 @@ abstract class AbstractNormalizerTestCase extends Framework\TestCase
 {
     use Helper;
 
-    final public function testImplementsNormalizerInterface()
+    final public function testImplementsNormalizerInterface(): void
     {
         $this->assertClassImplementsInterface(NormalizerInterface::class, $this->className());
     }
 
-    final public function testNormalizeRejectsInvalidJson()
+    final public function testNormalizeRejectsInvalidJson(): void
     {
         $json = $this->faker()->realText();
 

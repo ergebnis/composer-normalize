@@ -17,7 +17,7 @@ use Localheinz\Composer\Normalize\Normalizer\PackageHashNormalizer;
 
 final class PackageHashNormalizerTest extends AbstractNormalizerTestCase
 {
-    public function testNormalizeDoesNotModifyOtherProperty()
+    public function testNormalizeDoesNotModifyOtherProperty(): void
     {
         $json = <<<'JSON'
 {
@@ -38,7 +38,7 @@ JSON;
      *
      * @param string $property
      */
-    public function testNormalizeIgnoresEmptyPackageHash(string $property)
+    public function testNormalizeIgnoresEmptyPackageHash(string $property): void
     {
         $json = <<<JSON
 {
@@ -56,7 +56,7 @@ JSON;
      *
      * @param string $property
      */
-    public function testNormalizeSortsPackageHashIfPropertyExists(string $property)
+    public function testNormalizeSortsPackageHashIfPropertyExists(string $property): void
     {
         $json = <<<JSON
 {

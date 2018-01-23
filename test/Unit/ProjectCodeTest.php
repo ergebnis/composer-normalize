@@ -20,12 +20,12 @@ final class ProjectCodeTest extends Framework\TestCase
 {
     use Helper;
 
-    public function testProductionClassesAreAbstractOrFinal()
+    public function testProductionClassesAreAbstractOrFinal(): void
     {
         $this->assertClassesAreAbstractOrFinal(__DIR__ . '/../../src');
     }
 
-    public function testProductionClassesHaveTests()
+    public function testProductionClassesHaveTests(): void
     {
         $this->assertClassesHaveTests(
             __DIR__ . '/../../src',
@@ -34,7 +34,7 @@ final class ProjectCodeTest extends Framework\TestCase
         );
     }
 
-    public function testTestClassesAreAbstractOrFinal()
+    public function testTestClassesAreAbstractOrFinal(): void
     {
         $this->assertClassesAreAbstractOrFinal(__DIR__ . '/..');
     }

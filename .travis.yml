@@ -19,7 +19,7 @@ jobs:
   include:
     - stage: Style
 
-      php: 7.0
+      php: 7.1
 
       before_install:
         - source .travis/xdebug.sh
@@ -40,7 +40,7 @@ jobs:
 
       stage: Test
 
-      php: 7.0
+      php: 7.1
 
       env: WITH_LOWEST=true
 
@@ -62,24 +62,6 @@ jobs:
 
       after_success:
         - if [[ "$WITH_COVERAGE" == "true" ]]; then bash <(curl -s https://codecov.io/bash); fi
-
-    - <<: *TEST
-
-      php: 7.0
-
-      env: WITH_LOCKED=true
-
-    - <<: *TEST
-
-      php: 7.0
-
-      env: WITH_HIGHEST=true
-
-    - <<: *TEST
-
-      php: 7.1
-
-      env: WITH_LOWEST=true
 
     - <<: *TEST
 
