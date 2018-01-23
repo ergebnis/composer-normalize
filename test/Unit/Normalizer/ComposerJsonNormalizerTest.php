@@ -25,7 +25,7 @@ use Localheinz\Json\Normalizer\SchemaNormalizer;
 
 final class ComposerJsonNormalizerTest extends AbstractNormalizerTestCase
 {
-    public function testComposesNormalizers()
+    public function testComposesNormalizers(): void
     {
         $normalizer = new ComposerJsonNormalizer();
 
@@ -55,7 +55,7 @@ final class ComposerJsonNormalizerTest extends AbstractNormalizerTestCase
         $this->assertAttributeSame('https://getcomposer.org/schema.json', 'schemaUri', $schemaNormalizer);
     }
 
-    public function testNormalizeNormalizes()
+    public function testNormalizeNormalizes(): void
     {
         $json = <<<'JSON'
 {
@@ -90,6 +90,7 @@ final class ComposerJsonNormalizerTest extends AbstractNormalizerTestCase
   },
   "autoload": {
     "psr-4": {
+      "": "/foo",
       "Helmut\\Foo\\Bar\\": "src/"
     }
   },
@@ -147,6 +148,7 @@ JSON;
   },
   "autoload": {
     "psr-4": {
+      "": "/foo",
       "Helmut\\Foo\\Bar\\": "src/"
     }
   },
@@ -179,7 +181,7 @@ JSON;
         $this->assertSame($normalized, $normalizer->normalize($json));
     }
 
-    private function assertComposesNormalizer(string $className, NormalizerInterface $normalizer)
+    private function assertComposesNormalizer(string $className, NormalizerInterface $normalizer): void
     {
         $this->assertClassExists($className);
         $this->assertClassImplementsInterface(NormalizerInterface::class, $className);
@@ -199,7 +201,7 @@ JSON;
         ));
     }
 
-    private function assertComposesNormalizers(array $classNames, NormalizerInterface $normalizer)
+    private function assertComposesNormalizers(array $classNames, NormalizerInterface $normalizer): void
     {
         foreach ($classNames as $className) {
             $this->assertClassExists($className);

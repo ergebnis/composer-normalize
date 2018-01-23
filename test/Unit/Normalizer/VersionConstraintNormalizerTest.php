@@ -22,7 +22,7 @@ final class VersionConstraintNormalizerTest extends AbstractNormalizerTestCase
      *
      * @param string $constraint
      */
-    public function testNormalizeDoesNotModifyOtherProperty(string $constraint)
+    public function testNormalizeDoesNotModifyOtherProperty(string $constraint): void
     {
         $json = <<<JSON
 {
@@ -51,7 +51,7 @@ JSON;
      *
      * @param string $property
      */
-    public function testNormalizeIgnoresEmptyPackageHash(string $property)
+    public function testNormalizeIgnoresEmptyPackageHash(string $property): void
     {
         $json = <<<JSON
 {
@@ -82,7 +82,7 @@ JSON;
      * @param string $versionConstraint
      * @param string $normalizedVersionConstraint
      */
-    public function testNormalizeNormalizesVersionConstraints(string $property, string $versionConstraint, string $normalizedVersionConstraint)
+    public function testNormalizeNormalizesVersionConstraints(string $property, string $versionConstraint, string $normalizedVersionConstraint): void
     {
         $json = <<<JSON
 {
@@ -128,7 +128,7 @@ JSON;
      * @param string $versionConstraint
      * @param string $trimmedVersionConstraint
      */
-    public function testNormalizeNormalizesTrimsVersionConstraints(string $property, string $versionConstraint, string $trimmedVersionConstraint)
+    public function testNormalizeNormalizesTrimsVersionConstraints(string $property, string $versionConstraint, string $trimmedVersionConstraint): void
     {
         $json = <<<JSON
 {

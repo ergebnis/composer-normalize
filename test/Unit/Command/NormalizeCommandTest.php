@@ -46,12 +46,12 @@ final class NormalizeCommandTest extends Framework\TestCase
         $this->clearComposerFile();
     }
 
-    public function testExtendsBaseCommand()
+    public function testExtendsBaseCommand(): void
     {
         $this->assertClassExtends(Command\BaseCommand::class, NormalizeCommand::class);
     }
 
-    public function testHasNameAndDescription()
+    public function testHasNameAndDescription(): void
     {
         $command = new NormalizeCommand($this->prophesize(Normalizer\NormalizerInterface::class)->reveal());
 
@@ -59,7 +59,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         $this->assertSame('Normalizes composer.json according to its JSON schema (https://getcomposer.org/schema.json).', $command->getDescription());
     }
 
-    public function testHasNoArguments()
+    public function testHasNoArguments(): void
     {
         $command = new NormalizeCommand($this->prophesize(Normalizer\NormalizerInterface::class)->reveal());
 
@@ -68,7 +68,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         $this->assertCount(0, $definition->getArguments());
     }
 
-    public function testHasNoUpdateLockOption()
+    public function testHasNoUpdateLockOption(): void
     {
         $command = new NormalizeCommand($this->prophesize(Normalizer\NormalizerInterface::class)->reveal());
 
@@ -84,7 +84,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         $this->assertSame('Do not update lock file if it exists', $option->getDescription());
     }
 
-    public function testExecuteFailsIfComposerFileDoesNotExist()
+    public function testExecuteFailsIfComposerFileDoesNotExist(): void
     {
         $composerFile = $this->pathToNonExistentComposerFile();
 
@@ -109,7 +109,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         $this->assertFileNotExists($composerFile);
     }
 
-    public function testExecuteFailsIfComposerFileIsNotReadable()
+    public function testExecuteFailsIfComposerFileIsNotReadable(): void
     {
         $original = $this->composerFileContent();
 
@@ -141,7 +141,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         $this->assertStringEqualsFile($composerFile, $original);
     }
 
-    public function testExecuteFailsIfComposerFileIsNotWritable()
+    public function testExecuteFailsIfComposerFileIsNotWritable(): void
     {
         $original = $this->composerFileContent();
 
@@ -173,7 +173,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         $this->assertStringEqualsFile($composerFile, $original);
     }
 
-    public function testExecuteFailsIfLockerIsLockedButNotFresh()
+    public function testExecuteFailsIfLockerIsLockedButNotFresh(): void
     {
         $original = $this->composerFileContent();
 
@@ -218,7 +218,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         $this->assertStringEqualsFile($composerFile, $original);
     }
 
-    public function testExecuteFailsIfNormalizerThrowsInvalidArgumentException()
+    public function testExecuteFailsIfNormalizerThrowsInvalidArgumentException(): void
     {
         $faker = $this->faker();
 
@@ -305,7 +305,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         $this->assertStringEqualsFile($composerFile, $original);
     }
 
-    public function testExecuteFailsIfNormalizerThrowsRuntimeException()
+    public function testExecuteFailsIfNormalizerThrowsRuntimeException(): void
     {
         $exception = new \RuntimeException($this->faker()->sentence);
 
@@ -362,7 +362,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         $this->assertStringEqualsFile($composerFile, $original);
     }
 
-    public function testExecuteSucceedsIfLockerIsNotLockedAndComposerFileIsAlreadyNormalized()
+    public function testExecuteSucceedsIfLockerIsNotLockedAndComposerFileIsAlreadyNormalized(): void
     {
         $original = $this->composerFileContent();
 
@@ -412,7 +412,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         $this->assertStringEqualsFile($composerFile, $original);
     }
 
-    public function testExecuteSucceedsIfLockerIsLockedAndFreshButComposerFileIsAlreadyNormalized()
+    public function testExecuteSucceedsIfLockerIsLockedAndFreshButComposerFileIsAlreadyNormalized(): void
     {
         $original = $this->composerFileContent();
 
@@ -467,7 +467,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         $this->assertStringEqualsFile($composerFile, $original);
     }
 
-    public function testExecuteSucceedsIfLockerIsNotLockedAndComposerFileWasNormalizedSuccessfully()
+    public function testExecuteSucceedsIfLockerIsNotLockedAndComposerFileWasNormalizedSuccessfully(): void
     {
         $original = $this->composerFileContent();
 
@@ -522,7 +522,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         $this->assertStringEqualsFile($composerFile, $normalized);
     }
 
-    public function testExecuteSucceedsIfLockerIsLockedAndLockerCouldBeUpdatedAfterNormalization()
+    public function testExecuteSucceedsIfLockerIsLockedAndLockerCouldBeUpdatedAfterNormalization(): void
     {
         $original = $this->composerFileContent();
 
@@ -612,7 +612,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         $this->assertStringEqualsFile($composerFile, $normalized);
     }
 
-    public function testExecuteSucceedsIfLockerIsLockedButSkipsUpdatingLockerIfNoUpdateLockOptionIsUsed()
+    public function testExecuteSucceedsIfLockerIsLockedButSkipsUpdatingLockerIfNoUpdateLockOptionIsUsed(): void
     {
         $original = $this->composerFileContent();
 
@@ -760,7 +760,7 @@ final class NormalizeCommandTest extends Framework\TestCase
     /**
      * @see Factory::getComposerFile()
      */
-    private function clearComposerFile()
+    private function clearComposerFile(): void
     {
         \putenv('COMPOSER');
     }

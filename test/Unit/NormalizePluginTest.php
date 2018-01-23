@@ -51,7 +51,7 @@ final class NormalizePluginTest extends Framework\TestCase
         }
     }
 
-    public function testGetCapabilitiesReturnsCapabilities()
+    public function testGetCapabilitiesReturnsCapabilities(): void
     {
         $plugin = new NormalizePlugin();
 
@@ -67,7 +67,7 @@ final class NormalizePluginTest extends Framework\TestCase
         $this->assertSame($expected, $plugin->getCapabilities());
     }
 
-    public function testProvidesNormalizeCommand()
+    public function testProvidesNormalizeCommand(): void
     {
         $plugin = new NormalizePlugin();
 
