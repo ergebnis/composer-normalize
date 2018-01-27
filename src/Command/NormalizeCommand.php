@@ -21,21 +21,59 @@ use Symfony\Component\Console;
 final class NormalizeCommand extends Command\BaseCommand
 {
     /**
+     * @var array
+     */
+    private static $indentStyles = [
+        'space' => ' ',
+        'tab' => "\t",
+    ];
+
+    /**
      * @var Normalizer\NormalizerInterface
      */
     private $normalizer;
 
-    public function __construct(Normalizer\NormalizerInterface $normalizer)
-    {
+    /**
+     * @var Normalizer\Format\SnifferInterface
+     */
+    private $sniffer;
+
+    /**
+     * @var Normalizer\Format\FormatterInterface
+     */
+    private $formatter;
+
+    public function __construct(
+        Normalizer\NormalizerInterface $normalizer,
+        Normalizer\Format\SnifferInterface $sniffer = null,
+        Normalizer\Format\FormatterInterface $formatter = null
+    ) {
         parent::__construct('normalize');
 
         $this->normalizer = $normalizer;
+        $this->sniffer = $sniffer ?: new Normalizer\Format\Sniffer();
+        $this->formatter = $formatter ?: new Normalizer\Format\Formatter();
     }
 
     protected function configure(): void
     {
         $this->setDescription('Normalizes composer.json according to its JSON schema (https://getcomposer.org/schema.json).');
         $this->setDefinition([
+            new Console\Input\InputOption(
+                'indent-size',
+                null,
+                Console\Input\InputOption::VALUE_REQUIRED,
+                'Indent size (an integer greater than 0); should be used with the --indent-style option'
+            ),
+            new Console\Input\InputOption(
+                'indent-style',
+                null,
+                Console\Input\InputOption::VALUE_REQUIRED,
+                \sprintf(
+                    'Indent style (one of "%s"); should be used with the --indent-size option',
+                    \implode('", "', \array_keys(self::$indentStyles))
+                )
+            ),
             new Console\Input\InputOption(
                 'no-update-lock',
                 null,
@@ -47,9 +85,55 @@ final class NormalizeCommand extends Command\BaseCommand
 
     protected function execute(Console\Input\InputInterface $input, Console\Output\OutputInterface $output): int
     {
-        $file = Factory::getComposerFile();
-
         $io = $this->getIO();
+
+        $indent = null;
+
+        $indentSize = $input->getOption('indent-size');
+        $indentStyle = $input->getOption('indent-style');
+
+        if (null !== $indentSize || null !== $indentStyle) {
+            if (null === $indentSize) {
+                $io->writeError('<error>When using the indent-style option, an indent size needs to be specified using the indent-size option.</error>');
+
+                return 1;
+            }
+
+            if (null === $indentStyle) {
+                $io->writeError(\sprintf(
+                    '<error>When using the indent-size option, an indent style (one of "%s") needs to be specified using the indent-style option.</error>',
+                    \implode('", "', \array_keys(self::$indentStyles))
+                ));
+
+                return 1;
+            }
+
+            if ((string) (int) $indentSize !== (string) $indentSize || 1 > $indentSize) {
+                $io->writeError(\sprintf(
+                    '<error>Indent size needs to be an integer greater than 0, but "%s" is not.</error>',
+                    $indentSize
+                ));
+
+                return 1;
+            }
+
+            if (!\array_key_exists($indentStyle, self::$indentStyles)) {
+                $io->writeError(\sprintf(
+                    '<error>Indent style needs to be one of "%s", but "%s" is not.</error>',
+                    \implode('", "', \array_keys(self::$indentStyles)),
+                    $indentStyle
+                ));
+
+                return 1;
+            }
+
+            $indent = \str_repeat(
+                self::$indentStyles[$indentStyle],
+                (int) $indentSize
+            );
+        }
+
+        $file = Factory::getComposerFile();
 
         if (!\file_exists($file)) {
             $io->writeError(\sprintf(
@@ -108,7 +192,18 @@ final class NormalizeCommand extends Command\BaseCommand
             return 1;
         }
 
-        if ($json === $normalized) {
+        $format = $this->sniffer->sniff($json);
+
+        if (null !== $indent) {
+            $format = $format->withIndent($indent);
+        }
+
+        $formatted = $this->formatter->format(
+            $normalized,
+            $format
+        );
+
+        if ($json === $formatted) {
             $io->write(\sprintf(
                 '<info>%s is already normalized.</info>',
                 $file
@@ -117,7 +212,7 @@ final class NormalizeCommand extends Command\BaseCommand
             return 0;
         }
 
-        \file_put_contents($file, $normalized);
+        \file_put_contents($file, $formatted);
 
         $io->write(\sprintf(
             '<info>Successfully normalized %s.</info>',

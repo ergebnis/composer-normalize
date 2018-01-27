@@ -68,6 +68,44 @@ final class NormalizeCommandTest extends Framework\TestCase
         $this->assertCount(0, $definition->getArguments());
     }
 
+    public function testHasIndentSizeOption(): void
+    {
+        $command = new NormalizeCommand($this->prophesize(Normalizer\NormalizerInterface::class)->reveal());
+
+        $definition = $command->getDefinition();
+
+        $this->assertTrue($definition->hasOption('indent-size'));
+
+        $option = $definition->getOption('indent-size');
+
+        $this->assertNull($option->getShortcut());
+        $this->assertTrue($option->isValueRequired());
+        $this->assertNull($option->getDefault());
+        $this->assertSame('Indent size (an integer greater than 0); should be used with the --indent-style option', $option->getDescription());
+    }
+
+    public function testHasIndentStyleOption(): void
+    {
+        $command = new NormalizeCommand($this->prophesize(Normalizer\NormalizerInterface::class)->reveal());
+
+        $definition = $command->getDefinition();
+
+        $this->assertTrue($definition->hasOption('indent-style'));
+
+        $option = $definition->getOption('indent-style');
+
+        $this->assertNull($option->getShortcut());
+        $this->assertTrue($option->isValueRequired());
+        $this->assertNull($option->getDefault());
+
+        $description = \sprintf(
+            'Indent style (one of "%s"); should be used with the --indent-size option',
+            \implode('", "', \array_keys($this->indentStyles()))
+        );
+
+        $this->assertSame($description, $option->getDescription());
+    }
+
     public function testHasNoUpdateLockOption(): void
     {
         $command = new NormalizeCommand($this->prophesize(Normalizer\NormalizerInterface::class)->reveal());
@@ -82,6 +120,156 @@ final class NormalizeCommandTest extends Framework\TestCase
         $this->assertFalse($option->isValueRequired());
         $this->assertFalse($option->getDefault());
         $this->assertSame('Do not update lock file if it exists', $option->getDescription());
+    }
+
+    public function testExecuteFailsIfIndentSizeOptionIsUsedWithoutIndentStyleOption(): void
+    {
+        $original = $this->composerFileContent();
+
+        $composerFile = $this->pathToComposerFileWithContent($original);
+
+        $io = $this->prophesize(IO\ConsoleIO::class);
+
+        $io
+            ->writeError(Argument::is(\sprintf(
+                '<error>When using the indent-size option, an indent style (one of "%s") needs to be specified using the indent-style option.</error>',
+                \implode('", "', \array_keys($this->indentStyles()))
+            )))
+            ->shouldBeCalled();
+
+        $command = new NormalizeCommand($this->prophesize(Normalizer\NormalizerInterface::class)->reveal());
+
+        $command->setIO($io->reveal());
+
+        $tester = new Console\Tester\CommandTester($command);
+
+        $tester->execute([
+            '--indent-size' => $this->faker()->numberBetween(1),
+        ]);
+
+        $this->assertSame(1, $tester->getStatusCode());
+        $this->assertFileExists($composerFile);
+        $this->assertStringEqualsFile($composerFile, $original);
+    }
+
+    public function testExecuteFailsIfIndentStyleOptionIsUsedWithoutIndentSizeOption(): void
+    {
+        $original = $this->composerFileContent();
+
+        $composerFile = $this->pathToComposerFileWithContent($original);
+
+        $io = $this->prophesize(IO\ConsoleIO::class);
+
+        $io
+            ->writeError(Argument::is('<error>When using the indent-style option, an indent size needs to be specified using the indent-size option.</error>'))
+            ->shouldBeCalled();
+
+        $command = new NormalizeCommand($this->prophesize(Normalizer\NormalizerInterface::class)->reveal());
+
+        $command->setIO($io->reveal());
+
+        $tester = new Console\Tester\CommandTester($command);
+
+        $tester->execute([
+            '--indent-style' => $this->faker()->randomElement([
+                'space',
+                'tab',
+            ]),
+        ]);
+
+        $this->assertSame(1, $tester->getStatusCode());
+        $this->assertFileExists($composerFile);
+        $this->assertStringEqualsFile($composerFile, $original);
+    }
+
+    /**
+     * @dataProvider providerInvalidIndentSize
+     *
+     * @param $indentSize
+     */
+    public function testExecuteFailsIfInvalidIndentSizeIsUsed($indentSize): void
+    {
+        $indentStyle = $this->faker()->randomElement(\array_keys($this->indentStyles()));
+
+        $original = $this->composerFileContent();
+
+        $composerFile = $this->pathToComposerFileWithContent($original);
+
+        $io = $this->prophesize(IO\ConsoleIO::class);
+
+        $io
+            ->writeError(Argument::is(\sprintf(
+                '<error>Indent size needs to be an integer greater than 0, but "%s" is not.</error>',
+                $indentSize
+            )))
+            ->shouldBeCalled();
+
+        $command = new NormalizeCommand($this->prophesize(Normalizer\NormalizerInterface::class)->reveal());
+
+        $command->setIO($io->reveal());
+
+        $tester = new Console\Tester\CommandTester($command);
+
+        $tester->execute([
+            '--indent-size' => $indentSize,
+            '--indent-style' => $indentStyle,
+        ]);
+
+        $this->assertSame(1, $tester->getStatusCode());
+        $this->assertFileExists($composerFile);
+        $this->assertStringEqualsFile($composerFile, $original);
+    }
+
+    public function providerInvalidIndentSize(): \Generator
+    {
+        $values = [
+            'string-word' => $this->faker()->word,
+            'int-zero' => 0,
+            'int-negative' => -1,
+            'int-zero-casted-to-string' => '0',
+            'int-negative-casted-to-string' => '-1',
+        ];
+
+        foreach ($values as $key => $value) {
+            yield $key => [
+                $value,
+            ];
+        }
+    }
+
+    public function testExecuteFailsIfInvalidIndentStyleOptionIsUsed(): void
+    {
+        $indentSize = $this->faker()->numberBetween(1);
+        $indentStyle = $this->faker()->sentence;
+
+        $original = $this->composerFileContent();
+
+        $composerFile = $this->pathToComposerFileWithContent($original);
+
+        $io = $this->prophesize(IO\ConsoleIO::class);
+
+        $io
+            ->writeError(Argument::is(\sprintf(
+                '<error>Indent style needs to be one of "%s", but "%s" is not.</error>',
+                \implode('", "', \array_keys($this->indentStyles())),
+                $indentStyle
+            )))
+            ->shouldBeCalled();
+
+        $command = new NormalizeCommand($this->prophesize(Normalizer\NormalizerInterface::class)->reveal());
+
+        $command->setIO($io->reveal());
+
+        $tester = new Console\Tester\CommandTester($command);
+
+        $tester->execute([
+            '--indent-size' => $indentSize,
+            '--indent-style' => $indentStyle,
+        ]);
+
+        $this->assertSame(1, $tester->getStatusCode());
+        $this->assertFileExists($composerFile);
+        $this->assertStringEqualsFile($composerFile, $original);
     }
 
     public function testExecuteFailsIfComposerFileDoesNotExist(): void
@@ -106,7 +294,6 @@ final class NormalizeCommandTest extends Framework\TestCase
         $tester->execute([]);
 
         $this->assertSame(1, $tester->getStatusCode());
-        $this->assertFileNotExists($composerFile);
     }
 
     public function testExecuteFailsIfComposerFileIsNotReadable(): void
@@ -366,6 +553,8 @@ final class NormalizeCommandTest extends Framework\TestCase
     {
         $original = $this->composerFileContent();
 
+        $normalized = \json_encode(\json_decode($original));
+
         $composerFile = $this->pathToComposerFileWithContent($original);
 
         $io = $this->prophesize(IO\ConsoleIO::class);
@@ -396,9 +585,32 @@ final class NormalizeCommandTest extends Framework\TestCase
         $normalizer
             ->normalize(Argument::is($original))
             ->shouldBeCalled()
+            ->willReturn($normalized);
+
+        $format = $this->prophesize(Normalizer\Format\FormatInterface::class);
+
+        $sniffer = $this->prophesize(Normalizer\Format\SnifferInterface::class);
+
+        $sniffer
+            ->sniff(Argument::is($original))
+            ->shouldBeCalled()
+            ->willReturn($format->reveal());
+
+        $formatter = $this->prophesize(Normalizer\Format\FormatterInterface::class);
+
+        $formatter
+            ->format(
+                Argument::is($normalized),
+                Argument::is($format->reveal())
+            )
+            ->shouldBeCalled()
             ->willReturn($original);
 
-        $command = new NormalizeCommand($normalizer->reveal());
+        $command = new NormalizeCommand(
+            $normalizer->reveal(),
+            $sniffer->reveal(),
+            $formatter->reveal()
+        );
 
         $command->setIO($io->reveal());
         $command->setComposer($composer->reveal());
@@ -415,6 +627,8 @@ final class NormalizeCommandTest extends Framework\TestCase
     public function testExecuteSucceedsIfLockerIsLockedAndFreshButComposerFileIsAlreadyNormalized(): void
     {
         $original = $this->composerFileContent();
+
+        $normalized = \json_encode(\json_decode($original));
 
         $composerFile = $this->pathToComposerFileWithContent($original);
 
@@ -451,9 +665,32 @@ final class NormalizeCommandTest extends Framework\TestCase
         $normalizer
             ->normalize(Argument::is($original))
             ->shouldBeCalled()
+            ->willReturn($normalized);
+
+        $format = $this->prophesize(Normalizer\Format\FormatInterface::class);
+
+        $sniffer = $this->prophesize(Normalizer\Format\SnifferInterface::class);
+
+        $sniffer
+            ->sniff(Argument::is($original))
+            ->shouldBeCalled()
+            ->willReturn($format->reveal());
+
+        $formatter = $this->prophesize(Normalizer\Format\FormatterInterface::class);
+
+        $formatter
+            ->format(
+                Argument::is($normalized),
+                Argument::is($format->reveal())
+            )
+            ->shouldBeCalled()
             ->willReturn($original);
 
-        $command = new NormalizeCommand($normalizer->reveal());
+        $command = new NormalizeCommand(
+            $normalizer->reveal(),
+            $sniffer->reveal(),
+            $formatter->reveal()
+        );
 
         $command->setIO($io->reveal());
         $command->setComposer($composer->reveal());
@@ -475,6 +712,11 @@ final class NormalizeCommandTest extends Framework\TestCase
             $original,
             true
         )));
+
+        $formatted = \json_encode(
+            \json_decode($normalized),
+            JSON_PRETTY_PRINT
+        );
 
         $composerFile = $this->pathToComposerFileWithContent($original);
 
@@ -508,7 +750,30 @@ final class NormalizeCommandTest extends Framework\TestCase
             ->shouldBeCalled()
             ->willReturn($normalized);
 
-        $command = new NormalizeCommand($normalizer->reveal());
+        $format = $this->prophesize(Normalizer\Format\FormatInterface::class);
+
+        $sniffer = $this->prophesize(Normalizer\Format\SnifferInterface::class);
+
+        $sniffer
+            ->sniff(Argument::is($original))
+            ->shouldBeCalled()
+            ->willReturn($format->reveal());
+
+        $formatter = $this->prophesize(Normalizer\Format\FormatterInterface::class);
+
+        $formatter
+            ->format(
+                Argument::is($normalized),
+                Argument::is($format->reveal())
+            )
+            ->shouldBeCalled()
+            ->willReturn($formatted);
+
+        $command = new NormalizeCommand(
+            $normalizer->reveal(),
+            $sniffer->reveal(),
+            $formatter->reveal()
+        );
 
         $command->setIO($io->reveal());
         $command->setComposer($composer->reveal());
@@ -519,7 +784,110 @@ final class NormalizeCommandTest extends Framework\TestCase
 
         $this->assertSame(0, $tester->getStatusCode());
         $this->assertFileExists($composerFile);
-        $this->assertStringEqualsFile($composerFile, $normalized);
+        $this->assertStringEqualsFile($composerFile, $formatted);
+    }
+
+    public function testExecuteSucceedsIfLockerIsNotLockedAndComposerFileWasNormalizedSuccessfullyWithIndent(): void
+    {
+        $faker = $this->faker();
+
+        $indentSize = (string) $faker->numberBetween(1, 5);
+        $indentStyle = $faker->randomElement(\array_keys($this->indentStyles()));
+
+        $indent = \str_repeat(
+            $this->indentStyles()[$indentStyle],
+            (int) $indentSize
+        );
+
+        $original = $this->composerFileContent();
+
+        $normalized = \json_encode(\array_reverse(\json_decode(
+            $original,
+            true
+        )));
+
+        $formatted = \json_encode(
+            \json_decode($normalized),
+            JSON_PRETTY_PRINT
+        );
+
+        $composerFile = $this->pathToComposerFileWithContent($original);
+
+        $io = $this->prophesize(IO\ConsoleIO::class);
+
+        $io
+            ->write(Argument::is(\sprintf(
+                '<info>Successfully normalized %s.</info>',
+                $composerFile
+            )))
+            ->shouldBeCalled();
+
+        $locker = $this->prophesize(Package\Locker::class);
+
+        $locker
+            ->isLocked()
+            ->shouldBeCalled()
+            ->willReturn(false);
+
+        $composer = $this->prophesize(Composer::class);
+
+        $composer
+            ->getLocker()
+            ->shouldBeCalled()
+            ->willReturn($locker);
+
+        $normalizer = $this->prophesize(Normalizer\NormalizerInterface::class);
+
+        $normalizer
+            ->normalize(Argument::is($original))
+            ->shouldBeCalled()
+            ->willReturn($normalized);
+
+        $configuredFormat = $this->prophesize(Normalizer\Format\FormatInterface::class);
+
+        $sniffedFormat = $this->prophesize(Normalizer\Format\FormatInterface::class);
+
+        $sniffedFormat
+            ->withIndent(Argument::is($indent))
+            ->shouldBeCalled()
+            ->willReturn($configuredFormat->reveal());
+
+        $sniffer = $this->prophesize(Normalizer\Format\SnifferInterface::class);
+
+        $sniffer
+            ->sniff(Argument::is($original))
+            ->shouldBeCalled()
+            ->willReturn($sniffedFormat->reveal());
+
+        $formatter = $this->prophesize(Normalizer\Format\FormatterInterface::class);
+
+        $formatter
+            ->format(
+                Argument::is($normalized),
+                Argument::is($configuredFormat->reveal())
+            )
+            ->shouldBeCalled()
+            ->willReturn($formatted);
+
+        $command = new NormalizeCommand(
+            $normalizer->reveal(),
+            $sniffer->reveal(),
+            $formatter->reveal()
+        );
+
+        $command->setIO($io->reveal());
+        $command->setComposer($composer->reveal());
+
+        $tester = new Console\Tester\CommandTester($command);
+
+        $tester->execute([
+            '--indent-size' => $indentSize,
+            '--indent-style' => $indentStyle,
+        ]);
+
+        $this->assertSame(0, $tester->getStatusCode());
+        $this->assertFileExists($composerFile);
+        $this->assertStringEqualsFile($composerFile, $formatted);
     }
 
     public function testExecuteSucceedsIfLockerIsLockedAndLockerCouldBeUpdatedAfterNormalization(): void
@@ -530,6 +898,11 @@ final class NormalizeCommandTest extends Framework\TestCase
             $original,
             true
         )));
+
+        $formatted = \json_encode(
+            \json_decode($normalized),
+            JSON_PRETTY_PRINT
+        );
 
         $composerFile = $this->pathToComposerFileWithContent($original);
 
@@ -597,7 +970,30 @@ final class NormalizeCommandTest extends Framework\TestCase
             ->shouldBeCalled()
             ->willReturn($normalized);
 
-        $command = new NormalizeCommand($normalizer->reveal());
+        $format = $this->prophesize(Normalizer\Format\FormatInterface::class);
+
+        $sniffer = $this->prophesize(Normalizer\Format\SnifferInterface::class);
+
+        $sniffer
+            ->sniff(Argument::is($original))
+            ->shouldBeCalled()
+            ->willReturn($format);
+
+        $formatter = $this->prophesize(Normalizer\Format\FormatterInterface::class);
+
+        $formatter
+            ->format(
+                Argument::is($normalized),
+                Argument::is($format->reveal())
+            )
+            ->shouldBeCalled()
+            ->willReturn($formatted);
+
+        $command = new NormalizeCommand(
+            $normalizer->reveal(),
+            $sniffer->reveal(),
+            $formatter->reveal()
+        );
 
         $command->setIO($io->reveal());
         $command->setComposer($composer->reveal());
@@ -609,7 +1005,7 @@ final class NormalizeCommandTest extends Framework\TestCase
 
         $this->assertSame(0, $tester->getStatusCode());
         $this->assertFileExists($composerFile);
-        $this->assertStringEqualsFile($composerFile, $normalized);
+        $this->assertStringEqualsFile($composerFile, $formatted);
     }
 
     public function testExecuteSucceedsIfLockerIsLockedButSkipsUpdatingLockerIfNoUpdateLockOptionIsUsed(): void
@@ -620,6 +1016,11 @@ final class NormalizeCommandTest extends Framework\TestCase
             $original,
             true
         )));
+
+        $formatted = \json_encode(
+            \json_decode($normalized),
+            JSON_PRETTY_PRINT
+        );
 
         $composerFile = $this->pathToComposerFileWithContent($original);
 
@@ -674,7 +1075,30 @@ final class NormalizeCommandTest extends Framework\TestCase
             ->shouldBeCalled()
             ->willReturn($normalized);
 
-        $command = new NormalizeCommand($normalizer->reveal());
+        $format = $this->prophesize(Normalizer\Format\FormatInterface::class);
+
+        $sniffer = $this->prophesize(Normalizer\Format\SnifferInterface::class);
+
+        $sniffer
+            ->sniff(Argument::is($original))
+            ->shouldBeCalled()
+            ->willReturn($format);
+
+        $formatter = $this->prophesize(Normalizer\Format\FormatterInterface::class);
+
+        $formatter
+            ->format(
+                Argument::is($normalized),
+                Argument::is($format->reveal())
+            )
+            ->shouldBeCalled()
+            ->willReturn($formatted);
+
+        $command = new NormalizeCommand(
+            $normalizer->reveal(),
+            $sniffer->reveal(),
+            $formatter->reveal()
+        );
 
         $command->setIO($io->reveal());
         $command->setComposer($composer->reveal());
@@ -688,7 +1112,7 @@ final class NormalizeCommandTest extends Framework\TestCase
 
         $this->assertSame(0, $tester->getStatusCode());
         $this->assertFileExists($composerFile);
-        $this->assertStringEqualsFile($composerFile, $normalized);
+        $this->assertStringEqualsFile($composerFile, $formatted);
     }
 
     private function composerFileContent(): string
@@ -790,5 +1214,16 @@ final class NormalizeCommandTest extends Framework\TestCase
             ->willReturn([]);
 
         return $definition->reveal();
+    }
+
+    /**
+     * @return array
+     */
+    private function indentStyles(): array
+    {
+        return [
+            'space' => ' ',
+            'tab' => "\t",
+        ];
     }
 }
