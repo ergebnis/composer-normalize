@@ -30,18 +30,20 @@ The `NormalizeCommand` provided by the `NormalizePlugin` within this package wil
 * determine whether a `composer.json` exists
 * determine whether a `composer.lock` exists, and if so, whether it is up to date
 * use the `ComposerJsonNormalizer` to normalize the content of `composer.json`
-* write the normalized content of `composer.json` back to the file
+* format the normalized content (either as sniffed, or as specified using the `--indent-size` and `--indent-style` options)
+* write the normalized and formatted content of `composer.json` back to the file
 * update the hash in `composer.lock` if it exists and if an update is necessary
 
 ### Options
 
+* `--indent-size`: Indent size (an integer greater than 0); should be used with the `--indent-style` option
+* `--indent-style`: Indent style (one of "space", "tab"); should be used with the `--indent-size` option
 * `--no-update-lock`: Do not update lock file if it exists
 
 ## Normalizers
 
 The `ComposerJsonNormalizer` composes normalizers provided by [`localheinz/json-normalizer`](https://github.com/localheinz/json-normalizer):
 
-* [`Localheinz\Json\Normalizer\AutoFormatNormalizer`](https://github.com/localheinz/json-normalizer#autoformatnormalizer)
 * [`Localheinz\Json\Normalizer\ChainNormalizer`](https://github.com/localheinz/json-normalizer#chainnormalizer)
 * [`Localheinz\Json\Normalizer\SchemaNormalizer`](https://github.com/localheinz/json-normalizer#schemanormalizer)
  

@@ -18,7 +18,6 @@ use Localheinz\Composer\Normalize\Normalizer\ComposerJsonNormalizer;
 use Localheinz\Composer\Normalize\Normalizer\ConfigHashNormalizer;
 use Localheinz\Composer\Normalize\Normalizer\PackageHashNormalizer;
 use Localheinz\Composer\Normalize\Normalizer\VersionConstraintNormalizer;
-use Localheinz\Json\Normalizer\AutoFormatNormalizer;
 use Localheinz\Json\Normalizer\ChainNormalizer;
 use Localheinz\Json\Normalizer\NormalizerInterface;
 use Localheinz\Json\Normalizer\SchemaNormalizer;
@@ -29,13 +28,9 @@ final class ComposerJsonNormalizerTest extends AbstractNormalizerTestCase
     {
         $normalizer = new ComposerJsonNormalizer();
 
-        $this->assertComposesNormalizer(AutoFormatNormalizer::class, $normalizer);
+        $this->assertComposesNormalizer(ChainNormalizer::class, $normalizer);
 
-        $autoFormatNormalizer = $this->composedNormalizer($normalizer);
-
-        $this->assertComposesNormalizer(ChainNormalizer::class, $autoFormatNormalizer);
-
-        $chainNormalizer = $this->composedNormalizer($autoFormatNormalizer);
+        $chainNormalizer = $this->composedNormalizer($normalizer);
 
         $normalizerClassNames = [
             SchemaNormalizer::class,
@@ -178,7 +173,9 @@ JSON;
             \realpath(__DIR__ . '/../../Fixture/composer-schema.json')
         ));
 
-        $this->assertSame($normalized, $normalizer->normalize($json));
+        $normalizedNotPretty = \json_encode(\json_decode($normalized));
+
+        $this->assertSame($normalizedNotPretty, $normalizer->normalize($json));
     }
 
     private function assertComposesNormalizer(string $className, NormalizerInterface $normalizer): void
