@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "cd298ba9c7511980ccdda6ecb3a06bd6",
+    "content-hash": "8c3a0b0d9a744fd68dcfcad5b7fb02ce",
     "packages": [
         {
             "name": "justinrainbow/json-schema",
@@ -74,16 +74,16 @@
         },
         {
             "name": "localheinz/json-normalizer",
-            "version": "0.3.0",
+            "version": "0.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localheinz/json-normalizer.git",
-                "reference": "97d20ebac277f36ef09f8f661dd2abf91270b0e9"
+                "reference": "c48a4b07cf4a89b89fdf0b8377434507515d6cd2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localheinz/json-normalizer/zipball/97d20ebac277f36ef09f8f661dd2abf91270b0e9",
-                "reference": "97d20ebac277f36ef09f8f661dd2abf91270b0e9",
+                "url": "https://api.github.com/repos/localheinz/json-normalizer/zipball/c48a4b07cf4a89b89fdf0b8377434507515d6cd2",
+                "reference": "c48a4b07cf4a89b89fdf0b8377434507515d6cd2",
                 "shasum": ""
             },
             "require": {
@@ -121,20 +121,20 @@
                 "json",
                 "normalizer"
             ],
-            "time": "2018-01-27T18:39:54+00:00"
+            "time": "2018-01-27T22:18:34+00:00"
         },
         {
             "name": "localheinz/json-printer",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localheinz/json-printer.git",
-                "reference": "c5aba96ad796560651770bcd16be8b19f324c343"
+                "reference": "49459a160c551b5504d1edcbb10692039071d08a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localheinz/json-printer/zipball/c5aba96ad796560651770bcd16be8b19f324c343",
-                "reference": "c5aba96ad796560651770bcd16be8b19f324c343",
+                "url": "https://api.github.com/repos/localheinz/json-printer/zipball/49459a160c551b5504d1edcbb10692039071d08a",
+                "reference": "49459a160c551b5504d1edcbb10692039071d08a",
                 "shasum": ""
             },
             "require": {
@@ -164,12 +164,13 @@
                 }
             ],
             "description": "Provides a JSON printer, allowing for flexible indentation.",
+            "homepage": "https://github.com/localheinz/json-printer",
             "keywords": [
                 "formatter",
                 "json",
                 "printer"
             ],
-            "time": "2018-01-05T18:08:01+00:00"
+            "time": "2018-01-27T21:05:05+00:00"
         }
     ],
     "packages-dev": [
