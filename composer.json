@@ -8,6 +8,7 @@
     "normalize",
     "plugin"
   ],
+  "homepage": "https://github.com/localheinz/composer-normalize",
   "license": "MIT",
   "authors": [
     {
@@ -44,5 +45,9 @@
     "psr-4": {
       "Localheinz\\Composer\\Normalize\\Test\\": "test/"
     }
+  },
+  "support": {
+    "issues": "https://github.com/localheinz/composer-normalize/issues",
+    "source": "https://github.com/localheinz/composer-normalize"
   }
 }
