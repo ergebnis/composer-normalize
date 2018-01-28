@@ -68,6 +68,22 @@ final class NormalizeCommandTest extends Framework\TestCase
         $this->assertCount(0, $definition->getArguments());
     }
 
+    public function testHasDryRunOption(): void
+    {
+        $command = new NormalizeCommand($this->prophesize(Normalizer\NormalizerInterface::class)->reveal());
+
+        $definition = $command->getDefinition();
+
+        $this->assertTrue($definition->hasOption('dry-run'));
+
+        $option = $definition->getOption('dry-run');
+
+        $this->assertNull($option->getShortcut());
+        $this->assertFalse($option->isValueRequired());
+        $this->assertFalse($option->getDefault());
+        $this->assertSame('Show the results of normalizing, but do not modify any files', $option->getDescription());
+    }
+
     public function testHasIndentSizeOption(): void
     {
         $command = new NormalizeCommand($this->prophesize(Normalizer\NormalizerInterface::class)->reveal());
@@ -704,6 +720,88 @@ final class NormalizeCommandTest extends Framework\TestCase
         $this->assertStringEqualsFile($composerFile, $original);
     }
 
+    public function testExecuteWithDryRunSucceedsIfLockerIsLockedAndFreshButComposerFileIsAlreadyNormalized(): void
+    {
+        $original = $this->composerFileContent();
+
+        $normalized = \json_encode(\json_decode($original));
+
+        $composerFile = $this->pathToComposerFileWithContent($original);
+
+        $io = $this->prophesize(IO\ConsoleIO::class);
+
+        $io
+            ->write(Argument::is(\sprintf(
+                '<info>%s is already normalized.</info>',
+                $composerFile
+            )))
+            ->shouldBeCalled();
+
+        $locker = $this->prophesize(Package\Locker::class);
+
+        $locker
+            ->isLocked()
+            ->shouldBeCalled()
+            ->willReturn(true);
+
+        $locker
+            ->isFresh()
+            ->shouldBeCalled()
+            ->willReturn(true);
+
+        $composer = $this->prophesize(Composer::class);
+
+        $composer
+            ->getLocker()
+            ->shouldBeCalled()
+            ->willReturn($locker);
+
+        $normalizer = $this->prophesize(Normalizer\NormalizerInterface::class);
+
+        $normalizer
+            ->normalize(Argument::is($original))
+            ->shouldBeCalled()
+            ->willReturn($normalized);
+
+        $format = $this->prophesize(Normalizer\Format\FormatInterface::class);
+
+        $sniffer = $this->prophesize(Normalizer\Format\SnifferInterface::class);
+
+        $sniffer
+            ->sniff(Argument::is($original))
+            ->shouldBeCalled()
+            ->willReturn($format->reveal());
+
+        $formatter = $this->prophesize(Normalizer\Format\FormatterInterface::class);
+
+        $formatter
+            ->format(
+                Argument::is($normalized),
+                Argument::is($format->reveal())
+            )
+            ->shouldBeCalled()
+            ->willReturn($original);
+
+        $command = new NormalizeCommand(
+            $normalizer->reveal(),
+            $sniffer->reveal(),
+            $formatter->reveal()
+        );
+
+        $command->setIO($io->reveal());
+        $command->setComposer($composer->reveal());
+
+        $tester = new Console\Tester\CommandTester($command);
+
+        $tester->execute([
+            '--dry-run' => null,
+        ]);
+
+        $this->assertSame(0, $tester->getStatusCode());
+        $this->assertFileExists($composerFile);
+        $this->assertStringEqualsFile($composerFile, $original);
+    }
+
     public function testExecuteSucceedsIfLockerIsNotLockedAndComposerFileWasNormalizedSuccessfully(): void
     {
         $original = $this->composerFileContent();
@@ -787,7 +885,213 @@ final class NormalizeCommandTest extends Framework\TestCase
         $this->assertStringEqualsFile($composerFile, $formatted);
     }
 
+    public function testExecuteWithDryRunFailsIfLockerIsNotLockedAndComposerFileWasNormalizedSuccessfully(): void
+    {
+        $original = $this->composerFileContent();
+
+        $normalized = \json_encode(\array_reverse(\json_decode(
+            $original,
+            true
+        )));
+
+        $formatted = \json_encode(
+            \json_decode($normalized),
+            JSON_PRETTY_PRINT
+        );
+
+        $composerFile = $this->pathToComposerFileWithContent($original);
+
+        $io = $this->prophesize(IO\ConsoleIO::class);
+
+        $io
+            ->writeError(Argument::is(\sprintf(
+                '<error>%s is not normalized.</error>',
+                $composerFile
+            )))
+            ->shouldBeCalled();
+
+        $io
+            ->write(Argument::is([
+                '',
+                '<fg=green>--- original </>',
+                '<fg=red>+++ normalized </>',
+                '',
+                '<fg=yellow>---------- begin diff ----------</>',
+            ]))
+            ->shouldBeCalled();
+
+        $io
+            ->write(Argument::type('array'))
+            ->shouldBeCalled();
+
+        $io
+            ->write(Argument::is('<fg=yellow>----------- end diff -----------</>'))
+            ->shouldBeCalled();
+
+        $locker = $this->prophesize(Package\Locker::class);
+
+        $locker
+            ->isLocked()
+            ->shouldBeCalled()
+            ->willReturn(false);
+
+        $composer = $this->prophesize(Composer::class);
+
+        $composer
+            ->getLocker()
+            ->shouldBeCalled()
+            ->willReturn($locker);
+
+        $normalizer = $this->prophesize(Normalizer\NormalizerInterface::class);
+
+        $normalizer
+            ->normalize(Argument::is($original))
+            ->shouldBeCalled()
+            ->willReturn($normalized);
+
+        $format = $this->prophesize(Normalizer\Format\FormatInterface::class);
+
+        $sniffer = $this->prophesize(Normalizer\Format\SnifferInterface::class);
+
+        $sniffer
+            ->sniff(Argument::is($original))
+            ->shouldBeCalled()
+            ->willReturn($format->reveal());
+
+        $formatter = $this->prophesize(Normalizer\Format\FormatterInterface::class);
+
+        $formatter
+            ->format(
+                Argument::is($normalized),
+                Argument::is($format->reveal())
+            )
+            ->shouldBeCalled()
+            ->willReturn($formatted);
+
+        $command = new NormalizeCommand(
+            $normalizer->reveal(),
+            $sniffer->reveal(),
+            $formatter->reveal()
+        );
+
+        $command->setIO($io->reveal());
+        $command->setComposer($composer->reveal());
+
+        $tester = new Console\Tester\CommandTester($command);
+
+        $tester->execute([
+            '--dry-run' => null,
+        ]);
+
+        $this->assertSame(1, $tester->getStatusCode());
+        $this->assertFileExists($composerFile);
+        $this->assertStringEqualsFile($composerFile, $original);
+    }
+
     public function testExecuteWithIndentSucceedsIfLockerIsNotLockedAndComposerFileWasNormalizedSuccessfully(): void
+    {
+        $faker = $this->faker();
+
+        $indentSize = (string) $faker->numberBetween(1, 5);
+        $indentStyle = $faker->randomElement(\array_keys($this->indentStyles()));
+
+        $indent = \str_repeat(
+            $this->indentStyles()[$indentStyle],
+            (int) $indentSize
+        );
+
+        $original = $this->composerFileContent();
+
+        $normalized = \json_encode(\array_reverse(\json_decode(
+            $original,
+            true
+        )));
+
+        $formatted = \json_encode(
+            \json_decode($normalized),
+            JSON_PRETTY_PRINT
+        );
+
+        $composerFile = $this->pathToComposerFileWithContent($original);
+
+        $io = $this->prophesize(IO\ConsoleIO::class);
+
+        $io
+            ->write(Argument::is(\sprintf(
+                '<info>Successfully normalized %s.</info>',
+                $composerFile
+            )))
+            ->shouldBeCalled();
+
+        $locker = $this->prophesize(Package\Locker::class);
+
+        $locker
+            ->isLocked()
+            ->shouldBeCalled()
+            ->willReturn(false);
+
+        $composer = $this->prophesize(Composer::class);
+
+        $composer
+            ->getLocker()
+            ->shouldBeCalled()
+            ->willReturn($locker);
+
+        $normalizer = $this->prophesize(Normalizer\NormalizerInterface::class);
+
+        $normalizer
+            ->normalize(Argument::is($original))
+            ->shouldBeCalled()
+            ->willReturn($normalized);
+
+        $configuredFormat = $this->prophesize(Normalizer\Format\FormatInterface::class);
+
+        $sniffedFormat = $this->prophesize(Normalizer\Format\FormatInterface::class);
+
+        $sniffedFormat
+            ->withIndent(Argument::is($indent))
+            ->shouldBeCalled()
+            ->willReturn($configuredFormat->reveal());
+
+        $sniffer = $this->prophesize(Normalizer\Format\SnifferInterface::class);
+
+        $sniffer
+            ->sniff(Argument::is($original))
+            ->shouldBeCalled()
+            ->willReturn($sniffedFormat->reveal());
+
+        $formatter = $this->prophesize(Normalizer\Format\FormatterInterface::class);
+
+        $formatter
+            ->format(
+                Argument::is($normalized),
+                Argument::is($configuredFormat->reveal())
+            )
+            ->shouldBeCalled()
+            ->willReturn($formatted);
+
+        $command = new NormalizeCommand(
+            $normalizer->reveal(),
+            $sniffer->reveal(),
+            $formatter->reveal()
+        );
+
+        $command->setIO($io->reveal());
+        $command->setComposer($composer->reveal());
+
+        $tester = new Console\Tester\CommandTester($command);
+
+        $tester->execute([
+            '--indent-size' => $indentSize,
+            '--indent-style' => $indentStyle,
+        ]);
+
+        $this->assertSame(0, $tester->getStatusCode());
+        $this->assertFileExists($composerFile);
+        $this->assertStringEqualsFile($composerFile, $formatted);
+    }
+
+    public function testExecuteFailsIfLockerIsNotLockedAndComposerFileWasNormalizedSuccessfullyWithIndent(): void
     {
         $faker = $this->faker();
 
