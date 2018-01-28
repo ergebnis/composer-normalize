@@ -16,6 +16,7 @@ namespace Localheinz\Composer\Normalize\Command;
 use Composer\Command;
 use Composer\Factory;
 use Localheinz\Json\Normalizer;
+use SebastianBergmann\Diff;
 use Symfony\Component\Console;
 
 final class NormalizeCommand extends Command\BaseCommand
@@ -43,22 +44,35 @@ final class NormalizeCommand extends Command\BaseCommand
      */
     private $formatter;
 
+    /**
+     * @var Diff\Differ
+     */
+    private $differ;
+
     public function __construct(
         Normalizer\NormalizerInterface $normalizer,
         Normalizer\Format\SnifferInterface $sniffer = null,
-        Normalizer\Format\FormatterInterface $formatter = null
+        Normalizer\Format\FormatterInterface $formatter = null,
+        Diff\Differ $differ = null
     ) {
         parent::__construct('normalize');
 
         $this->normalizer = $normalizer;
         $this->sniffer = $sniffer ?: new Normalizer\Format\Sniffer();
         $this->formatter = $formatter ?: new Normalizer\Format\Formatter();
+        $this->differ = $differ ?: new Diff\Differ();
     }
 
     protected function configure(): void
     {
         $this->setDescription('Normalizes composer.json according to its JSON schema (https://getcomposer.org/schema.json).');
         $this->setDefinition([
+            new Console\Input\InputOption(
+                'dry-run',
+                null,
+                Console\Input\InputOption::VALUE_NONE,
+                'Show the results of normalizing, but do not modify any files'
+            ),
             new Console\Input\InputOption(
                 'indent-size',
                 null,
@@ -86,6 +100,8 @@ final class NormalizeCommand extends Command\BaseCommand
     protected function execute(Console\Input\InputInterface $input, Console\Output\OutputInterface $output): int
     {
         $io = $this->getIO();
+
+        $dryRun = $input->getOption('dry-run');
 
         try {
             $indent = $this->indentFrom($input);
@@ -155,6 +171,30 @@ final class NormalizeCommand extends Command\BaseCommand
             ));
 
             return 0;
+        }
+
+        if ($dryRun) {
+            $io->writeError(\sprintf(
+                '<error>%s is not normalized.</error>',
+                $composerFile
+            ));
+
+            $io->write([
+                '',
+                '<fg=green>--- original </>',
+                '<fg=red>+++ normalized </>',
+                '',
+                '<fg=yellow>---------- begin diff ----------</>',
+            ]);
+
+            $io->write($this->diff(
+                $json,
+                $formatted
+            ));
+
+            $io->write('<fg=yellow>----------- end diff -----------</>');
+
+            return 1;
         }
 
         \file_put_contents($composerFile, $formatted);
@@ -254,6 +294,37 @@ final class NormalizeCommand extends Command\BaseCommand
         }
 
         return $composerFile;
+    }
+
+    /**
+     * @param string $before
+     * @param string $after
+     *
+     * @return string[]
+     */
+    private function diff(string $before, string $after): array
+    {
+        $diff = $this->differ->diffToArray(
+            $before,
+            $after
+        );
+
+        return \array_map(function (array $element) {
+            static $templates = [
+                0 => ' %s',
+                1 => '<fg=green>+%s</>',
+                2 => '<fg=red>-%s</>',
+            ];
+
+            [$token, $status] = $element;
+
+            $template = $templates[$status];
+
+            return \sprintf(
+                $template,
+                $token
+            );
+        }, $diff);
     }
 
     /**
