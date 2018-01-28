@@ -87,84 +87,29 @@ final class NormalizeCommand extends Command\BaseCommand
     {
         $io = $this->getIO();
 
-        $indent = null;
-
-        $indentSize = $input->getOption('indent-size');
-        $indentStyle = $input->getOption('indent-style');
-
-        if (null !== $indentSize || null !== $indentStyle) {
-            if (null === $indentSize) {
-                $io->writeError('<error>When using the indent-style option, an indent size needs to be specified using the indent-size option.</error>');
-
-                return 1;
-            }
-
-            if (null === $indentStyle) {
-                $io->writeError(\sprintf(
-                    '<error>When using the indent-size option, an indent style (one of "%s") needs to be specified using the indent-style option.</error>',
-                    \implode('", "', \array_keys(self::$indentStyles))
-                ));
-
-                return 1;
-            }
-
-            if ((string) (int) $indentSize !== (string) $indentSize || 1 > $indentSize) {
-                $io->writeError(\sprintf(
-                    '<error>Indent size needs to be an integer greater than 0, but "%s" is not.</error>',
-                    $indentSize
-                ));
-
-                return 1;
-            }
-
-            if (!\array_key_exists($indentStyle, self::$indentStyles)) {
-                $io->writeError(\sprintf(
-                    '<error>Indent style needs to be one of "%s", but "%s" is not.</error>',
-                    \implode('", "', \array_keys(self::$indentStyles)),
-                    $indentStyle
-                ));
-
-                return 1;
-            }
-
-            $indent = \str_repeat(
-                self::$indentStyles[$indentStyle],
-                (int) $indentSize
-            );
-        }
-
-        $file = Factory::getComposerFile();
-
-        if (!\file_exists($file)) {
+        try {
+            $indent = $this->indentFrom($input);
+        } catch (\RuntimeException $exception) {
             $io->writeError(\sprintf(
-                '<error>%s not found.</error>',
-                $file
+                '<error>%s</error>',
+                $exception->getMessage()
             ));
 
             return 1;
         }
 
-        if (!\is_readable($file)) {
+        try {
+            $composerFile = $this->composerFile();
+        } catch (\RuntimeException $exception) {
             $io->writeError(\sprintf(
-                '<error>%s is not readable.</error>',
-                $file
+                '<error>%s</error>',
+                $exception->getMessage()
             ));
 
             return 1;
         }
 
-        if (!\is_writable($file)) {
-            $io->writeError(\sprintf(
-                '<error>%s is not writable.</error>',
-                $file
-            ));
-
-            return 1;
-        }
-
-        $composer = $this->getComposer();
-
-        $locker = $composer->getLocker();
+        $locker = $this->getComposer()->getLocker();
 
         if ($locker->isLocked() && !$locker->isFresh()) {
             $io->writeError('<error>The lock file is not up to date with the latest changes in composer.json, it is recommended that you run `composer update`.</error>');
@@ -172,7 +117,7 @@ final class NormalizeCommand extends Command\BaseCommand
             return 1;
         }
 
-        $json = \file_get_contents($file);
+        $json = \file_get_contents($composerFile);
 
         try {
             $normalized = $this->normalizer->normalize($json);
@@ -206,17 +151,17 @@ final class NormalizeCommand extends Command\BaseCommand
         if ($json === $formatted) {
             $io->write(\sprintf(
                 '<info>%s is already normalized.</info>',
-                $file
+                $composerFile
             ));
 
             return 0;
         }
 
-        \file_put_contents($file, $formatted);
+        \file_put_contents($composerFile, $formatted);
 
         $io->write(\sprintf(
             '<info>Successfully normalized %s.</info>',
-            $file
+            $composerFile
         ));
 
         $noUpdateLock = $input->getOption('no-update-lock');
@@ -228,6 +173,87 @@ final class NormalizeCommand extends Command\BaseCommand
         }
 
         return 0;
+    }
+
+    /**
+     * @param Console\Input\InputInterface $input
+     *
+     * @throws \RuntimeException
+     *
+     * @return null|string
+     */
+    private function indentFrom(Console\Input\InputInterface $input): ?string
+    {
+        $indentSize = $input->getOption('indent-size');
+        $indentStyle = $input->getOption('indent-style');
+
+        if (null === $indentSize && null === $indentStyle) {
+            return null;
+        }
+
+        if (null === $indentSize) {
+            throw new \RuntimeException('When using the indent-style option, an indent size needs to be specified using the indent-size option.');
+        }
+
+        if (null === $indentStyle) {
+            throw new \RuntimeException(\sprintf(
+                'When using the indent-size option, an indent style (one of "%s") needs to be specified using the indent-style option.',
+                \implode('", "', \array_keys(self::$indentStyles))
+            ));
+        }
+
+        if ((string) (int) $indentSize !== (string) $indentSize || 1 > $indentSize) {
+            throw new \RuntimeException(\sprintf(
+                'Indent size needs to be an integer greater than 0, but "%s" is not.',
+                $indentSize
+            ));
+        }
+
+        if (!\array_key_exists($indentStyle, self::$indentStyles)) {
+            throw new \RuntimeException(\sprintf(
+                'Indent style needs to be one of "%s", but "%s" is not.',
+                \implode('", "', \array_keys(self::$indentStyles)),
+                $indentStyle
+            ));
+        }
+
+        return \str_repeat(
+            self::$indentStyles[$indentStyle],
+            (int) $indentSize
+        );
+    }
+
+    /**
+     * @throws \RuntimeException
+     *
+     * @return string
+     */
+    private function composerFile(): string
+    {
+        $composerFile = Factory::getComposerFile();
+
+        if (!\file_exists($composerFile)) {
+            throw new \RuntimeException(\sprintf(
+                '%s not found.',
+                $composerFile
+            ));
+        }
+
+        if (!\is_readable($composerFile)) {
+            throw new \RuntimeException(\sprintf(
+                '%s is not readable.',
+                $composerFile
+            ));
+        }
+
+        if (!\is_writable($composerFile)) {
+            throw new \RuntimeException(\sprintf(
+                '%s is not writable.',
+                $composerFile
+            ));
+        }
+
+        return $composerFile;
     }
 
     /**
