@@ -19,7 +19,8 @@
   "require": {
     "php": "^7.1",
     "composer-plugin-api": "^1.1.0",
-    "localheinz/json-normalizer": "0.4.0"
+    "localheinz/json-normalizer": "0.4.0",
+    "sebastian/diff": "^2.0.1"
   },
   "require-dev": {
     "composer/composer": "^1.1.0",
