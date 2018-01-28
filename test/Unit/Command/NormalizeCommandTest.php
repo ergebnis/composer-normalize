@@ -122,7 +122,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         $this->assertSame('Do not update lock file if it exists', $option->getDescription());
     }
 
-    public function testExecuteFailsIfIndentSizeOptionIsUsedWithoutIndentStyleOption(): void
+    public function testExecuteWithIndentFailsIfIndentStyleOptionIsNotUsed(): void
     {
         $original = $this->composerFileContent();
 
@@ -152,7 +152,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         $this->assertStringEqualsFile($composerFile, $original);
     }
 
-    public function testExecuteFailsIfIndentStyleOptionIsUsedWithoutIndentSizeOption(): void
+    public function testExecuteWithIndentFailsIfIndentSizeOptionIsNotUsed(): void
     {
         $original = $this->composerFileContent();
 
@@ -187,7 +187,7 @@ final class NormalizeCommandTest extends Framework\TestCase
      *
      * @param $indentSize
      */
-    public function testExecuteFailsIfInvalidIndentSizeIsUsed($indentSize): void
+    public function testExecuteWithIndentFailsIfIndentSizeIsInvalid($indentSize): void
     {
         $indentStyle = $this->faker()->randomElement(\array_keys($this->indentStyles()));
 
@@ -237,7 +237,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         }
     }
 
-    public function testExecuteFailsIfInvalidIndentStyleOptionIsUsed(): void
+    public function testExecuteWithIndentFailsIfIndentStyleIsInvalid(): void
     {
         $indentSize = $this->faker()->numberBetween(1);
         $indentStyle = $this->faker()->sentence;
@@ -787,7 +787,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         $this->assertStringEqualsFile($composerFile, $formatted);
     }
 
-    public function testExecuteSucceedsIfLockerIsNotLockedAndComposerFileWasNormalizedSuccessfullyWithIndent(): void
+    public function testExecuteWithIndentSucceedsIfLockerIsNotLockedAndComposerFileWasNormalizedSuccessfully(): void
     {
         $faker = $this->faker();
 
