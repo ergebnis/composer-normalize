@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "53462eb33f221b2eae8c031e7d6d3fad",
+    "content-hash": "50adbe1c10e4766cd6c8fe59829a2163",
     "packages": [
         {
             "name": "justinrainbow/json-schema",
