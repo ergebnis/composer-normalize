@@ -28,7 +28,7 @@
     "localheinz/php-cs-fixer-config": "~1.11.0",
     "localheinz/test-util": "0.6.1",
     "mikey179/vfsStream": "^1.6.5",
-    "phpunit/phpunit": "^7.0.0"
+    "phpunit/phpunit": "^7.0.1"
   },
   "config": {
     "preferred-install": "dist",
