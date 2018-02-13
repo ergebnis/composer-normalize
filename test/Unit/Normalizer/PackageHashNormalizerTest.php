@@ -99,7 +99,16 @@ JSON;
 
     public function providerProperty(): \Generator
     {
-        $values = [
+        foreach ($this->propertiesWhereKeysOfHashArePackages() as $value) {
+            yield $value => [
+                $value,
+            ];
+        }
+    }
+
+    private function propertiesWhereKeysOfHashArePackages(): array
+    {
+        return [
             'conflict',
             'provide',
             'replace',
@@ -107,11 +116,5 @@ JSON;
             'require-dev',
             'suggest',
         ];
-
-        foreach ($values as $value) {
-            yield $value => [
-                $value,
-            ];
-        }
     }
 }
