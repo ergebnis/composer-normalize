@@ -102,7 +102,7 @@ JSON;
         $values = [
             'conflict',
             'provide',
-            'replaces',
+            'replace',
             'require',
             'require-dev',
             'suggest',

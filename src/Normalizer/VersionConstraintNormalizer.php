@@ -23,7 +23,7 @@ final class VersionConstraintNormalizer implements NormalizerInterface
     private static $properties = [
         'conflict',
         'provide',
-        'replaces',
+        'replace',
         'require',
         'require-dev',
     ];

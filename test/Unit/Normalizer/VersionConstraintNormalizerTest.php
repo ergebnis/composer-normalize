@@ -187,7 +187,7 @@ JSON;
         return [
             'conflict',
             'provide',
-            'replaces',
+            'replace',
             'require',
             'require-dev',
         ];
