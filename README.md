@@ -75,7 +75,7 @@ If `composer.json` contains any configuration in the
 
 * `conflict`
 * `provide`
-* `replaces`
+* `replace`
 * `require`
 * `require-dev`
 * `suggest`
@@ -93,7 +93,7 @@ If `composer.json` contains version constraints in the
 
 * `conflict`
 * `provide`
-* `replaces`
+* `replace`
 * `require`
 * `require-dev`
 
