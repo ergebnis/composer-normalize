@@ -66,7 +66,7 @@ JSON;
 
     public function providerProperty(): \Generator
     {
-        $properties = $this->properties();
+        $properties = $this->propertiesWhereValuesOfHashAreVersionConstraints();
 
         foreach ($properties as $property) {
             yield [
@@ -107,7 +107,7 @@ JSON;
 
     public function providerPropertyAndVersionConstraint(): \Generator
     {
-        $properties = $this->properties();
+        $properties = $this->propertiesWhereValuesOfHashAreVersionConstraints();
         $versionConstraints = $this->versionConstraints();
 
         foreach ($properties as $property) {
@@ -158,7 +158,7 @@ JSON;
             ' ',
         ];
 
-        $properties = $this->properties();
+        $properties = $this->propertiesWhereValuesOfHashAreVersionConstraints();
         $versionConstraints = \array_unique(\array_values($this->versionConstraints()));
 
         foreach ($properties as $property) {
@@ -182,7 +182,7 @@ JSON;
         }
     }
 
-    private function properties(): array
+    private function propertiesWhereValuesOfHashAreVersionConstraints(): array
     {
         return [
             'conflict',
