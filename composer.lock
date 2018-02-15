@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a75844028aba32ca7503acc0e9c01512",
+    "content-hash": "615fc66530e3f8690bfb41d167c619cb",
     "packages": [
         {
             "name": "justinrainbow/json-schema",
@@ -74,16 +74,16 @@
         },
         {
             "name": "localheinz/json-normalizer",
-            "version": "0.4.0",
+            "version": "0.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localheinz/json-normalizer.git",
-                "reference": "c48a4b07cf4a89b89fdf0b8377434507515d6cd2"
+                "reference": "0bcf04557255c318325fc959a8f36bd51356b6f0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localheinz/json-normalizer/zipball/c48a4b07cf4a89b89fdf0b8377434507515d6cd2",
-                "reference": "c48a4b07cf4a89b89fdf0b8377434507515d6cd2",
+                "url": "https://api.github.com/repos/localheinz/json-normalizer/zipball/0bcf04557255c318325fc959a8f36bd51356b6f0",
+                "reference": "0bcf04557255c318325fc959a8f36bd51356b6f0",
                 "shasum": ""
             },
             "require": {
@@ -92,12 +92,12 @@
                 "php": "^7.1"
             },
             "require-dev": {
-                "infection/infection": "~0.7.0",
+                "infection/infection": "~0.7.1",
                 "localheinz/php-cs-fixer-config": "~1.11.0",
                 "localheinz/test-util": "0.6.1",
                 "phpbench/phpbench": "~0.14.0",
                 "phpspec/prophecy": "^1.7.1",
-                "phpunit/phpunit": "^6.5.5"
+                "phpunit/phpunit": "^7.0.0"
             },
             "type": "library",
             "autoload": {
@@ -121,7 +121,7 @@
                 "json",
                 "normalizer"
             ],
-            "time": "2018-01-27T22:18:34+00:00"
+            "time": "2018-02-15T14:13:23+00:00"
         },
         {
             "name": "localheinz/json-printer",
