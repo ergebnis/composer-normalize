@@ -74,6 +74,12 @@ final class ComposerJsonNormalizerTest extends AbstractNormalizerTestCase
     "sort-packages": true,
     "preferred-install": "dist"
   },
+  "repositories": [
+    {
+      "url": "git@github.com:localheinz/test-util",
+      "type": "vcs"
+    }
+  ],
   "require": {
     "localheinz/json-printer": "^1.0.0",
     "php": "^7.0"
@@ -152,6 +158,12 @@ JSON;
       "Helmut\\Foo\\Bar\\Test\\": "test/"
     }
   },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "git@github.com:localheinz/test-util"
+    }
+  ],
   "bin": [
     "hasenbein.php",
     "scripts/null-null.php"
