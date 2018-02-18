@@ -17,6 +17,14 @@ use Localheinz\Json\Normalizer\NormalizerInterface;
 
 final class ConfigHashNormalizer implements NormalizerInterface
 {
+    /**
+     * @var string[]
+     */
+    private static $properties = [
+        'config',
+        'extra',
+    ];
+
     public function normalize(string $json): string
     {
         $decoded = \json_decode($json);
@@ -28,19 +36,26 @@ final class ConfigHashNormalizer implements NormalizerInterface
             ));
         }
 
-        if (!\property_exists($decoded, 'config')) {
+        $objectProperties = \array_intersect_key(
+            \get_object_vars($decoded),
+            \array_flip(self::$properties)
+        );
+
+        if (!\count($objectProperties)) {
             return $json;
         }
 
-        $config = (array) $decoded->config;
+        foreach ($objectProperties as $name => $value) {
+            $config = (array) $decoded->{$name};
 
-        if (!\count($config)) {
-            return $json;
+            if (!\count($config)) {
+                return $json;
+            }
+
+            \ksort($config);
+
+            $decoded->{$name} = $config;
         }
-
-        \ksort($config);
-
-        $decoded->config = $config;
 
         return \json_encode($decoded);
     }
