@@ -1052,7 +1052,10 @@ final class NormalizeCommandTest extends Framework\TestCase
             ->shouldBeCalled();
 
         $io
-            ->write(Argument::type('array'))
+            ->write(
+                Argument::type('array'),
+                Argument::is(false)
+            )
             ->shouldBeCalled();
 
         $io

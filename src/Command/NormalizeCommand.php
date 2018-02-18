@@ -217,10 +217,13 @@ final class NormalizeCommand extends Command\BaseCommand
                 '<fg=yellow>---------- begin diff ----------</>',
             ]);
 
-            $io->write($this->diff(
-                $json,
-                $formatted
-            ));
+            $io->write(
+                $this->diff(
+                    $json,
+                    $formatted
+                ),
+                false
+            );
 
             $io->write('<fg=yellow>----------- end diff -----------</>');
 
