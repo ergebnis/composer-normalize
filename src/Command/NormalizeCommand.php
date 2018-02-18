@@ -121,9 +121,14 @@ final class NormalizeCommand extends Command\BaseCommand
             return 1;
         }
 
+        $composerFile = Factory::getComposerFile();
+
         try {
-            $composerFile = $this->composerFile();
-        } catch (\RuntimeException $exception) {
+            $composer = $this->factory->createComposer(
+                $io,
+                $composerFile
+            );
+        } catch (\Exception $exception) {
             $io->writeError(\sprintf(
                 '<error>%s</error>',
                 $exception->getMessage()
@@ -132,10 +137,14 @@ final class NormalizeCommand extends Command\BaseCommand
             return 1;
         }
 
-        $composer = $this->factory->createComposer(
-            $io,
-            $composerFile
-        );
+        if (!\is_writable($composerFile)) {
+            $io->writeError(\sprintf(
+                '<error>%s is not writable.</error>',
+                $composerFile
+            ));
+
+            return 1;
+        }
 
         $locker = $composer->getLocker();
 
@@ -273,39 +282,6 @@ final class NormalizeCommand extends Command\BaseCommand
             self::$indentStyles[$indentStyle],
             (int) $indentSize
         );
-    }
-
-    /**
-     * @throws \RuntimeException
-     *
-     * @return string
-     */
-    private function composerFile(): string
-    {
-        $composerFile = Factory::getComposerFile();
-
-        if (!\file_exists($composerFile)) {
-            throw new \RuntimeException(\sprintf(
-                '%s not found.',
-                $composerFile
-            ));
-        }
-
-        if (!\is_readable($composerFile)) {
-            throw new \RuntimeException(\sprintf(
-                '%s is not readable.',
-                $composerFile
-            ));
-        }
-
-        if (!\is_writable($composerFile)) {
-            throw new \RuntimeException(\sprintf(
-                '%s is not writable.',
-                $composerFile
-            ));
-        }
-
-        return $composerFile;
     }
 
     /**
