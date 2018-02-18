@@ -318,21 +318,33 @@ final class NormalizeCommandTest extends Framework\TestCase
         $this->assertStringEqualsFile($composerFile, $original);
     }
 
-    public function testExecuteFailsIfComposerFileDoesNotExist(): void
+    public function testExecuteFailsIfCreatingComposerFails(): void
     {
+        $exceptionMessage = $this->faker()->sentence;
+
         $composerFile = $this->pathToNonExistentComposerFile();
 
         $io = $this->prophesize(IO\ConsoleIO::class);
 
         $io
             ->writeError(Argument::is(\sprintf(
-                '<error>%s not found.</error>',
-                $composerFile
+                '<error>%s</error>',
+                $exceptionMessage
             )))
             ->shouldBeCalled();
 
+        $factory = $this->prophesize(Factory::class);
+
+        $factory
+            ->createComposer(
+                Argument::is($io->reveal()),
+                Argument::is($composerFile)
+            )
+            ->shouldBeCalled()
+            ->willThrow(new \Exception($exceptionMessage));
+
         $command = new NormalizeCommand(
-            $this->prophesize(Factory::class)->reveal(),
+            $factory->reveal(),
             $this->prophesize(Normalizer\NormalizerInterface::class)->reveal()
         );
 
@@ -343,41 +355,6 @@ final class NormalizeCommandTest extends Framework\TestCase
         $tester->execute([]);
 
         $this->assertSame(1, $tester->getStatusCode());
-    }
-
-    public function testExecuteFailsIfComposerFileIsNotReadable(): void
-    {
-        $original = $this->composerFileContent();
-
-        $composerFile = $this->pathToComposerFileWithContent($original);
-
-        \chmod($composerFile, 0222);
-
-        $io = $this->prophesize(IO\ConsoleIO::class);
-
-        $io
-            ->writeError(Argument::is(\sprintf(
-                '<error>%s is not readable.</error>',
-                $composerFile
-            )))
-            ->shouldBeCalled();
-
-        $command = new NormalizeCommand(
-            $this->prophesize(Factory::class)->reveal(),
-            $this->prophesize(Normalizer\NormalizerInterface::class)->reveal()
-        );
-
-        $command->setIO($io->reveal());
-
-        $tester = new Console\Tester\CommandTester($command);
-
-        $tester->execute([]);
-
-        \chmod($composerFile, 0666);
-
-        $this->assertSame(1, $tester->getStatusCode());
-        $this->assertFileExists($composerFile);
-        $this->assertStringEqualsFile($composerFile, $original);
     }
 
     public function testExecuteFailsIfComposerFileIsNotWritable(): void
@@ -397,8 +374,20 @@ final class NormalizeCommandTest extends Framework\TestCase
             )))
             ->shouldBeCalled();
 
+        $composer = $this->prophesize(Composer::class);
+
+        $factory = $this->prophesize(Factory::class);
+
+        $factory
+            ->createComposer(
+                Argument::is($io->reveal()),
+                Argument::is($composerFile)
+            )
+            ->shouldBeCalled()
+            ->willReturn($composer->reveal());
+
         $command = new NormalizeCommand(
-            $this->prophesize(Factory::class)->reveal(),
+            $factory->reveal(),
             $this->prophesize(Normalizer\NormalizerInterface::class)->reveal()
         );
 
