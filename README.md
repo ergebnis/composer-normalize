@@ -34,6 +34,10 @@ The `NormalizeCommand` provided by the `NormalizePlugin` within this package wil
 * write the normalized and formatted content of `composer.json` back to the file
 * update the hash in `composer.lock` if it exists and if an update is necessary
 
+### Arguments
+
+* `file`: Path to composer.json file (optional, defaults to `composer.json` in working directory)
+
 ### Options
 
 * `--dry-run`: Show the results of normalizing, but do not modify any files

@@ -62,7 +62,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         $this->assertSame('Normalizes composer.json according to its JSON schema (https://getcomposer.org/schema.json).', $command->getDescription());
     }
 
-    public function testHasNoArguments(): void
+    public function testHasFileArgument(): void
     {
         $command = new NormalizeCommand(
             $this->prophesize(Factory::class)->reveal(),
@@ -71,7 +71,13 @@ final class NormalizeCommandTest extends Framework\TestCase
 
         $definition = $command->getDefinition();
 
-        $this->assertCount(0, $definition->getArguments());
+        $this->assertTrue($definition->hasArgument('file'));
+
+        $argument = $definition->getArgument('file');
+
+        $this->assertFalse($argument->isRequired());
+        $this->assertSame('Path to composer.json file', $argument->getDescription());
+        $this->assertNull($argument->getDefault());
     }
 
     public function testHasDryRunOption(): void
@@ -181,6 +187,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         $tester = new Console\Tester\CommandTester($command);
 
         $tester->execute([
+            'file' => $composerFile,
             '--indent-size' => $this->faker()->numberBetween(1),
         ]);
 
@@ -211,6 +218,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         $tester = new Console\Tester\CommandTester($command);
 
         $tester->execute([
+            'file' => $composerFile,
             '--indent-style' => $this->faker()->randomElement([
                 'space',
                 'tab',
@@ -254,6 +262,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         $tester = new Console\Tester\CommandTester($command);
 
         $tester->execute([
+            'file' => $composerFile,
             '--indent-size' => $indentSize,
             '--indent-style' => $indentStyle,
         ]);
@@ -309,6 +318,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         $tester = new Console\Tester\CommandTester($command);
 
         $tester->execute([
+            'file' => $composerFile,
             '--indent-size' => $indentSize,
             '--indent-style' => $indentStyle,
         ]);
@@ -352,7 +362,9 @@ final class NormalizeCommandTest extends Framework\TestCase
 
         $tester = new Console\Tester\CommandTester($command);
 
-        $tester->execute([]);
+        $tester->execute([
+            'file' => $composerFile,
+        ]);
 
         $this->assertSame(1, $tester->getStatusCode());
     }
@@ -395,7 +407,9 @@ final class NormalizeCommandTest extends Framework\TestCase
 
         $tester = new Console\Tester\CommandTester($command);
 
-        $tester->execute([]);
+        $tester->execute([
+            'file' => $composerFile,
+        ]);
 
         \chmod($composerFile, 0666);
 
@@ -454,7 +468,9 @@ final class NormalizeCommandTest extends Framework\TestCase
 
         $tester = new Console\Tester\CommandTester($command);
 
-        $tester->execute([]);
+        $tester->execute([
+            'file' => $composerFile,
+        ]);
 
         $this->assertSame(1, $tester->getStatusCode());
         $this->assertFileExists($composerFile);
@@ -553,7 +569,9 @@ final class NormalizeCommandTest extends Framework\TestCase
 
         $tester = new Console\Tester\CommandTester($command);
 
-        $tester->execute([]);
+        $tester->execute([
+            'file' => $composerFile,
+        ]);
 
         $this->assertSame($exitCode, $tester->getStatusCode());
         $this->assertFileExists($composerFile);
@@ -622,7 +640,9 @@ final class NormalizeCommandTest extends Framework\TestCase
 
         $tester = new Console\Tester\CommandTester($command);
 
-        $tester->execute([]);
+        $tester->execute([
+            'file' => $composerFile,
+        ]);
 
         $this->assertSame(1, $tester->getStatusCode());
         $this->assertFileExists($composerFile);
@@ -707,7 +727,9 @@ final class NormalizeCommandTest extends Framework\TestCase
 
         $tester = new Console\Tester\CommandTester($command);
 
-        $tester->execute([]);
+        $tester->execute([
+            'file' => $composerFile,
+        ]);
 
         $this->assertSame(0, $tester->getStatusCode());
         $this->assertFileExists($composerFile);
@@ -797,7 +819,9 @@ final class NormalizeCommandTest extends Framework\TestCase
 
         $tester = new Console\Tester\CommandTester($command);
 
-        $tester->execute([]);
+        $tester->execute([
+            'file' => $composerFile,
+        ]);
 
         $this->assertSame(0, $tester->getStatusCode());
         $this->assertFileExists($composerFile);
@@ -888,6 +912,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         $tester = new Console\Tester\CommandTester($command);
 
         $tester->execute([
+            'file' => $composerFile,
             '--dry-run' => null,
         ]);
 
@@ -982,7 +1007,9 @@ final class NormalizeCommandTest extends Framework\TestCase
 
         $tester = new Console\Tester\CommandTester($command);
 
-        $tester->execute([]);
+        $tester->execute([
+            'file' => $composerFile,
+        ]);
 
         $this->assertSame(0, $tester->getStatusCode());
         $this->assertFileExists($composerFile);
@@ -1094,6 +1121,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         $tester = new Console\Tester\CommandTester($command);
 
         $tester->execute([
+            'file' => $composerFile,
             '--dry-run' => null,
         ]);
 
@@ -1206,6 +1234,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         $tester = new Console\Tester\CommandTester($command);
 
         $tester->execute([
+            'file' => $composerFile,
             '--indent-size' => $indentSize,
             '--indent-style' => $indentStyle,
         ]);
@@ -1319,6 +1348,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         $tester = new Console\Tester\CommandTester($command);
 
         $tester->execute([
+            'file' => $composerFile,
             '--indent-size' => $indentSize,
             '--indent-style' => $indentStyle,
         ]);
@@ -1343,6 +1373,138 @@ final class NormalizeCommandTest extends Framework\TestCase
         );
 
         $composerFile = $this->pathToComposerFileWithContent($original);
+
+        $io = $this->prophesize(IO\ConsoleIO::class);
+
+        $io
+            ->write(Argument::is(\sprintf(
+                '<info>Successfully normalized %s.</info>',
+                $composerFile
+            )))
+            ->shouldBeCalled();
+
+        $io
+            ->write(Argument::is('<info>Updating lock file.</info>'))
+            ->shouldBeCalled();
+
+        $locker = $this->prophesize(Package\Locker::class);
+
+        $locker
+            ->isLocked()
+            ->shouldBeCalled()
+            ->willReturn(true);
+
+        $locker
+            ->isFresh()
+            ->shouldBeCalled()
+            ->willReturn(true);
+
+        $composer = $this->prophesize(Composer::class);
+
+        $composer
+            ->getLocker()
+            ->shouldBeCalled()
+            ->willReturn($locker);
+
+        $factory = $this->prophesize(Factory::class);
+
+        $factory
+            ->createComposer(
+                Argument::is($io->reveal()),
+                Argument::is($composerFile)
+            )
+            ->shouldBeCalled()
+            ->willReturn($composer->reveal());
+
+        $application = $this->prophesize(Application::class);
+
+        $application
+            ->getHelperSet()
+            ->shouldBeCalled()
+            ->willReturn(new Console\Helper\HelperSet());
+
+        $application
+            ->getDefinition()
+            ->shouldBeCalled()
+            ->willReturn($this->createDefinitionMock());
+
+        $application
+            ->run(
+                Argument::allOf(
+                    Argument::type(Console\Input\StringInput::class),
+                    Argument::that(function (Console\Input\StringInput $input) {
+                        return 'update --lock --no-autoloader --no-plugins --no-scripts --no-suggest' === (string) $input;
+                    })
+                ),
+                Argument::type(Console\Output\OutputInterface::class)
+            )
+            ->shouldBeCalled()
+            ->willReturn(0);
+
+        $normalizer = $this->prophesize(Normalizer\NormalizerInterface::class);
+
+        $normalizer
+            ->normalize(Argument::is($original))
+            ->shouldBeCalled()
+            ->willReturn($normalized);
+
+        $format = $this->prophesize(Normalizer\Format\FormatInterface::class);
+
+        $sniffer = $this->prophesize(Normalizer\Format\SnifferInterface::class);
+
+        $sniffer
+            ->sniff(Argument::is($original))
+            ->shouldBeCalled()
+            ->willReturn($format);
+
+        $formatter = $this->prophesize(Normalizer\Format\FormatterInterface::class);
+
+        $formatter
+            ->format(
+                Argument::is($normalized),
+                Argument::is($format->reveal())
+            )
+            ->shouldBeCalled()
+            ->willReturn($formatted);
+
+        $command = new NormalizeCommand(
+            $factory->reveal(),
+            $normalizer->reveal(),
+            $sniffer->reveal(),
+            $formatter->reveal()
+        );
+
+        $command->setIO($io->reveal());
+        $command->setApplication($application->reveal());
+
+        $tester = new Console\Tester\CommandTester($command);
+
+        $tester->execute([
+            'file' => $composerFile,
+        ]);
+
+        $this->assertSame(0, $tester->getStatusCode());
+        $this->assertFileExists($composerFile);
+        $this->assertStringEqualsFile($composerFile, $formatted);
+    }
+
+    public function testExecuteDefaultsToUsingComposerFileFromCurrentDirectory(): void
+    {
+        $original = $this->composerFileContent();
+
+        $normalized = \json_encode(\array_reverse(\json_decode(
+            $original,
+            true
+        )));
+
+        $formatted = \json_encode(
+            \json_decode($normalized),
+            JSON_PRETTY_PRINT
+        );
+
+        $composerFile = $this->pathToComposerFileWithContent($original);
+
+        $this->useComposerFile($composerFile);
 
         $io = $this->prophesize(IO\ConsoleIO::class);
 
@@ -1565,6 +1727,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         $tester = new Console\Tester\CommandTester($command);
 
         $tester->execute([
+            'file' => $composerFile,
             '--no-update-lock' => null,
         ]);
 
@@ -1597,8 +1760,6 @@ final class NormalizeCommandTest extends Framework\TestCase
 
         \file_put_contents($composerFile, $content);
 
-        $this->useComposerFile($composerFile);
-
         return $composerFile;
     }
 
@@ -1609,11 +1770,7 @@ final class NormalizeCommandTest extends Framework\TestCase
      */
     private function pathToNonExistentComposerFile(): string
     {
-        $composerFile = $this->pathToComposerFile();
-
-        $this->useComposerFile($composerFile);
-
-        return $composerFile;
+        return $this->pathToComposerFile();
     }
 
     /**

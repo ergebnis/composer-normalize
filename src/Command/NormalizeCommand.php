@@ -74,6 +74,11 @@ final class NormalizeCommand extends Command\BaseCommand
     {
         $this->setDescription('Normalizes composer.json according to its JSON schema (https://getcomposer.org/schema.json).');
         $this->setDefinition([
+            new Console\Input\InputArgument(
+                'file',
+                Console\Input\InputArgument::OPTIONAL,
+                'Path to composer.json file'
+            ),
             new Console\Input\InputOption(
                 'dry-run',
                 null,
@@ -121,7 +126,11 @@ final class NormalizeCommand extends Command\BaseCommand
             return 1;
         }
 
-        $composerFile = Factory::getComposerFile();
+        $composerFile = $input->getArgument('file');
+
+        if (null === $composerFile) {
+            $composerFile = Factory::getComposerFile();
+        }
 
         try {
             $composer = $this->factory->createComposer(
