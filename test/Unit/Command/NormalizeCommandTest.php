@@ -53,7 +53,10 @@ final class NormalizeCommandTest extends Framework\TestCase
 
     public function testHasNameAndDescription(): void
     {
-        $command = new NormalizeCommand($this->prophesize(Normalizer\NormalizerInterface::class)->reveal());
+        $command = new NormalizeCommand(
+            $this->prophesize(Factory::class)->reveal(),
+            $this->prophesize(Normalizer\NormalizerInterface::class)->reveal()
+        );
 
         $this->assertSame('normalize', $command->getName());
         $this->assertSame('Normalizes composer.json according to its JSON schema (https://getcomposer.org/schema.json).', $command->getDescription());
@@ -61,7 +64,10 @@ final class NormalizeCommandTest extends Framework\TestCase
 
     public function testHasNoArguments(): void
     {
-        $command = new NormalizeCommand($this->prophesize(Normalizer\NormalizerInterface::class)->reveal());
+        $command = new NormalizeCommand(
+            $this->prophesize(Factory::class)->reveal(),
+            $this->prophesize(Normalizer\NormalizerInterface::class)->reveal()
+        );
 
         $definition = $command->getDefinition();
 
@@ -70,7 +76,10 @@ final class NormalizeCommandTest extends Framework\TestCase
 
     public function testHasDryRunOption(): void
     {
-        $command = new NormalizeCommand($this->prophesize(Normalizer\NormalizerInterface::class)->reveal());
+        $command = new NormalizeCommand(
+            $this->prophesize(Factory::class)->reveal(),
+            $this->prophesize(Normalizer\NormalizerInterface::class)->reveal()
+        );
 
         $definition = $command->getDefinition();
 
@@ -86,7 +95,10 @@ final class NormalizeCommandTest extends Framework\TestCase
 
     public function testHasIndentSizeOption(): void
     {
-        $command = new NormalizeCommand($this->prophesize(Normalizer\NormalizerInterface::class)->reveal());
+        $command = new NormalizeCommand(
+            $this->prophesize(Factory::class)->reveal(),
+            $this->prophesize(Normalizer\NormalizerInterface::class)->reveal()
+        );
 
         $definition = $command->getDefinition();
 
@@ -102,7 +114,10 @@ final class NormalizeCommandTest extends Framework\TestCase
 
     public function testHasIndentStyleOption(): void
     {
-        $command = new NormalizeCommand($this->prophesize(Normalizer\NormalizerInterface::class)->reveal());
+        $command = new NormalizeCommand(
+            $this->prophesize(Factory::class)->reveal(),
+            $this->prophesize(Normalizer\NormalizerInterface::class)->reveal()
+        );
 
         $definition = $command->getDefinition();
 
@@ -124,7 +139,10 @@ final class NormalizeCommandTest extends Framework\TestCase
 
     public function testHasNoUpdateLockOption(): void
     {
-        $command = new NormalizeCommand($this->prophesize(Normalizer\NormalizerInterface::class)->reveal());
+        $command = new NormalizeCommand(
+            $this->prophesize(Factory::class)->reveal(),
+            $this->prophesize(Normalizer\NormalizerInterface::class)->reveal()
+        );
 
         $definition = $command->getDefinition();
 
@@ -153,7 +171,10 @@ final class NormalizeCommandTest extends Framework\TestCase
             )))
             ->shouldBeCalled();
 
-        $command = new NormalizeCommand($this->prophesize(Normalizer\NormalizerInterface::class)->reveal());
+        $command = new NormalizeCommand(
+            $this->prophesize(Factory::class)->reveal(),
+            $this->prophesize(Normalizer\NormalizerInterface::class)->reveal()
+        );
 
         $command->setIO($io->reveal());
 
@@ -180,7 +201,10 @@ final class NormalizeCommandTest extends Framework\TestCase
             ->writeError(Argument::is('<error>When using the indent-style option, an indent size needs to be specified using the indent-size option.</error>'))
             ->shouldBeCalled();
 
-        $command = new NormalizeCommand($this->prophesize(Normalizer\NormalizerInterface::class)->reveal());
+        $command = new NormalizeCommand(
+            $this->prophesize(Factory::class)->reveal(),
+            $this->prophesize(Normalizer\NormalizerInterface::class)->reveal()
+        );
 
         $command->setIO($io->reveal());
 
@@ -220,7 +244,10 @@ final class NormalizeCommandTest extends Framework\TestCase
             )))
             ->shouldBeCalled();
 
-        $command = new NormalizeCommand($this->prophesize(Normalizer\NormalizerInterface::class)->reveal());
+        $command = new NormalizeCommand(
+            $this->prophesize(Factory::class)->reveal(),
+            $this->prophesize(Normalizer\NormalizerInterface::class)->reveal()
+        );
 
         $command->setIO($io->reveal());
 
@@ -272,7 +299,10 @@ final class NormalizeCommandTest extends Framework\TestCase
             )))
             ->shouldBeCalled();
 
-        $command = new NormalizeCommand($this->prophesize(Normalizer\NormalizerInterface::class)->reveal());
+        $command = new NormalizeCommand(
+            $this->prophesize(Factory::class)->reveal(),
+            $this->prophesize(Normalizer\NormalizerInterface::class)->reveal()
+        );
 
         $command->setIO($io->reveal());
 
@@ -301,7 +331,10 @@ final class NormalizeCommandTest extends Framework\TestCase
             )))
             ->shouldBeCalled();
 
-        $command = new NormalizeCommand($this->prophesize(Normalizer\NormalizerInterface::class)->reveal());
+        $command = new NormalizeCommand(
+            $this->prophesize(Factory::class)->reveal(),
+            $this->prophesize(Normalizer\NormalizerInterface::class)->reveal()
+        );
 
         $command->setIO($io->reveal());
 
@@ -329,7 +362,10 @@ final class NormalizeCommandTest extends Framework\TestCase
             )))
             ->shouldBeCalled();
 
-        $command = new NormalizeCommand($this->prophesize(Normalizer\NormalizerInterface::class)->reveal());
+        $command = new NormalizeCommand(
+            $this->prophesize(Factory::class)->reveal(),
+            $this->prophesize(Normalizer\NormalizerInterface::class)->reveal()
+        );
 
         $command->setIO($io->reveal());
 
@@ -361,7 +397,10 @@ final class NormalizeCommandTest extends Framework\TestCase
             )))
             ->shouldBeCalled();
 
-        $command = new NormalizeCommand($this->prophesize(Normalizer\NormalizerInterface::class)->reveal());
+        $command = new NormalizeCommand(
+            $this->prophesize(Factory::class)->reveal(),
+            $this->prophesize(Normalizer\NormalizerInterface::class)->reveal()
+        );
 
         $command->setIO($io->reveal());
 
@@ -407,10 +446,22 @@ final class NormalizeCommandTest extends Framework\TestCase
             ->shouldBeCalled()
             ->willReturn($locker);
 
-        $command = new NormalizeCommand($this->prophesize(Normalizer\NormalizerInterface::class)->reveal());
+        $factory = $this->prophesize(Factory::class);
+
+        $factory
+            ->createComposer(
+                Argument::is($io->reveal()),
+                Argument::is($composerFile)
+            )
+            ->shouldBeCalled()
+            ->willReturn($composer->reveal());
+
+        $command = new NormalizeCommand(
+            $factory->reveal(),
+            $this->prophesize(Normalizer\NormalizerInterface::class)->reveal()
+        );
 
         $command->setIO($io->reveal());
-        $command->setComposer($composer->reveal());
 
         $tester = new Console\Tester\CommandTester($command);
 
@@ -461,6 +512,16 @@ final class NormalizeCommandTest extends Framework\TestCase
             ->shouldBeCalled()
             ->willReturn($locker);
 
+        $factory = $this->prophesize(Factory::class);
+
+        $factory
+            ->createComposer(
+                Argument::is($io->reveal()),
+                Argument::is($composerFile)
+            )
+            ->shouldBeCalled()
+            ->willReturn($composer->reveal());
+
         $application = $this->prophesize(Application::class);
 
         $application
@@ -493,10 +554,12 @@ final class NormalizeCommandTest extends Framework\TestCase
             ->shouldBeCalled()
             ->willThrow($exception);
 
-        $command = new NormalizeCommand($normalizer->reveal());
+        $command = new NormalizeCommand(
+            $factory->reveal(),
+            $normalizer->reveal()
+        );
 
         $command->setIO($io->reveal());
-        $command->setComposer($composer->reveal());
         $command->setApplication($application->reveal());
 
         $tester = new Console\Tester\CommandTester($command);
@@ -544,6 +607,16 @@ final class NormalizeCommandTest extends Framework\TestCase
             ->shouldBeCalled()
             ->willReturn($locker);
 
+        $factory = $this->prophesize(Factory::class);
+
+        $factory
+            ->createComposer(
+                Argument::is($io->reveal()),
+                Argument::is($composerFile)
+            )
+            ->shouldBeCalled()
+            ->willReturn($composer->reveal());
+
         $normalizer = $this->prophesize(Normalizer\NormalizerInterface::class);
 
         $normalizer
@@ -551,10 +624,12 @@ final class NormalizeCommandTest extends Framework\TestCase
             ->shouldBeCalled()
             ->willThrow($exception);
 
-        $command = new NormalizeCommand($normalizer->reveal());
+        $command = new NormalizeCommand(
+            $factory->reveal(),
+            $normalizer->reveal()
+        );
 
         $command->setIO($io->reveal());
-        $command->setComposer($composer->reveal());
 
         $tester = new Console\Tester\CommandTester($command);
 
@@ -596,6 +671,16 @@ final class NormalizeCommandTest extends Framework\TestCase
             ->shouldBeCalled()
             ->willReturn($locker);
 
+        $factory = $this->prophesize(Factory::class);
+
+        $factory
+            ->createComposer(
+                Argument::is($io->reveal()),
+                Argument::is($composerFile)
+            )
+            ->shouldBeCalled()
+            ->willReturn($composer->reveal());
+
         $normalizer = $this->prophesize(Normalizer\NormalizerInterface::class);
 
         $normalizer
@@ -623,13 +708,13 @@ final class NormalizeCommandTest extends Framework\TestCase
             ->willReturn($original);
 
         $command = new NormalizeCommand(
+            $factory->reveal(),
             $normalizer->reveal(),
             $sniffer->reveal(),
             $formatter->reveal()
         );
 
         $command->setIO($io->reveal());
-        $command->setComposer($composer->reveal());
 
         $tester = new Console\Tester\CommandTester($command);
 
@@ -676,6 +761,16 @@ final class NormalizeCommandTest extends Framework\TestCase
             ->shouldBeCalled()
             ->willReturn($locker);
 
+        $factory = $this->prophesize(Factory::class);
+
+        $factory
+            ->createComposer(
+                Argument::is($io->reveal()),
+                Argument::is($composerFile)
+            )
+            ->shouldBeCalled()
+            ->willReturn($composer->reveal());
+
         $normalizer = $this->prophesize(Normalizer\NormalizerInterface::class);
 
         $normalizer
@@ -703,13 +798,13 @@ final class NormalizeCommandTest extends Framework\TestCase
             ->willReturn($original);
 
         $command = new NormalizeCommand(
+            $factory->reveal(),
             $normalizer->reveal(),
             $sniffer->reveal(),
             $formatter->reveal()
         );
 
         $command->setIO($io->reveal());
-        $command->setComposer($composer->reveal());
 
         $tester = new Console\Tester\CommandTester($command);
 
@@ -756,6 +851,16 @@ final class NormalizeCommandTest extends Framework\TestCase
             ->shouldBeCalled()
             ->willReturn($locker);
 
+        $factory = $this->prophesize(Factory::class);
+
+        $factory
+            ->createComposer(
+                Argument::is($io->reveal()),
+                Argument::is($composerFile)
+            )
+            ->shouldBeCalled()
+            ->willReturn($composer->reveal());
+
         $normalizer = $this->prophesize(Normalizer\NormalizerInterface::class);
 
         $normalizer
@@ -783,13 +888,13 @@ final class NormalizeCommandTest extends Framework\TestCase
             ->willReturn($original);
 
         $command = new NormalizeCommand(
+            $factory->reveal(),
             $normalizer->reveal(),
             $sniffer->reveal(),
             $formatter->reveal()
         );
 
         $command->setIO($io->reveal());
-        $command->setComposer($composer->reveal());
 
         $tester = new Console\Tester\CommandTester($command);
 
@@ -841,6 +946,16 @@ final class NormalizeCommandTest extends Framework\TestCase
             ->shouldBeCalled()
             ->willReturn($locker);
 
+        $factory = $this->prophesize(Factory::class);
+
+        $factory
+            ->createComposer(
+                Argument::is($io->reveal()),
+                Argument::is($composerFile)
+            )
+            ->shouldBeCalled()
+            ->willReturn($composer->reveal());
+
         $normalizer = $this->prophesize(Normalizer\NormalizerInterface::class);
 
         $normalizer
@@ -868,13 +983,13 @@ final class NormalizeCommandTest extends Framework\TestCase
             ->willReturn($formatted);
 
         $command = new NormalizeCommand(
+            $factory->reveal(),
             $normalizer->reveal(),
             $sniffer->reveal(),
             $formatter->reveal()
         );
 
         $command->setIO($io->reveal());
-        $command->setComposer($composer->reveal());
 
         $tester = new Console\Tester\CommandTester($command);
 
@@ -942,6 +1057,16 @@ final class NormalizeCommandTest extends Framework\TestCase
             ->shouldBeCalled()
             ->willReturn($locker);
 
+        $factory = $this->prophesize(Factory::class);
+
+        $factory
+            ->createComposer(
+                Argument::is($io->reveal()),
+                Argument::is($composerFile)
+            )
+            ->shouldBeCalled()
+            ->willReturn($composer->reveal());
+
         $normalizer = $this->prophesize(Normalizer\NormalizerInterface::class);
 
         $normalizer
@@ -969,13 +1094,13 @@ final class NormalizeCommandTest extends Framework\TestCase
             ->willReturn($formatted);
 
         $command = new NormalizeCommand(
+            $factory->reveal(),
             $normalizer->reveal(),
             $sniffer->reveal(),
             $formatter->reveal()
         );
 
         $command->setIO($io->reveal());
-        $command->setComposer($composer->reveal());
 
         $tester = new Console\Tester\CommandTester($command);
 
@@ -1037,6 +1162,16 @@ final class NormalizeCommandTest extends Framework\TestCase
             ->shouldBeCalled()
             ->willReturn($locker);
 
+        $factory = $this->prophesize(Factory::class);
+
+        $factory
+            ->createComposer(
+                Argument::is($io->reveal()),
+                Argument::is($composerFile)
+            )
+            ->shouldBeCalled()
+            ->willReturn($composer->reveal());
+
         $normalizer = $this->prophesize(Normalizer\NormalizerInterface::class);
 
         $normalizer
@@ -1071,13 +1206,13 @@ final class NormalizeCommandTest extends Framework\TestCase
             ->willReturn($formatted);
 
         $command = new NormalizeCommand(
+            $factory->reveal(),
             $normalizer->reveal(),
             $sniffer->reveal(),
             $formatter->reveal()
         );
 
         $command->setIO($io->reveal());
-        $command->setComposer($composer->reveal());
 
         $tester = new Console\Tester\CommandTester($command);
 
@@ -1140,6 +1275,16 @@ final class NormalizeCommandTest extends Framework\TestCase
             ->shouldBeCalled()
             ->willReturn($locker);
 
+        $factory = $this->prophesize(Factory::class);
+
+        $factory
+            ->createComposer(
+                Argument::is($io->reveal()),
+                Argument::is($composerFile)
+            )
+            ->shouldBeCalled()
+            ->willReturn($composer->reveal());
+
         $normalizer = $this->prophesize(Normalizer\NormalizerInterface::class);
 
         $normalizer
@@ -1174,13 +1319,13 @@ final class NormalizeCommandTest extends Framework\TestCase
             ->willReturn($formatted);
 
         $command = new NormalizeCommand(
+            $factory->reveal(),
             $normalizer->reveal(),
             $sniffer->reveal(),
             $formatter->reveal()
         );
 
         $command->setIO($io->reveal());
-        $command->setComposer($composer->reveal());
 
         $tester = new Console\Tester\CommandTester($command);
 
@@ -1242,6 +1387,16 @@ final class NormalizeCommandTest extends Framework\TestCase
             ->shouldBeCalled()
             ->willReturn($locker);
 
+        $factory = $this->prophesize(Factory::class);
+
+        $factory
+            ->createComposer(
+                Argument::is($io->reveal()),
+                Argument::is($composerFile)
+            )
+            ->shouldBeCalled()
+            ->willReturn($composer->reveal());
+
         $application = $this->prophesize(Application::class);
 
         $application
@@ -1294,13 +1449,13 @@ final class NormalizeCommandTest extends Framework\TestCase
             ->willReturn($formatted);
 
         $command = new NormalizeCommand(
+            $factory->reveal(),
             $normalizer->reveal(),
             $sniffer->reveal(),
             $formatter->reveal()
         );
 
         $command->setIO($io->reveal());
-        $command->setComposer($composer->reveal());
         $command->setApplication($application->reveal());
 
         $tester = new Console\Tester\CommandTester($command);
@@ -1356,6 +1511,16 @@ final class NormalizeCommandTest extends Framework\TestCase
             ->shouldBeCalled()
             ->willReturn($locker);
 
+        $factory = $this->prophesize(Factory::class);
+
+        $factory
+            ->createComposer(
+                Argument::is($io->reveal()),
+                Argument::is($composerFile)
+            )
+            ->shouldBeCalled()
+            ->willReturn($composer->reveal());
+
         $application = $this->prophesize(Application::class);
 
         $application
@@ -1399,13 +1564,13 @@ final class NormalizeCommandTest extends Framework\TestCase
             ->willReturn($formatted);
 
         $command = new NormalizeCommand(
+            $factory->reveal(),
             $normalizer->reveal(),
             $sniffer->reveal(),
             $formatter->reveal()
         );
 
         $command->setIO($io->reveal());
-        $command->setComposer($composer->reveal());
         $command->setApplication($application->reveal());
 
         $tester = new Console\Tester\CommandTester($command);

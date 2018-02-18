@@ -30,6 +30,11 @@ final class NormalizeCommand extends Command\BaseCommand
     ];
 
     /**
+     * @var Factory
+     */
+    private $factory;
+
+    /**
      * @var Normalizer\NormalizerInterface
      */
     private $normalizer;
@@ -50,6 +55,7 @@ final class NormalizeCommand extends Command\BaseCommand
     private $differ;
 
     public function __construct(
+        Factory $factory,
         Normalizer\NormalizerInterface $normalizer,
         Normalizer\Format\SnifferInterface $sniffer = null,
         Normalizer\Format\FormatterInterface $formatter = null,
@@ -57,6 +63,7 @@ final class NormalizeCommand extends Command\BaseCommand
     ) {
         parent::__construct('normalize');
 
+        $this->factory = $factory;
         $this->normalizer = $normalizer;
         $this->sniffer = $sniffer ?: new Normalizer\Format\Sniffer();
         $this->formatter = $formatter ?: new Normalizer\Format\Formatter();
@@ -125,7 +132,12 @@ final class NormalizeCommand extends Command\BaseCommand
             return 1;
         }
 
-        $locker = $this->getComposer()->getLocker();
+        $composer = $this->factory->createComposer(
+            $io,
+            $composerFile
+        );
+
+        $locker = $composer->getLocker();
 
         if ($locker->isLocked() && !$locker->isFresh()) {
             $io->writeError('<error>The lock file is not up to date with the latest changes in composer.json, it is recommended that you run `composer update`.</error>');
