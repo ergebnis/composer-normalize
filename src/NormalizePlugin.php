@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Localheinz\Composer\Normalize;
 
 use Composer\Composer;
+use Composer\Factory;
 use Composer\IO;
 use Composer\Plugin;
 
@@ -45,7 +46,10 @@ final class NormalizePlugin implements Plugin\PluginInterface, Plugin\Capable, P
     public function getCommands(): array
     {
         return [
-            new Command\NormalizeCommand(new Normalizer\ComposerJsonNormalizer()),
+            new Command\NormalizeCommand(
+                new Factory(),
+                new Normalizer\ComposerJsonNormalizer()
+            ),
         ];
     }
 }
