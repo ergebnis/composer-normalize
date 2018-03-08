@@ -7,6 +7,30 @@
 
 Provides a composer plugin for normalizing `composer.json`.
 
+## Motivation
+
+If you have been working with `composer` on more than one project, you might 
+have noticed that each `composer.json` ends up being structured differently. 
+
+I certainly have noticed, and rather than
+
+* ignoring it
+* manually structuring `composer.json`
+* asking others to structure `composer.json`
+
+I decided to build something that structures `composer.json` in an automated 
+fashion, but without changing the initial intent.
+
+In my opinion, the advantages of using `localheinz/composer-normalize` are
+
+* no need to think (or argue) about where to add a new section
+* no need to think (or argue) about proper formatting
+* no need to worry about keeping items in a consistent order where they can't be kept in order by other means
+* can be used in a Continuous Integration environment
+
+:bulb: If you are interested in finding out more before giving it a try, I 
+have written a blog post about [Normalizing composer.json](https://localheinz.com/blog/2018/01/15/normalizing-composer.json/).
+
 ## Installation
 
 Run
