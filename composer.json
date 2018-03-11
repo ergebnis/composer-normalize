@@ -24,7 +24,7 @@
   },
   "require-dev": {
     "composer/composer": "^1.1.0",
-    "infection/infection": "~0.7.1",
+    "infection/infection": "^0.8.1",
     "localheinz/php-cs-fixer-config": "~1.11.0",
     "localheinz/test-util": "0.6.1",
     "mikey179/vfsStream": "^1.6.5",
