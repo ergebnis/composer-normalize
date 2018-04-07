@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c593174b508ba0836a39c111e40e036f",
+    "content-hash": "01c3cbf8a27686adef89e2841b854b57",
     "packages": [
         {
             "name": "justinrainbow/json-schema",
@@ -852,16 +852,16 @@
         },
         {
             "name": "infection/infection",
-            "version": "0.7.1",
+            "version": "0.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/infection/infection.git",
-                "reference": "44751a5835ec44e7f2754ddcf21a2012f8219c23"
+                "reference": "0f8109caa95552c3661c6847b8ea2a8a362e3103"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/infection/infection/zipball/44751a5835ec44e7f2754ddcf21a2012f8219c23",
-                "reference": "44751a5835ec44e7f2754ddcf21a2012f8219c23",
+                "url": "https://api.github.com/repos/infection/infection/zipball/0f8109caa95552c3661c6847b8ea2a8a362e3103",
+                "reference": "0f8109caa95552c3661c6847b8ea2a8a362e3103",
                 "shasum": ""
             },
             "require": {
@@ -871,6 +871,7 @@
                 "pimple/pimple": "^3.2",
                 "sebastian/diff": "^1.4 || ^2.0 || ^3.0",
                 "symfony/console": "^3.2 || ^4.0",
+                "symfony/filesystem": "^3.2 || ^4.0",
                 "symfony/finder": "^3.2 || ^4.0",
                 "symfony/process": "^3.2 || ^4.0",
                 "symfony/yaml": "^3.2 || ^4.0"
@@ -911,7 +912,7 @@
                 "testing",
                 "unit testing"
             ],
-            "time": "2018-02-02T11:25:42+00:00"
+            "time": "2018-03-01T06:23:00+00:00"
         },
         {
             "name": "jean85/pretty-package-versions",
