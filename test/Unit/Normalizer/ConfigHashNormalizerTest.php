@@ -33,11 +33,16 @@ JSON;
         $this->assertSame($json, $normalizer->normalize($json));
     }
 
-    public function testNormalizeIgnoresEmptyConfigHash(): void
+    /**
+     * @dataProvider providerProperty
+     *
+     * @param string $property
+     */
+    public function testNormalizeIgnoresEmptyConfigHash(string $property): void
     {
-        $json = <<<'JSON'
+        $json = <<<JSON
 {
-  "config": {}
+  "${property}": {}
 }
 JSON;
 
@@ -46,11 +51,16 @@ JSON;
         $this->assertSame($json, $normalizer->normalize($json));
     }
 
-    public function testNormalizeSortsConfigHashIfPropertyExists(): void
+    /**
+     * @dataProvider providerProperty
+     *
+     * @param string $property
+     */
+    public function testNormalizeSortsConfigHashIfPropertyExists(string $property): void
     {
-        $json = <<<'JSON'
+        $json = <<<JSON
 {
-  "config": {
+  "${property}": {
     "sort-packages": true,
     "preferred-install": "dist"
   },
@@ -61,9 +71,9 @@ JSON;
 }
 JSON;
 
-        $normalized = <<<'JSON'
+        $normalized = <<<JSON
 {
-  "config": {
+  "${property}": {
     "preferred-install": "dist",
     "sort-packages": true
   },
@@ -77,5 +87,22 @@ JSON;
         $normalizer = new ConfigHashNormalizer();
 
         $this->assertSame(\json_encode(\json_decode($normalized)), $normalizer->normalize($json));
+    }
+
+    public function providerProperty(): \Generator
+    {
+        foreach ($this->properties() as $value) {
+            yield $value => [
+                $value,
+            ];
+        }
+    }
+
+    private function properties(): array
+    {
+        return [
+            'config',
+            'extra',
+        ];
     }
 }

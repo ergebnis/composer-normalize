@@ -92,8 +92,13 @@ the `BinNormalizer` will sort the elements of the `bin` section by value in asce
   
 ### `ConfigHashNormalizer`
 
-If `composer.json` contains any configuration in the `config` section, 
-the `ConfigHashNormalizer` will sort the `config` section by key in ascending order.
+If `composer.json` contains any configuration in the 
+
+* `config`
+* `extra` 
+
+sections, the `ConfigHashNormalizer` will sort the content of these sections 
+by key in ascending order.
 
 :bulb: Find out more about the `config` section at https://getcomposer.org/doc/06-config.md.  
 
