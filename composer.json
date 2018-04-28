@@ -29,7 +29,7 @@
     "localheinz/test-util": "0.6.1",
     "mikey179/vfsStream": "^1.6.5",
     "phpstan/phpstan": "~0.9.2",
-    "phpunit/phpunit": "^7.1.1"
+    "phpunit/phpunit": "^7.1.4"
   },
   "config": {
     "preferred-install": "dist",
