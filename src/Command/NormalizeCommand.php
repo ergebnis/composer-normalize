@@ -203,7 +203,7 @@ final class NormalizeCommand extends Command\BaseCommand
             return 0;
         }
 
-        if ($dryRun) {
+        if (true === $dryRun) {
             $io->writeError(\sprintf(
                 '<error>%s is not normalized.</error>',
                 $composerFile
@@ -239,7 +239,7 @@ final class NormalizeCommand extends Command\BaseCommand
 
         $noUpdateLock = $input->getOption('no-update-lock');
 
-        if (!$noUpdateLock && $locker->isLocked()) {
+        if (false === $noUpdateLock && true === $locker->isLocked()) {
             $io->write('<info>Updating lock file.</info>');
 
             return $this->updateLocker($output);

@@ -46,14 +46,14 @@ final class PackageHashNormalizer implements NormalizerInterface
             \array_flip(self::$properties)
         );
 
-        if (!\count($objectProperties)) {
+        if (0 === \count($objectProperties)) {
             return $json;
         }
 
         foreach ($objectProperties as $name => $value) {
             $packages = (array) $decoded->{$name};
 
-            if (!\count($packages)) {
+            if (0 === \count($packages)) {
                 continue;
             }
 
