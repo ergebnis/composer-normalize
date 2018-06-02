@@ -15,6 +15,9 @@ namespace Localheinz\Composer\Normalize\Test\Unit\Normalizer;
 
 use Localheinz\Composer\Normalize\Normalizer\BinNormalizer;
 
+/**
+ * @internal
+ */
 final class BinNormalizerTest extends AbstractNormalizerTestCase
 {
     public function testNormalizeDoesNotModifyOtherProperty(): void

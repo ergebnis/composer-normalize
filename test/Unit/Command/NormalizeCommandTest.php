@@ -27,6 +27,9 @@ use PHPUnit\Framework;
 use Prophecy\Argument;
 use Symfony\Component\Console;
 
+/**
+ * @internal
+ */
 final class NormalizeCommandTest extends Framework\TestCase
 {
     use Helper;
@@ -932,7 +935,7 @@ final class NormalizeCommandTest extends Framework\TestCase
 
         $formatted = \json_encode(
             \json_decode($normalized),
-            JSON_PRETTY_PRINT
+            \JSON_PRETTY_PRINT
         );
 
         $composerFile = $this->pathToComposerFileWithContent($original);
@@ -1027,7 +1030,7 @@ final class NormalizeCommandTest extends Framework\TestCase
 
         $formatted = \json_encode(
             \json_decode($normalized),
-            JSON_PRETTY_PRINT
+            \JSON_PRETTY_PRINT
         );
 
         $composerFile = $this->pathToComposerFileWithContent($original);
@@ -1154,7 +1157,7 @@ final class NormalizeCommandTest extends Framework\TestCase
 
         $formatted = \json_encode(
             \json_decode($normalized),
-            JSON_PRETTY_PRINT
+            \JSON_PRETTY_PRINT
         );
 
         $composerFile = $this->pathToComposerFileWithContent($original);
@@ -1268,7 +1271,7 @@ final class NormalizeCommandTest extends Framework\TestCase
 
         $formatted = \json_encode(
             \json_decode($normalized),
-            JSON_PRETTY_PRINT
+            \JSON_PRETTY_PRINT
         );
 
         $composerFile = $this->pathToComposerFileWithContent($original);
@@ -1372,7 +1375,7 @@ final class NormalizeCommandTest extends Framework\TestCase
 
         $formatted = \json_encode(
             \json_decode($normalized),
-            JSON_PRETTY_PRINT
+            \JSON_PRETTY_PRINT
         );
 
         $composerFile = $this->pathToComposerFileWithContent($original);
@@ -1502,7 +1505,7 @@ final class NormalizeCommandTest extends Framework\TestCase
 
         $formatted = \json_encode(
             \json_decode($normalized),
-            JSON_PRETTY_PRINT
+            \JSON_PRETTY_PRINT
         );
 
         $composerFile = $this->pathToComposerFileWithContent($original);
@@ -1632,7 +1635,7 @@ final class NormalizeCommandTest extends Framework\TestCase
 
         $formatted = \json_encode(
             \json_decode($normalized),
-            JSON_PRETTY_PRINT
+            \JSON_PRETTY_PRINT
         );
 
         $composerFile = $this->pathToComposerFileWithContent($original);

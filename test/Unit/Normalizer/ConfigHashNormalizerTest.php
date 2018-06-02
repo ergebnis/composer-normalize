@@ -15,6 +15,9 @@ namespace Localheinz\Composer\Normalize\Test\Unit\Normalizer;
 
 use Localheinz\Composer\Normalize\Normalizer\ConfigHashNormalizer;
 
+/**
+ * @internal
+ */
 final class ConfigHashNormalizerTest extends AbstractNormalizerTestCase
 {
     public function testNormalizeDoesNotModifyOtherProperty(): void
