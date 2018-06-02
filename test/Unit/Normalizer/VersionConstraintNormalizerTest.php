@@ -15,6 +15,9 @@ namespace Localheinz\Composer\Normalize\Test\Unit\Normalizer;
 
 use Localheinz\Composer\Normalize\Normalizer\VersionConstraintNormalizer;
 
+/**
+ * @internal
+ */
 final class VersionConstraintNormalizerTest extends AbstractNormalizerTestCase
 {
     /**

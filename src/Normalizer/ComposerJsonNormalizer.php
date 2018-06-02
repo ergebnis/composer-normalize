@@ -37,7 +37,7 @@ final class ComposerJsonNormalizer implements NormalizerInterface
 
     public function normalize(string $json): string
     {
-        if (null === \json_decode($json) && JSON_ERROR_NONE !== \json_last_error()) {
+        if (null === \json_decode($json) && \JSON_ERROR_NONE !== \json_last_error()) {
             throw new \InvalidArgumentException(\sprintf(
                 '"%s" is not valid JSON.',
                 $json

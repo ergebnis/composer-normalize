@@ -22,6 +22,9 @@ use Localheinz\Json\Normalizer\ChainNormalizer;
 use Localheinz\Json\Normalizer\NormalizerInterface;
 use Localheinz\Json\Normalizer\SchemaNormalizer;
 
+/**
+ * @internal
+ */
 final class ComposerJsonNormalizerTest extends AbstractNormalizerTestCase
 {
     public function testComposesNormalizers(): void

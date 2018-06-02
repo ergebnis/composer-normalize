@@ -22,6 +22,9 @@ use Localheinz\Composer\Normalize\Normalizer;
 use Localheinz\Test\Util\Helper;
 use PHPUnit\Framework;
 
+/**
+ * @internal
+ */
 final class NormalizePluginTest extends Framework\TestCase
 {
     use Helper;

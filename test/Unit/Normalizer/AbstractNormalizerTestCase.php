@@ -17,6 +17,9 @@ use Localheinz\Json\Normalizer\NormalizerInterface;
 use Localheinz\Test\Util\Helper;
 use PHPUnit\Framework;
 
+/**
+ * @internal
+ */
 abstract class AbstractNormalizerTestCase extends Framework\TestCase
 {
     use Helper;
