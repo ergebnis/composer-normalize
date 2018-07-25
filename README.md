@@ -1,7 +1,8 @@
 # composer-normalize
 
-[![Build Status](https://travis-ci.org/localheinz/composer-normalize.svg?branch=master)](https://travis-ci.org/localheinz/composer-normalize)
-[![codecov](https://codecov.io/gh/localheinz/composer-normalize/branch/master/graph/badge.svg)](https://codecov.io/gh/localheinz/composer-normalize)
+[![Build Status](https://travis-ci.org/localheinz/composer-normalize.svg?branch=0.1)](https://travis-ci.org/localheinz/composer-normalize)
+[![Build status](https://ci.appveyor.com/api/projects/status/94sp0o4bool7klcf/branch/0.1?svg=true)](https://ci.appveyor.com/project/localheinz/composer-normalize/branch/0.1)
+[![codecov](https://codecov.io/gh/localheinz/composer-normalize/branch/0.1/graph/badge.svg)](https://codecov.io/gh/localheinz/composer-normalize)
 [![Latest Stable Version](https://poser.pugx.org/localheinz/composer-normalize/v/stable)](https://packagist.org/packages/localheinz/composer-normalize)
 [![Total Downloads](https://poser.pugx.org/localheinz/composer-normalize/downloads)](https://packagist.org/packages/localheinz/composer-normalize)
 

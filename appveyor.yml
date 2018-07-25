@@ -1,56 +1,58 @@
 build: false
+
 platform:
   - x64
-clone_folder: c:\projects\php-project-workspace
 
-## Build matrix for lowest and highest possible targets
+clone_folder: c:\projects\composer-normalize
+
 environment:
   matrix:
-  - dependencies: lowest
-    php_ver_target: 7.1
-  - dependencies: lowest
-    php_ver_target: 7.2
-  - dependencies: current
-    php_ver_target: 7.1
-  - dependencies: current
-    php_ver_target: 7.2
-  - dependencies: highest
-    php_ver_target: 7.1
-  - dependencies: highest
-    php_ver_target: 7.2
+    - PHP_VERSION: 7.0
+      WITH_LOWEST: true
+    - PHP_VERSION: 7.0
+      WITH_LOCKED: true
+    - PHP_VERSION: 7.0
+      WITH_HIGHEST: true
+    - PHP_VERSION: 7.1
+      WITH_LOWEST: true
+    - PHP_VERSION: 7.1
+      WITH_LOCKED: true
+    - PHP_VERSION: 7.1
+      WITH_HIGHEST: true
+    - PHP_VERSION: 7.2
+      WITH_LOWEST: true
+    - PHP_VERSION: 7.2
+      WITH_LOCKED: true
+    - PHP_VERSION: 7.2
+      WITH_HIGHEST: true
 
-## Cache composer, chocolatey and php bits
 cache:
-    - '%LOCALAPPDATA%\Composer\files -> composer.lock'
+  - '%LOCALAPPDATA%\Composer\files -> composer.lock'
 
-## Set up environment varriables
 init:
-    - SET PATH=C:\Program Files\OpenSSL;c:\tools\php;%PATH%
-    - SET COMPOSER_NO_INTERACTION=1
-    - SET PHP=1
-    - SET ANSICON=121x90 (121x90)
+  - SET PATH=C:\Program Files\OpenSSL;c:\tools\php;%PATH%
+  - SET COMPOSER_NO_INTERACTION=1
+  - SET PHP=1
+  - SET ANSICON=121x90 (121x90)
 
-## Install PHP and composer, and run the appropriate composer command
 install:
-    - IF EXIST c:\tools\php (SET PHP=0)
-    - ps: appveyor-retry cinst --params '""/InstallDir:C:\tools\php""' --ignore-checksums -y php --version ((choco search php --exact --all-versions -r | select-string -pattern $env:php_ver_target | sort { [version]($_ -split '\|' | select -last 1) } -Descending | Select-Object -first 1) -replace '[php|]','')
-    - cd c:\tools\php
-    - IF %PHP%==1 copy php.ini-production php.ini /Y
-    - IF %PHP%==1 echo date.timezone="UTC" >> php.ini
-    - IF %PHP%==1 echo extension_dir=ext >> php.ini
-    - IF %PHP%==1 echo extension=php_openssl.dll >> php.ini
-    - IF %PHP%==1 echo extension=php_mbstring.dll >> php.ini
-    - IF %PHP%==1 echo extension=php_fileinfo.dll >> php.ini
-    - IF %PHP%==1 echo @php %%~dp0composer.phar %%* > composer.bat
-    - appveyor-retry appveyor DownloadFile https://getcomposer.org/composer.phar
-    - cd c:\projects\php-project-workspace
-    - composer config --unset platform.php
-    - IF %dependencies%==lowest appveyor-retry composer update --prefer-lowest --no-progress --profile -n
-    - IF %dependencies%==current appveyor-retry composer install --no-progress --profile
-    - IF %dependencies%==highest appveyor-retry composer update --no-progress --profile -n
-    - composer show
+  - IF EXIST c:\tools\php (SET PHP=0)
+  - ps: appveyor-retry cinst --params '""/InstallDir:C:\tools\php""' --ignore-checksums -y php --version ((choco search php --exact --all-versions -r | select-string -pattern $env:PHP_VERSION | sort { [version]($_ -split '\|' | select -last 1) } -Descending | Select-Object -first 1) -replace '[php|]','')
+  - cd c:\tools\php
+  - IF %PHP%==1 copy php.ini-production php.ini /Y
+  - IF %PHP%==1 echo date.timezone="UTC" >> php.ini
+  - IF %PHP%==1 echo extension_dir=ext >> php.ini
+  - IF %PHP%==1 echo extension=php_openssl.dll >> php.ini
+  - IF %PHP%==1 echo extension=php_mbstring.dll >> php.ini
+  - IF %PHP%==1 echo extension=php_fileinfo.dll >> php.ini
+  - IF %PHP%==1 echo @php %%~dp0composer.phar %%* > composer.bat
+  - appveyor-retry appveyor DownloadFile https://getcomposer.org/composer.phar
+  - cd c:\projects\composer-normalize
+  - composer config --unset platform.php
+  - IF "%WITH_LOWEST%" == "true" appveyor-retry composer update --no-progress --prefer-lowest
+  - IF "%WITH_LOCKED%" == "true" appveyor-retry composer install --no-progress
+  - IF "%WITH_HIGHEST%" == "true" appveyor-retry composer update --no-progress
 
-## Run the actual test
 test_script:
-    - cd c:\projects\php-project-workspace
-    - vendor/bin/phpunit -c phpunit.xml.dist
+  - cd c:\projects\composer-normalize
+  - vendor/bin/phpunit --configuration=test/Unit/phpunit.xml
