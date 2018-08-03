@@ -34,7 +34,7 @@ final class NormalizePluginTest extends Framework\TestCase
      *
      * @param string $interfaceName
      */
-    public function testImplementsPluginInterface(string $interfaceName)
+    public function testImplementsPluginInterface(string $interfaceName): void
     {
         $this->assertClassImplementsInterface($interfaceName, NormalizePlugin::class);
     }
