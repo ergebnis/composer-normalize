@@ -1794,7 +1794,7 @@ final class NormalizeCommandTest extends Framework\TestCase
      *
      * @param string $composerFile
      */
-    private function useComposerFile(string $composerFile)
+    private function useComposerFile(string $composerFile): void
     {
         \putenv(\sprintf(
             'COMPOSER=%s',
