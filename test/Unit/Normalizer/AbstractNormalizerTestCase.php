@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Localheinz\Composer\Normalize\Test\Unit\Normalizer;
 
-use Localheinz\Json\Normalizer\NormalizerInterface;
+use Localheinz\Json\Normalizer;
 use Localheinz\Test\Util\Helper;
 use PHPUnit\Framework;
 
@@ -26,7 +26,7 @@ abstract class AbstractNormalizerTestCase extends Framework\TestCase
 
     final public function testImplementsNormalizerInterface(): void
     {
-        $this->assertClassImplementsInterface(NormalizerInterface::class, $this->className());
+        $this->assertClassImplementsInterface(Normalizer\NormalizerInterface::class, $this->className());
     }
 
     final public function testNormalizeRejectsInvalidJson(): void

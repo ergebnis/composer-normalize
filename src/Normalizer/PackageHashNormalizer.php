@@ -14,9 +14,9 @@ declare(strict_types=1);
 namespace Localheinz\Composer\Normalize\Normalizer;
 
 use Composer\Repository;
-use Localheinz\Json\Normalizer\NormalizerInterface;
+use Localheinz\Json\Normalizer;
 
-final class PackageHashNormalizer implements NormalizerInterface
+final class PackageHashNormalizer implements Normalizer\NormalizerInterface
 {
     /**
      * @var string[]

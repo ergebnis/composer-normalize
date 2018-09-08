@@ -13,9 +13,9 @@ declare(strict_types=1);
 
 namespace Localheinz\Composer\Normalize\Normalizer;
 
-use Localheinz\Json\Normalizer\NormalizerInterface;
+use Localheinz\Json\Normalizer;
 
-final class BinNormalizer implements NormalizerInterface
+final class BinNormalizer implements Normalizer\NormalizerInterface
 {
     public function normalize(string $json): string
     {
