@@ -13,9 +13,9 @@ declare(strict_types=1);
 
 namespace Localheinz\Composer\Normalize\Normalizer;
 
-use Localheinz\Json\Normalizer\NormalizerInterface;
+use Localheinz\Json\Normalizer;
 
-final class ConfigHashNormalizer implements NormalizerInterface
+final class ConfigHashNormalizer implements Normalizer\NormalizerInterface
 {
     /**
      * @var string[]
