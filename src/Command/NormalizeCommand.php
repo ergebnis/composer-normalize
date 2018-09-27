@@ -109,6 +109,11 @@ final class NormalizeCommand extends Command\BaseCommand
         ]);
     }
 
+    protected function initialize(Console\Input\InputInterface $input, Console\Output\OutputInterface $output): void
+    {
+        // nothing to initialize here
+    }
+
     protected function execute(Console\Input\InputInterface $input, Console\Output\OutputInterface $output): int
     {
         $io = $this->getIO();
