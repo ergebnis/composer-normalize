@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "82e865a4db55283ea398f32973ec73a6",
+    "content-hash": "8c073695a29e49b8edd45e43b137c55e",
     "packages": [
         {
             "name": "justinrainbow/json-schema",
@@ -1176,6 +1176,59 @@
             "description": "Provides a configuration factory and multiple rule sets for friendsofphp/php-cs-fixer.",
             "homepage": "https://github.com/localheinz/php-cs-fixer-config",
             "time": "2018-08-23T14:47:20+00:00"
+        },
+        {
+            "name": "localheinz/phpunit-framework-constraint",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/localheinz/phpunit-framework-constraint.git",
+                "reference": "1b16447f387c4adfa6a8559f87b1a8d0734c1e09"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/localheinz/phpunit-framework-constraint/zipball/1b16447f387c4adfa6a8559f87b1a8d0734c1e09",
+                "reference": "1b16447f387c4adfa6a8559f87b1a8d0734c1e09",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1",
+                "phpunit/phpunit": "^7.0.0",
+                "sebastian/diff": "^3.0.0"
+            },
+            "require-dev": {
+                "infection/infection": "~0.10.5",
+                "localheinz/composer-normalize": "~0.8.0",
+                "localheinz/php-cs-fixer-config": "~1.15.0",
+                "localheinz/test-util": "~0.7.0",
+                "phpbench/phpbench": "~0.14.0",
+                "phpstan/phpstan": "~0.10.3",
+                "phpstan/phpstan-strict-rules": "~0.10.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Localheinz\\PHPUnit\\Framework\\Constraint\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Möller",
+                    "email": "am@localheinz.com"
+                }
+            ],
+            "description": "Provides additional constraints and assertions for phpunit/phpunit",
+            "homepage": "https://github.com/localheinz/phpunit-framework-constraint",
+            "keywords": [
+                "assertion",
+                "constraint",
+                "phpunit"
+            ],
+            "time": "2018-10-05T08:05:29+00:00"
         },
         {
             "name": "localheinz/test-util",
