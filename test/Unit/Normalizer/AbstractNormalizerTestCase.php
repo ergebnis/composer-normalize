@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Localheinz\Composer\Normalize\Test\Unit\Normalizer;
 
 use Localheinz\Json\Normalizer;
+use Localheinz\PHPUnit\Framework\Constraint\Provider;
 use Localheinz\Test\Util\Helper;
 use PHPUnit\Framework;
 
@@ -23,6 +24,7 @@ use PHPUnit\Framework;
 abstract class AbstractNormalizerTestCase extends Framework\TestCase
 {
     use Helper;
+    use Provider;
 
     final public function testImplementsNormalizerInterface(): void
     {

@@ -33,7 +33,7 @@ JSON;
 
         $normalizer = new ConfigHashNormalizer();
 
-        $this->assertSame($json, $normalizer->normalize($json));
+        $this->assertJsonStringSameAsJsonString($json, $normalizer->normalize($json));
     }
 
     /**
@@ -51,7 +51,7 @@ JSON;
 
         $normalizer = new ConfigHashNormalizer();
 
-        $this->assertSame($json, $normalizer->normalize($json));
+        $this->assertJsonStringSameAsJsonString($json, $normalizer->normalize($json));
     }
 
     /**

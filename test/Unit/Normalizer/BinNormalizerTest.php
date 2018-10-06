@@ -33,7 +33,7 @@ JSON;
 
         $normalizer = new BinNormalizer();
 
-        $this->assertSame($json, $normalizer->normalize($json));
+        $this->assertJsonStringSameAsJsonString($json, $normalizer->normalize($json));
     }
 
     public function testNormalizeDoesNotModifyBinIfPropertyExistsAsString(): void
@@ -50,7 +50,7 @@ JSON;
 
         $normalizer = new BinNormalizer();
 
-        $this->assertSame($json, $normalizer->normalize($json));
+        $this->assertJsonStringSameAsJsonString($json, $normalizer->normalize($json));
     }
 
     public function testNormalizeSortsBinIfPropertyExistsAsArray(): void

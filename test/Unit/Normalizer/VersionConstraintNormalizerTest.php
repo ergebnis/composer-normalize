@@ -37,7 +37,7 @@ JSON;
 
         $normalizer = new VersionConstraintNormalizer();
 
-        $this->assertSame($json, $normalizer->normalize($json));
+        $this->assertJsonStringSameAsJsonString($json, $normalizer->normalize($json));
     }
 
     public function providerVersionConstraint(): \Generator
