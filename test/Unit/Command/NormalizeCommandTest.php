@@ -430,7 +430,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         $io = $this->prophesize(IO\ConsoleIO::class);
 
         $io
-            ->writeError(Argument::is('<error>The lock file is not up to date with the latest changes in composer.json, it is recommended that you run `composer update`.</error>'))
+            ->writeError(Argument::is('<error>The lock file is not up to date with the latest changes in composer.json, it is recommended that you run `composer update --lock`.</error>'))
             ->shouldBeCalled();
 
         $locker = $this->prophesize(Package\Locker::class);
