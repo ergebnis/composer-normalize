@@ -33,9 +33,7 @@ abstract class AbstractNormalizerTestCase extends Framework\TestCase
     {
         $json = $this->faker()->realText();
 
-        $reflection = new \ReflectionClass($this->className());
-
-        $normalizer = $reflection->newInstanceWithoutConstructor();
+        $normalizer = $this->createNormalizer();
 
         $this->expectException(\InvalidArgumentException::class);
         $this->expectExceptionMessage(\sprintf(
@@ -44,6 +42,41 @@ abstract class AbstractNormalizerTestCase extends Framework\TestCase
         ));
 
         $normalizer->normalize($json);
+    }
+
+    /**
+     * @dataProvider providerJsonNotDecodingToObject
+     *
+     * @param string $json
+     */
+    final public function testNormalizeDoesNotModifyWhenJsonDecodedIsNotAnObject(string $json): void
+    {
+        $normalizer = $this->createNormalizer();
+
+        $normalized = $normalizer->normalize($json);
+
+        $this->assertSame($json, $normalized);
+    }
+
+    public function providerJsonNotDecodingToObject(): \Generator
+    {
+        $faker = $this->faker();
+
+        $values = [
+            'array' => $faker->words,
+            'bool-false' => false,
+            'bool-true' => true,
+            'float' => $faker->randomFloat(),
+            'int' => $faker->randomNumber(),
+            'null' => null,
+            'string' => $faker->sentence,
+        ];
+
+        foreach ($values as $key => $value) {
+            yield $key => [
+                \json_encode($value),
+            ];
+        }
     }
 
     final protected function className(): string
@@ -57,5 +90,12 @@ abstract class AbstractNormalizerTestCase extends Framework\TestCase
                 static::class
             )
         );
+    }
+
+    private function createNormalizer(): Normalizer\NormalizerInterface
+    {
+        $reflection = new \ReflectionClass($this->className());
+
+        return $reflection->newInstanceWithoutConstructor();
     }
 }

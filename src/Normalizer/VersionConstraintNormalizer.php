@@ -57,6 +57,10 @@ final class VersionConstraintNormalizer implements Normalizer\NormalizerInterfac
             ));
         }
 
+        if (!\is_object($decoded)) {
+            return $json;
+        }
+
         $objectProperties = \array_intersect_key(
             \get_object_vars($decoded),
             \array_flip(self::$properties)
