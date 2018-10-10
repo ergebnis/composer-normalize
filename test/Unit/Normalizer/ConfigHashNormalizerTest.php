@@ -106,6 +106,7 @@ JSON;
         return [
             'config',
             'extra',
+            'scripts-descriptions',
         ];
     }
 }

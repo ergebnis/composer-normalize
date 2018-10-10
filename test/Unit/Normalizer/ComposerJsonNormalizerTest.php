@@ -105,6 +105,12 @@ final class ComposerJsonNormalizerTest extends AbstractNormalizerTestCase
       "@bar"
     ]
   },
+  "scripts-descriptions": {
+    "foo": "Executes foo.sh",
+    "bar": "Executes bar.sh",
+    "post-install-cmd": "Runs foo",
+    "pre-install-cmd": "Runs foo and bar"
+  },
   "autoload-dev": {
     "psr-4": {
       "Helmut\\Foo\\Bar\\Test\\": "test/"
@@ -177,6 +183,12 @@ JSON;
     "post-install-cmd": "@foo",
     "bar": "bar.sh",
     "foo": "foo.sh"
+  },
+  "scripts-descriptions": {
+    "bar": "Executes bar.sh",
+    "foo": "Executes foo.sh",
+    "post-install-cmd": "Runs foo",
+    "pre-install-cmd": "Runs foo and bar"
   }
 }
 JSON;

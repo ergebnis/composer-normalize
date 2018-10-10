@@ -97,6 +97,7 @@ If `composer.json` contains any configuration in the
 
 * `config`
 * `extra` 
+* `scripts-descriptions` 
 
 sections, the `ConfigHashNormalizer` will sort the content of these sections 
 by key in ascending order.

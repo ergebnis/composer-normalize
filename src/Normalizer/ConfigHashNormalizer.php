@@ -23,6 +23,7 @@ final class ConfigHashNormalizer implements Normalizer\NormalizerInterface
     private static $properties = [
         'config',
         'extra',
+        'scripts-descriptions',
     ];
 
     public function normalize(string $json): string
