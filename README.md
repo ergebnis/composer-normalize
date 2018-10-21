@@ -141,6 +141,10 @@ sections, the `VersionConstraintNormalizer` will ensure that
 
 :bulb: Find out more about version constraints at https://getcomposer.org/doc/articles/versions.md.
 
+## Changelog
+
+Please have a look at [`CHANGELOG.md`](CHANGELOG.md).
+
 ## Contributing
 
 Please have a look at [`CONTRIBUTING.md`](.github/CONTRIBUTING.md).
