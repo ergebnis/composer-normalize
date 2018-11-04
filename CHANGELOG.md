@@ -11,7 +11,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 * Added this changelog ([#94](https://github.com/localheinz/composer-normalize/pull/#94)), by [@localheinz](https://github.com/localheinz)
 
-## [`0.9.0`](https://github.com/localheinz/composer-normalize/releases/tag/0.9.0) ([`0.8.0...0.9.0`](https://github.com/localheinz/composer-normalize/compare/0.8.0...0.9.0))
+## [`0.9.0`](https://github.com/localheinz/composer-normalize/releases/tag/0.9.0) 
+
+For a full diff see [`0.8.0...0.9.0`](https://github.com/localheinz/composer-normalize/compare/0.8.0...0.9.0).
 
 ### Changed
 
@@ -22,27 +24,35 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * When validation of `composer.lock` fails prior to normalization, it is
   now recommended to update the lock file only ([#86](https://github.com/localheinz/composer-normalize/pull/#86)), by [@svenluijten](https://github.com/svenluijten)
 
-## [`0.8.0`](https://github.com/localheinz/composer-normalize/releases/tag/0.8.0) ([`0.7.0...0.8.0`](https://github.com/localheinz/composer-normalize/compare/0.7.0...0.8.0))
+## [`0.8.0`](https://github.com/localheinz/composer-normalize/releases/tag/0.8.0) 
+
+For a full diff see [`0.7.0...0.8.0`](https://github.com/localheinz/composer-normalize/compare/0.7.0...0.8.0).
 
 ### Changed
 
 * The `ConfigHashNormalizer` now also sorts the `extra` section ([#60](https://github.com/localheinz/composer-normalize/pull/#60)), by [@localheinz](https://github.com/localheinz)
 
-## [`0.7.0`](https://github.com/localheinz/composer-normalize/releases/tag/0.7.0) ([`0.6.0...0.7.0`](https://github.com/localheinz/composer-normalize/compare/0.6.0...0.7.0))
+## [`0.7.0`](https://github.com/localheinz/composer-normalize/releases/tag/0.7.0) 
+
+For a full diff see [`0.6.0...0.7.0`](https://github.com/localheinz/composer-normalize/compare/0.6.0...0.7.0).
 
 ### Changed
 
 * Updated `localheinz/json-normalizer`, which now sniffs the new-line
   character and uses it for printing instead of using `PHP_EOL` ([#62](https://github.com/localheinz/composer-normalize/pull/#62)), by [@localheinz](https://github.com/localheinz)
 
-## [`0.6.0`](https://github.com/localheinz/composer-normalize/releases/tag/0.6.0) ([`0.5.0...0.6.0`](https://github.com/localheinz/composer-normalize/compare/0.5.0...0.6.0))
+## [`0.6.0`](https://github.com/localheinz/composer-normalize/releases/tag/0.6.0) 
+
+For a full diff see [`0.5.0...0.6.0`](https://github.com/localheinz/composer-normalize/compare/0.5.0...0.6.0).
 
 ### Added
 
 * Added a `file` argument to the `NormalizeCommand`, so the path to
   `composer.json` can be specified now, ([#51](https://github.com/localheinz/composer-normalize/pull/#51)), by [@localheinz](https://github.com/localheinz)
 
-## [`0.5.0`](https://github.com/localheinz/composer-normalize/releases/tag/0.5.0) ([`0.4.0...0.5.0`](https://github.com/localheinz/composer-normalize/compare/0.4.0...0.5.0))
+## [`0.5.0`](https://github.com/localheinz/composer-normalize/releases/tag/0.5.0) 
+
+For a full diff see [`0.4.0...0.5.0`](https://github.com/localheinz/composer-normalize/compare/0.4.0...0.5.0).
 
 ### Changed
 
@@ -50,7 +60,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `SchemaNormalizer` employed to do the major normalization of
   `composer.json` ([#42](https://github.com/localheinz/composer-normalize/pull/#42)), by [@localheinz](https://github.com/localheinz)
 
-## [`0.4.0`](https://github.com/localheinz/composer-normalize/releases/tag/0.4.0) ([`0.3.0...0.4.0`](https://github.com/localheinz/composer-normalize/compare/0.3.0...0.4.0))
+## [`0.4.0`](https://github.com/localheinz/composer-normalize/releases/tag/0.4.0) 
+
+For a full diff see [`0.3.0...0.4.0`](https://github.com/localheinz/composer-normalize/compare/0.3.0...0.4.0).
 
 ### Added
 
@@ -58,14 +70,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   systems, as it renders a diff and exits with a non-zero exit code
   ([#38](https://github.com/localheinz/composer-normalize/pull/#38)), by [@localheinz](https://github.com/localheinz)
 
-## [`0.3.0`](https://github.com/localheinz/composer-normalize/releases/tag/0.3.0) ([`0.2.0...0.3.0`](https://github.com/localheinz/composer-normalize/compare/0.2.0...0.3.0))
+## [`0.3.0`](https://github.com/localheinz/composer-normalize/releases/tag/0.3.0) 
+
+For a full diff see [`0.2.0...0.3.0`](https://github.com/localheinz/composer-normalize/compare/0.2.0...0.3.0).
 
 ### Fixed
 
 * Dropped support for PHP 7.0, which allows proper handling of empty
   PSR-4 namespace prefixes ([#30](https://github.com/localheinz/composer-normalize/pull/#30)), by [@localheinz](https://github.com/localheinz)
 
-## [`0.2.0`](https://github.com/localheinz/composer-normalize/releases/tag/0.2.0) ([`0.1.0...0.2.0`](https://github.com/localheinz/composer-normalize/compare/0.1.0...0.2.0))
+## [`0.2.0`](https://github.com/localheinz/composer-normalize/releases/tag/0.2.0) 
+
+For a full diff see [`0.1.0...0.2.0`](https://github.com/localheinz/composer-normalize/compare/0.1.0...0.2.0).
 
 ### Added
 
@@ -79,7 +95,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Using the `--no-scripts` option when invoking the `UpdateCommand` to
   update `composer.lock` ([#19](https://github.com/localheinz/composer-normalize/pull/#19)), by [@localheinz](https://github.com/localheinz)
 
-## [`0.1.0`](https://github.com/localheinz/composer-normalize/releases/tag/0.1.0) ([`81bc3a8...0.1.0`](https://github.com/localheinz/composer-normalize/compare/81bc3a8...0.1.0))
+## [`0.1.0`](https://github.com/localheinz/composer-normalize/releases/tag/0.1.0) 
+
+For a full diff see [`81bc3a8...0.1.0`](https://github.com/localheinz/composer-normalize/compare/81bc3a8...0.1.0).
 
 ### Added
 
