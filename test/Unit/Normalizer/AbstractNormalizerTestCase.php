@@ -13,7 +13,8 @@ declare(strict_types=1);
 
 namespace Localheinz\Composer\Normalize\Test\Unit\Normalizer;
 
-use Localheinz\Json\Normalizer;
+use Localheinz\Json\Normalizer\Json;
+use Localheinz\Json\Normalizer\NormalizerInterface;
 use Localheinz\Test\Util\Helper;
 use PHPUnit\Framework;
 
@@ -26,36 +27,26 @@ abstract class AbstractNormalizerTestCase extends Framework\TestCase
 
     final public function testImplementsNormalizerInterface(): void
     {
-        $this->assertClassImplementsInterface(Normalizer\NormalizerInterface::class, $this->className());
-    }
-
-    final public function testNormalizeRejectsInvalidJson(): void
-    {
-        $json = $this->faker()->realText();
-
-        $normalizer = $this->createNormalizer();
-
-        $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage(\sprintf(
-            '"%s" is not valid JSON.',
-            $json
-        ));
-
-        $normalizer->normalize($json);
+        $this->assertClassImplementsInterface(NormalizerInterface::class, $this->className());
     }
 
     /**
      * @dataProvider providerJsonNotDecodingToObject
      *
-     * @param string $json
+     * @param string $encoded
      */
-    final public function testNormalizeDoesNotModifyWhenJsonDecodedIsNotAnObject(string $json): void
+    final public function testNormalizeDoesNotModifyWhenJsonDecodedIsNotAnObject(string $encoded): void
     {
-        $normalizer = $this->createNormalizer();
+        $json = Json::fromEncoded($encoded);
+
+        $reflection = new \ReflectionClass($this->className());
+
+        /** @var NormalizerInterface $normalizer */
+        $normalizer = $reflection->newInstanceWithoutConstructor();
 
         $normalized = $normalizer->normalize($json);
 
-        $this->assertSame($json, $normalized);
+        $this->assertSame($json->encoded(), $normalized->encoded());
     }
 
     public function providerJsonNotDecodingToObject(): \Generator
@@ -90,12 +81,5 @@ abstract class AbstractNormalizerTestCase extends Framework\TestCase
                 static::class
             )
         );
-    }
-
-    private function createNormalizer(): Normalizer\NormalizerInterface
-    {
-        $reflection = new \ReflectionClass($this->className());
-
-        return $reflection->newInstanceWithoutConstructor();
     }
 }

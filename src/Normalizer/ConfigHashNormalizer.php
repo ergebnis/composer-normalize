@@ -13,9 +13,10 @@ declare(strict_types=1);
 
 namespace Localheinz\Composer\Normalize\Normalizer;
 
-use Localheinz\Json\Normalizer;
+use Localheinz\Json\Normalizer\Json;
+use Localheinz\Json\Normalizer\NormalizerInterface;
 
-final class ConfigHashNormalizer implements Normalizer\NormalizerInterface
+final class ConfigHashNormalizer implements NormalizerInterface
 {
     /**
      * @var string[]
@@ -26,15 +27,12 @@ final class ConfigHashNormalizer implements Normalizer\NormalizerInterface
         'scripts-descriptions',
     ];
 
-    public function normalize(string $json): string
+    public function normalize(Json $json): Json
     {
-        $decoded = \json_decode($json);
+        $decoded = $json->decoded();
 
-        if (null === $decoded && \JSON_ERROR_NONE !== \json_last_error()) {
-            throw new \InvalidArgumentException(\sprintf(
-                '"%s" is not valid JSON.',
-                $json
-            ));
+        if (!\is_object($decoded)) {
+            return $json;
         }
 
         if (!\is_object($decoded)) {
@@ -62,6 +60,8 @@ final class ConfigHashNormalizer implements Normalizer\NormalizerInterface
             $decoded->{$name} = $config;
         }
 
-        return \json_encode($decoded);
+        $encoded = \json_encode($decoded);
+
+        return Json::fromEncoded($encoded);
     }
 }

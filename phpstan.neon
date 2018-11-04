@@ -1,6 +1,2 @@
 includes:
 	- vendor/phpstan/phpstan-strict-rules/rules.neon
-
-parameters:
-	ignoreErrors:
-		- '#Access to an undefined property object::\$bin.#'
