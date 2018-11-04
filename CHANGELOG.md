@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased](https://github.com/localheinz/composer-normalize/compare/0.9.0...HEAD) ([`0.9.0...master`](https://github.com/localheinz/composer-normalize/compare/0.9.0...master))
 
-## Added
+### Added
 
 * Added this changelog ([#94](https://github.com/localheinz/composer-normalize/pull/#94)), by [@localheinz](https://github.com/localheinz)
 
