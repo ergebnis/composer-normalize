@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Localheinz\Composer\Normalize\Test\Unit\Normalizer;
 
 use Localheinz\Composer\Normalize\Normalizer\BinNormalizer;
+use Localheinz\Json\Normalizer\Json;
 
 /**
  * @internal
@@ -22,23 +23,28 @@ final class BinNormalizerTest extends AbstractNormalizerTestCase
 {
     public function testNormalizeDoesNotModifyOtherProperty(): void
     {
-        $json = <<<'JSON'
+        $json = Json::fromEncoded(
+<<<'JSON'
 {
   "foo": {
     "qux": "quux",
     "bar": "baz"
   }
 }
-JSON;
+JSON
+        );
 
         $normalizer = new BinNormalizer();
 
-        $this->assertSame($json, $normalizer->normalize($json));
+        $normalized = $normalizer->normalize($json);
+
+        $this->assertSame($json->encoded(), $normalized->encoded());
     }
 
     public function testNormalizeDoesNotModifyBinIfPropertyExistsAsString(): void
     {
-        $json = <<<'JSON'
+        $json = Json::fromEncoded(
+<<<'JSON'
 {
   "bin": "foo.php",
   "foo": {
@@ -46,16 +52,20 @@ JSON;
     "bar": "baz"
   }
 }
-JSON;
+JSON
+        );
 
         $normalizer = new BinNormalizer();
 
-        $this->assertSame($json, $normalizer->normalize($json));
+        $normalized = $normalizer->normalize($json);
+
+        $this->assertSame($json->encoded(), $normalized->encoded());
     }
 
     public function testNormalizeSortsBinIfPropertyExistsAsArray(): void
     {
-        $json = <<<'JSON'
+        $json = Json::fromEncoded(
+<<<'JSON'
 {
   "bin": [
     "script.php",
@@ -66,9 +76,11 @@ JSON;
     "bar": "baz"
   }  
 }
-JSON;
+JSON
+        );
 
-        $normalized = <<<'JSON'
+        $expected = Json::fromEncoded(
+<<<'JSON'
 {
   "bin": [
     "another-script.php",
@@ -79,10 +91,13 @@ JSON;
     "bar": "baz"
   }
 }
-JSON;
+JSON
+        );
 
         $normalizer = new BinNormalizer();
 
-        $this->assertSame(\json_encode(\json_decode($normalized)), $normalizer->normalize($json));
+        $normalized = $normalizer->normalize($json);
+
+        $this->assertSame(\json_encode(\json_decode($expected->encoded())), $normalized->encoded());
     }
 }

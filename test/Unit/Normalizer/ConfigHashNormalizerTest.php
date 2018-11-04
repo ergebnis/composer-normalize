@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Localheinz\Composer\Normalize\Test\Unit\Normalizer;
 
 use Localheinz\Composer\Normalize\Normalizer\ConfigHashNormalizer;
+use Localheinz\Json\Normalizer\Json;
 
 /**
  * @internal
@@ -22,18 +23,22 @@ final class ConfigHashNormalizerTest extends AbstractNormalizerTestCase
 {
     public function testNormalizeDoesNotModifyOtherProperty(): void
     {
-        $json = <<<'JSON'
+        $json = Json::fromEncoded(
+<<<'JSON'
 {
   "foo": {
     "qux": "quux",
     "bar": "baz"
   }
 }
-JSON;
+JSON
+        );
 
         $normalizer = new ConfigHashNormalizer();
 
-        $this->assertSame($json, $normalizer->normalize($json));
+        $normalized = $normalizer->normalize($json);
+
+        $this->assertSame($json->encoded(), $normalized->encoded());
     }
 
     /**
@@ -43,15 +48,19 @@ JSON;
      */
     public function testNormalizeIgnoresEmptyConfigHash(string $property): void
     {
-        $json = <<<JSON
+        $json = Json::fromEncoded(
+<<<JSON
 {
   "${property}": {}
 }
-JSON;
+JSON
+        );
 
         $normalizer = new ConfigHashNormalizer();
 
-        $this->assertSame($json, $normalizer->normalize($json));
+        $normalized = $normalizer->normalize($json);
+
+        $this->assertSame($json->encoded(), $normalized->encoded());
     }
 
     /**
@@ -61,7 +70,8 @@ JSON;
      */
     public function testNormalizeSortsConfigHashIfPropertyExists(string $property): void
     {
-        $json = <<<JSON
+        $json = Json::fromEncoded(
+<<<JSON
 {
   "${property}": {
     "sort-packages": true,
@@ -72,9 +82,11 @@ JSON;
     "bar": "baz"
   }  
 }
-JSON;
+JSON
+        );
 
-        $normalized = <<<JSON
+        $expected = Json::fromEncoded(
+<<<JSON
 {
   "${property}": {
     "preferred-install": "dist",
@@ -85,11 +97,14 @@ JSON;
     "bar": "baz"
   }
 }
-JSON;
+JSON
+        );
 
         $normalizer = new ConfigHashNormalizer();
 
-        $this->assertSame(\json_encode(\json_decode($normalized)), $normalizer->normalize($json));
+        $normalized = $normalizer->normalize($json);
+
+        $this->assertSame(\json_encode(\json_decode($expected->encoded())), $normalized->encoded());
     }
 
     public function providerProperty(): \Generator

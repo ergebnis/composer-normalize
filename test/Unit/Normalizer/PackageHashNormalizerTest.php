@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Localheinz\Composer\Normalize\Test\Unit\Normalizer;
 
 use Localheinz\Composer\Normalize\Normalizer\PackageHashNormalizer;
+use Localheinz\Json\Normalizer\Json;
 
 /**
  * @internal
@@ -22,18 +23,22 @@ final class PackageHashNormalizerTest extends AbstractNormalizerTestCase
 {
     public function testNormalizeDoesNotModifyOtherProperty(): void
     {
-        $json = <<<'JSON'
+        $json = Json::fromEncoded(
+<<<'JSON'
 {
   "foo": {
     "qux": "quux",
     "bar": "baz"
   }
 }
-JSON;
+JSON
+        );
 
         $normalizer = new PackageHashNormalizer();
 
-        $this->assertSame($json, $normalizer->normalize($json));
+        $normalized = $normalizer->normalize($json);
+
+        $this->assertSame($json->encoded(), $normalized->encoded());
     }
 
     /**
@@ -43,15 +48,19 @@ JSON;
      */
     public function testNormalizeIgnoresEmptyPackageHash(string $property): void
     {
-        $json = <<<JSON
+        $json = Json::fromEncoded(
+<<<JSON
 {
   "${property}": {}
 }
-JSON;
+JSON
+        );
 
         $normalizer = new PackageHashNormalizer();
 
-        $this->assertSame(\json_encode(\json_decode($json)), $normalizer->normalize($json));
+        $normalized = $normalizer->normalize($json);
+
+        $this->assertSame(\json_encode(\json_decode($json->encoded())), $normalized->encoded());
     }
 
     /**
@@ -61,7 +70,8 @@ JSON;
      */
     public function testNormalizeSortsPackageHashIfPropertyExists(string $property): void
     {
-        $json = <<<JSON
+        $json = Json::fromEncoded(
+<<<JSON
 {
   "${property}": {
     "localheinz/test-util": "Provides utilities for tests.",
@@ -76,9 +86,11 @@ JSON;
     "bar": "baz"
   }
 }
-JSON;
+JSON
+        );
 
-        $normalized = <<<JSON
+        $expected = Json::fromEncoded(
+<<<JSON
 {
   "${property}": {
     "php": "Because why not, it's great.",
@@ -93,11 +105,14 @@ JSON;
     "bar": "baz"
   }
 }
-JSON;
+JSON
+        );
 
         $normalizer = new PackageHashNormalizer();
 
-        $this->assertSame(\json_encode(\json_decode($normalized)), $normalizer->normalize($json));
+        $normalized = $normalizer->normalize($json);
+
+        $this->assertSame(\json_encode(\json_decode($expected->encoded())), $normalized->encoded());
     }
 
     public function providerProperty(): \Generator

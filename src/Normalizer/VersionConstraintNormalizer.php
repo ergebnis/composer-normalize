@@ -13,9 +13,10 @@ declare(strict_types=1);
 
 namespace Localheinz\Composer\Normalize\Normalizer;
 
-use Localheinz\Json\Normalizer;
+use Localheinz\Json\Normalizer\Json;
+use Localheinz\Json\Normalizer\NormalizerInterface;
 
-final class VersionConstraintNormalizer implements Normalizer\NormalizerInterface
+final class VersionConstraintNormalizer implements NormalizerInterface
 {
     /**
      * @var string[]
@@ -46,15 +47,12 @@ final class VersionConstraintNormalizer implements Normalizer\NormalizerInterfac
         ],
     ];
 
-    public function normalize(string $json): string
+    public function normalize(Json $json): Json
     {
-        $decoded = \json_decode($json);
+        $decoded = $json->decoded();
 
-        if (null === $decoded && \JSON_ERROR_NONE !== \json_last_error()) {
-            throw new \InvalidArgumentException(\sprintf(
-                '"%s" is not valid JSON.',
-                $json
-            ));
+        if (!\is_object($decoded)) {
+            return $json;
         }
 
         if (!\is_object($decoded)) {
@@ -82,7 +80,9 @@ final class VersionConstraintNormalizer implements Normalizer\NormalizerInterfac
             }, $packages);
         }
 
-        return \json_encode($decoded);
+        $encoded = \json_encode($decoded);
+
+        return Json::fromEncoded($encoded);
     }
 
     private function normalizeVersionConstraint(string $versionConstraint): string

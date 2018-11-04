@@ -18,7 +18,10 @@ use Localheinz\Composer\Normalize\Normalizer\ComposerJsonNormalizer;
 use Localheinz\Composer\Normalize\Normalizer\ConfigHashNormalizer;
 use Localheinz\Composer\Normalize\Normalizer\PackageHashNormalizer;
 use Localheinz\Composer\Normalize\Normalizer\VersionConstraintNormalizer;
-use Localheinz\Json\Normalizer;
+use Localheinz\Json\Normalizer\ChainNormalizer;
+use Localheinz\Json\Normalizer\Json;
+use Localheinz\Json\Normalizer\NormalizerInterface;
+use Localheinz\Json\Normalizer\SchemaNormalizer;
 
 /**
  * @internal
@@ -29,12 +32,12 @@ final class ComposerJsonNormalizerTest extends AbstractNormalizerTestCase
     {
         $normalizer = new ComposerJsonNormalizer();
 
-        $this->assertComposesNormalizer(Normalizer\ChainNormalizer::class, $normalizer);
+        $this->assertComposesNormalizer(ChainNormalizer::class, $normalizer);
 
         $chainNormalizer = $this->composedNormalizer($normalizer);
 
         $normalizerClassNames = [
-            Normalizer\SchemaNormalizer::class,
+            SchemaNormalizer::class,
             BinNormalizer::class,
             ConfigHashNormalizer::class,
             PackageHashNormalizer::class,
@@ -47,13 +50,14 @@ final class ComposerJsonNormalizerTest extends AbstractNormalizerTestCase
 
         $schemaNormalizer = \array_shift($chainedNormalizers);
 
-        $this->assertInstanceOf(Normalizer\SchemaNormalizer::class, $schemaNormalizer);
+        $this->assertInstanceOf(SchemaNormalizer::class, $schemaNormalizer);
         $this->assertAttributeSame('https://getcomposer.org/schema.json', 'schemaUri', $schemaNormalizer);
     }
 
     public function testNormalizeNormalizes(): void
     {
-        $json = <<<'JSON'
+        $json = Json::fromEncoded(
+<<<'JSON'
 {
   "name": "foo/bar",
   "description": "In der Fantasie geht alles",
@@ -121,9 +125,11 @@ final class ComposerJsonNormalizerTest extends AbstractNormalizerTestCase
     "hasenbein.php"
   ]
 }
-JSON;
+JSON
+        );
 
-        $normalized = <<<'JSON'
+        $expected = Json::fromEncoded(
+<<<'JSON'
 {
   "name": "foo/bar",
   "type": "library",
@@ -191,22 +197,23 @@ JSON;
     "pre-install-cmd": "Runs foo and bar"
   }
 }
-JSON;
+JSON
+        );
 
         $normalizer = new ComposerJsonNormalizer(\sprintf(
             'file://%s',
             \realpath(__DIR__ . '/../../Fixture/composer-schema.json')
         ));
 
-        $normalizedNotPretty = \json_encode(\json_decode($normalized));
+        $normalized = $normalizer->normalize($json);
 
-        $this->assertSame($normalizedNotPretty, $normalizer->normalize($json));
+        $this->assertSame(\json_encode(\json_decode($expected->encoded())), $normalized->encoded());
     }
 
-    private function assertComposesNormalizer(string $className, Normalizer\NormalizerInterface $normalizer): void
+    private function assertComposesNormalizer(string $className, NormalizerInterface $normalizer): void
     {
         $this->assertClassExists($className);
-        $this->assertClassImplementsInterface(Normalizer\NormalizerInterface::class, $className);
+        $this->assertClassImplementsInterface(NormalizerInterface::class, $className);
 
         $attributeName = 'normalizer';
 
@@ -223,11 +230,11 @@ JSON;
         ));
     }
 
-    private function assertComposesNormalizers(array $classNames, Normalizer\NormalizerInterface $normalizer): void
+    private function assertComposesNormalizers(array $classNames, NormalizerInterface $normalizer): void
     {
         foreach ($classNames as $className) {
             $this->assertClassExists($className);
-            $this->assertClassImplementsInterface(Normalizer\NormalizerInterface::class, $className);
+            $this->assertClassImplementsInterface(NormalizerInterface::class, $className);
         }
 
         $attributeName = 'normalizers';
@@ -250,7 +257,7 @@ JSON;
         );
     }
 
-    private function composedNormalizer(Normalizer\NormalizerInterface $normalizer)
+    private function composedNormalizer(NormalizerInterface $normalizer)
     {
         return $this->attributeValue(
             'normalizer',
@@ -258,7 +265,7 @@ JSON;
         );
     }
 
-    private function composedNormalizers(Normalizer\NormalizerInterface $normalizer)
+    private function composedNormalizers(NormalizerInterface $normalizer)
     {
         return $this->attributeValue(
             'normalizers',
@@ -266,7 +273,7 @@ JSON;
         );
     }
 
-    private function attributeValue(string $name, Normalizer\NormalizerInterface $normalizer)
+    private function attributeValue(string $name, NormalizerInterface $normalizer)
     {
         $reflection = new \ReflectionObject($normalizer);
 

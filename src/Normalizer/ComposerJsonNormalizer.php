@@ -13,19 +13,22 @@ declare(strict_types=1);
 
 namespace Localheinz\Composer\Normalize\Normalizer;
 
-use Localheinz\Json\Normalizer;
+use Localheinz\Json\Normalizer\ChainNormalizer;
+use Localheinz\Json\Normalizer\Json;
+use Localheinz\Json\Normalizer\NormalizerInterface;
+use Localheinz\Json\Normalizer\SchemaNormalizer;
 
-final class ComposerJsonNormalizer implements Normalizer\NormalizerInterface
+final class ComposerJsonNormalizer implements NormalizerInterface
 {
     /**
-     * @var Normalizer\NormalizerInterface
+     * @var NormalizerInterface
      */
     private $normalizer;
 
     public function __construct(string $schemaUri = 'https://getcomposer.org/schema.json')
     {
-        $this->normalizer = new Normalizer\ChainNormalizer(
-            new Normalizer\SchemaNormalizer($schemaUri),
+        $this->normalizer = new ChainNormalizer(
+            new SchemaNormalizer($schemaUri),
             new BinNormalizer(),
             new ConfigHashNormalizer(),
             new PackageHashNormalizer(),
@@ -33,18 +36,9 @@ final class ComposerJsonNormalizer implements Normalizer\NormalizerInterface
         );
     }
 
-    public function normalize(string $json): string
+    public function normalize(Json $json): Json
     {
-        $decoded = \json_decode($json);
-
-        if (null === $decoded && \JSON_ERROR_NONE !== \json_last_error()) {
-            throw new \InvalidArgumentException(\sprintf(
-                '"%s" is not valid JSON.',
-                $json
-            ));
-        }
-
-        if (!\is_object($decoded)) {
+        if (!\is_object($json->decoded())) {
             return $json;
         }
 

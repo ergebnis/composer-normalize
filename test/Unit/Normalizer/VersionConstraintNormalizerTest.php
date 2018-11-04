@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Localheinz\Composer\Normalize\Test\Unit\Normalizer;
 
 use Localheinz\Composer\Normalize\Normalizer\VersionConstraintNormalizer;
+use Localheinz\Json\Normalizer\Json;
 
 /**
  * @internal
@@ -27,17 +28,21 @@ final class VersionConstraintNormalizerTest extends AbstractNormalizerTestCase
      */
     public function testNormalizeDoesNotModifyOtherProperty(string $constraint): void
     {
-        $json = <<<JSON
+        $json = Json::fromEncoded(
+<<<JSON
 {
   "foo": {
     "bar/baz": "${constraint}"
   }
 }
-JSON;
+JSON
+        );
 
         $normalizer = new VersionConstraintNormalizer();
 
-        $this->assertSame($json, $normalizer->normalize($json));
+        $normalized = $normalizer->normalize($json);
+
+        $this->assertSame($json->encoded(), $normalized->encoded());
     }
 
     public function providerVersionConstraint(): \Generator
@@ -56,15 +61,19 @@ JSON;
      */
     public function testNormalizeIgnoresEmptyPackageHash(string $property): void
     {
-        $json = <<<JSON
+        $json = Json::fromEncoded(
+<<<JSON
 {
   "${property}": {}
 }
-JSON;
+JSON
+        );
 
         $normalizer = new VersionConstraintNormalizer();
 
-        $this->assertSame(\json_encode(\json_decode($json)), $normalizer->normalize($json));
+        $normalized = $normalizer->normalize($json);
+
+        $this->assertSame(\json_encode(\json_decode($json->encoded())), $normalized->encoded());
     }
 
     public function providerProperty(): \Generator
@@ -87,25 +96,31 @@ JSON;
      */
     public function testNormalizeNormalizesVersionConstraints(string $property, string $versionConstraint, string $normalizedVersionConstraint): void
     {
-        $json = <<<JSON
+        $json = Json::fromEncoded(
+<<<JSON
 {
   "${property}": {
     "bar/baz": "${versionConstraint}"
   }
 }
-JSON;
+JSON
+        );
 
-        $normalized = <<<JSON
+        $expected = Json::fromEncoded(
+<<<JSON
 {
   "${property}": {
     "bar/baz": "${normalizedVersionConstraint}"
   }
 }
-JSON;
+JSON
+        );
 
         $normalizer = new VersionConstraintNormalizer();
 
-        $this->assertJsonStringEqualsJsonString($normalized, $normalizer->normalize($json));
+        $normalized = $normalizer->normalize($json);
+
+        $this->assertJsonStringEqualsJsonString($expected->encoded(), $normalized->encoded());
     }
 
     public function providerPropertyAndVersionConstraint(): \Generator
@@ -133,25 +148,31 @@ JSON;
      */
     public function testNormalizeNormalizesTrimsVersionConstraints(string $property, string $versionConstraint, string $trimmedVersionConstraint): void
     {
-        $json = <<<JSON
+        $json = Json::fromEncoded(
+<<<JSON
 {
   "${property}": {
     "bar/baz": "${versionConstraint}"
   }
 }
-JSON;
+JSON
+        );
 
-        $normalized = <<<JSON
+        $expected = Json::fromEncoded(
+<<<JSON
 {
   "${property}": {
     "bar/baz": "${trimmedVersionConstraint}"
   }
 }
-JSON;
+JSON
+        );
 
         $normalizer = new VersionConstraintNormalizer();
 
-        $this->assertJsonStringEqualsJsonString($normalized, $normalizer->normalize($json));
+        $normalized = $normalizer->normalize($json);
+
+        $this->assertJsonStringEqualsJsonString($expected->encoded(), $normalized->encoded());
     }
 
     public function providerPropertyAndUntrimmedVersionConstraint(): \Generator
