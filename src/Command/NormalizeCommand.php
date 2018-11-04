@@ -40,11 +40,6 @@ final class NormalizeCommand extends Command\BaseCommand
     private $normalizer;
 
     /**
-     * @var Normalizer\Format\SnifferInterface
-     */
-    private $sniffer;
-
-    /**
      * @var Normalizer\Format\FormatterInterface
      */
     private $formatter;
@@ -57,7 +52,6 @@ final class NormalizeCommand extends Command\BaseCommand
     public function __construct(
         Factory $factory,
         Normalizer\NormalizerInterface $normalizer,
-        Normalizer\Format\SnifferInterface $sniffer = null,
         Normalizer\Format\FormatterInterface $formatter = null,
         Diff\Differ $differ = null
     ) {
@@ -65,7 +59,6 @@ final class NormalizeCommand extends Command\BaseCommand
 
         $this->factory = $factory;
         $this->normalizer = $normalizer;
-        $this->sniffer = $sniffer ?: new Normalizer\Format\Sniffer();
         $this->formatter = $formatter ?: new Normalizer\Format\Formatter();
         $this->differ = $differ ?: new Diff\Differ();
     }
@@ -168,7 +161,7 @@ final class NormalizeCommand extends Command\BaseCommand
             return 1;
         }
 
-        $json = \file_get_contents($composerFile);
+        $json = Normalizer\Json::fromEncoded(\file_get_contents($composerFile));
 
         try {
             $normalized = $this->normalizer->normalize($json);
@@ -188,7 +181,7 @@ final class NormalizeCommand extends Command\BaseCommand
             return 1;
         }
 
-        $format = $this->sniffer->sniff($json);
+        $format = $json->format();
 
         if (null !== $indent) {
             $format = $format->withIndent($indent);
@@ -199,7 +192,7 @@ final class NormalizeCommand extends Command\BaseCommand
             $format
         );
 
-        if ($json === $formatted) {
+        if ($json->encoded() === $formatted->encoded()) {
             $io->write(\sprintf(
                 '<info>%s is already normalized.</info>',
                 $composerFile
@@ -258,9 +251,9 @@ final class NormalizeCommand extends Command\BaseCommand
      *
      * @throws \RuntimeException
      *
-     * @return null|string
+     * @return null|Normalizer\Format\Indent
      */
-    private function indentFrom(Console\Input\InputInterface $input): ?string
+    private function indentFrom(Console\Input\InputInterface $input): ?Normalizer\Format\Indent
     {
         $indentSize = $input->getOption('indent-size');
         $indentStyle = $input->getOption('indent-style');
@@ -287,7 +280,18 @@ final class NormalizeCommand extends Command\BaseCommand
             ));
         }
 
-        if (!\array_key_exists($indentStyle, self::$indentStyles)) {
+        try {
+            $indent = Normalizer\Format\Indent::fromSizeAndStyle(
+                (int) $indentSize,
+                $indentStyle
+            );
+        } catch (Normalizer\Exception\InvalidIndentSizeException $exception) {
+            throw new \RuntimeException(\sprintf(
+                'Indent size needs to be an integer greater than %d, but "%s" is not.',
+                $exception->minimumSize(),
+                $exception->size()
+            ));
+        } catch (Normalizer\Exception\InvalidIndentStyleException $exception) {
             throw new \RuntimeException(\sprintf(
                 'Indent style needs to be one of "%s", but "%s" is not.',
                 \implode('", "', \array_keys(self::$indentStyles)),
@@ -295,10 +299,7 @@ final class NormalizeCommand extends Command\BaseCommand
             ));
         }
 
-        return \str_repeat(
-            self::$indentStyles[$indentStyle],
-            (int) $indentSize
-        );
+        return $indent;
     }
 
     /**
