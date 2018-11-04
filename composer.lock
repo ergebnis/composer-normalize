@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ddbab94a7622e873fb04abba51699a3e",
+    "content-hash": "e66f374ea7e226261453b7f90430c62b",
     "packages": [
         {
             "name": "justinrainbow/json-schema",
@@ -74,16 +74,16 @@
         },
         {
             "name": "localheinz/json-normalizer",
-            "version": "0.9.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localheinz/json-normalizer.git",
-                "reference": "28eeda6f1f0daa3c9c28ad0651d95478fe1a5059"
+                "reference": "f50cfda"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localheinz/json-normalizer/zipball/28eeda6f1f0daa3c9c28ad0651d95478fe1a5059",
-                "reference": "28eeda6f1f0daa3c9c28ad0651d95478fe1a5059",
+                "url": "https://api.github.com/repos/localheinz/json-normalizer/zipball/f50cfda",
+                "reference": "f50cfda",
                 "shasum": ""
             },
             "require": {
@@ -98,7 +98,7 @@
                 "localheinz/test-util": "~0.7.0",
                 "phpbench/phpbench": "~0.14.0",
                 "phpstan/phpstan": "~0.10.3",
-                "phpunit/phpunit": "^7.4.0"
+                "phpunit/phpunit": "^7.4.3"
             },
             "type": "library",
             "autoload": {
@@ -122,7 +122,7 @@
                 "json",
                 "normalizer"
             ],
-            "time": "2018-10-07T17:36:39+00:00"
+            "time": "2018-11-04T16:34:17+00:00"
         },
         {
             "name": "localheinz/json-printer",
@@ -4321,9 +4321,18 @@
             "time": "2018-01-29T19:49:41+00:00"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "alias": "0.10.0",
+            "alias_normalized": "0.10.0.0",
+            "version": "9999999-dev",
+            "package": "localheinz/json-normalizer"
+        }
+    ],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "localheinz/json-normalizer": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
