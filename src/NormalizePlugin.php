@@ -30,7 +30,7 @@ final class NormalizePlugin implements Plugin\PluginInterface, Plugin\Capable, P
      */
     private $io;
 
-    public function activate(Composer $composer, IO\IOInterface $io)
+    public function activate(Composer $composer, IO\IOInterface $io): void
     {
         $this->composer = $composer;
         $this->io = $io;
