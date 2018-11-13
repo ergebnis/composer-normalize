@@ -58,6 +58,7 @@ final class PackageHashNormalizer implements NormalizerInterface
             $decoded->{$name} = $this->sortPackages($packages);
         }
 
+        /** @var string $encoded */
         $encoded = \json_encode($decoded);
 
         return Json::fromEncoded($encoded);
@@ -76,7 +77,7 @@ final class PackageHashNormalizer implements NormalizerInterface
     private function sortPackages(array $packages): array
     {
         $prefix = function ($requirement) {
-            if (\preg_match(Repository\PlatformRepository::PLATFORM_PACKAGE_REGEX, $requirement)) {
+            if (1 === \preg_match(Repository\PlatformRepository::PLATFORM_PACKAGE_REGEX, $requirement)) {
                 return \preg_replace(
                     [
                         '/^php/',

@@ -161,7 +161,10 @@ final class NormalizeCommand extends Command\BaseCommand
             return 1;
         }
 
-        $json = Normalizer\Json::fromEncoded(\file_get_contents($composerFile));
+        /** @var string $encoded */
+        $encoded = \file_get_contents($composerFile);
+
+        $json = Normalizer\Json::fromEncoded($encoded);
 
         try {
             $normalized = $this->normalizer->normalize($json);
@@ -217,8 +220,8 @@ final class NormalizeCommand extends Command\BaseCommand
 
             $io->write(
                 $this->diff(
-                    $json,
-                    $formatted
+                    $json->encoded(),
+                    $formatted->encoded()
                 ),
                 false
             );

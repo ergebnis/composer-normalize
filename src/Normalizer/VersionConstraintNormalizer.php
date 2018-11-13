@@ -80,6 +80,7 @@ final class VersionConstraintNormalizer implements NormalizerInterface
             }, $packages);
         }
 
+        /** @var string $encoded */
         $encoded = \json_encode($decoded);
 
         return Json::fromEncoded($encoded);
@@ -90,6 +91,7 @@ final class VersionConstraintNormalizer implements NormalizerInterface
         $normalized = $versionConstraint;
 
         foreach (self::$map as [$pattern, $glue]) {
+            /** @var string[] $split */
             $split = \preg_split(
                 $pattern,
                 $normalized

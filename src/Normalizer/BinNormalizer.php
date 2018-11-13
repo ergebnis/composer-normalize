@@ -29,12 +29,13 @@ final class BinNormalizer implements NormalizerInterface
             return $json;
         }
 
-        $bin = (array) $decoded->bin;
+        $bin = $decoded->bin;
 
         \sort($bin);
 
         $decoded->bin = $bin;
 
+        /** @var string $encoded */
         $encoded = \json_encode($decoded);
 
         return Json::fromEncoded($encoded);

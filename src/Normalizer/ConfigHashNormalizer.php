@@ -60,6 +60,7 @@ final class ConfigHashNormalizer implements NormalizerInterface
             $decoded->{$name} = $config;
         }
 
+        /** @var string $encoded */
         $encoded = \json_encode($decoded);
 
         return Json::fromEncoded($encoded);
