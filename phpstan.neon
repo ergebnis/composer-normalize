@@ -1,2 +1,5 @@
 includes:
 	- vendor/phpstan/phpstan-strict-rules/rules.neon
+
+rules:
+	- Localheinz\PHPStan\Rules\Classes\AbstractOrFinalRule
