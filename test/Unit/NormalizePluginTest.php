@@ -16,9 +16,9 @@ namespace Localheinz\Composer\Normalize\Test\Unit;
 use Composer\Composer;
 use Composer\IO;
 use Composer\Plugin;
+use Localheinz\Composer\Json\Normalizer;
 use Localheinz\Composer\Normalize\Command\NormalizeCommand;
 use Localheinz\Composer\Normalize\NormalizePlugin;
-use Localheinz\Composer\Normalize\Normalizer;
 use Localheinz\Test\Util\Helper;
 use PHPUnit\Framework;
 

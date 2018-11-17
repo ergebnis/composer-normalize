@@ -5,13 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased](https://github.com/localheinz/composer-normalize/compare/0.9.0...HEAD) ([`0.9.0...master`](https://github.com/localheinz/composer-normalize/compare/0.9.0...master))
+## Unreleased
+
+For a full diff see [`1.0.0...master`](https://github.com/localheinz/composer-normalize/compare/1.0.0...master).
+
+## [`1.0.0`](https://github.com/localheinz/composer-normalize/releases/tag/1.0.0)
+
+For a full diff see [`0.9.0...1.0.0`](https://github.com/localheinz/composer-normalize/compare/0.9.0...1.0.0).
 
 ### Added
 
 * Added this changelog ([#94](https://github.com/localheinz/composer-normalize/pull/#94)), by [@localheinz](https://github.com/localheinz)
 
-## [`0.9.0`](https://github.com/localheinz/composer-normalize/releases/tag/0.9.0) 
+### Removed
+
+* Removed normalizers after extracting package [`localheinz/composer-json-normalizer`](https://github.com/localheinz/composer-json-normalizer) ([#106](https://github.com/localheinz/composer-normalize/pull/#106)), by [@localheinz](https://github.com/localheinz)
+
+## [`0.9.0`](https://github.com/localheinz/composer-normalize/releases/tag/0.9.0)
 
 For a full diff see [`0.8.0...0.9.0`](https://github.com/localheinz/composer-normalize/compare/0.8.0...0.9.0).
 
