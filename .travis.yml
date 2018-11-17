@@ -129,7 +129,7 @@ jobs:
         - xdebug-enable
 
       script:
-        - vendor/bin/infection --min-covered-msi=80 --min-msi=60
+        - vendor/bin/infection --min-covered-msi=80 --min-msi=47
 
 notifications:
   email: false
