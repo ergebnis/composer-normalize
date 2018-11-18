@@ -73,6 +73,17 @@ The `NormalizeCommand` provided by the `NormalizePlugin` within this package wil
 * `--indent-style`: Indent style (one of "space", "tab"); should be used with the `--indent-size` option
 * `--no-update-lock`: Do not update lock file if it exists
 
+### Continuous Integration
+
+If you want to run this in continuous integration services, use the `--dry-run` option.
+
+```
+$ composer normalize --dry-run
+```
+
+In case `composer.json` is not normalized (or `composer.lock` is not up-to-date), the command will
+fail with an exit code of `1` and show a diff.
+
 ## Changelog
 
 Please have a look at [`CHANGELOG.md`](CHANGELOG.md).
