@@ -348,7 +348,13 @@ final class NormalizeCommand extends Command\BaseCommand
     private function validateComposerFile(Console\Output\OutputInterface $output): int
     {
         return $this->getApplication()->run(
-            new Console\Input\StringInput('validate --no-check-all --no-check-lock --no-check-publish --strict'),
+            new Console\Input\ArrayInput([
+                'command' => 'validate',
+                '--no-check-all' => true,
+                '--no-check-lock' => true,
+                '--no-check-publish' => true,
+                '--strict' => true,
+            ]),
             $output
         );
     }
@@ -365,7 +371,14 @@ final class NormalizeCommand extends Command\BaseCommand
     private function updateLocker(Console\Output\OutputInterface $output): int
     {
         return $this->getApplication()->run(
-            new Console\Input\StringInput('update --lock --no-autoloader --no-plugins --no-scripts --no-suggest'),
+            new Console\Input\ArrayInput([
+                'update' => 'validate',
+                '--lock' => true,
+                '--no-autoloader' => true,
+                '--no-plugins' => true,
+                '--no-scripts' => true,
+                '--no-suggest' => true,
+            ]),
             $output
         );
     }
