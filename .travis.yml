@@ -50,7 +50,7 @@ jobs:
         - composer install
 
       script:
-        - vendor/bin/phpstan analyse --configuration=phpstan.neon --level=max src
+        - vendor/bin/phpstan analyse --configuration=phpstan.neon src
 
     - &TEST
 
