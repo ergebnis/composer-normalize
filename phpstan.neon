@@ -2,3 +2,9 @@ includes:
 	- vendor/localheinz/phpstan-rules/rules.neon
 	- vendor/phpstan/phpstan-strict-rules/rules.neon
 	- vendor/phpstan/phpstan/conf/config.levelmax.neon
+
+parameters:
+	ignoreErrors:
+		- '#Method Localheinz\\Composer\\Normalize\\Command\\NormalizeCommand::__construct\(\) has parameter \$differ with null as default value.#'
+		- '#Method Localheinz\\Composer\\Normalize\\Command\\NormalizeCommand::__construct\(\) has parameter \$formatter with null as default value.#'
+		- '#Method Localheinz\\Composer\\Normalize\\Command\\NormalizeCommand::indentFrom\(\) has a nullable return type declaration.#'
