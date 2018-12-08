@@ -24,6 +24,7 @@ use Localheinz\Test\Util\Helper;
 use org\bovigo\vfs;
 use PHPUnit\Framework;
 use Prophecy\Argument;
+use SebastianBergmann\Diff;
 use Symfony\Component\Console;
 
 /**
@@ -57,7 +58,9 @@ final class NormalizeCommandTest extends Framework\TestCase
     {
         $command = new NormalizeCommand(
             $this->prophesize(Factory::class)->reveal(),
-            $this->prophesize(Normalizer\NormalizerInterface::class)->reveal()
+            $this->prophesize(Normalizer\NormalizerInterface::class)->reveal(),
+            $this->prophesize(Normalizer\Format\FormatterInterface::class)->reveal(),
+            new Diff\Differ()
         );
 
         $this->assertSame('normalize', $command->getName());
@@ -68,7 +71,9 @@ final class NormalizeCommandTest extends Framework\TestCase
     {
         $command = new NormalizeCommand(
             $this->prophesize(Factory::class)->reveal(),
-            $this->prophesize(Normalizer\NormalizerInterface::class)->reveal()
+            $this->prophesize(Normalizer\NormalizerInterface::class)->reveal(),
+            $this->prophesize(Normalizer\Format\FormatterInterface::class)->reveal(),
+            new Diff\Differ()
         );
 
         $definition = $command->getDefinition();
@@ -86,7 +91,9 @@ final class NormalizeCommandTest extends Framework\TestCase
     {
         $command = new NormalizeCommand(
             $this->prophesize(Factory::class)->reveal(),
-            $this->prophesize(Normalizer\NormalizerInterface::class)->reveal()
+            $this->prophesize(Normalizer\NormalizerInterface::class)->reveal(),
+            $this->prophesize(Normalizer\Format\FormatterInterface::class)->reveal(),
+            new Diff\Differ()
         );
 
         $definition = $command->getDefinition();
@@ -105,7 +112,9 @@ final class NormalizeCommandTest extends Framework\TestCase
     {
         $command = new NormalizeCommand(
             $this->prophesize(Factory::class)->reveal(),
-            $this->prophesize(Normalizer\NormalizerInterface::class)->reveal()
+            $this->prophesize(Normalizer\NormalizerInterface::class)->reveal(),
+            $this->prophesize(Normalizer\Format\FormatterInterface::class)->reveal(),
+            new Diff\Differ()
         );
 
         $definition = $command->getDefinition();
@@ -124,7 +133,9 @@ final class NormalizeCommandTest extends Framework\TestCase
     {
         $command = new NormalizeCommand(
             $this->prophesize(Factory::class)->reveal(),
-            $this->prophesize(Normalizer\NormalizerInterface::class)->reveal()
+            $this->prophesize(Normalizer\NormalizerInterface::class)->reveal(),
+            $this->prophesize(Normalizer\Format\FormatterInterface::class)->reveal(),
+            new Diff\Differ()
         );
 
         $definition = $command->getDefinition();
@@ -149,7 +160,9 @@ final class NormalizeCommandTest extends Framework\TestCase
     {
         $command = new NormalizeCommand(
             $this->prophesize(Factory::class)->reveal(),
-            $this->prophesize(Normalizer\NormalizerInterface::class)->reveal()
+            $this->prophesize(Normalizer\NormalizerInterface::class)->reveal(),
+            $this->prophesize(Normalizer\Format\FormatterInterface::class)->reveal(),
+            new Diff\Differ()
         );
 
         $definition = $command->getDefinition();
@@ -181,7 +194,9 @@ final class NormalizeCommandTest extends Framework\TestCase
 
         $command = new NormalizeCommand(
             $this->prophesize(Factory::class)->reveal(),
-            $this->prophesize(Normalizer\NormalizerInterface::class)->reveal()
+            $this->prophesize(Normalizer\NormalizerInterface::class)->reveal(),
+            $this->prophesize(Normalizer\Format\FormatterInterface::class)->reveal(),
+            new Diff\Differ()
         );
 
         $command->setIO($io->reveal());
@@ -212,7 +227,9 @@ final class NormalizeCommandTest extends Framework\TestCase
 
         $command = new NormalizeCommand(
             $this->prophesize(Factory::class)->reveal(),
-            $this->prophesize(Normalizer\NormalizerInterface::class)->reveal()
+            $this->prophesize(Normalizer\NormalizerInterface::class)->reveal(),
+            $this->prophesize(Normalizer\Format\FormatterInterface::class)->reveal(),
+            new Diff\Differ()
         );
 
         $command->setIO($io->reveal());
@@ -256,7 +273,9 @@ final class NormalizeCommandTest extends Framework\TestCase
 
         $command = new NormalizeCommand(
             $this->prophesize(Factory::class)->reveal(),
-            $this->prophesize(Normalizer\NormalizerInterface::class)->reveal()
+            $this->prophesize(Normalizer\NormalizerInterface::class)->reveal(),
+            $this->prophesize(Normalizer\Format\FormatterInterface::class)->reveal(),
+            new Diff\Differ()
         );
 
         $command->setIO($io->reveal());
@@ -312,7 +331,9 @@ final class NormalizeCommandTest extends Framework\TestCase
 
         $command = new NormalizeCommand(
             $this->prophesize(Factory::class)->reveal(),
-            $this->prophesize(Normalizer\NormalizerInterface::class)->reveal()
+            $this->prophesize(Normalizer\NormalizerInterface::class)->reveal(),
+            $this->prophesize(Normalizer\Format\FormatterInterface::class)->reveal(),
+            new Diff\Differ()
         );
 
         $command->setIO($io->reveal());
@@ -357,7 +378,9 @@ final class NormalizeCommandTest extends Framework\TestCase
 
         $command = new NormalizeCommand(
             $factory->reveal(),
-            $this->prophesize(Normalizer\NormalizerInterface::class)->reveal()
+            $this->prophesize(Normalizer\NormalizerInterface::class)->reveal(),
+            $this->prophesize(Normalizer\Format\FormatterInterface::class)->reveal(),
+            new Diff\Differ()
         );
 
         $command->setIO($io->reveal());
@@ -402,7 +425,9 @@ final class NormalizeCommandTest extends Framework\TestCase
 
         $command = new NormalizeCommand(
             $factory->reveal(),
-            $this->prophesize(Normalizer\NormalizerInterface::class)->reveal()
+            $this->prophesize(Normalizer\NormalizerInterface::class)->reveal(),
+            $this->prophesize(Normalizer\Format\FormatterInterface::class)->reveal(),
+            new Diff\Differ()
         );
 
         $command->setIO($io->reveal());
@@ -463,7 +488,9 @@ final class NormalizeCommandTest extends Framework\TestCase
 
         $command = new NormalizeCommand(
             $factory->reveal(),
-            $this->prophesize(Normalizer\NormalizerInterface::class)->reveal()
+            $this->prophesize(Normalizer\NormalizerInterface::class)->reveal(),
+            $this->prophesize(Normalizer\Format\FormatterInterface::class)->reveal(),
+            new Diff\Differ()
         );
 
         $command->setIO($io->reveal());
