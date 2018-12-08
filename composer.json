@@ -33,7 +33,7 @@
     "mikey179/vfsStream": "^1.6.5",
     "phpstan/phpstan": "~0.10.5",
     "phpstan/phpstan-strict-rules": "~0.10.1",
-    "phpunit/phpunit": "^6.5.13 || ^7.4.3"
+    "phpunit/phpunit": "^6.5.13 || ^7.5.0"
   },
   "config": {
     "preferred-install": "dist",
