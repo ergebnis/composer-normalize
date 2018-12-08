@@ -293,7 +293,7 @@ final class NormalizeCommandTest extends Framework\TestCase
 
     public function testExecuteWithIndentFailsIfIndentStyleIsInvalid(): void
     {
-        $indentSize = $this->faker()->numberBetween(1);
+        $indentSize = (string) $this->faker()->numberBetween(1);
         $indentStyle = $this->faker()->sentence;
 
         $original = $this->composerFileContent();
