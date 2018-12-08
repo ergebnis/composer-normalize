@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## `2.0`
+
+### Unreleased
+
+For a full diff see [`1.0...master`](https://github.com/localheinz/composer-normalize/compare/1.0...master).
+
+#### Changed
+
+* The constructor of `NormalizeCommand` now requires an implementation of `Localheinz\Json\Normalizer\Format\FormatterInterface`, as well as an instance of `Sebastian\Diff\Differ` to be injected ([#118](https://github.com/localheinz/composer-normalize/pull/118)), by [@localheinz](https://github.com/localheinz)
+
 ## `1.0`
 
 ### Unreleased

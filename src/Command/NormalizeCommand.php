@@ -52,15 +52,15 @@ final class NormalizeCommand extends Command\BaseCommand
     public function __construct(
         Factory $factory,
         Normalizer\NormalizerInterface $normalizer,
-        Normalizer\Format\FormatterInterface $formatter = null,
-        Diff\Differ $differ = null
+        Normalizer\Format\FormatterInterface $formatter,
+        Diff\Differ $differ
     ) {
         parent::__construct('normalize');
 
         $this->factory = $factory;
         $this->normalizer = $normalizer;
-        $this->formatter = $formatter ?: new Normalizer\Format\Formatter();
-        $this->differ = $differ ?: new Diff\Differ();
+        $this->formatter = $formatter;
+        $this->differ = $differ;
     }
 
     protected function configure(): void

@@ -17,7 +17,9 @@ use Composer\Composer;
 use Composer\Factory;
 use Composer\IO;
 use Composer\Plugin;
-use Localheinz\Composer\Json\Normalizer;
+use Localheinz\Composer\Json\Normalizer\ComposerJsonNormalizer;
+use Localheinz\Json\Normalizer\Format;
+use SebastianBergmann\Diff;
 
 final class NormalizePlugin implements Plugin\PluginInterface, Plugin\Capable, Plugin\Capability\CommandProvider
 {
@@ -49,7 +51,9 @@ final class NormalizePlugin implements Plugin\PluginInterface, Plugin\Capable, P
         return [
             new Command\NormalizeCommand(
                 new Factory(),
-                new Normalizer\ComposerJsonNormalizer()
+                new ComposerJsonNormalizer(),
+                new Format\Formatter(),
+                new Diff\Differ()
             ),
         ];
     }
