@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "70df2f3af0a7c759b43ae61c8e6b34c1",
+    "content-hash": "1e55643e8a3080f3c4d6073209160de7",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -1653,16 +1653,16 @@
         },
         {
             "name": "localheinz/phpstan-rules",
-            "version": "0.4.0",
+            "version": "0.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localheinz/phpstan-rules.git",
-                "reference": "42a1d1b9294059fa6813147290458612f1eac144"
+                "reference": "f9bc5f56f3363b41b889dbc17e10d9f290439216"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localheinz/phpstan-rules/zipball/42a1d1b9294059fa6813147290458612f1eac144",
-                "reference": "42a1d1b9294059fa6813147290458612f1eac144",
+                "url": "https://api.github.com/repos/localheinz/phpstan-rules/zipball/f9bc5f56f3363b41b889dbc17e10d9f290439216",
+                "reference": "f9bc5f56f3363b41b889dbc17e10d9f290439216",
                 "shasum": ""
             },
             "require": {
@@ -1671,12 +1671,13 @@
                 "phpstan/phpstan": "~0.10.5"
             },
             "require-dev": {
-                "infection/infection": "~0.11.1",
+                "infection/infection": "~0.11.2",
                 "localheinz/composer-normalize": "^1.0.0",
                 "localheinz/php-cs-fixer-config": "~1.17.0",
                 "localheinz/test-util": "~0.7.0",
+                "phpstan/phpstan-deprecation-rules": "~0.10.2",
                 "phpstan/phpstan-strict-rules": "~0.10.1",
-                "phpunit/phpunit": "^7.4.3"
+                "phpunit/phpunit": "^7.4.5"
             },
             "type": "library",
             "autoload": {
@@ -1701,7 +1702,7 @@
                 "phpstan-extreme-rules",
                 "phpstan-rules"
             ],
-            "time": "2018-12-03T07:45:07+00:00"
+            "time": "2018-12-05T20:37:27+00:00"
         },
         {
             "name": "localheinz/test-util",
