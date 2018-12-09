@@ -39,8 +39,8 @@ final class NormalizeCommandTest extends Framework\TestCase
             $this->prophesize(Normalizer\NormalizerInterface::class)->reveal()
         );
 
-        $this->assertSame('normalize', $command->getName());
-        $this->assertSame('Normalizes composer.json according to its JSON schema (https://getcomposer.org/schema.json).', $command->getDescription());
+        self::assertSame('normalize', $command->getName());
+        self::assertSame('Normalizes composer.json according to its JSON schema (https://getcomposer.org/schema.json).', $command->getDescription());
     }
 
     public function testHasFileArgument(): void
@@ -52,13 +52,13 @@ final class NormalizeCommandTest extends Framework\TestCase
 
         $definition = $command->getDefinition();
 
-        $this->assertTrue($definition->hasArgument('file'));
+        self::assertTrue($definition->hasArgument('file'));
 
         $argument = $definition->getArgument('file');
 
-        $this->assertFalse($argument->isRequired());
-        $this->assertSame('Path to composer.json file', $argument->getDescription());
-        $this->assertNull($argument->getDefault());
+        self::assertFalse($argument->isRequired());
+        self::assertSame('Path to composer.json file', $argument->getDescription());
+        self::assertNull($argument->getDefault());
     }
 
     public function testHasDryRunOption(): void
@@ -70,14 +70,14 @@ final class NormalizeCommandTest extends Framework\TestCase
 
         $definition = $command->getDefinition();
 
-        $this->assertTrue($definition->hasOption('dry-run'));
+        self::assertTrue($definition->hasOption('dry-run'));
 
         $option = $definition->getOption('dry-run');
 
-        $this->assertNull($option->getShortcut());
-        $this->assertFalse($option->isValueRequired());
-        $this->assertFalse($option->getDefault());
-        $this->assertSame('Show the results of normalizing, but do not modify any files', $option->getDescription());
+        self::assertNull($option->getShortcut());
+        self::assertFalse($option->isValueRequired());
+        self::assertFalse($option->getDefault());
+        self::assertSame('Show the results of normalizing, but do not modify any files', $option->getDescription());
     }
 
     public function testHasIndentSizeOption(): void
@@ -89,14 +89,14 @@ final class NormalizeCommandTest extends Framework\TestCase
 
         $definition = $command->getDefinition();
 
-        $this->assertTrue($definition->hasOption('indent-size'));
+        self::assertTrue($definition->hasOption('indent-size'));
 
         $option = $definition->getOption('indent-size');
 
-        $this->assertNull($option->getShortcut());
-        $this->assertTrue($option->isValueRequired());
-        $this->assertNull($option->getDefault());
-        $this->assertSame('Indent size (an integer greater than 0); should be used with the --indent-style option', $option->getDescription());
+        self::assertNull($option->getShortcut());
+        self::assertTrue($option->isValueRequired());
+        self::assertNull($option->getDefault());
+        self::assertSame('Indent size (an integer greater than 0); should be used with the --indent-style option', $option->getDescription());
     }
 
     public function testHasIndentStyleOption(): void
@@ -108,13 +108,13 @@ final class NormalizeCommandTest extends Framework\TestCase
 
         $definition = $command->getDefinition();
 
-        $this->assertTrue($definition->hasOption('indent-style'));
+        self::assertTrue($definition->hasOption('indent-style'));
 
         $option = $definition->getOption('indent-style');
 
-        $this->assertNull($option->getShortcut());
-        $this->assertTrue($option->isValueRequired());
-        $this->assertNull($option->getDefault());
+        self::assertNull($option->getShortcut());
+        self::assertTrue($option->isValueRequired());
+        self::assertNull($option->getDefault());
 
         $indentStyles = [
             'space' => ' ',
@@ -126,7 +126,7 @@ final class NormalizeCommandTest extends Framework\TestCase
             \implode('", "', \array_keys($indentStyles))
         );
 
-        $this->assertSame($description, $option->getDescription());
+        self::assertSame($description, $option->getDescription());
     }
 
     public function testHasNoUpdateLockOption(): void
@@ -138,13 +138,13 @@ final class NormalizeCommandTest extends Framework\TestCase
 
         $definition = $command->getDefinition();
 
-        $this->assertTrue($definition->hasOption('no-update-lock'));
+        self::assertTrue($definition->hasOption('no-update-lock'));
 
         $option = $definition->getOption('no-update-lock');
 
-        $this->assertNull($option->getShortcut());
-        $this->assertFalse($option->isValueRequired());
-        $this->assertFalse($option->getDefault());
-        $this->assertSame('Do not update lock file if it exists', $option->getDescription());
+        self::assertNull($option->getShortcut());
+        self::assertFalse($option->isValueRequired());
+        self::assertFalse($option->getDefault());
+        self::assertSame('Do not update lock file if it exists', $option->getDescription());
     }
 }
