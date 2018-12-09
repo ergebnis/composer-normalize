@@ -316,7 +316,7 @@ final class NormalizeCommand extends Command\BaseCommand
             $after
         );
 
-        return \array_map(function (array $element) {
+        return \array_map(static function (array $element) {
             static $templates = [
                 0 => ' %s',
                 1 => '<fg=green>+%s</>',
