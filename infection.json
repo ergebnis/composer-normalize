@@ -9,6 +9,6 @@
     "configDir": "test\/Unit"
   },
   "logs": {
-    "text": "infection-log.txt"
+    "text": ".infection/infection-log.txt"
   }
 }
