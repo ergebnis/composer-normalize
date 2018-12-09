@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "080e7e1200fc4837e88fa696771346ba",
+    "content-hash": "94a1185217c270634fa5d87f2c0d44d4",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -1580,6 +1580,45 @@
                 "unit testing"
             ],
             "time": "2018-11-13T04:22:01+00:00"
+        },
+        {
+            "name": "jangregor/phpstan-prophecy",
+            "version": "0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Jan0707/phpstan-prophecy.git",
+                "reference": "9177e63498fbd0cddba75a48739efb39d6110951"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Jan0707/phpstan-prophecy/zipball/9177e63498fbd0cddba75a48739efb39d6110951",
+                "reference": "9177e63498fbd0cddba75a48739efb39d6110951",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1",
+                "phpspec/prophecy": "^1.7",
+                "phpstan/phpstan": "^0.10",
+                "phpunit/phpunit": "^6.0||^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "JanGregor\\Prophecy\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jan Gregor Emge-Triebel",
+                    "email": "jan@jangregor.me"
+                }
+            ],
+            "description": "Provides a phpstan/phpstan extension for phpspec/prophecy",
+            "time": "2018-07-16T10:42:05+00:00"
         },
         {
             "name": "jean85/pretty-package-versions",

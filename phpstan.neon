@@ -1,4 +1,5 @@
 includes:
+	- vendor/jangregor/phpstan-prophecy/src/extension.neon
 	- vendor/localheinz/phpstan-rules/rules.neon
 	- vendor/phpstan/phpstan-strict-rules/rules.neon
 	- vendor/phpstan/phpstan/conf/config.levelmax.neon
