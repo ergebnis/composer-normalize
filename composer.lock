@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "94a1185217c270634fa5d87f2c0d44d4",
+    "content-hash": "b86a10dd1b467b15709ccbfca91ca3ec",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -1493,16 +1493,16 @@
         },
         {
             "name": "infection/infection",
-            "version": "0.11.1",
+            "version": "0.11.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/infection/infection.git",
-                "reference": "a354c5d5865d9dfe2f58a5ef2ea9a9f2358c83a6"
+                "reference": "f71d7af4332e0c3760aab45c16a6f750db1475a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/infection/infection/zipball/a354c5d5865d9dfe2f58a5ef2ea9a9f2358c83a6",
-                "reference": "a354c5d5865d9dfe2f58a5ef2ea9a9f2358c83a6",
+                "url": "https://api.github.com/repos/infection/infection/zipball/f71d7af4332e0c3760aab45c16a6f750db1475a6",
+                "reference": "f71d7af4332e0c3760aab45c16a6f750db1475a6",
                 "shasum": ""
             },
             "require": {
@@ -1579,7 +1579,7 @@
                 "testing",
                 "unit testing"
             ],
-            "time": "2018-11-13T04:22:01+00:00"
+            "time": "2018-12-09T15:26:00+00:00"
         },
         {
             "name": "jangregor/phpstan-prophecy",
@@ -4402,16 +4402,16 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v4.1.7",
+            "version": "v4.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "367e689b2fdc19965be435337b50bc8adf2746c9"
+                "reference": "c41175c801e3edfda90f32e292619d10c27103d7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/367e689b2fdc19965be435337b50bc8adf2746c9",
-                "reference": "367e689b2fdc19965be435337b50bc8adf2746c9",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/c41175c801e3edfda90f32e292619d10c27103d7",
+                "reference": "c41175c801e3edfda90f32e292619d10c27103d7",
                 "shasum": ""
             },
             "require": {
@@ -4430,7 +4430,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.1-dev"
+                    "dev-master": "4.2-dev"
                 }
             },
             "autoload": {
@@ -4457,7 +4457,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2018-10-02T16:36:10+00:00"
+            "time": "2018-11-11T19:52:12+00:00"
         },
         {
             "name": "theseer/tokenizer",
