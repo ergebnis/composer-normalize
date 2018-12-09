@@ -258,7 +258,10 @@ final class NormalizeCommand extends Command\BaseCommand
      */
     private function indentFrom(Console\Input\InputInterface $input): ?Normalizer\Format\Indent
     {
+        /** @var null|string $indentSize */
         $indentSize = $input->getOption('indent-size');
+
+        /** @var null|string $indentStyle */
         $indentStyle = $input->getOption('indent-style');
 
         if (null === $indentSize && null === $indentStyle) {
@@ -276,7 +279,7 @@ final class NormalizeCommand extends Command\BaseCommand
             ));
         }
 
-        if ((string) (int) $indentSize !== (string) $indentSize || 1 > $indentSize) {
+        if ((string) (int) $indentSize !== $indentSize || 1 > $indentSize) {
             throw new \RuntimeException(\sprintf(
                 'Indent size needs to be an integer greater than 0, but "%s" is not.',
                 $indentSize
