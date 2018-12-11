@@ -102,11 +102,6 @@ final class NormalizeCommand extends Command\BaseCommand
         ]);
     }
 
-    protected function initialize(Console\Input\InputInterface $input, Console\Output\OutputInterface $output): void
-    {
-        // nothing to initialize here
-    }
-
     protected function execute(Console\Input\InputInterface $input, Console\Output\OutputInterface $output): int
     {
         $io = $this->getIO();
@@ -258,7 +253,10 @@ final class NormalizeCommand extends Command\BaseCommand
      */
     private function indentFrom(Console\Input\InputInterface $input): ?Normalizer\Format\Indent
     {
+        /** @var null|string $indentSize */
         $indentSize = $input->getOption('indent-size');
+
+        /** @var null|string $indentStyle */
         $indentStyle = $input->getOption('indent-style');
 
         if (null === $indentSize && null === $indentStyle) {
@@ -276,7 +274,7 @@ final class NormalizeCommand extends Command\BaseCommand
             ));
         }
 
-        if ((string) (int) $indentSize !== (string) $indentSize || 1 > $indentSize) {
+        if ((string) (int) $indentSize !== $indentSize || 1 > $indentSize) {
             throw new \RuntimeException(\sprintf(
                 'Indent size needs to be an integer greater than 0, but "%s" is not.',
                 $indentSize
@@ -318,7 +316,7 @@ final class NormalizeCommand extends Command\BaseCommand
             $after
         );
 
-        return \array_map(function (array $element) {
+        return \array_map(static function (array $element) {
             static $templates = [
                 0 => ' %s',
                 1 => '<fg=green>+%s</>',

@@ -21,19 +21,18 @@
     "composer-plugin-api": "^1.1.0",
     "localheinz/composer-json-normalizer": "^1.0.1",
     "localheinz/json-normalizer": "~0.9.0",
-    "sebastian/diff": "^2.0.1 || ^3.0.0",
-    "symfony/console": "^2.5.0 || ^3.0.0 || ^4.0.0"
+    "sebastian/diff": "^2.0.1 || ^3.0.0"
   },
   "require-dev": {
     "composer/composer": "^1.1.0",
-    "infection/infection": "~0.11.1",
-    "localheinz/php-cs-fixer-config": "~1.15.0",
+    "infection/infection": "~0.11.4",
+    "jangregor/phpstan-prophecy": "~0.2.0",
+    "localheinz/php-cs-fixer-config": "~1.17.0",
     "localheinz/phpstan-rules": "~0.5.0",
     "localheinz/test-util": "0.6.1",
-    "mikey179/vfsStream": "^1.6.5",
     "phpstan/phpstan": "~0.10.5",
     "phpstan/phpstan-strict-rules": "~0.10.1",
-    "phpunit/phpunit": "^6.5.13 || ^7.4.3"
+    "phpunit/phpunit": "^6.5.13 || ^7.5.0"
   },
   "config": {
     "preferred-install": "dist",

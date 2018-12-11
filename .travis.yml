@@ -8,6 +8,7 @@ cache:
   directories:
     - $HOME/.composer/cache
     - $HOME/.php-cs-fixer
+    - $HOME/.phpstan
 
 stages:
   - style
@@ -49,8 +50,11 @@ jobs:
       install:
         - composer install
 
+      before_script:
+        - mkdir -p $HOME/.phpstan
+
       script:
-        - vendor/bin/phpstan analyse --configuration=phpstan.neon src
+        - vendor/bin/phpstan analyse --configuration=phpstan.neon src test
 
     - &TEST
 
@@ -144,9 +148,10 @@ jobs:
 
       before_script:
         - xdebug-enable
+        - mkdir -p $HOME/.infection
 
       script:
-        - vendor/bin/infection --min-covered-msi=80 --min-msi=42
+        - vendor/bin/infection --ignore-msi-with-no-mutations --min-covered-msi=100 --min-msi=3
 
 notifications:
   email: false

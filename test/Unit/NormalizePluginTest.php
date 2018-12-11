@@ -67,7 +67,7 @@ final class NormalizePluginTest extends Framework\TestCase
             Plugin\Capability\CommandProvider::class => NormalizePlugin::class,
         ];
 
-        $this->assertSame($expected, $plugin->getCapabilities());
+        self::assertSame($expected, $plugin->getCapabilities());
     }
 
     public function testProvidesNormalizeCommand(): void
@@ -81,11 +81,11 @@ final class NormalizePluginTest extends Framework\TestCase
 
         $commands = $plugin->getCommands();
 
-        $this->assertCount(1, $commands);
+        self::assertCount(1, $commands);
 
         $command = \array_shift($commands);
 
-        $this->assertInstanceOf(NormalizeCommand::class, $command);
-        $this->assertAttributeInstanceOf(Normalizer\ComposerJsonNormalizer::class, 'normalizer', $command);
+        self::assertInstanceOf(NormalizeCommand::class, $command);
+        self::assertAttributeInstanceOf(Normalizer\ComposerJsonNormalizer::class, 'normalizer', $command);
     }
 }
