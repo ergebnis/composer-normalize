@@ -9,6 +9,7 @@ cache:
     - $HOME/.composer/cache
     - $HOME/.php-cs-fixer
     - $HOME/.phpstan
+    - $HOME/.phpunit
 
 stages:
   - style
@@ -39,7 +40,7 @@ jobs:
 
     - stage: Stan
 
-      php: 7.1
+      php: 7.2
 
       before_install:
         - source .travis/xdebug.sh
