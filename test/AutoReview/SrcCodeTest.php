@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Localheinz\Composer\Normalize\Test\AutoReview;
 
+use Localheinz\Composer\Normalize;
 use Localheinz\Test\Util\Helper;
 use PHPUnit\Framework;
 
@@ -28,7 +29,11 @@ final class SrcCodeTest extends Framework\TestCase
         $this->assertClassesHaveTests(
             __DIR__ . '/../../src',
             'Localheinz\\Composer\\Normalize\\',
-            'Localheinz\\Composer\\Normalize\\Test\\Unit'
+            'Localheinz\\Composer\\Normalize\\Test\\Unit',
+            [
+                Normalize\Command\NormalizeCommand::class,
+                Normalize\NormalizePlugin::class,
+            ]
         );
     }
 }
