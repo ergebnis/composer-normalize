@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Unreleased
 
-For a full diff see [`1.0.0...1.0`](https://github.com/localheinz/composer-normalize/compare/1.0.0...1.0).
+For a full diff see [`1.0.0...1.x`](https://github.com/localheinz/composer-normalize/compare/1.0.0...1.x).
 
 ### [`1.0.0`](https://github.com/localheinz/composer-normalize/releases/tag/1.0.0)
 
