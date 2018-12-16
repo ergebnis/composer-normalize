@@ -79,7 +79,7 @@ jobs:
 
       script:
         - if [[ "$WITH_COVERAGE" == "true" ]]; then xdebug-enable; fi
-        - if [[ "$WITH_COVERAGE" == "true" ]]; then vendor/bin/phpunit --configuration=test/Unit/phpunit.xml --coverage-clover=build/logs/clover.xml; else vendor/bin/phpunit --configuration=test/Unit/phpunit.xml; fi
+        - if [[ "$WITH_COVERAGE" == "true" ]]; then vendor/bin/phpunit --configuration=test/Integration/phpunit.xml --coverage-clover=build/logs/clover.xml; else vendor/bin/phpunit --configuration=test/Integration/phpunit.xml; fi
         - if [[ "$WITH_COVERAGE" == "true" ]]; then xdebug-disable; fi
 
       after_success:

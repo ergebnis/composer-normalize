@@ -23,7 +23,7 @@
     verbose="true"
 >
     <testsuites>
-        <testsuite name="Unit Tests">
+        <testsuite name="Integration Tests">
             <directory>.</directory>
         </testsuite>
     </testsuites>

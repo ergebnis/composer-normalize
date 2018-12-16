@@ -3,7 +3,7 @@
 it: cs stan test
 
 coverage: vendor
-	vendor/bin/phpunit --configuration=test/Unit/phpunit.xml --coverage-text
+	vendor/bin/phpunit --configuration=test/Integration/phpunit.xml --coverage-text
 
 cs: vendor
 	mkdir -p .php-cs-fixer
@@ -18,7 +18,7 @@ stan: vendor
 	vendor/bin/phpstan analyse --configuration=phpstan.neon src test
 
 test: vendor
-	vendor/bin/phpunit --configuration=test/Unit/phpunit.xml
+	vendor/bin/phpunit --configuration=test/Integration/phpunit.xml
 
 vendor: composer.json composer.lock
 	composer validate
