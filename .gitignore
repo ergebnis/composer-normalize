@@ -2,4 +2,5 @@
 /.php-cs-fixer/
 /.phpstan/
 /.phpunit/
+/.tmp/
 /vendor/

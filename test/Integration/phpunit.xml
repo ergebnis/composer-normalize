@@ -27,6 +27,9 @@
             <directory>.</directory>
         </testsuite>
     </testsuites>
+    <php>
+        <env name="COMPOSER_ALLOW_XDEBUG" value="1"/>
+    </php>
     <filter>
         <whitelist addUncoveredFilesFromWhitelist="true" processUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">../../src</directory>
