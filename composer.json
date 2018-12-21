@@ -32,7 +32,8 @@
     "localheinz/test-util": "0.6.1",
     "phpstan/phpstan": "~0.10.5",
     "phpstan/phpstan-strict-rules": "~0.10.1",
-    "phpunit/phpunit": "^6.5.13 || ^7.5.0"
+    "phpunit/phpunit": "^6.5.13 || ^7.5.0",
+    "symfony/filesystem": "^4.2.1"
   },
   "config": {
     "preferred-install": "dist",
