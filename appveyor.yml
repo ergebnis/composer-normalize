@@ -19,6 +19,12 @@ environment:
       WITH_LOCKED: true
     - PHP_VERSION: 7.2
       WITH_HIGHEST: true
+    - PHP_VERSION: 7.3
+      WITH_LOWEST: true
+    - PHP_VERSION: 7.3
+      WITH_LOCKED: true
+    - PHP_VERSION: 7.3
+      WITH_HIGHEST: true
 
 cache:
   - '%LOCALAPPDATA%\Composer\files -> composer.lock'
@@ -43,6 +49,7 @@ install:
   - appveyor-retry appveyor DownloadFile https://getcomposer.org/composer.phar
   - cd c:\projects\composer-normalize
   - composer config --unset platform.php
+  - IF "%PHP_VERSION%" == "7.3" appveyor-retry composer remove --dev localheinz/php-cs-fixer-config
   - IF "%WITH_LOWEST%" == "true" appveyor-retry composer update --no-progress --prefer-lowest
   - IF "%WITH_LOCKED%" == "true" appveyor-retry composer install --no-progress
   - IF "%WITH_HIGHEST%" == "true" appveyor-retry composer update --no-progress
