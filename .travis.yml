@@ -78,7 +78,6 @@ jobs:
         - if [[ "$WITH_HIGHEST" == "true" ]]; then composer update; fi
 
       script:
-        - vendor/bin/phpunit --configuration=test/AutoReview/phpunit.xml
         - if [[ "$WITH_COVERAGE" == "true" ]]; then xdebug-enable; fi
         - if [[ "$WITH_COVERAGE" == "true" ]]; then vendor/bin/phpunit --configuration=test/Unit/phpunit.xml --coverage-clover=build/logs/clover.xml; else vendor/bin/phpunit --configuration=test/Unit/phpunit.xml; fi
         - if [[ "$WITH_COVERAGE" == "true" ]]; then xdebug-disable; fi
