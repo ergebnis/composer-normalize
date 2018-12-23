@@ -1,0 +1,20 @@
+{
+  "name": "foo/bar",
+  "type": "library",
+  "description": "This composer.json is valid, a composer.lock is present and fresh before invoking the command, and composer.json is already normalized.",
+  "keywords": [
+    "foo",
+    "bar"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Andreas Möller",
+      "email": "am@localheinz.com"
+    }
+  ],
+  "require": {
+    "php": "^7.1",
+    "ext-json": "*"
+  }
+}

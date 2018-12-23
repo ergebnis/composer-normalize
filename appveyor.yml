@@ -56,5 +56,4 @@ install:
 
 test_script:
   - cd c:\projects\composer-normalize
-  - vendor/bin/phpunit --configuration=test/AutoReview/phpunit.xml
-  - vendor/bin/phpunit --configuration=test/Unit/phpunit.xml
+  - vendor/bin/phpunit --configuration=test/Integration/phpunit.xml

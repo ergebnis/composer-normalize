@@ -78,9 +78,8 @@ jobs:
         - if [[ "$WITH_HIGHEST" == "true" ]]; then composer update; fi
 
       script:
-        - vendor/bin/phpunit --configuration=test/AutoReview/phpunit.xml
         - if [[ "$WITH_COVERAGE" == "true" ]]; then xdebug-enable; fi
-        - if [[ "$WITH_COVERAGE" == "true" ]]; then vendor/bin/phpunit --configuration=test/Unit/phpunit.xml --coverage-clover=build/logs/clover.xml; else vendor/bin/phpunit --configuration=test/Unit/phpunit.xml; fi
+        - if [[ "$WITH_COVERAGE" == "true" ]]; then vendor/bin/phpunit --configuration=test/Integration/phpunit.xml --coverage-clover=build/logs/clover.xml; else vendor/bin/phpunit --configuration=test/Integration/phpunit.xml; fi
         - if [[ "$WITH_COVERAGE" == "true" ]]; then xdebug-disable; fi
 
       after_success:
@@ -152,7 +151,7 @@ jobs:
         - mkdir -p $HOME/.infection
 
       script:
-        - vendor/bin/infection --ignore-msi-with-no-mutations --min-covered-msi=100 --min-msi=3
+        - vendor/bin/infection --ignore-msi-with-no-mutations --min-covered-msi=100 --min-msi=70
 
 notifications:
   email: false
