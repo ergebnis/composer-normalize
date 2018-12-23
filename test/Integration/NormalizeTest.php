@@ -620,6 +620,51 @@ final class NormalizeTest extends Framework\TestCase
      *
      * @param CommandInvocation $commandInvocation
      */
+    public function testSucceedsWhenComposerJsonIsPresentAndValidAndComposerLockIsPresentAndFreshBeforeAndComposerJsonIsAlreadyNormalized(CommandInvocation $commandInvocation): void
+    {
+        $scenario = $this->createScenario(
+            $commandInvocation,
+            __DIR__ . '/../Fixture/json/valid/lock/present/lock/fresh-before/json/already-normalized'
+        );
+
+        $initialState = $scenario->initialState();
+
+        self::assertComposerJsonFileExists($initialState);
+        self::assertComposerLockFileExists($initialState);
+        self::assertComposerLockFileFresh($initialState);
+
+        $application = $this->createApplication(new NormalizeCommand(
+            new Factory(),
+            new ComposerJsonNormalizer(),
+            new Formatter(),
+            new Differ()
+        ));
+
+        $input = new Console\Input\ArrayInput($scenario->consoleParameters());
+
+        $output = new Console\Output\BufferedOutput();
+
+        $exitCode = $application->run(
+            $input,
+            $output
+        );
+
+        self::assertExitCodeSame(0, $exitCode);
+
+        $expected = \sprintf(
+            '%s is already normalized.',
+            $scenario->composerJsonFileReference()
+        );
+
+        self::assertContains($expected, $output->fetch());
+        self::assertEquals($initialState, $scenario->currentState());
+    }
+
+    /**
+     * @dataProvider providerCommandInvocation
+     *
+     * @param CommandInvocation $commandInvocation
+     */
     public function testFailsWhenComposerJsonIsPresentAndValidAndComposerLockIsPresentAndFreshBeforeAndComposerJsonIsNotYetNormalizedAndDryRunOptionIsUsed(CommandInvocation $commandInvocation): void
     {
         $scenario = $this->createScenario(
