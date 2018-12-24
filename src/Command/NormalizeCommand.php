@@ -70,7 +70,7 @@ final class NormalizeCommand extends Command\BaseCommand
             new Console\Input\InputArgument(
                 'file',
                 Console\Input\InputArgument::OPTIONAL,
-                'Path to composer.json file'
+                'Path to composer.json file (deprecated, use --working-dir instead)'
             ),
             new Console\Input\InputOption(
                 'dry-run',
@@ -123,6 +123,8 @@ final class NormalizeCommand extends Command\BaseCommand
 
         if (null === $composerFile) {
             $composerFile = Factory::getComposerFile();
+        } else {
+            $io->write('<fg=yellow>Note: The file argument is deprecated and will be removed in 2.0.0. Please use the --working-dir option instead.</fg>');
         }
 
         try {
