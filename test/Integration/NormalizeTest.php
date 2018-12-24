@@ -714,6 +714,56 @@ final class NormalizeTest extends Framework\TestCase
      *
      * @param CommandInvocation $commandInvocation
      */
+    public function testSucceedsWhenComposerJsonIsPresentAndValidAndComposerLockIsPresentAndFreshBeforeAndComposerJsonIsNotYetNormalizedAndComposerLockIsNotFreshAfter(CommandInvocation $commandInvocation): void
+    {
+        $scenario = $this->createScenario(
+            $commandInvocation,
+            __DIR__ . '/../Fixture/json/valid/lock/present/lock/fresh-before/json/not-yet-normalized/lock/not-fresh-after'
+        );
+
+        $initialState = $scenario->initialState();
+
+        self::assertComposerJsonFileExists($initialState);
+        self::assertComposerLockFileExists($initialState);
+        self::assertComposerLockFileFresh($initialState);
+
+        $application = $this->createApplication(new NormalizeCommand(
+            new Factory(),
+            new ComposerJsonNormalizer(),
+            new Formatter(),
+            new Differ()
+        ));
+
+        $input = new Console\Input\ArrayInput($scenario->consoleParameters());
+
+        $output = new Console\Output\BufferedOutput();
+
+        $exitCode = $application->run(
+            $input,
+            $output
+        );
+
+        self::assertExitCodeSame(0, $exitCode);
+
+        $expected = \sprintf(
+            'Successfully normalized %s.',
+            $scenario->composerJsonFileReference()
+        );
+
+        self::assertContains($expected, $output->fetch());
+
+        $currentState = $scenario->currentState();
+
+        self::assertComposerJsonFileModified($initialState, $currentState);
+        self::assertComposerLockFileModified($initialState, $currentState);
+        self::assertComposerLockFileFresh($currentState);
+    }
+
+    /**
+     * @dataProvider providerCommandInvocation
+     *
+     * @param CommandInvocation $commandInvocation
+     */
     public function testFailsWhenComposerJsonIsPresentAndValidAndComposerLockIsPresentAndFreshBeforeAndComposerJsonIsNotYetNormalizedAndDryRunOptionIsUsed(CommandInvocation $commandInvocation): void
     {
         $scenario = $this->createScenario(
@@ -987,6 +1037,17 @@ final class NormalizeTest extends Framework\TestCase
             'Failed asserting that composer.lock is not fresh in %s.',
             $state->directory()->path()
         ));
+    }
+
+    private static function assertComposerLockFileModified(State $expected, State $actual): void
+    {
+        self::assertComposerLockFileExists($actual);
+
+        self::assertJsonStringNotEqualsJsonString(
+            $expected->composerLockFile()->contents(),
+            $actual->composerLockFile()->contents(),
+            'Failed asserting that initial composer.lock has been modified.'
+        );
     }
 
     private static function assertComposerLockFileNotModified(State $expected, State $actual): void
