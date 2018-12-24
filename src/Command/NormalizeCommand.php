@@ -370,7 +370,7 @@ final class NormalizeCommand extends Command\BaseCommand
     {
         return $this->getApplication()->run(
             new Console\Input\ArrayInput([
-                'update' => 'validate',
+                'command' => 'update',
                 '--lock' => true,
                 '--no-autoloader' => true,
                 '--no-plugins' => true,

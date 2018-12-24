@@ -665,6 +665,55 @@ final class NormalizeTest extends Framework\TestCase
      *
      * @param CommandInvocation $commandInvocation
      */
+    public function testSucceedsWhenComposerJsonIsPresentAndValidAndComposerLockIsPresentAndFreshBeforeAndComposerJsonIsNotYetNormalizedAndComposerLockIsFreshAfter(CommandInvocation $commandInvocation): void
+    {
+        $scenario = $this->createScenario(
+            $commandInvocation,
+            __DIR__ . '/../Fixture/json/valid/lock/present/lock/fresh-before/json/not-yet-normalized/lock/fresh-after'
+        );
+
+        $initialState = $scenario->initialState();
+
+        self::assertComposerJsonFileExists($initialState);
+        self::assertComposerLockFileExists($initialState);
+        self::assertComposerLockFileFresh($initialState);
+
+        $application = $this->createApplication(new NormalizeCommand(
+            new Factory(),
+            new ComposerJsonNormalizer(),
+            new Formatter(),
+            new Differ()
+        ));
+
+        $input = new Console\Input\ArrayInput($scenario->consoleParameters());
+
+        $output = new Console\Output\BufferedOutput();
+
+        $exitCode = $application->run(
+            $input,
+            $output
+        );
+
+        self::assertExitCodeSame(0, $exitCode);
+
+        $expected = \sprintf(
+            'Successfully normalized %s.',
+            $scenario->composerJsonFileReference()
+        );
+
+        self::assertContains($expected, $output->fetch());
+
+        $currentState = $scenario->currentState();
+
+        self::assertComposerJsonFileModified($initialState, $currentState);
+        self::assertComposerLockFileNotModified($initialState, $currentState);
+    }
+
+    /**
+     * @dataProvider providerCommandInvocation
+     *
+     * @param CommandInvocation $commandInvocation
+     */
     public function testFailsWhenComposerJsonIsPresentAndValidAndComposerLockIsPresentAndFreshBeforeAndComposerJsonIsNotYetNormalizedAndDryRunOptionIsUsed(CommandInvocation $commandInvocation): void
     {
         $scenario = $this->createScenario(
