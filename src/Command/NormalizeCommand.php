@@ -238,6 +238,17 @@ final class NormalizeCommand extends Command\BaseCommand
         if (false === $noUpdateLock && true === $locker->isLocked()) {
             $io->write('<info>Updating lock file.</info>');
 
+            $this->resetComposer();
+
+            $file = $input->getArgument('file');
+
+            if (\is_string($file)) {
+                return $this->updateLockerInWorkingDirectory(
+                    $output,
+                    \dirname($file)
+                );
+            }
+
             return $this->updateLocker($output);
         }
 
@@ -376,6 +387,32 @@ final class NormalizeCommand extends Command\BaseCommand
                 '--no-plugins' => true,
                 '--no-scripts' => true,
                 '--no-suggest' => true,
+            ]),
+            $output
+        );
+    }
+
+    /**
+     * @see https://getcomposer.org/doc/03-cli.md#update
+     *
+     * @param Console\Output\OutputInterface $output
+     * @param string                         $workingDirectory
+     *
+     * @throws \Exception
+     *
+     * @return int
+     */
+    private function updateLockerInWorkingDirectory(Console\Output\OutputInterface $output, string $workingDirectory): int
+    {
+        return $this->getApplication()->run(
+            new Console\Input\ArrayInput([
+                'command' => 'update',
+                '--lock' => true,
+                '--no-autoloader' => true,
+                '--no-plugins' => true,
+                '--no-scripts' => true,
+                '--no-suggest' => true,
+                '--working-dir' => $workingDirectory,
             ]),
             $output
         );
