@@ -8,11 +8,14 @@
     beStrictAboutTestsThatDoNotTestAnything="true"
     beStrictAboutTodoAnnotatedTests="true"
     bootstrap="../../vendor/autoload.php"
+    cacheResult="true"
+    cacheResultFile="../../.build/phpunit/unit.cache"
     colors="true"
     columns="max"
     convertErrorsToExceptions="true"
     convertNoticesToExceptions="true"
     convertWarningsToExceptions="true"
+    executionOrder="random"
     stopOnError="false"
     stopOnFailure="false"
     stopOnIncomplete="false"
@@ -20,8 +23,16 @@
     verbose="true"
 >
     <testsuites>
-        <testsuite name="Auto Review Tests">
+        <testsuite name="Integration Tests">
             <directory>.</directory>
         </testsuite>
     </testsuites>
+    <php>
+        <env name="COMPOSER_ALLOW_XDEBUG" value="1"/>
+    </php>
+    <filter>
+        <whitelist addUncoveredFilesFromWhitelist="true" processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">../../src</directory>
+        </whitelist>
+    </filter>
 </phpunit>

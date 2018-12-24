@@ -70,7 +70,7 @@ final class NormalizeCommand extends Command\BaseCommand
             new Console\Input\InputArgument(
                 'file',
                 Console\Input\InputArgument::OPTIONAL,
-                'Path to composer.json file'
+                'Path to composer.json file (deprecated, use --working-dir instead)'
             ),
             new Console\Input\InputOption(
                 'dry-run',
@@ -106,8 +106,6 @@ final class NormalizeCommand extends Command\BaseCommand
     {
         $io = $this->getIO();
 
-        $dryRun = $input->getOption('dry-run');
-
         try {
             $indent = $this->indentFrom($input);
         } catch (\RuntimeException $exception) {
@@ -123,6 +121,8 @@ final class NormalizeCommand extends Command\BaseCommand
 
         if (null === $composerFile) {
             $composerFile = Factory::getComposerFile();
+        } else {
+            $io->write('<fg=yellow>Note: The file argument is deprecated and will be removed in 2.0.0. Please use the --working-dir option instead.</fg>');
         }
 
         try {
@@ -199,7 +199,7 @@ final class NormalizeCommand extends Command\BaseCommand
             return 0;
         }
 
-        if (true === $dryRun) {
+        if (true === $input->getOption('dry-run')) {
             $io->writeError(\sprintf(
                 '<error>%s is not normalized.</error>',
                 $composerFile
@@ -233,15 +233,24 @@ final class NormalizeCommand extends Command\BaseCommand
             $composerFile
         ));
 
-        $noUpdateLock = $input->getOption('no-update-lock');
-
-        if (false === $noUpdateLock && true === $locker->isLocked()) {
-            $io->write('<info>Updating lock file.</info>');
-
-            return $this->updateLocker($output);
+        if (true === $input->getOption('no-update-lock') || false === $locker->isLocked()) {
+            return 0;
         }
 
-        return 0;
+        $io->write('<info>Updating lock file.</info>');
+
+        $this->resetComposer();
+
+        $file = $input->getArgument('file');
+
+        if (\is_string($file)) {
+            return $this->updateLockerInWorkingDirectory(
+                $output,
+                \dirname($file)
+            );
+        }
+
+        return $this->updateLocker($output);
     }
 
     /**
@@ -370,12 +379,38 @@ final class NormalizeCommand extends Command\BaseCommand
     {
         return $this->getApplication()->run(
             new Console\Input\ArrayInput([
-                'update' => 'validate',
+                'command' => 'update',
                 '--lock' => true,
                 '--no-autoloader' => true,
                 '--no-plugins' => true,
                 '--no-scripts' => true,
                 '--no-suggest' => true,
+            ]),
+            $output
+        );
+    }
+
+    /**
+     * @see https://getcomposer.org/doc/03-cli.md#update
+     *
+     * @param Console\Output\OutputInterface $output
+     * @param string                         $workingDirectory
+     *
+     * @throws \Exception
+     *
+     * @return int
+     */
+    private function updateLockerInWorkingDirectory(Console\Output\OutputInterface $output, string $workingDirectory): int
+    {
+        return $this->getApplication()->run(
+            new Console\Input\ArrayInput([
+                'command' => 'update',
+                '--lock' => true,
+                '--no-autoloader' => true,
+                '--no-plugins' => true,
+                '--no-scripts' => true,
+                '--no-suggest' => true,
+                '--working-dir' => $workingDirectory,
             ]),
             $output
         );

@@ -7,14 +7,14 @@ env:
 cache:
   directories:
     - $HOME/.composer/cache
-    - $HOME/.php-cs-fixer
-    - $HOME/.phpstan
+    - $HOME/.build/php-cs-fixer
+    - $HOME/.build/phpstan
+    - $HOME/.build/phpunit
 
 stages:
   - style
   - stan
   - test
-  - infection
 
 jobs:
   include:
@@ -32,29 +32,30 @@ jobs:
         - composer install
 
       before_script:
-        - mkdir -p $HOME/.php-cs-fixer
+        - mkdir -p $HOME/.build/php-cs-fixer
 
       script:
         - vendor/bin/php-cs-fixer fix --config=.php_cs --diff --dry-run --verbose
 
     - stage: Stan
 
-      php: 7.1
+      php: 7.3
 
       before_install:
         - source .travis/xdebug.sh
         - xdebug-disable
         - composer validate
         - if [[ -n "$GITHUB_TOKEN" ]]; then composer config github-oauth.github.com $GITHUB_TOKEN; fi
+        - if [[ "$TRAVIS_PHP_VERSION" == "7.3" ]]; then composer remove --dev localheinz/php-cs-fixer-config; fi
 
       install:
         - composer install
 
       before_script:
-        - mkdir -p $HOME/.phpstan
+        - mkdir -p $HOME/.build/phpstan
 
       script:
-        - vendor/bin/phpstan analyse --configuration=phpstan.neon src test
+        - vendor/bin/phpstan analyse --configuration=phpstan.neon
 
     - &TEST
 
@@ -69,17 +70,16 @@ jobs:
         - xdebug-disable
         - composer validate
         - if [[ -n "$GITHUB_TOKEN" ]]; then composer config github-oauth.github.com $GITHUB_TOKEN; fi
+        - if [[ "$TRAVIS_PHP_VERSION" == "7.3" ]]; then composer remove --dev localheinz/php-cs-fixer-config; fi
 
       install:
-        - if [[ "$TRAVIS_PHP_VERSION" == "7.3" ]]; then composer remove --dev localheinz/php-cs-fixer-config; fi
         - if [[ "$WITH_LOWEST" == "true" ]]; then composer update --prefer-lowest; fi
         - if [[ "$WITH_LOCKED" == "true" ]]; then composer install; fi
         - if [[ "$WITH_HIGHEST" == "true" ]]; then composer update; fi
 
       script:
-        - vendor/bin/phpunit --configuration=test/AutoReview/phpunit.xml
         - if [[ "$WITH_COVERAGE" == "true" ]]; then xdebug-enable; fi
-        - if [[ "$WITH_COVERAGE" == "true" ]]; then vendor/bin/phpunit --configuration=test/Unit/phpunit.xml --coverage-clover=build/logs/clover.xml; else vendor/bin/phpunit --configuration=test/Unit/phpunit.xml; fi
+        - if [[ "$WITH_COVERAGE" == "true" ]]; then vendor/bin/phpunit --configuration=test/Integration/phpunit.xml --coverage-clover=build/logs/clover.xml; else vendor/bin/phpunit --configuration=test/Integration/phpunit.xml; fi
         - if [[ "$WITH_COVERAGE" == "true" ]]; then xdebug-disable; fi
 
       after_success:
@@ -132,26 +132,6 @@ jobs:
       php: 7.3
 
       env: WITH_HIGHEST=true
-
-    - stage: Infection
-
-      php: 7.2
-
-      before_install:
-        - source .travis/xdebug.sh
-        - xdebug-disable
-        - composer validate
-        - if [[ -n "$GITHUB_TOKEN" ]]; then composer config github-oauth.github.com $GITHUB_TOKEN; fi
-
-      install:
-        - composer install
-
-      before_script:
-        - xdebug-enable
-        - mkdir -p $HOME/.infection
-
-      script:
-        - vendor/bin/infection --ignore-msi-with-no-mutations --min-covered-msi=100 --min-msi=3
 
 notifications:
   email: false

@@ -40,18 +40,6 @@ $ make stan
 
 to run a static code analysis.
 
-## Mutation Testing
-
-We are using [`infection/infection`](https://github.com/infection/infection) to ensure a minimum quality of the tests.
-
-Enable `xdebug` and run
-
-```
-$ make infection
-```
-
-to run mutation tests.
-
 ## Extra lazy?
 
 Run

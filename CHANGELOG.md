@@ -9,17 +9,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Unreleased
 
-For a full diff see [`1.0...master`](https://github.com/localheinz/composer-normalize/compare/1.0...master).
+For a full diff see [`1.x...master`](https://github.com/localheinz/composer-normalize/compare/1.x...master).
 
 #### Changed
 
 * The constructor of `NormalizeCommand` now requires an implementation of `Localheinz\Json\Normalizer\Format\FormatterInterface`, as well as an instance of `Sebastian\Diff\Differ` to be injected ([#118](https://github.com/localheinz/composer-normalize/pull/118)), by [@localheinz](https://github.com/localheinz)
 
-## `1.0`
+## `1.x`
 
 ### Unreleased
 
-For a full diff see [`1.0.0...1.0`](https://github.com/localheinz/composer-normalize/compare/1.0.0...1.0).
+For a full diff see [`1.1.0...1.x`](https://github.com/localheinz/composer-normalize/compare/1.1.0...1.x).
+
+### [`1.1.0`](https://github.com/localheinz/composer-normalize/releases/tag/1.1.0)
+
+For a full diff see [`1.0.0...1.1.0`](https://github.com/localheinz/composer-normalize/compare/1.0.0...1.1.0).
+
+#### Fixed
+
+* Force reading `composer.json` and `composer.lock` after normalization to ensure `composer.lock` is updated when not fresh after normalization ([#139](https://github.com/localheinz/composer-normalize/pull/139)), by [@localheinz](https://github.com/localheinz)
 
 ### [`1.0.0`](https://github.com/localheinz/composer-normalize/releases/tag/1.0.0)
 

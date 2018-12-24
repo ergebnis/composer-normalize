@@ -7,3 +7,7 @@ includes:
 parameters:
 	ignoreErrors:
 		- '#Method Localheinz\\Composer\\Normalize\\Command\\NormalizeCommand::indentFrom\(\) has a nullable return type declaration.#'
+	paths:
+		- src
+		- test
+	tmpDir: %currentWorkingDirectory%/.build/phpstan
