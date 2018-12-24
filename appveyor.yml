@@ -27,7 +27,7 @@ environment:
       WITH_HIGHEST: true
 
 cache:
-  - '%LOCALAPPDATA%\Composer\files -> composer.lock'
+  - '%LOCALAPPDATA%\Composer\files'
 
 init:
   - SET PATH=C:\Program Files\OpenSSL;c:\tools\php;%PATH%
