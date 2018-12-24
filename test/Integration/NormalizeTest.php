@@ -1035,7 +1035,7 @@ final class NormalizeTest extends Framework\TestCase
         $projectDirectory = \realpath(__DIR__ . '/../..');
 
         return \sprintf(
-            '%s/.tmp',
+            '%s/.build/fixture',
             $projectDirectory
         );
     }
