@@ -235,24 +235,24 @@ final class NormalizeCommand extends Command\BaseCommand
 
         $noUpdateLock = $input->getOption('no-update-lock');
 
-        if (false === $noUpdateLock && true === $locker->isLocked()) {
-            $io->write('<info>Updating lock file.</info>');
-
-            $this->resetComposer();
-
-            $file = $input->getArgument('file');
-
-            if (\is_string($file)) {
-                return $this->updateLockerInWorkingDirectory(
-                    $output,
-                    \dirname($file)
-                );
-            }
-
-            return $this->updateLocker($output);
+        if (true === $noUpdateLock || false === $locker->isLocked()) {
+            return 0;
         }
 
-        return 0;
+        $io->write('<info>Updating lock file.</info>');
+
+        $this->resetComposer();
+
+        $file = $input->getArgument('file');
+
+        if (\is_string($file)) {
+            return $this->updateLockerInWorkingDirectory(
+                $output,
+                \dirname($file)
+            );
+        }
+
+        return $this->updateLocker($output);
     }
 
     /**
