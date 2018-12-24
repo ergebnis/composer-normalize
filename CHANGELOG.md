@@ -19,6 +19,10 @@ For a full diff see [`0.9.0...1.0.0`](https://github.com/localheinz/composer-nor
 
 * Added this changelog ([#94](https://github.com/localheinz/composer-normalize/pull/94)), by [@localheinz](https://github.com/localheinz)
 
+#### Fixed
+
+* Force reading `composer.json` and `composer.lock` after normalization to ensure `composer.lock` is updated when not fresh after normalization ([#139](https://github.com/localheinz/composer-normalize/pull/139)), by [@localheinz](https://github.com/localheinz)
+
 #### Removed
 
 * Removed normalizers after extracting package [`localheinz/composer-json-normalizer`](https://github.com/localheinz/composer-json-normalizer) ([#106](https://github.com/localheinz/composer-normalize/pull/106)), by [@localheinz](https://github.com/localheinz)
