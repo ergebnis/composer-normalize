@@ -28,7 +28,6 @@ $config->getFinder()
     ->in(__DIR__)
     ->exclude([
         '.github',
-        '.infection',
         '.php-cs-fixer',
         '.phpstan',
         '.travis',
