@@ -6,12 +6,12 @@ coverage: vendor
 	vendor/bin/phpunit --configuration=test/Integration/phpunit.xml --coverage-text
 
 cs: vendor
-	mkdir -p .php-cs-fixer
+	mkdir -p .build/php-cs-fixer
 	vendor/bin/php-cs-fixer fix --config=.php_cs --diff --verbose
 
 stan: vendor
-	mkdir -p .phpstan
-	vendor/bin/phpstan analyse --configuration=phpstan.neon src test
+	mkdir -p .build/phpstan
+	vendor/bin/phpstan analyse --configuration=phpstan.neon
 
 test: vendor
 	vendor/bin/phpunit --configuration=test/Integration/phpunit.xml
