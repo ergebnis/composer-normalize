@@ -106,8 +106,6 @@ final class NormalizeCommand extends Command\BaseCommand
     {
         $io = $this->getIO();
 
-        $dryRun = $input->getOption('dry-run');
-
         try {
             $indent = $this->indentFrom($input);
         } catch (\RuntimeException $exception) {
@@ -201,7 +199,7 @@ final class NormalizeCommand extends Command\BaseCommand
             return 0;
         }
 
-        if (true === $dryRun) {
+        if (true === $input->getOption('dry-run')) {
             $io->writeError(\sprintf(
                 '<error>%s is not normalized.</error>',
                 $composerFile
@@ -235,26 +233,24 @@ final class NormalizeCommand extends Command\BaseCommand
             $composerFile
         ));
 
-        $noUpdateLock = $input->getOption('no-update-lock');
-
-        if (false === $noUpdateLock && true === $locker->isLocked()) {
-            $io->write('<info>Updating lock file.</info>');
-
-            $this->resetComposer();
-
-            $file = $input->getArgument('file');
-
-            if (\is_string($file)) {
-                return $this->updateLockerInWorkingDirectory(
-                    $output,
-                    \dirname($file)
-                );
-            }
-
-            return $this->updateLocker($output);
+        if (true === $input->getOption('no-update-lock') || false === $locker->isLocked()) {
+            return 0;
         }
 
-        return 0;
+        $io->write('<info>Updating lock file.</info>');
+
+        $this->resetComposer();
+
+        $file = $input->getArgument('file');
+
+        if (\is_string($file)) {
+            return $this->updateLockerInWorkingDirectory(
+                $output,
+                \dirname($file)
+            );
+        }
+
+        return $this->updateLocker($output);
     }
 
     /**
