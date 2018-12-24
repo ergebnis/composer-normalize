@@ -15,6 +15,10 @@ For a full diff see [`1.1.0...1.x`](https://github.com/localheinz/composer-norma
 
 For a full diff see [`1.0.0...1.1.0`](https://github.com/localheinz/composer-normalize/compare/1.0.0...1.1.0).
 
+#### Deprecated
+
+* Deprecated the `file` argument of the `NormalizeCommand` as the same functionality can be achieved using the `--working-dir` option ([#145](https://github.com/localheinz/composer-normalize/pull/145)), by [@localheinz](https://github.com/localheinz)
+
 #### Fixed
 
 * Force reading `composer.json` and `composer.lock` after normalization to ensure `composer.lock` is updated when not fresh after normalization ([#139](https://github.com/localheinz/composer-normalize/pull/139)), by [@localheinz](https://github.com/localheinz)
