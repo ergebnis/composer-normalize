@@ -102,16 +102,4 @@ final class Scenario
 
         return $parameters;
     }
-
-    public function composerJsonFileReference(): string
-    {
-        if ($this->commandInvocation->is(CommandInvocation::usingFileArgument())) {
-            return \sprintf(
-                '%s/composer.json',
-                $this->initialState->directory()->path()
-            );
-        }
-
-        return './composer.json';
-    }
 }
