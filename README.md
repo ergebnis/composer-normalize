@@ -1,7 +1,6 @@
 # composer-normalize
 
 [![Build Status](https://travis-ci.com/localheinz/composer-normalize.svg?branch=master)](https://travis-ci.com/localheinz/composer-normalize)
-[![Build status](https://ci.appveyor.com/api/projects/status/94sp0o4bool7klcf/branch/master?svg=true)](https://ci.appveyor.com/project/localheinz/composer-normalize/branch/master)
 [![codecov](https://codecov.io/gh/localheinz/composer-normalize/branch/master/graph/badge.svg)](https://codecov.io/gh/localheinz/composer-normalize)
 [![Latest Stable Version](https://poser.pugx.org/localheinz/composer-normalize/v/stable)](https://packagist.org/packages/localheinz/composer-normalize)
 [![Total Downloads](https://poser.pugx.org/localheinz/composer-normalize/downloads)](https://packagist.org/packages/localheinz/composer-normalize)
@@ -10,8 +9,8 @@ Provides a composer plugin for normalizing `composer.json`.
 
 ## Motivation
 
-If you have been working with `composer` on more than one project, you might 
-have noticed that each `composer.json` ends up being structured differently. 
+If you have been working with `composer` on more than one project, you might
+have noticed that each `composer.json` ends up being structured differently.
 
 I certainly have noticed, and rather than
 
@@ -19,7 +18,7 @@ I certainly have noticed, and rather than
 * manually structuring `composer.json`
 * asking others to structure `composer.json`
 
-I decided to build something that structures `composer.json` in an automated 
+I decided to build something that structures `composer.json` in an automated
 fashion, but without changing the initial intent.
 
 In my opinion, the advantages of using `localheinz/composer-normalize` are
@@ -29,7 +28,7 @@ In my opinion, the advantages of using `localheinz/composer-normalize` are
 * no need to worry about keeping items in a consistent order where they can't be kept in order by other means
 * can be used in a Continuous Integration environment
 
-:bulb: If you are interested in finding out more before giving it a try, I 
+:bulb: If you are interested in finding out more before giving it a try, I
 have written a blog post about [Normalizing composer.json](https://localheinz.com/blog/2018/01/15/normalizing-composer.json/).
 
 ## Installation
@@ -483,4 +482,4 @@ This package is licensed using the MIT License.
 
 ## Services
 
-`localheinz/composer-normalize` is currently in use by [FlintCI](https://flintci.io), see https://flintci.io/docs#composernormalize. 
+`localheinz/composer-normalize` is currently in use by [FlintCI](https://flintci.io), see https://flintci.io/docs#composernormalize.
