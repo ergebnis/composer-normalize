@@ -46,7 +46,6 @@ jobs:
         - xdebug-disable
         - composer validate
         - if [[ -n "$GITHUB_TOKEN" ]]; then composer config github-oauth.github.com $GITHUB_TOKEN; fi
-        - if [[ "$TRAVIS_PHP_VERSION" == "7.3" ]]; then composer remove --dev localheinz/php-cs-fixer-config; fi
 
       install:
         - composer install
@@ -70,7 +69,6 @@ jobs:
         - xdebug-disable
         - composer validate
         - if [[ -n "$GITHUB_TOKEN" ]]; then composer config github-oauth.github.com $GITHUB_TOKEN; fi
-        - if [[ "$TRAVIS_PHP_VERSION" == "7.3" ]]; then composer remove --dev localheinz/php-cs-fixer-config; fi
 
       install:
         - if [[ "$WITH_LOWEST" == "true" ]]; then composer update --prefer-lowest; fi
