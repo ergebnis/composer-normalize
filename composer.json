@@ -30,6 +30,7 @@
     "localheinz/phpstan-rules": "~0.5.0",
     "localheinz/test-util": "0.6.1",
     "phpstan/phpstan": "~0.10.7",
+    "phpstan/phpstan-deprecation-rules": "~0.10.2",
     "phpstan/phpstan-strict-rules": "~0.10.1",
     "phpunit/phpunit": "^6.5.13 || ^7.5.0",
     "symfony/filesystem": "^4.2.1"
