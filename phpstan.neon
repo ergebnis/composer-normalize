@@ -1,11 +1,13 @@
 includes:
 	- vendor/jangregor/phpstan-prophecy/src/extension.neon
 	- vendor/localheinz/phpstan-rules/rules.neon
+	- vendor/phpstan/phpstan-deprecation-rules/rules.neon
 	- vendor/phpstan/phpstan-strict-rules/rules.neon
 	- vendor/phpstan/phpstan/conf/config.levelmax.neon
 
 parameters:
 	ignoreErrors:
+		- '#Call to deprecated method usingFileArgument\(\) of class Localheinz\\Composer\\Normalize\\Test\\Util\\CommandInvocation.#'
 		- '#Constructor in Localheinz\\Composer\\Normalize\\Command\\NormalizeCommand has parameter \$differ with default value.#'
 		- '#Constructor in Localheinz\\Composer\\Normalize\\Command\\NormalizeCommand has parameter \$formatter with default value.#'
 		- '#Method Localheinz\\Composer\\Normalize\\Command\\NormalizeCommand::__construct\(\) has parameter \$differ with null as default value.#'
