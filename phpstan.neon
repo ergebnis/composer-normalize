@@ -6,6 +6,8 @@ includes:
 	- vendor/phpstan/phpstan/conf/config.levelmax.neon
 
 parameters:
+	classesAllowedToBeExtended:
+		- Composer\Command\BaseCommand
 	ignoreErrors:
 		- '#Call to deprecated method usingFileArgument\(\) of class Localheinz\\Composer\\Normalize\\Test\\Util\\CommandInvocation.#'
 		- '#Constructor in Localheinz\\Composer\\Normalize\\Command\\NormalizeCommand has parameter \$differ with default value.#'
