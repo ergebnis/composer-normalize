@@ -28,7 +28,7 @@
     "jangregor/phpstan-prophecy": "~0.3.0",
     "localheinz/php-cs-fixer-config": "~1.19.0",
     "localheinz/phpstan-rules": "~0.7.1",
-    "localheinz/test-util": "0.6.1",
+    "localheinz/test-util": "~0.7.0",
     "phpstan/phpstan": "~0.11.0",
     "phpstan/phpstan-deprecation-rules": "~0.11.0",
     "phpstan/phpstan-strict-rules": "~0.11.0",
