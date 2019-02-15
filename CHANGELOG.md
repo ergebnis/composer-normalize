@@ -15,10 +15,6 @@ For a full diff see [`1.x...master`](https://github.com/localheinz/composer-norm
 
 * The constructor of `NormalizeCommand` now requires an implementation of `Localheinz\Json\Normalizer\Format\FormatterInterface`, as well as an instance of `Sebastian\Diff\Differ` to be injected ([#118](https://github.com/localheinz/composer-normalize/pull/118)), by [@localheinz](https://github.com/localheinz)
 
-#### Removed
-
-* Removed the `file` argument of the `NormalizeCommand` as the same functionality can be achieved using the `--working-dir` option ([#151](https://github.com/localheinz/composer-normalize/pull/151)), by [@localheinz](https://github.com/localheinz)
-
 ## `1.x`
 
 ### Unreleased

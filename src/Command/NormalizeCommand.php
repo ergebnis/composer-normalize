@@ -67,6 +67,11 @@ final class NormalizeCommand extends Command\BaseCommand
     {
         $this->setDescription('Normalizes composer.json according to its JSON schema (https://getcomposer.org/schema.json).');
         $this->setDefinition([
+            new Console\Input\InputArgument(
+                'file',
+                Console\Input\InputArgument::OPTIONAL,
+                'Path to composer.json file (deprecated, use --working-dir instead)'
+            ),
             new Console\Input\InputOption(
                 'dry-run',
                 null,
@@ -112,7 +117,13 @@ final class NormalizeCommand extends Command\BaseCommand
             return 1;
         }
 
-        $composerFile = Factory::getComposerFile();
+        $composerFile = $input->getArgument('file');
+
+        if (null === $composerFile) {
+            $composerFile = Factory::getComposerFile();
+        } else {
+            $io->write('<fg=yellow>Note: The file argument is deprecated and will be removed in 2.0.0. Please use the --working-dir option instead.</fg>');
+        }
 
         try {
             $composer = $this->factory->createComposer(
@@ -229,6 +240,15 @@ final class NormalizeCommand extends Command\BaseCommand
         $io->write('<info>Updating lock file.</info>');
 
         $this->resetComposer();
+
+        $file = $input->getArgument('file');
+
+        if (\is_string($file)) {
+            return $this->updateLockerInWorkingDirectory(
+                $output,
+                \dirname($file)
+            );
+        }
 
         return $this->updateLocker($output);
     }
@@ -365,6 +385,32 @@ final class NormalizeCommand extends Command\BaseCommand
                 '--no-plugins' => true,
                 '--no-scripts' => true,
                 '--no-suggest' => true,
+            ]),
+            $output
+        );
+    }
+
+    /**
+     * @see https://getcomposer.org/doc/03-cli.md#update
+     *
+     * @param Console\Output\OutputInterface $output
+     * @param string                         $workingDirectory
+     *
+     * @throws \Exception
+     *
+     * @return int
+     */
+    private function updateLockerInWorkingDirectory(Console\Output\OutputInterface $output, string $workingDirectory): int
+    {
+        return $this->getApplication()->run(
+            new Console\Input\ArrayInput([
+                'command' => 'update',
+                '--lock' => true,
+                '--no-autoloader' => true,
+                '--no-plugins' => true,
+                '--no-scripts' => true,
+                '--no-suggest' => true,
+                '--working-dir' => $workingDirectory,
             ]),
             $output
         );

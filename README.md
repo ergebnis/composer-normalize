@@ -61,6 +61,10 @@ The `NormalizeCommand` provided by the `NormalizePlugin` within this package wil
 :bulb: Interested in what `ComposerJsonNormalizer` does? Head over to
 [`localheinz/composer-json-normalizer`](https://github.com/localheinz/composer-json-normalizer#normalizers) for a full explanation, or take a look at the [examples](https://github.com/localheinz/composer-normalize#examples)
 
+### Arguments
+
+* `file`: Path to composer.json file (optional, defaults to `composer.json` in working directory)
+
 ### Options
 
 * `--dry-run`: Show the results of normalizing, but do not modify any files

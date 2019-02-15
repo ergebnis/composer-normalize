@@ -9,6 +9,7 @@ parameters:
 	classesAllowedToBeExtended:
 		- Composer\Command\BaseCommand
 	ignoreErrors:
+		- '#Call to deprecated method usingFileArgument\(\) of class Localheinz\\Composer\\Normalize\\Test\\Util\\CommandInvocation.#'
 		- '#Method Localheinz\\Composer\\Normalize\\Command\\NormalizeCommand::indentFrom\(\) has a nullable return type declaration.#'
 	paths:
 		- src

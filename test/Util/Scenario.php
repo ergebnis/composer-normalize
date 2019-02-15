@@ -85,6 +85,15 @@ final class Scenario
             'command' => 'normalize',
         ];
 
+        if ($this->commandInvocation->is(CommandInvocation::usingFileArgument())) {
+            return \array_merge($parameters, [
+                'file' => \sprintf(
+                    '%s/composer.json',
+                    $this->initialState->directory()->path()
+                ),
+            ]);
+        }
+
         if ($this->commandInvocation->is(CommandInvocation::usingWorkingDirectoryOption())) {
             return \array_merge($parameters, [
                 '--working-dir' => $this->initialState->directory()->path(),
@@ -92,5 +101,17 @@ final class Scenario
         }
 
         return $parameters;
+    }
+
+    public function composerJsonFileReference(): string
+    {
+        if ($this->commandInvocation->is(CommandInvocation::usingFileArgument())) {
+            return \sprintf(
+                '%s/composer.json',
+                $this->initialState->directory()->path()
+            );
+        }
+
+        return './composer.json';
     }
 }
