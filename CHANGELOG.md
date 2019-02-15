@@ -9,7 +9,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Unreleased
 
-For a full diff see [`1.1.1...1.x`](https://github.com/localheinz/composer-normalize/compare/1.1.1...1.x).
+For a full diff see [`1.1.2...1.x`](https://github.com/localheinz/composer-normalize/compare/1.1.2...1.x).
+
+### [`1.1.2`](https://github.com/localheinz/composer-normalize/releases/tag/1.1.2)
+
+For a full diff see [`1.1.1...1.1.2`](https://github.com/localheinz/composer-normalize/compare/1.1.1...1.1.2).
+
+#### Fixed
+
+* Reverted deprecation of the `file` argument of the `NormalizeCommand` as it turns out that the same functionality can _not_ be achieved using the `--working-dir` option ([#166](https://github.com/localheinz/composer-normalize/pull/166)), by [@localheinz](https://github.com/localheinz)
 
 ### [`1.1.1`](https://github.com/localheinz/composer-normalize/releases/tag/1.1.1)
 

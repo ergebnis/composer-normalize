@@ -30,11 +30,6 @@ final class CommandInvocation
         return new self('in-current-working-directory');
     }
 
-    /**
-     * @deprecated The file argument will be removed in 2.0.0.
-     *
-     * @return CommandInvocation
-     */
     public static function usingFileArgument(): self
     {
         return new self('using-file-argument');

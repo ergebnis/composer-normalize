@@ -759,55 +759,6 @@ final class NormalizeTest extends Framework\TestCase
         self::assertComposerLockFileFresh($currentState);
     }
 
-    public function testSucceedsWhenComposerJsonIsPresentAndValidAndComposerLockIsPresentAndFreshBeforeAndComposerJsonIsNotYetNormalizedAndComposerLockIsNotFreshAfterAndInformsWhenFileArgumentIsUsed(): void
-    {
-        $scenario = $this->createScenario(
-            CommandInvocation::usingFileArgument(),
-            __DIR__ . '/../Fixture/json/valid/lock/present/lock/fresh-before/json/not-yet-normalized/lock/not-fresh-after'
-        );
-
-        $initialState = $scenario->initialState();
-
-        self::assertComposerJsonFileExists($initialState);
-        self::assertComposerLockFileExists($initialState);
-        self::assertComposerLockFileFresh($initialState);
-
-        $application = $this->createApplication(new NormalizeCommand(
-            new Factory(),
-            new ComposerJsonNormalizer(),
-            new Formatter(),
-            new Differ()
-        ));
-
-        $input = new Console\Input\ArrayInput($scenario->consoleParameters());
-
-        $output = new Console\Output\BufferedOutput();
-
-        $exitCode = $application->run(
-            $input,
-            $output
-        );
-
-        self::assertExitCodeSame(0, $exitCode);
-
-        $renderedOutput = $output->fetch();
-
-        self::assertContains('Note: The file argument is deprecated and will be removed in 2.0.0. Please use the --working-dir option instead.', $renderedOutput);
-
-        $expected = \sprintf(
-            'Successfully normalized %s.',
-            $scenario->composerJsonFileReference()
-        );
-
-        self::assertContains($expected, $renderedOutput);
-
-        $currentState = $scenario->currentState();
-
-        self::assertComposerJsonFileModified($initialState, $currentState);
-        self::assertComposerLockFileModified($initialState, $currentState);
-        self::assertComposerLockFileFresh($currentState);
-    }
-
     /**
      * @dataProvider providerCommandInvocation
      *
