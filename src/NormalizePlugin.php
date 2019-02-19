@@ -46,7 +46,7 @@ final class NormalizePlugin implements Plugin\PluginInterface, Plugin\Capable, P
         $this->io = $io;
 
         // Statically cache the composerJsonSchema if any.
-        $this->composerJsonSchema = $this->getComposerJsonSchema();
+        $this->composerJsonSchema = $this->composerJsonSchemaResolver();
     }
 
     /**
@@ -64,9 +64,10 @@ final class NormalizePlugin implements Plugin\PluginInterface, Plugin\Capable, P
      */
     public function getCommands(): array
     {
-        $file = null;
-        if ($local = $this->getComposerJsonSchema()) {
-            $file = 'file://' . $local;
+        $file = '';
+
+        if ('' !== $local = $this->composerJsonSchemaResolver()) {
+            $file = 'file://' . \realpath($local);
         }
 
         return [
@@ -78,45 +79,66 @@ final class NormalizePlugin implements Plugin\PluginInterface, Plugin\Capable, P
     }
 
     /**
-     * TODO
+     * TODO.
      */
-    private function getComposerJsonSchema() {
+    private function composerJsonSchemaResolver(): string
+    {
         static $composerJsonSchema;
 
         if (isset($composerJsonSchema)) {
             return $composerJsonSchema;
         }
 
-        if ($file = $this->getAndCacheRemoteSchemaFile()) {
+        if ('' !== $file = $this->getAndCacheRemoteSchemaFile()) {
             $composerJsonSchema = $file;
 
             return $composerJsonSchema;
         }
 
-        if ($file = $this->getLocalSchemaFromVendor()) {
+        if ('' !== $file = $this->getLocalSchemaFromVendor()) {
             $composerJsonSchema = $file;
 
             return $composerJsonSchema;
         }
 
-        // Todo
+        if ('' !== $file = $this->getLocalSchema()) {
+            $composerJsonSchema = $file;
+
+            return $composerJsonSchema;
+        }
+
+        return '';
     }
 
     /**
-     * TODO
+     * TODO.
      */
-    private function getLocalSchemaFromVendor() {
+    private function getLocalSchema(): string
+    {
+        $file = __DIR__ . '/../res/composer-schema.json';
+
+        return \file_exists($file) ?
+            $file :
+            '';
+    }
+
+    /**
+     * TODO.
+     */
+    private function getLocalSchemaFromVendor(): string
+    {
         $file = __DIR__ . '/../../composer/res/composer-schema.json';
 
-        return file_exists($file) ?
-            realpath($file):
-            false;
+        return \file_exists($file) ?
+            $file :
+            '';
     }
 
     /**
-     * TODO
+     * TODO.
      */
-    private function getAndCacheRemoteSchemaFile() {
+    private function getAndCacheRemoteSchemaFile(): string
+    {
         $config = $this->composer->getConfig();
 
         $cache = new Cache($this->io, $config->get('cache-dir'));
@@ -135,9 +157,9 @@ final class NormalizePlugin implements Plugin\PluginInterface, Plugin\Capable, P
         }
 
         if (false !== $read) {
-            return realpath($tmpFilename);
+            return $tmpFilename;
         }
 
-        return false;
+        return '';
     }
 }
