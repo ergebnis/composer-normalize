@@ -9,6 +9,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Unreleased
 
+For a full diff see [`1.1.3...1.x`](https://github.com/localheinz/composer-normalize/compare/1.1.3...1.x).
+
+### [`1.1.3`](https://github.com/localheinz/composer-normalize/releases/tag/1.1.3)
+
+For a full diff see [`1.1.2...1.1.3`](https://github.com/localheinz/composer-normalize/compare/1.1.2...1.1.3).
+
+#### Fixed
+
+* Reversed use of red and green for rendering diff when using the `--dry-run` option ([#173](https://github.com/localheinz/composer-normalize/pull/173)), by [@TravisCarden](https://github.com/TravisCarden)
+
+### Unreleased
+
 For a full diff see [`1.1.2...1.x`](https://github.com/localheinz/composer-normalize/compare/1.1.2...1.x).
 
 ### [`1.1.2`](https://github.com/localheinz/composer-normalize/releases/tag/1.1.2)

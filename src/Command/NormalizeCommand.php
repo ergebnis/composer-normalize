@@ -205,8 +205,8 @@ final class NormalizeCommand extends Command\BaseCommand
 
             $io->write([
                 '',
-                '<fg=green>--- original </>',
-                '<fg=red>+++ normalized </>',
+                '<fg=red>--- original </>',
+                '<fg=green>+++ normalized </>',
                 '',
                 '<fg=yellow>---------- begin diff ----------</>',
             ]);
