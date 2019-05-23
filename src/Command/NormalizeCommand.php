@@ -137,7 +137,7 @@ final class NormalizeCommand extends Command\BaseCommand
             return 1;
         }
 
-        if (!\is_writable($composerFile)) {
+        if (false === $input->getOption('dry-run') && !\is_writable($composerFile)) {
             $io->writeError(\sprintf(
                 '<error>%s is not writable.</error>',
                 $composerFile
