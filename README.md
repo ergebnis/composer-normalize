@@ -480,6 +480,10 @@ Please have a look at [`CODE_OF_CONDUCT.md`](.github/CODE_OF_CONDUCT.md).
 
 This package is licensed using the MIT License.
 
+## GitHub Action
+
+`localheinz/composer-normalize` is also available as a [GitHub Action](https://github.com/features/actions) on the [GitHub Marketplace](https://github.com/marketplace), see [`localheinz/composer-normalize-action`](https://github.com/marketplace/actions/localheinz-composer-normalize-action) as well as the corresponding repository [`localheinz/composer-normalize-action`](https://github.com/localheinz/composer-normalize-action) as well es
+
 ## Services
 
 `localheinz/composer-normalize` is currently in use by [FlintCI](https://flintci.io), see https://flintci.io/docs#composernormalize.
