@@ -19,7 +19,7 @@ use Composer\IO;
 use Composer\Plugin;
 use Localheinz\Composer\Json\Normalizer;
 
-final class NormalizePlugin implements Plugin\PluginInterface, Plugin\Capable, Plugin\Capability\CommandProvider
+final class NormalizePlugin implements Plugin\Capability\CommandProvider, Plugin\Capable, Plugin\PluginInterface
 {
     /**
      * @var Composer
