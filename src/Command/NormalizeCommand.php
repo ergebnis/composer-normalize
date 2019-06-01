@@ -60,7 +60,26 @@ final class NormalizeCommand extends Command\BaseCommand
         $this->factory = $factory;
         $this->normalizer = $normalizer;
         $this->formatter = $formatter ?: new Normalizer\Format\Formatter();
-        $this->differ = $differ ?: new Diff\Differ();
+
+        if (null === $differ) {
+            $outputBuilder = null;
+
+            if (\class_exists(Diff\Output\StrictUnifiedDiffOutputBuilder::class)) {
+                $outputBuilder = new Diff\Output\StrictUnifiedDiffOutputBuilder([
+                    'fromFile' => 'original',
+                    'toFile' => 'normalized',
+                ]);
+            } else {
+                $outputBuilder = new Diff\Output\UnifiedDiffOutputBuilder(\implode("\n", [
+                    '--- original',
+                    '+++ normalized',
+                ]));
+            }
+
+            $differ = new Diff\Differ($outputBuilder);
+        }
+
+        $this->differ = $differ;
     }
 
     protected function configure(): void
@@ -205,21 +224,18 @@ final class NormalizeCommand extends Command\BaseCommand
 
             $io->write([
                 '',
-                '<fg=red>--- original </>',
-                '<fg=green>+++ normalized </>',
-                '',
                 '<fg=yellow>---------- begin diff ----------</>',
             ]);
 
-            $io->write(
-                $this->diff(
-                    $json->encoded(),
-                    $formatted->encoded()
-                ),
-                false
-            );
+            $io->write($this->diff(
+                $json->encoded(),
+                $formatted->encoded()
+            ));
 
-            $io->write('<fg=yellow>----------- end diff -----------</>');
+            $io->write([
+                '<fg=yellow>----------- end diff -----------</>',
+                '',
+            ]);
 
             return 1;
         }
@@ -314,31 +330,38 @@ final class NormalizeCommand extends Command\BaseCommand
      * @param string $before
      * @param string $after
      *
-     * @return string[]
+     * @return string
      */
-    private function diff(string $before, string $after): array
+    private function diff(string $before, string $after): string
     {
-        $diff = $this->differ->diffToArray(
+        $diff = $this->differ->diff(
             $before,
             $after
         );
 
-        return \array_map(static function (array $element) {
-            static $templates = [
-                0 => ' %s',
-                1 => '<fg=green>+%s</>',
-                2 => '<fg=red>-%s</>',
-            ];
+        $lines = \explode(
+            "\n",
+            $diff
+        );
 
-            [$token, $status] = $element;
-
-            $template = $templates[$status];
-
-            return \sprintf(
-                $template,
-                $token
+        $formatted = \array_map(static function (string $line) {
+            return \preg_replace(
+                [
+                    '/^(\+.*)$/',
+                    '/^(-.*)$/',
+                ],
+                [
+                    '<fg=green>$1</>',
+                    '<fg=red>$1</>',
+                ],
+                $line
             );
-        }, $diff);
+        }, $lines);
+
+        return \implode(
+            "\n",
+            $formatted
+        );
     }
 
     /**

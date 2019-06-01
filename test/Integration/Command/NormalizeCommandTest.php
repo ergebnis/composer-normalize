@@ -26,7 +26,6 @@ use Localheinz\Json\Normalizer\Json;
 use Localheinz\Json\Normalizer\NormalizerInterface;
 use Localheinz\Test\Util\Helper;
 use PHPUnit\Framework;
-use SebastianBergmann\Diff\Differ;
 use Symfony\Component\Console;
 use Symfony\Component\Filesystem;
 
@@ -283,8 +282,7 @@ final class NormalizeCommandTest extends Framework\TestCase
                     throw new \RuntimeException($this->exceptionMessage);
                 }
             },
-            new Formatter(),
-            new Differ()
+            new Formatter()
         ));
 
         $input = new Console\Input\ArrayInput($scenario->consoleParameters());
@@ -900,8 +898,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         return self::createApplication(new NormalizeCommand(
             new Factory(),
             new ComposerJsonNormalizer(),
-            new Formatter(),
-            new Differ()
+            new Formatter()
         ));
     }
 
