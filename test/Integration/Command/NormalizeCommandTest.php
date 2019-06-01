@@ -73,12 +73,12 @@ final class NormalizeCommandTest extends Framework\TestCase
      */
     public function testFailsWhenIndentStyleIsUsedWithoutIndentSize(CommandInvocation $commandInvocation): void
     {
-        $scenario = $this->createScenario(
+        $scenario = self::createScenario(
             $commandInvocation,
             __DIR__ . '/../../Fixture/json/valid/lock/not-present/json/not-yet-normalized'
         );
 
-        $application = $this->createApplication(new NormalizeCommand(
+        $application = self::createApplication(new NormalizeCommand(
             new Factory(),
             new ComposerJsonNormalizer(),
             new Formatter(),
@@ -111,12 +111,12 @@ final class NormalizeCommandTest extends Framework\TestCase
      */
     public function testFailsWhenIndentSizeIsUsedWithoutIndentStyle(CommandInvocation $commandInvocation): void
     {
-        $scenario = $this->createScenario(
+        $scenario = self::createScenario(
             $commandInvocation,
             __DIR__ . '/../../Fixture/json/valid/lock/not-present/json/not-yet-normalized'
         );
 
-        $application = $this->createApplication(new NormalizeCommand(
+        $application = self::createApplication(new NormalizeCommand(
             new Factory(),
             new ComposerJsonNormalizer(),
             new Formatter(),
@@ -150,12 +150,12 @@ final class NormalizeCommandTest extends Framework\TestCase
 
         $indentStyle = $faker->sentence;
 
-        $scenario = $this->createScenario(
+        $scenario = self::createScenario(
             $commandInvocation,
             __DIR__ . '/../../Fixture/json/valid/lock/not-present/json/not-yet-normalized'
         );
 
-        $application = $this->createApplication(new NormalizeCommand(
+        $application = self::createApplication(new NormalizeCommand(
             new Factory(),
             new ComposerJsonNormalizer(),
             new Formatter(),
@@ -195,12 +195,12 @@ final class NormalizeCommandTest extends Framework\TestCase
     {
         $faker = $this->faker();
 
-        $scenario = $this->createScenario(
+        $scenario = self::createScenario(
             $commandInvocation,
             __DIR__ . '/../../Fixture/json/valid/lock/not-present/json/not-yet-normalized'
         );
 
-        $application = $this->createApplication(new NormalizeCommand(
+        $application = self::createApplication(new NormalizeCommand(
             new Factory(),
             new ComposerJsonNormalizer(),
             new Formatter(),
@@ -240,7 +240,7 @@ final class NormalizeCommandTest extends Framework\TestCase
      */
     public function testFailsWhenComposerJsonIsPresentButNotValid(CommandInvocation $commandInvocation): void
     {
-        $scenario = $this->createScenario(
+        $scenario = self::createScenario(
             $commandInvocation,
             __DIR__ . '/../../Fixture/json/not-valid'
         );
@@ -250,7 +250,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         self::assertComposerJsonFileExists($initialState);
         self::assertComposerLockFileNotExists($initialState);
 
-        $application = $this->createApplication(new NormalizeCommand(
+        $application = self::createApplication(new NormalizeCommand(
             new Factory(),
             new ComposerJsonNormalizer(),
             new Formatter(),
@@ -278,7 +278,7 @@ final class NormalizeCommandTest extends Framework\TestCase
      */
     public function testFailsWhenComposerJsonIsPresentAndValidAndComposerLockIsNotPresentAndRuntimeExceptionIsThrownDuringNormalization(CommandInvocation $commandInvocation): void
     {
-        $scenario = $this->createScenario(
+        $scenario = self::createScenario(
             $commandInvocation,
             __DIR__ . '/../../Fixture/json/valid/lock/not-present/json/not-yet-normalized'
         );
@@ -290,7 +290,7 @@ final class NormalizeCommandTest extends Framework\TestCase
 
         $exceptionMessage = $this->faker()->sentence;
 
-        $application = $this->createApplication(new NormalizeCommand(
+        $application = self::createApplication(new NormalizeCommand(
             new Factory(),
             new class($exceptionMessage) implements NormalizerInterface {
                 /**
@@ -333,7 +333,7 @@ final class NormalizeCommandTest extends Framework\TestCase
      */
     public function testSucceedsWhenComposerJsonIsPresentAndValidAndComposerLockIsNotPresentAndComposerJsonIsAlreadyNormalized(CommandInvocation $commandInvocation): void
     {
-        $scenario = $this->createScenario(
+        $scenario = self::createScenario(
             $commandInvocation,
             __DIR__ . '/../../Fixture/json/valid/lock/not-present/json/already-normalized'
         );
@@ -343,7 +343,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         self::assertComposerJsonFileExists($initialState);
         self::assertComposerLockFileNotExists($initialState);
 
-        $application = $this->createApplication(new NormalizeCommand(
+        $application = self::createApplication(new NormalizeCommand(
             new Factory(),
             new ComposerJsonNormalizer(),
             new Formatter(),
@@ -377,7 +377,7 @@ final class NormalizeCommandTest extends Framework\TestCase
      */
     public function testSucceedsWhenComposerJsonIsPresentAndValidAndComposerLockIsNotPresentAndComposerJsonIsNotYetNormalized(CommandInvocation $commandInvocation): void
     {
-        $scenario = $this->createScenario(
+        $scenario = self::createScenario(
             $commandInvocation,
             __DIR__ . '/../../Fixture/json/valid/lock/not-present/json/not-yet-normalized'
         );
@@ -387,7 +387,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         self::assertComposerJsonFileExists($initialState);
         self::assertComposerLockFileNotExists($initialState);
 
-        $application = $this->createApplication(new NormalizeCommand(
+        $application = self::createApplication(new NormalizeCommand(
             new Factory(),
             new ComposerJsonNormalizer(),
             new Formatter(),
@@ -425,7 +425,7 @@ final class NormalizeCommandTest extends Framework\TestCase
      */
     public function testFailsWhenComposerJsonIsPresentAndValidAndComposerLockIsNotPresentAndComposerJsonIsNotYetNormalizedAndDryRunOptionIsUsed(CommandInvocation $commandInvocation): void
     {
-        $scenario = $this->createScenario(
+        $scenario = self::createScenario(
             $commandInvocation,
             __DIR__ . '/../../Fixture/json/valid/lock/not-present/json/not-yet-normalized'
         );
@@ -435,7 +435,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         self::assertComposerJsonFileExists($initialState);
         self::assertComposerLockFileNotExists($initialState);
 
-        $application = $this->createApplication(new NormalizeCommand(
+        $application = self::createApplication(new NormalizeCommand(
             new Factory(),
             new ComposerJsonNormalizer(),
             new Formatter(),
@@ -482,7 +482,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         int $indentSize,
         string $indentStyle
     ): void {
-        $scenario = $this->createScenario(
+        $scenario = self::createScenario(
             $commandInvocation,
             __DIR__ . '/../../Fixture/json/valid/lock/not-present/json/not-yet-normalized'
         );
@@ -492,7 +492,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         self::assertComposerJsonFileExists($initialState);
         self::assertComposerLockFileNotExists($initialState);
 
-        $application = $this->createApplication(new NormalizeCommand(
+        $application = self::createApplication(new NormalizeCommand(
             new Factory(),
             new ComposerJsonNormalizer(),
             new Formatter(),
@@ -533,7 +533,7 @@ final class NormalizeCommandTest extends Framework\TestCase
      */
     public function testSucceedsWhenComposerJsonIsPresentAndValidAndComposerLockIsNotPresentAndComposerJsonIsNotYetNormalizedAndNoUpdateLockOptionIsUsed(CommandInvocation $commandInvocation): void
     {
-        $scenario = $this->createScenario(
+        $scenario = self::createScenario(
             $commandInvocation,
             __DIR__ . '/../../Fixture/json/valid/lock/not-present/json/not-yet-normalized'
         );
@@ -543,7 +543,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         self::assertComposerJsonFileExists($initialState);
         self::assertComposerLockFileNotExists($initialState);
 
-        $application = $this->createApplication(new NormalizeCommand(
+        $application = self::createApplication(new NormalizeCommand(
             new Factory(),
             new ComposerJsonNormalizer(),
             new Formatter(),
@@ -583,7 +583,7 @@ final class NormalizeCommandTest extends Framework\TestCase
      */
     public function testFailsWhenComposerJsonIsPresentAndValidAndComposerLockIsPresentButNotFreshBefore(CommandInvocation $commandInvocation): void
     {
-        $scenario = $this->createScenario(
+        $scenario = self::createScenario(
             $commandInvocation,
             __DIR__ . '/../../Fixture/json/valid/lock/present/lock/not-fresh-before'
         );
@@ -594,7 +594,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         self::assertComposerLockFileExists($initialState);
         self::assertComposerLockFileNotFresh($initialState);
 
-        $application = $this->createApplication(new NormalizeCommand(
+        $application = self::createApplication(new NormalizeCommand(
             new Factory(),
             new ComposerJsonNormalizer(),
             new Formatter(),
@@ -622,7 +622,7 @@ final class NormalizeCommandTest extends Framework\TestCase
      */
     public function testSucceedsWhenComposerJsonIsPresentAndValidAndComposerLockIsPresentAndFreshBeforeAndComposerJsonIsAlreadyNormalized(CommandInvocation $commandInvocation): void
     {
-        $scenario = $this->createScenario(
+        $scenario = self::createScenario(
             $commandInvocation,
             __DIR__ . '/../../Fixture/json/valid/lock/present/lock/fresh-before/json/already-normalized'
         );
@@ -633,7 +633,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         self::assertComposerLockFileExists($initialState);
         self::assertComposerLockFileFresh($initialState);
 
-        $application = $this->createApplication(new NormalizeCommand(
+        $application = self::createApplication(new NormalizeCommand(
             new Factory(),
             new ComposerJsonNormalizer(),
             new Formatter(),
@@ -667,7 +667,7 @@ final class NormalizeCommandTest extends Framework\TestCase
      */
     public function testSucceedsWhenComposerJsonIsPresentAndValidAndComposerLockIsPresentAndFreshBeforeAndComposerJsonIsNotYetNormalizedAndComposerLockIsFreshAfter(CommandInvocation $commandInvocation): void
     {
-        $scenario = $this->createScenario(
+        $scenario = self::createScenario(
             $commandInvocation,
             __DIR__ . '/../../Fixture/json/valid/lock/present/lock/fresh-before/json/not-yet-normalized/lock/fresh-after'
         );
@@ -678,7 +678,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         self::assertComposerLockFileExists($initialState);
         self::assertComposerLockFileFresh($initialState);
 
-        $application = $this->createApplication(new NormalizeCommand(
+        $application = self::createApplication(new NormalizeCommand(
             new Factory(),
             new ComposerJsonNormalizer(),
             new Formatter(),
@@ -716,7 +716,7 @@ final class NormalizeCommandTest extends Framework\TestCase
      */
     public function testSucceedsWhenComposerJsonIsPresentAndValidAndComposerLockIsPresentAndFreshBeforeAndComposerJsonIsNotYetNormalizedAndComposerLockIsNotFreshAfter(CommandInvocation $commandInvocation): void
     {
-        $scenario = $this->createScenario(
+        $scenario = self::createScenario(
             $commandInvocation,
             __DIR__ . '/../../Fixture/json/valid/lock/present/lock/fresh-before/json/not-yet-normalized/lock/not-fresh-after'
         );
@@ -727,7 +727,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         self::assertComposerLockFileExists($initialState);
         self::assertComposerLockFileFresh($initialState);
 
-        $application = $this->createApplication(new NormalizeCommand(
+        $application = self::createApplication(new NormalizeCommand(
             new Factory(),
             new ComposerJsonNormalizer(),
             new Formatter(),
@@ -766,7 +766,7 @@ final class NormalizeCommandTest extends Framework\TestCase
      */
     public function testFailsWhenComposerJsonIsPresentAndValidAndComposerLockIsPresentAndFreshBeforeAndComposerJsonIsNotYetNormalizedAndDryRunOptionIsUsed(CommandInvocation $commandInvocation): void
     {
-        $scenario = $this->createScenario(
+        $scenario = self::createScenario(
             $commandInvocation,
             __DIR__ . '/../../Fixture/json/valid/lock/present/lock/fresh-before/json/not-yet-normalized/lock/fresh-after'
         );
@@ -776,7 +776,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         self::assertComposerJsonFileExists($initialState);
         self::assertComposerLockFileExists($initialState);
 
-        $application = $this->createApplication(new NormalizeCommand(
+        $application = self::createApplication(new NormalizeCommand(
             new Factory(),
             new ComposerJsonNormalizer(),
             new Formatter(),
@@ -816,7 +816,7 @@ final class NormalizeCommandTest extends Framework\TestCase
      */
     public function testSucceedsWhenComposerJsonIsPresentAndValidAndComposerLockIsPresentAndFreshBeforeAndComposerJsonIsNotYetNormalizedAndNoUpdateLockOptionIsUsed(CommandInvocation $commandInvocation): void
     {
-        $scenario = $this->createScenario(
+        $scenario = self::createScenario(
             $commandInvocation,
             __DIR__ . '/../../Fixture/json/valid/lock/present/lock/fresh-before/json/not-yet-normalized/lock/not-fresh-after'
         );
@@ -827,7 +827,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         self::assertComposerLockFileExists($initialState);
         self::assertComposerLockFileFresh($initialState);
 
-        $application = $this->createApplication(new NormalizeCommand(
+        $application = self::createApplication(new NormalizeCommand(
             new Factory(),
             new ComposerJsonNormalizer(),
             new Formatter(),
@@ -863,7 +863,7 @@ final class NormalizeCommandTest extends Framework\TestCase
 
     public function providerCommandInvocation(): \Generator
     {
-        foreach ($this->commandInvocations() as $commandInvocation) {
+        foreach (self::commandInvocations() as $commandInvocation) {
             yield $commandInvocation->style() => [
                 $commandInvocation,
             ];
@@ -880,7 +880,7 @@ final class NormalizeCommandTest extends Framework\TestCase
             'integer-less-than-zero-casted-to-string' => (string) (-1 * $faker->numberBetween(1)),
         ];
 
-        foreach ($this->commandInvocations() as $commandInvocation) {
+        foreach (self::commandInvocations() as $commandInvocation) {
             foreach ($indentSizes as $indentSizeKey => $indentSize) {
                 $key = \sprintf(
                     '%s-indent-size-%s',
@@ -908,7 +908,7 @@ final class NormalizeCommandTest extends Framework\TestCase
             'tab',
         ];
 
-        foreach ($this->commandInvocations() as $commandInvocation) {
+        foreach (self::commandInvocations() as $commandInvocation) {
             foreach ($indentSizes as $indentSize) {
                 foreach ($indentStyles as $indentStyle) {
                     $key = \sprintf(
@@ -928,7 +928,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         }
     }
 
-    private function createScenario(CommandInvocation $commandInvocation, string $fixtureDirectory): Scenario
+    private static function createScenario(CommandInvocation $commandInvocation, string $fixtureDirectory): Scenario
     {
         if (!\is_dir($fixtureDirectory)) {
             throw new \InvalidArgumentException(\sprintf(
@@ -965,7 +965,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         return $scenario;
     }
 
-    private function createApplication(NormalizeCommand $command): Application
+    private static function createApplication(NormalizeCommand $command): Application
     {
         $application = new Application();
 
@@ -978,7 +978,7 @@ final class NormalizeCommandTest extends Framework\TestCase
     /**
      * @return CommandInvocation[]
      */
-    private function commandInvocations(): array
+    private static function commandInvocations(): array
     {
         return [
             CommandInvocation::inCurrentWorkingDirectory(),
