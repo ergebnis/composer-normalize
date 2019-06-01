@@ -9,7 +9,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Unreleased
 
-For a full diff see [`1.1.4...1.x`](https://github.com/localheinz/composer-normalize/compare/1.1.4...1.x).
+For a full diff see [`1.2.0...1.x`](https://github.com/localheinz/composer-normalize/compare/1.2.0...1.x).
+
+### [`1.2.0`](https://github.com/localheinz/composer-normalize/releases/tag/1.2.0)
+
+For a full diff see [`1.1.4...1.2.0`](https://github.com/localheinz/composer-normalize/compare/1.1.4...1.2.0).
+
+#### Changed
+
+* Started using the `StrictUnifiedDiffOutputBuilder` when available to create more condensed diffs when using the `--dry-run` option ([#80](https://github.com/localheinz/composer-normalize/pull/180)), by [@localheinz](https://github.com/localheinz)
 
 ### [`1.1.4`](https://github.com/localheinz/composer-normalize/releases/tag/1.1.4)
 
