@@ -11,7 +11,7 @@ declare(strict_types=1);
  * @see https://github.com/localheinz/composer-normalize
  */
 
-namespace Localheinz\Composer\Normalize\Test\Integration;
+namespace Localheinz\Composer\Normalize\Test\Integration\Command;
 
 use Composer\Console\Application;
 use Composer\Factory;
@@ -36,7 +36,7 @@ use Symfony\Component\Filesystem;
  * @covers \Localheinz\Composer\Normalize\Command\NormalizeCommand
  * @covers \Localheinz\Composer\Normalize\NormalizePlugin
  */
-final class NormalizeTest extends Framework\TestCase
+final class NormalizeCommandTest extends Framework\TestCase
 {
     use Helper;
 
@@ -75,7 +75,7 @@ final class NormalizeTest extends Framework\TestCase
     {
         $scenario = $this->createScenario(
             $commandInvocation,
-            __DIR__ . '/../Fixture/json/valid/lock/not-present/json/not-yet-normalized'
+            __DIR__ . '/../../Fixture/json/valid/lock/not-present/json/not-yet-normalized'
         );
 
         $application = $this->createApplication(new NormalizeCommand(
@@ -113,7 +113,7 @@ final class NormalizeTest extends Framework\TestCase
     {
         $scenario = $this->createScenario(
             $commandInvocation,
-            __DIR__ . '/../Fixture/json/valid/lock/not-present/json/not-yet-normalized'
+            __DIR__ . '/../../Fixture/json/valid/lock/not-present/json/not-yet-normalized'
         );
 
         $application = $this->createApplication(new NormalizeCommand(
@@ -152,7 +152,7 @@ final class NormalizeTest extends Framework\TestCase
 
         $scenario = $this->createScenario(
             $commandInvocation,
-            __DIR__ . '/../Fixture/json/valid/lock/not-present/json/not-yet-normalized'
+            __DIR__ . '/../../Fixture/json/valid/lock/not-present/json/not-yet-normalized'
         );
 
         $application = $this->createApplication(new NormalizeCommand(
@@ -197,7 +197,7 @@ final class NormalizeTest extends Framework\TestCase
 
         $scenario = $this->createScenario(
             $commandInvocation,
-            __DIR__ . '/../Fixture/json/valid/lock/not-present/json/not-yet-normalized'
+            __DIR__ . '/../../Fixture/json/valid/lock/not-present/json/not-yet-normalized'
         );
 
         $application = $this->createApplication(new NormalizeCommand(
@@ -242,7 +242,7 @@ final class NormalizeTest extends Framework\TestCase
     {
         $scenario = $this->createScenario(
             $commandInvocation,
-            __DIR__ . '/../Fixture/json/not-valid'
+            __DIR__ . '/../../Fixture/json/not-valid'
         );
 
         $initialState = $scenario->initialState();
@@ -280,7 +280,7 @@ final class NormalizeTest extends Framework\TestCase
     {
         $scenario = $this->createScenario(
             $commandInvocation,
-            __DIR__ . '/../Fixture/json/valid/lock/not-present/json/not-yet-normalized'
+            __DIR__ . '/../../Fixture/json/valid/lock/not-present/json/not-yet-normalized'
         );
 
         $initialState = $scenario->initialState();
@@ -335,7 +335,7 @@ final class NormalizeTest extends Framework\TestCase
     {
         $scenario = $this->createScenario(
             $commandInvocation,
-            __DIR__ . '/../Fixture/json/valid/lock/not-present/json/already-normalized'
+            __DIR__ . '/../../Fixture/json/valid/lock/not-present/json/already-normalized'
         );
 
         $initialState = $scenario->initialState();
@@ -379,7 +379,7 @@ final class NormalizeTest extends Framework\TestCase
     {
         $scenario = $this->createScenario(
             $commandInvocation,
-            __DIR__ . '/../Fixture/json/valid/lock/not-present/json/not-yet-normalized'
+            __DIR__ . '/../../Fixture/json/valid/lock/not-present/json/not-yet-normalized'
         );
 
         $initialState = $scenario->initialState();
@@ -427,7 +427,7 @@ final class NormalizeTest extends Framework\TestCase
     {
         $scenario = $this->createScenario(
             $commandInvocation,
-            __DIR__ . '/../Fixture/json/valid/lock/not-present/json/not-yet-normalized'
+            __DIR__ . '/../../Fixture/json/valid/lock/not-present/json/not-yet-normalized'
         );
 
         $initialState = $scenario->initialState();
@@ -484,7 +484,7 @@ final class NormalizeTest extends Framework\TestCase
     ): void {
         $scenario = $this->createScenario(
             $commandInvocation,
-            __DIR__ . '/../Fixture/json/valid/lock/not-present/json/not-yet-normalized'
+            __DIR__ . '/../../Fixture/json/valid/lock/not-present/json/not-yet-normalized'
         );
 
         $initialState = $scenario->initialState();
@@ -535,7 +535,7 @@ final class NormalizeTest extends Framework\TestCase
     {
         $scenario = $this->createScenario(
             $commandInvocation,
-            __DIR__ . '/../Fixture/json/valid/lock/not-present/json/not-yet-normalized'
+            __DIR__ . '/../../Fixture/json/valid/lock/not-present/json/not-yet-normalized'
         );
 
         $initialState = $scenario->initialState();
@@ -585,7 +585,7 @@ final class NormalizeTest extends Framework\TestCase
     {
         $scenario = $this->createScenario(
             $commandInvocation,
-            __DIR__ . '/../Fixture/json/valid/lock/present/lock/not-fresh-before'
+            __DIR__ . '/../../Fixture/json/valid/lock/present/lock/not-fresh-before'
         );
 
         $initialState = $scenario->initialState();
@@ -624,7 +624,7 @@ final class NormalizeTest extends Framework\TestCase
     {
         $scenario = $this->createScenario(
             $commandInvocation,
-            __DIR__ . '/../Fixture/json/valid/lock/present/lock/fresh-before/json/already-normalized'
+            __DIR__ . '/../../Fixture/json/valid/lock/present/lock/fresh-before/json/already-normalized'
         );
 
         $initialState = $scenario->initialState();
@@ -669,7 +669,7 @@ final class NormalizeTest extends Framework\TestCase
     {
         $scenario = $this->createScenario(
             $commandInvocation,
-            __DIR__ . '/../Fixture/json/valid/lock/present/lock/fresh-before/json/not-yet-normalized/lock/fresh-after'
+            __DIR__ . '/../../Fixture/json/valid/lock/present/lock/fresh-before/json/not-yet-normalized/lock/fresh-after'
         );
 
         $initialState = $scenario->initialState();
@@ -718,7 +718,7 @@ final class NormalizeTest extends Framework\TestCase
     {
         $scenario = $this->createScenario(
             $commandInvocation,
-            __DIR__ . '/../Fixture/json/valid/lock/present/lock/fresh-before/json/not-yet-normalized/lock/not-fresh-after'
+            __DIR__ . '/../../Fixture/json/valid/lock/present/lock/fresh-before/json/not-yet-normalized/lock/not-fresh-after'
         );
 
         $initialState = $scenario->initialState();
@@ -768,7 +768,7 @@ final class NormalizeTest extends Framework\TestCase
     {
         $scenario = $this->createScenario(
             $commandInvocation,
-            __DIR__ . '/../Fixture/json/valid/lock/present/lock/fresh-before/json/not-yet-normalized/lock/fresh-after'
+            __DIR__ . '/../../Fixture/json/valid/lock/present/lock/fresh-before/json/not-yet-normalized/lock/fresh-after'
         );
 
         $initialState = $scenario->initialState();
@@ -818,7 +818,7 @@ final class NormalizeTest extends Framework\TestCase
     {
         $scenario = $this->createScenario(
             $commandInvocation,
-            __DIR__ . '/../Fixture/json/valid/lock/present/lock/fresh-before/json/not-yet-normalized/lock/not-fresh-after'
+            __DIR__ . '/../../Fixture/json/valid/lock/present/lock/fresh-before/json/not-yet-normalized/lock/not-fresh-after'
         );
 
         $initialState = $scenario->initialState();
@@ -1082,7 +1082,7 @@ final class NormalizeTest extends Framework\TestCase
     private static function fixtureDirectory(): string
     {
         /** @var string $projectDirectory */
-        $projectDirectory = \realpath(__DIR__ . '/../..');
+        $projectDirectory = \realpath(__DIR__ . '/../../..');
 
         return \sprintf(
             '%s/test/Fixture',
@@ -1093,7 +1093,7 @@ final class NormalizeTest extends Framework\TestCase
     private static function temporaryDirectory(): string
     {
         /** @var string $projectDirectory */
-        $projectDirectory = \realpath(__DIR__ . '/../..');
+        $projectDirectory = \realpath(__DIR__ . '/../../..');
 
         return \sprintf(
             '%s/.build/fixture',
