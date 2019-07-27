@@ -482,7 +482,7 @@ This package is licensed using the MIT License.
 
 ## GitHub Action
 
-`localheinz/composer-normalize` is also available as a [GitHub Action](https://github.com/features/actions) on the [GitHub Marketplace](https://github.com/marketplace), see [`localheinz/composer-normalize-action`](https://github.com/marketplace/actions/localheinz-composer-normalize-action) as well as the corresponding repository [`localheinz/composer-normalize-action`](https://github.com/localheinz/composer-normalize-action) as well es
+`localheinz/composer-normalize` is also available as a [GitHub Action](https://github.com/features/actions) on the [GitHub Marketplace](https://github.com/marketplace), see [`localheinz/composer-normalize-action`](https://github.com/marketplace/actions/localheinz-composer-normalize-action) as well as the corresponding repository [`localheinz/composer-normalize-action`](https://github.com/localheinz/composer-normalize-action).
 
 ## Services
 
