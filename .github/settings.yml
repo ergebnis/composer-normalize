@@ -1,0 +1,64 @@
+# https://github.com/probot/settings
+
+branches:
+  - name: 1.x
+    protection:
+      enforce_admins: false
+      required_pull_request_reviews:
+        dismiss_stale_reviews: true
+        require_code_owner_reviews: true
+        required_approving_review_count: 1
+      required_status_checks:
+        contexts:
+          - "codecov/patch"
+          - "codecov/project"
+          - "Travis CI - Branch"
+          - "Travis CI - Pull Request"
+        strict: false
+      restrictions: null
+
+  - name: master
+    protection:
+      enforce_admins: false
+      required_pull_request_reviews:
+        dismiss_stale_reviews: true
+        require_code_owner_reviews: true
+        required_approving_review_count: 1
+      required_status_checks:
+        contexts:
+          - "codecov/patch"
+          - "codecov/project"
+          - "Travis CI - Branch"
+          - "Travis CI - Pull Request"
+        strict: false
+      restrictions: null
+
+labels:
+  - name: bug
+    color: ee0701
+
+  - name: dependencies
+    color: 0366d6
+
+  - name: enhancement
+    color: 0e8a16
+
+  - name: question
+    color: cc317c
+
+  - name: stale
+    color: eeeeee
+
+repository:
+  allow_merge_commit: true
+  allow_rebase_merge: false
+  allow_squash_merge: false
+  default_branch: 1.x
+  description: ":musical_note: Provides a composer plugin for normalizing composer.json."
+  has_downloads: true
+  has_issues: true
+  has_pages: false
+  has_projects: false
+  has_wiki: false
+  name: composer-normalize
+  private: false
