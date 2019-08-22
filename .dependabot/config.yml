@@ -9,12 +9,18 @@ update_configs:
       - "localheinz"
     directory: "/"
     ignored_updates:
-      - match: "composer-plugin-api"
-      - match: "composer/composer"
-      - match: "localheinz/composer-json-normalizer"
-      - match: "localheinz/json-normalizer"
-      - match: "phpunit/phpunit"
-      - match: "sebastian/diff"
+      - match:
+          dependency_name: "composer-plugin-api"
+      - match:
+          dependency_name: "composer/composer"
+      - match:
+          dependency_name: "localheinz/composer-json-normalizer"
+      - match:
+          dependency_name: "localheinz/json-normalizer"
+      - match:
+          dependency_name: "phpunit/phpunit"
+      - match:
+          dependency_name: "sebastian/diff"
     package_manager: "php:composer"
     update_schedule: "live"
     version_requirement_updates: "increase_versions"
