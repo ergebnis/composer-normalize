@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "988d8ad96847bb49a39bb1a2ceedbe28",
+    "content-hash": "38e63f75483fbb87f746fe521f2ce33f",
     "packages": [
         {
             "name": "justinrainbow/json-schema",
@@ -1091,33 +1091,40 @@
         },
         {
             "name": "localheinz/phpstan-rules",
-            "version": "0.7.1",
+            "version": "0.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localheinz/phpstan-rules.git",
-                "reference": "fbbd15c097cd76a42d525badfd5342cd3c7d36a5"
+                "reference": "eb5d1ae69a744b760dbc153a7bdc5a05877c7cc3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localheinz/phpstan-rules/zipball/fbbd15c097cd76a42d525badfd5342cd3c7d36a5",
-                "reference": "fbbd15c097cd76a42d525badfd5342cd3c7d36a5",
+                "url": "https://api.github.com/repos/localheinz/phpstan-rules/zipball/eb5d1ae69a744b760dbc153a7bdc5a05877c7cc3",
+                "reference": "eb5d1ae69a744b760dbc153a7bdc5a05877c7cc3",
                 "shasum": ""
             },
             "require": {
                 "nikic/php-parser": "^4.1.0",
                 "php": "^7.1",
-                "phpstan/phpstan": "~0.10.5 || ~0.11.0"
+                "phpstan/phpstan": "~0.11.7"
             },
             "require-dev": {
-                "infection/infection": "~0.11.5",
+                "infection/infection": "~0.12.2",
                 "localheinz/composer-normalize": "^1.1.1",
-                "localheinz/php-cs-fixer-config": "~1.19.0",
+                "localheinz/php-cs-fixer-config": "~1.21.0",
                 "localheinz/test-util": "~0.7.0",
-                "phpstan/phpstan-deprecation-rules": "~0.10.2 || ~0.11.0",
-                "phpstan/phpstan-strict-rules": "~0.10.1 || ~0.11.0",
-                "phpunit/phpunit": "^7.5.2"
+                "phpstan/phpstan-deprecation-rules": "~0.11.1",
+                "phpstan/phpstan-strict-rules": "~0.11.1",
+                "phpunit/phpunit": "^7.5.9"
             },
-            "type": "library",
+            "type": "phpstan-extension",
+            "extra": {
+                "phpstan": {
+                    "includes": [
+                        "rules.neon"
+                    ]
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Localheinz\\PHPStan\\Rules\\": "src/"
@@ -1140,7 +1147,7 @@
                 "phpstan-extreme-rules",
                 "phpstan-rules"
             ],
-            "time": "2019-01-17T22:24:11+00:00"
+            "time": "2019-05-22T20:35:17+00:00"
         },
         {
             "name": "localheinz/test-util",
@@ -4474,8 +4481,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.1",
-        "composer-plugin-api": "^1.1.0"
+        "php": "^7.1"
     },
     "platform-dev": []
 }
