@@ -1,0 +1,20 @@
+# https://dependabot.com/docs/config-file/
+
+version: 1
+
+update_configs:
+  - default_assignees:
+      - "localheinz"
+    default_reviewers:
+      - "localheinz"
+    directory: "/"
+    ignored_updates:
+      - match: "composer-plugin-api"
+      - match: "composer/composer"
+      - match: "localheinz/composer-json-normalizer"
+      - match: "localheinz/json-normalizer"
+      - match: "phpunit/phpunit"
+      - match: "sebastian/diff"
+    package_manager: "php:composer"
+    update_schedule: "live"
+    version_requirement_updates: "increase_versions"
