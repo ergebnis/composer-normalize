@@ -241,7 +241,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         );
 
         self::assertExitCodeSame(1, $exitCode);
-        self::assertContains('Original JSON is not valid according to schema "https://getcomposer.org/schema.json".', $output->fetch());
+        self::assertRegExp('/Original JSON is not valid according to schema ".*"/', $output->fetch());
         self::assertEquals($initialState, $scenario->currentState());
     }
 

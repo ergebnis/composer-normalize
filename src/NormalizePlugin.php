@@ -18,6 +18,7 @@ use Composer\Factory;
 use Composer\IO;
 use Composer\Plugin;
 use Localheinz\Composer\Json\Normalizer;
+use Localheinz\Composer\Normalize\Command\SchemaUriResolver;
 
 final class NormalizePlugin implements Plugin\Capability\CommandProvider, Plugin\Capable, Plugin\PluginInterface
 {
@@ -49,7 +50,7 @@ final class NormalizePlugin implements Plugin\Capability\CommandProvider, Plugin
         return [
             new Command\NormalizeCommand(
                 new Factory(),
-                new Normalizer\ComposerJsonNormalizer()
+                new Normalizer\ComposerJsonNormalizer(SchemaUriResolver::resolve())
             ),
         ];
     }

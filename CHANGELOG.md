@@ -9,7 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Unreleased
 
-For a full diff see [`1.2.0...1.x`](https://github.com/localheinz/composer-normalize/compare/1.2.0...1.x).
+For a full diff see [`1.3.0...1.x`](https://github.com/localheinz/composer-normalize/compare/1.3.0...1.x).
+
+## `1.3.0`
+
+#### Changed
+
+* Resolve local and fall back to remote schema so that command works offline and behind proxies ([#190](https://github.com/localheinz/composer-normalize/pull/190)), by [@localheinz](https://github.com/localheinz)
 
 ### [`1.2.0`](https://github.com/localheinz/composer-normalize/releases/tag/1.2.0)
 
