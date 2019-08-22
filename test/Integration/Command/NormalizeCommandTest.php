@@ -15,8 +15,8 @@ namespace Localheinz\Composer\Normalize\Test\Integration\Command;
 
 use Composer\Console\Application;
 use Composer\Factory;
-use Localheinz\Composer\Json\Normalizer\ComposerJsonNormalizer;
 use Localheinz\Composer\Normalize\Command\NormalizeCommand;
+use Localheinz\Composer\Normalize\NormalizePlugin;
 use Localheinz\Composer\Normalize\Test\Util\CommandInvocation;
 use Localheinz\Composer\Normalize\Test\Util\Directory;
 use Localheinz\Composer\Normalize\Test\Util\Scenario;
@@ -895,11 +895,24 @@ final class NormalizeCommandTest extends Framework\TestCase
 
     private static function createApplicationWithDefaultNormalizeCommand(): Application
     {
-        return self::createApplication(new NormalizeCommand(
-            new Factory(),
-            new ComposerJsonNormalizer(),
-            new Formatter()
-        ));
+        $plugin = new NormalizePlugin();
+
+        $commands = \array_filter($plugin->getCommands(), static function ($command): bool {
+            return $command instanceof NormalizeCommand;
+        });
+
+        if (0 === \count($commands)) {
+            throw new \RuntimeException(\sprintf(
+                'Expected "%s" to provide an instance of "%s" as command.',
+                NormalizePlugin::class,
+                NormalizeCommand::class
+            ));
+        }
+
+        /** @var NormalizeCommand $normalizeCommand */
+        $normalizeCommand = \array_shift($commands);
+
+        return self::createApplication($normalizeCommand);
     }
 
     /**
