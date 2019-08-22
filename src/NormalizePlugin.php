@@ -22,20 +22,8 @@ use Localheinz\Composer\Normalize\Command\SchemaUriResolver;
 
 final class NormalizePlugin implements Plugin\Capability\CommandProvider, Plugin\Capable, Plugin\PluginInterface
 {
-    /**
-     * @var Composer
-     */
-    private $composer;
-
-    /**
-     * @var IO\IOInterface
-     */
-    private $io;
-
     public function activate(Composer $composer, IO\IOInterface $io): void
     {
-        $this->composer = $composer;
-        $this->io = $io;
     }
 
     public function getCapabilities(): array
