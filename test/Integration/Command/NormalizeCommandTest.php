@@ -77,7 +77,7 @@ final class NormalizeCommandTest extends Framework\TestCase
             __DIR__ . '/../../Fixture/json/valid/lock/not-present/json/not-yet-normalized'
         );
 
-        $application = self::createApplicationWithDefaultNormalizeCommand();
+        $application = self::createApplicationWithNormalizeCommandAsProvidedByNormalizePlugin();
 
         $input = new Console\Input\ArrayInput($scenario->consoleParametersWith([
             '--indent-style' => $this->faker()->randomElement([
@@ -110,7 +110,7 @@ final class NormalizeCommandTest extends Framework\TestCase
             __DIR__ . '/../../Fixture/json/valid/lock/not-present/json/not-yet-normalized'
         );
 
-        $application = self::createApplicationWithDefaultNormalizeCommand();
+        $application = self::createApplicationWithNormalizeCommandAsProvidedByNormalizePlugin();
 
         $input = new Console\Input\ArrayInput($scenario->consoleParametersWith([
             '--indent-size' => (string) $this->faker()->numberBetween(1, 4),
@@ -144,7 +144,7 @@ final class NormalizeCommandTest extends Framework\TestCase
             __DIR__ . '/../../Fixture/json/valid/lock/not-present/json/not-yet-normalized'
         );
 
-        $application = self::createApplicationWithDefaultNormalizeCommand();
+        $application = self::createApplicationWithNormalizeCommandAsProvidedByNormalizePlugin();
 
         $input = new Console\Input\ArrayInput($scenario->consoleParametersWith([
             '--indent-size' => (string) $faker->numberBetween(1, 4),
@@ -184,7 +184,7 @@ final class NormalizeCommandTest extends Framework\TestCase
             __DIR__ . '/../../Fixture/json/valid/lock/not-present/json/not-yet-normalized'
         );
 
-        $application = self::createApplicationWithDefaultNormalizeCommand();
+        $application = self::createApplicationWithNormalizeCommandAsProvidedByNormalizePlugin();
 
         $input = new Console\Input\ArrayInput($scenario->consoleParametersWith([
             '--indent-size' => $indentSize,
@@ -229,7 +229,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         self::assertComposerJsonFileExists($initialState);
         self::assertComposerLockFileNotExists($initialState);
 
-        $application = self::createApplicationWithDefaultNormalizeCommand();
+        $application = self::createApplicationWithNormalizeCommandAsProvidedByNormalizePlugin();
 
         $output = new Console\Output\BufferedOutput();
 
@@ -316,7 +316,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         self::assertComposerJsonFileExists($initialState);
         self::assertComposerLockFileNotExists($initialState);
 
-        $application = self::createApplicationWithDefaultNormalizeCommand();
+        $application = self::createApplicationWithNormalizeCommandAsProvidedByNormalizePlugin();
 
         $output = new Console\Output\BufferedOutput();
 
@@ -355,7 +355,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         self::assertComposerJsonFileExists($initialState);
         self::assertComposerLockFileNotExists($initialState);
 
-        $application = self::createApplicationWithDefaultNormalizeCommand();
+        $application = self::createApplicationWithNormalizeCommandAsProvidedByNormalizePlugin();
 
         $input = new Console\Input\ArrayInput($scenario->consoleParameters());
 
@@ -398,7 +398,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         self::assertComposerJsonFileExists($initialState);
         self::assertComposerLockFileNotExists($initialState);
 
-        $application = self::createApplicationWithDefaultNormalizeCommand();
+        $application = self::createApplicationWithNormalizeCommandAsProvidedByNormalizePlugin();
 
         $input = new Console\Input\ArrayInput($scenario->consoleParametersWith([
             '--dry-run' => true,
@@ -450,7 +450,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         self::assertComposerJsonFileExists($initialState);
         self::assertComposerLockFileNotExists($initialState);
 
-        $application = self::createApplicationWithDefaultNormalizeCommand();
+        $application = self::createApplicationWithNormalizeCommandAsProvidedByNormalizePlugin();
 
         $input = new Console\Input\ArrayInput($scenario->consoleParametersWith([
             '--indent-size' => (string) $indentSize,
@@ -496,7 +496,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         self::assertComposerJsonFileExists($initialState);
         self::assertComposerLockFileNotExists($initialState);
 
-        $application = self::createApplicationWithDefaultNormalizeCommand();
+        $application = self::createApplicationWithNormalizeCommandAsProvidedByNormalizePlugin();
 
         $input = new Console\Input\ArrayInput($scenario->consoleParametersWith([
             '--no-update-lock' => true,
@@ -542,7 +542,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         self::assertComposerLockFileExists($initialState);
         self::assertComposerLockFileNotFresh($initialState);
 
-        $application = self::createApplicationWithDefaultNormalizeCommand();
+        $application = self::createApplicationWithNormalizeCommandAsProvidedByNormalizePlugin();
 
         $input = new Console\Input\ArrayInput($scenario->consoleParameters());
 
@@ -576,7 +576,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         self::assertComposerLockFileExists($initialState);
         self::assertComposerLockFileFresh($initialState);
 
-        $application = self::createApplicationWithDefaultNormalizeCommand();
+        $application = self::createApplicationWithNormalizeCommandAsProvidedByNormalizePlugin();
 
         $input = new Console\Input\ArrayInput($scenario->consoleParameters());
 
@@ -616,7 +616,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         self::assertComposerLockFileExists($initialState);
         self::assertComposerLockFileFresh($initialState);
 
-        $application = self::createApplicationWithDefaultNormalizeCommand();
+        $application = self::createApplicationWithNormalizeCommandAsProvidedByNormalizePlugin();
 
         $input = new Console\Input\ArrayInput($scenario->consoleParameters());
 
@@ -660,7 +660,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         self::assertComposerLockFileExists($initialState);
         self::assertComposerLockFileFresh($initialState);
 
-        $application = self::createApplicationWithDefaultNormalizeCommand();
+        $application = self::createApplicationWithNormalizeCommandAsProvidedByNormalizePlugin();
 
         $input = new Console\Input\ArrayInput($scenario->consoleParameters());
 
@@ -704,7 +704,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         self::assertComposerJsonFileExists($initialState);
         self::assertComposerLockFileExists($initialState);
 
-        $application = self::createApplicationWithDefaultNormalizeCommand();
+        $application = self::createApplicationWithNormalizeCommandAsProvidedByNormalizePlugin();
 
         $input = new Console\Input\ArrayInput($scenario->consoleParametersWith([
             '--dry-run' => true,
@@ -750,7 +750,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         self::assertComposerLockFileExists($initialState);
         self::assertComposerLockFileFresh($initialState);
 
-        $application = self::createApplicationWithDefaultNormalizeCommand();
+        $application = self::createApplicationWithNormalizeCommandAsProvidedByNormalizePlugin();
 
         $output = new Console\Output\BufferedOutput();
 
@@ -893,7 +893,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         return $application;
     }
 
-    private static function createApplicationWithDefaultNormalizeCommand(): Application
+    private static function createApplicationWithNormalizeCommandAsProvidedByNormalizePlugin(): Application
     {
         $plugin = new NormalizePlugin();
 
