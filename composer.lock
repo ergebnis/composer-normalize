@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "90e38efe81940386e12daf10d90ee44a",
+    "content-hash": "628c9762b8dfbb239a9ec4b708614046",
     "packages": [
         {
             "name": "justinrainbow/json-schema",
@@ -2411,22 +2411,22 @@
         },
         {
             "name": "phpstan/phpstan-deprecation-rules",
-            "version": "0.11",
+            "version": "0.11.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan-deprecation-rules.git",
-                "reference": "449fee6223220b337760abca4444801ddcc8b38d"
+                "reference": "5685fe48873efc5af1f2cc95d9c1b8ae82c728fe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan-deprecation-rules/zipball/449fee6223220b337760abca4444801ddcc8b38d",
-                "reference": "449fee6223220b337760abca4444801ddcc8b38d",
+                "url": "https://api.github.com/repos/phpstan/phpstan-deprecation-rules/zipball/5685fe48873efc5af1f2cc95d9c1b8ae82c728fe",
+                "reference": "5685fe48873efc5af1f2cc95d9c1b8ae82c728fe",
                 "shasum": ""
             },
             "require": {
                 "nikic/php-parser": "^4.0",
                 "php": "~7.1",
-                "phpstan/phpstan": "^0.11"
+                "phpstan/phpstan": "^0.11.8"
             },
             "require-dev": {
                 "consistence/coding-standard": "^3.0.1",
@@ -2437,10 +2437,15 @@
                 "phpunit/phpunit": "^7.0",
                 "slevomat/coding-standard": "^4.5.2"
             },
-            "type": "library",
+            "type": "phpstan-extension",
             "extra": {
                 "branch-alias": {
                     "dev-master": "0.11-dev"
+                },
+                "phpstan": {
+                    "includes": [
+                        "rules.neon"
+                    ]
                 }
             },
             "autoload": {
@@ -2453,7 +2458,7 @@
                 "MIT"
             ],
             "description": "PHPStan rules for detecting usage of deprecated classes, methods, properties, constants and traits.",
-            "time": "2018-12-05T18:04:16+00:00"
+            "time": "2019-05-28T19:54:04+00:00"
         },
         {
             "name": "phpstan/phpstan-strict-rules",
