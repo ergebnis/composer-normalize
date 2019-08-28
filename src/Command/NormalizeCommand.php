@@ -375,7 +375,10 @@ final class NormalizeCommand extends Command\BaseCommand
      */
     private function validateComposerFile(Console\Output\OutputInterface $output): int
     {
-        return $this->getApplication()->run(
+        /** @var Console\Application $application */
+        $application = $this->getApplication();
+
+        return $application->run(
             new Console\Input\ArrayInput([
                 'command' => 'validate',
                 '--no-check-all' => true,
@@ -398,7 +401,10 @@ final class NormalizeCommand extends Command\BaseCommand
      */
     private function updateLocker(Console\Output\OutputInterface $output): int
     {
-        return $this->getApplication()->run(
+        /** @var Console\Application $application */
+        $application = $this->getApplication();
+
+        return $application->run(
             new Console\Input\ArrayInput([
                 'command' => 'update',
                 '--lock' => true,
@@ -423,7 +429,10 @@ final class NormalizeCommand extends Command\BaseCommand
      */
     private function updateLockerInWorkingDirectory(Console\Output\OutputInterface $output, string $workingDirectory): int
     {
-        return $this->getApplication()->run(
+        /** @var Console\Application $application */
+        $application = $this->getApplication();
+
+        return $application->run(
             new Console\Input\ArrayInput([
                 'command' => 'update',
                 '--lock' => true,
