@@ -26,7 +26,7 @@
   "require-dev": {
     "composer/composer": "^1.7.0",
     "jangregor/phpstan-prophecy": "~0.4.2",
-    "localheinz/php-cs-fixer-config": "~1.22.1",
+    "localheinz/php-cs-fixer-config": "~1.23.0",
     "localheinz/phpstan-rules": "~0.10.0",
     "localheinz/test-util": "~0.7.0",
     "phpstan/phpstan": "~0.11.15",
