@@ -15,8 +15,8 @@ namespace Localheinz\Composer\Normalize\Command;
 
 use Composer\Command;
 use Composer\Factory;
+use Localheinz\Diff;
 use Localheinz\Json\Normalizer;
-use SebastianBergmann\Diff;
 use Symfony\Component\Console;
 
 final class NormalizeCommand extends Command\BaseCommand
@@ -62,21 +62,10 @@ final class NormalizeCommand extends Command\BaseCommand
         $this->formatter = $formatter ?: new Normalizer\Format\Formatter();
 
         if (null === $differ) {
-            $outputBuilder = null;
-
-            if (\class_exists(Diff\Output\StrictUnifiedDiffOutputBuilder::class)) {
-                $outputBuilder = new Diff\Output\StrictUnifiedDiffOutputBuilder([
-                    'fromFile' => 'original',
-                    'toFile' => 'normalized',
-                ]);
-            } else {
-                $outputBuilder = new Diff\Output\UnifiedDiffOutputBuilder(\implode("\n", [
-                    '--- original',
-                    '+++ normalized',
-                ]));
-            }
-
-            $differ = new Diff\Differ($outputBuilder);
+            $differ = new Diff\Differ(new Diff\Output\StrictUnifiedDiffOutputBuilder([
+                'fromFile' => 'original',
+                'toFile' => 'normalized',
+            ]));
         }
 
         $this->differ = $differ;
