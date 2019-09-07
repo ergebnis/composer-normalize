@@ -17,10 +17,6 @@ update_configs:
           dependency_name: "localheinz/composer-json-normalizer"
       - match:
           dependency_name: "localheinz/json-normalizer"
-      - match:
-          dependency_name: "phpunit/phpunit"
-      - match:
-          dependency_name: "sebastian/diff"
     package_manager: "php:composer"
     update_schedule: "live"
     version_requirement_updates: "increase_versions"
