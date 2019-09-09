@@ -1,6 +1,6 @@
 # composer-normalize
 
-[![Build Status](https://travis-ci.com/localheinz/composer-normalize.svg?branch=master)](https://travis-ci.com/localheinz/composer-normalize)
+[![CI Status](https://github.com/localheinz/composer-normalize/workflows/Continuous%20Integration/badge.svg)](https://github.com/localheinz/composer-normalize/actions)
 [![codecov](https://codecov.io/gh/localheinz/composer-normalize/branch/master/graph/badge.svg)](https://codecov.io/gh/localheinz/composer-normalize)
 [![Latest Stable Version](https://poser.pugx.org/localheinz/composer-normalize/v/stable)](https://packagist.org/packages/localheinz/composer-normalize)
 [![Total Downloads](https://poser.pugx.org/localheinz/composer-normalize/downloads)](https://packagist.org/packages/localheinz/composer-normalize)

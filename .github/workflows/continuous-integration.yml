@@ -1,0 +1,101 @@
+# https://help.github.com/en/categories/automating-your-workflow-with-github-actions
+
+on:
+  - pull_request
+  - push
+
+name: "Continuous Integration"
+
+jobs:
+  coding-standards:
+    name: "Coding Standards"
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@master
+
+      - name: "Validate composer.json and composer.lock"
+        run: php7.1 /usr/bin/composer validate --strict
+
+      - name: "Install locked dependencies with composer"
+        run: php7.1 /usr/bin/composer install
+
+      - name: "Run friendsofphp/php-cs-fixer"
+        run: php7.1 vendor/bin/php-cs-fixer fix --config=.php_cs --diff --diff-format=udiff --using-cache=no --verbose
+
+  static-code-analysis:
+    name: "Static Code Analysis"
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@master
+
+      - name: "Install locked dependencies with composer"
+        run: php7.3 /usr/bin/composer install
+
+      - name: "Run phpstan/phpstan"
+        run: php7.3 vendor/bin/phpstan analyse --configuration=phpstan.neon
+
+  tests:
+    name: "Tests"
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        php-binary:
+          - php7.1
+          - php7.2
+          - php7.3
+
+        dependencies:
+          - lowest
+          - locked
+          - highest
+
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@master
+
+      - name: "Install lowest dependencies with composer"
+        if: matrix.dependencies == 'lowest'
+        run: ${{ matrix.php-binary }} /usr/bin/composer update --prefer-lowest
+
+      - name: "Install locked dependencies with composer"
+        if: matrix.dependencies == 'locked'
+        run: ${{ matrix.php-binary }} /usr/bin/composer install
+
+      - name: "Install highest dependencies with composer"
+        if: matrix.dependencies == 'highest'
+        run: ${{ matrix.php-binary }} /usr/bin/composer update
+
+      - name: "Run integration tests with phpunit/phpunit"
+        run: ${{ matrix.php-binary }} vendor/bin/phpunit --configuration=test/Integration/phpunit.xml
+
+  code-coverage:
+    name: "Code Coverage"
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@master
+
+      - name: "Install locked dependencies with composer"
+        run: php7.3 /usr/bin/composer install
+
+      - name: "Dump Xdebug filter with phpunit/phpunit"
+        run: php7.3 vendor/bin/phpunit --configuration=test/Integration/phpunit.xml --dump-xdebug-filter=.build/phpunit/xdebug-filter.php
+
+      - name: "Collect code coverage with Xdebug and phpunit/phpunit"
+        run: php7.3 vendor/bin/phpunit --configuration=test/Integration/phpunit.xml --coverage-clover=build/logs/clover.xml --prepend=.build/phpunit/xdebug-filter.php
+
+      - name: "Download code coverage uploader for Codecov.io"
+        run: curl -s https://codecov.io/bash -o codecov
+
+      - name: "Send code coverage report to Codecov.io"
+        run: bash codecov -t ${{ secrets.CODECOV_TOKEN }}
