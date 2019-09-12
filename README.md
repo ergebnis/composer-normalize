@@ -36,7 +36,7 @@ have written a blog post about [Normalizing composer.json](https://localheinz.co
 Run
 
 ```
-$ composer global require localheinz/composer-normalize
+$ composer require --dev localheinz/composer-normalize
 ```
 
 ## Usage
