@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6176d24de1b347eb0a9131187adaf781",
+    "content-hash": "eb1a4a8d7ffdff6b67fe3b2dfa833b95",
     "packages": [
         {
             "name": "justinrainbow/json-schema",
@@ -1095,16 +1095,16 @@
         },
         {
             "name": "localheinz/phpstan-rules",
-            "version": "0.11.0",
+            "version": "0.12.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localheinz/phpstan-rules.git",
-                "reference": "0abba7ad2fa82dd441b42792e7df24c94e947dcb"
+                "reference": "dfcbc7966ac666cb5332ad6a6847a49527b2d4d7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localheinz/phpstan-rules/zipball/0abba7ad2fa82dd441b42792e7df24c94e947dcb",
-                "reference": "0abba7ad2fa82dd441b42792e7df24c94e947dcb",
+                "url": "https://api.github.com/repos/localheinz/phpstan-rules/zipball/dfcbc7966ac666cb5332ad6a6847a49527b2d4d7",
+                "reference": "dfcbc7966ac666cb5332ad6a6847a49527b2d4d7",
                 "shasum": ""
             },
             "require": {
@@ -1119,7 +1119,9 @@
                 "localheinz/test-util": "~0.7.0",
                 "phpstan/phpstan-deprecation-rules": "~0.11.2",
                 "phpstan/phpstan-strict-rules": "~0.11.1",
-                "phpunit/phpunit": "^7.5.15"
+                "phpunit/phpunit": "^7.5.16",
+                "psr/container": "^1.0.0",
+                "zendframework/zend-servicemanager": "^2.0.0"
             },
             "type": "phpstan-extension",
             "extra": {
@@ -1151,7 +1153,7 @@
                 "phpstan-extreme-rules",
                 "phpstan-rules"
             ],
-            "time": "2019-09-07T11:25:45+00:00"
+            "time": "2019-09-15T12:23:06+00:00"
         },
         {
             "name": "localheinz/test-util",
@@ -1961,18 +1963,18 @@
             "authors": [
                 {
                     "name": "Arne Blankerts",
-                    "role": "Developer",
-                    "email": "arne@blankerts.de"
+                    "email": "arne@blankerts.de",
+                    "role": "Developer"
                 },
                 {
                     "name": "Sebastian Heuer",
-                    "role": "Developer",
-                    "email": "sebastian@phpeople.de"
+                    "email": "sebastian@phpeople.de",
+                    "role": "Developer"
                 },
                 {
                     "name": "Sebastian Bergmann",
-                    "role": "Developer",
-                    "email": "sebastian@phpunit.de"
+                    "email": "sebastian@phpunit.de",
+                    "role": "Developer"
                 }
             ],
             "description": "Component for reading phar.io manifest information from a PHP Archive (PHAR)",
@@ -4489,8 +4491,8 @@
             "authors": [
                 {
                     "name": "Arne Blankerts",
-                    "role": "Developer",
-                    "email": "arne@blankerts.de"
+                    "email": "arne@blankerts.de",
+                    "role": "Developer"
                 }
             ],
             "description": "A small library for converting tokenized PHP source code into XML and potentially other formats",
