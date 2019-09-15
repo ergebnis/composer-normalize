@@ -32,7 +32,7 @@
     "phpstan/phpstan": "~0.11.15",
     "phpstan/phpstan-deprecation-rules": "~0.11.2",
     "phpstan/phpstan-strict-rules": "~0.11.1",
-    "phpunit/phpunit": "^7.5.15",
+    "phpunit/phpunit": "^7.5.16",
     "symfony/filesystem": "^4.3.4"
   },
   "config": {
