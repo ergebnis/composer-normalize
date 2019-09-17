@@ -22,7 +22,6 @@ branches:
           -  "Tests (php7.3, locked)"
           -  "Tests (php7.3, highest)"
           -  "Code Coverage"
-          -  "Mutation Tests"
           -  "codecov/patch"
           -  "codecov/project"
         strict: false
