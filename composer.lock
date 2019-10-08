@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c1cd7a8102e1b8eb7312153494d77589",
+    "content-hash": "b3e0f66a305075683b5ff49b48c44f8d",
     "packages": [
         {
             "name": "justinrainbow/json-schema",
@@ -3858,7 +3858,7 @@
         },
         {
             "name": "symfony/filesystem",
-            "version": "v4.3.4",
+            "version": "v4.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
