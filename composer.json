@@ -27,7 +27,7 @@
     "composer/composer": "^1.7.0",
     "jangregor/phpstan-prophecy": "~0.4.2",
     "localheinz/php-cs-fixer-config": "~1.23.0",
-    "localheinz/phpstan-rules": "~0.12.2",
+    "localheinz/phpstan-rules": "~0.13.0",
     "localheinz/test-util": "~0.7.0",
     "phpstan/phpstan": "~0.11.16",
     "phpstan/phpstan-deprecation-rules": "~0.11.2",
