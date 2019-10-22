@@ -29,7 +29,7 @@
     "localheinz/php-cs-fixer-config": "~1.23.0",
     "localheinz/phpstan-rules": "~0.13.0",
     "localheinz/test-util": "~0.7.0",
-    "phpstan/phpstan": "~0.11.17",
+    "phpstan/phpstan": "~0.11.18",
     "phpstan/phpstan-deprecation-rules": "~0.11.2",
     "phpstan/phpstan-strict-rules": "~0.11.1",
     "phpunit/phpunit": "^7.5.16",
