@@ -1,8 +1,8 @@
-.PHONY: coverage cs help it stan test
+.PHONY: coverage cs help infection it stan test
 
 it: cs stan test ## Runs the cs, stan, and test targets
 
-coverage: vendor ## Collects coverage from running unit tests with phpunit
+coverage: vendor ## Collects coverage from running integration tests with phpunit
 	mkdir -p .build/phpunit
 	vendor/bin/phpunit --configuration=test/Integration/phpunit.xml --dump-xdebug-filter=.build/phpunit/xdebug-filter.php
 	vendor/bin/phpunit --configuration=test/Integration/phpunit.xml --coverage-text --prepend=.build/phpunit/xdebug-filter.php
@@ -24,4 +24,4 @@ test: vendor ## Runs auto-review, unit, and integration tests with phpunit
 
 vendor: composer.json composer.lock
 	composer validate --strict
-	composer install
+	composer install --no-interaction --no-progress --no-suggest

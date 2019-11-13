@@ -1,6 +1,7 @@
 # https://github.com/actions/stale
 
 name: "Close stale issues and pull requests"
+
 on:
   schedule:
     - cron: "0 * * * *"
