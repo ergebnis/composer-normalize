@@ -50,6 +50,8 @@ $ make
 
 to enforce coding standards, perform a static code analysis, and run tests!
 
+## Help
+
 :bulb: Run
 
 ```

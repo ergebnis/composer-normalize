@@ -8,6 +8,14 @@ update_configs:
     default_reviewers:
       - "localheinz"
     directory: "/"
+    package_manager: "github_actions"
+    update_schedule: "daily"
+
+  - default_assignees:
+      - "localheinz"
+    default_reviewers:
+      - "localheinz"
+    directory: "/"
     ignored_updates:
       - match:
           dependency_name: "composer-plugin-api"
