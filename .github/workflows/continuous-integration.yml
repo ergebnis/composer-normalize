@@ -22,21 +22,21 @@ jobs:
         uses: actions/checkout@v1.1.0
 
       - name: "Disable Xdebug"
-        run: php7.1 --ini | grep xdebug | sed 's/,$//' | xargs sudo rm
+        run: php7.2 --ini | grep xdebug | sed 's/,$//' | xargs sudo rm
 
       - name: "Validate composer.json and composer.lock"
-        run: php7.1 $(which composer) validate --strict
+        run: php7.2 $(which composer) validate --strict
 
       - name: "Cache dependencies installed with composer"
         uses: actions/cache@v1.0.0
         with:
           path: ~/.composer/cache
-          key: php7.1-composer-locked-${{ hashFiles('**/composer.lock') }}
+          key: php7.2-composer-locked-${{ hashFiles('**/composer.lock') }}
           restore-keys: |
-            php7.1-composer-locked-
+            php7.2-composer-locked-
 
       - name: "Install locked dependencies with composer"
-        run: php7.1 $(which composer) install --no-interaction --no-progress --no-suggest
+        run: php7.2 $(which composer) install --no-interaction --no-progress --no-suggest
 
       - name: "Run localheinz/composer-normalize"
         uses: docker://localheinz/composer-normalize-action:0.5.2
@@ -44,7 +44,7 @@ jobs:
           args: --dry-run
 
       - name: "Run friendsofphp/php-cs-fixer"
-        run: php7.1 vendor/bin/php-cs-fixer fix --config=.php_cs --diff --diff-format=udiff --using-cache=no --verbose
+        run: php7.2 vendor/bin/php-cs-fixer fix --config=.php_cs --diff --diff-format=udiff --using-cache=no --verbose
 
   static-code-analysis:
     name: "Static Code Analysis"
@@ -80,7 +80,6 @@ jobs:
     strategy:
       matrix:
         php-binary:
-          - php7.1
           - php7.2
           - php7.3
 
