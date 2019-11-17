@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 For a full diff see [`1.3.1...1.x`](https://github.com/localheinz/composer-normalize/compare/1.3.1...1.x).
 
+### Fixed
+
+* Dropped support for PHP 7.1 ([#235](https://github.com/localheinz/composer-normalize/pull/235)), by [@localheinz](https://github.com/localheinz)
+
 ## [`1.3.1`](https://github.com/localheinz/composer-normalize/releases/tag/1.3.1)
 
 #### Fixed
