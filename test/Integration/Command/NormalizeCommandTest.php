@@ -82,7 +82,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         $application = self::createApplicationWithNormalizeCommandAsProvidedByNormalizePlugin();
 
         $input = new Console\Input\ArrayInput($scenario->consoleParametersWith([
-            '--indent-style' => $this->faker()->randomElement([
+            '--indent-style' => self::faker()->randomElement([
                 'space',
                 'tab',
             ]),
@@ -115,7 +115,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         $application = self::createApplicationWithNormalizeCommandAsProvidedByNormalizePlugin();
 
         $input = new Console\Input\ArrayInput($scenario->consoleParametersWith([
-            '--indent-size' => (string) $this->faker()->numberBetween(1, 4),
+            '--indent-size' => (string) self::faker()->numberBetween(1, 4),
         ]));
 
         $output = new Console\Output\BufferedOutput();
@@ -137,7 +137,7 @@ final class NormalizeCommandTest extends Framework\TestCase
      */
     public function testFailsWhenIndentStyleIsInvalid(CommandInvocation $commandInvocation): void
     {
-        $faker = $this->faker();
+        $faker = self::faker();
 
         $indentStyle = $faker->sentence;
 
@@ -179,7 +179,7 @@ final class NormalizeCommandTest extends Framework\TestCase
      */
     public function testFailsWhenIndentSizeIsInvalid(CommandInvocation $commandInvocation, string $indentSize): void
     {
-        $faker = $this->faker();
+        $faker = self::faker();
 
         $scenario = self::createScenario(
             $commandInvocation,
@@ -264,7 +264,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         self::assertComposerJsonFileExists($initialState);
         self::assertComposerLockFileNotExists($initialState);
 
-        $exceptionMessage = $this->faker()->sentence;
+        $exceptionMessage = self::faker()->sentence;
 
         $application = self::createApplication(new NormalizeCommand(
             new Factory(),
@@ -792,7 +792,7 @@ final class NormalizeCommandTest extends Framework\TestCase
 
     public function providerCommandInvocationAndInvalidIndentSize(): \Generator
     {
-        $faker = $this->faker();
+        $faker = self::faker();
 
         $indentSizes = [
             'string-arbitrary' => $faker->sentence,
@@ -820,7 +820,7 @@ final class NormalizeCommandTest extends Framework\TestCase
     {
         $indentSizes = [
             1,
-            $this->faker()->numberBetween(2, 4),
+            self::faker()->numberBetween(2, 4),
         ];
 
         $indentStyles = [
