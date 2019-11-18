@@ -52,8 +52,8 @@ final class NormalizeCommand extends Command\BaseCommand
     public function __construct(
         Factory $factory,
         Normalizer\NormalizerInterface $normalizer,
-        Normalizer\Format\FormatterInterface $formatter = null,
-        Diff\Differ $differ = null
+        ?Normalizer\Format\FormatterInterface $formatter = null,
+        ?Diff\Differ $differ = null
     ) {
         parent::__construct('normalize');
 
