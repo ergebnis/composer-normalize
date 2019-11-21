@@ -105,8 +105,7 @@ For a full diff see [`0.8.0...0.9.0`][0.8.0...0.9.0]
 
 #### Fixed
 
-* When validation of `composer.lock` fails prior to normalization, it is
-  now recommended to update the lock file only ([#86]), by [@svenluijten]
+* When validation of `composer.lock` fails prior to normalization, it is now recommended to update the lock file only ([#86]), by [@svenluijten]
 
 ### [`0.8.0`][0.8.0]
 
@@ -122,8 +121,7 @@ For a full diff see [`0.6.0...0.7.0`][0.6.0...0.7.0]
 
 #### Changed
 
-* Updated `localheinz/json-normalizer`, which now sniffs the new-line
-  character and uses it for printing instead of using `PHP_EOL` ([#62]), by [@localheinz]
+* Updated `localheinz/json-normalizer`, which now sniffs the new-line character and uses it for printing instead of using `PHP_EOL` ([#62]), by [@localheinz]
 
 ### [`0.6.0`][0.6.0]
 
@@ -131,8 +129,7 @@ For a full diff see [`0.5.0...0.6.0`][0.5.0...0.6.0]
 
 #### Added
 
-* Added a `file` argument to the `NormalizeCommand`, so the path to
-  `composer.json` can be specified now, ([#51]), by [@localheinz]
+* Added a `file` argument to the `NormalizeCommand`, so the path to `composer.json` can be specified now, ([#51]), by [@localheinz]
 
 ### [`0.5.0`][0.5.0]
 
@@ -140,9 +137,7 @@ For a full diff see [`0.4.0...0.5.0`][0.4.0...0.5.0]
 
 #### Changed
 
-* Updated `localheinz/json-normalizer`, which significantly improves the
-  `SchemaNormalizer` employed to do the major normalization of
-  `composer.json` ([#42]), by [@localheinz]
+* Updated `localheinz/json-normalizer`, which significantly improves the `SchemaNormalizer` employed to do the major normalization of `composer.json` ([#42]), by [@localheinz]
 
 ### [`0.4.0`][0.4.0]
 
@@ -150,9 +145,7 @@ For a full diff see [`0.3.0...0.4.0`][0.3.0...0.4.0]
 
 #### Added
 
-* Added `--dry-run` option, which allows usage in Continuous Integration
-  systems, as it renders a diff and exits with a non-zero exit code
-  ([#38]), by [@localheinz]
+* Added `--dry-run` option, which allows usage in Continuous Integration systems, as it renders a diff and exits with a non-zero exit code ([#38]), by [@localheinz]
 
 ### [`0.3.0`][0.3.0]
 
@@ -160,8 +153,7 @@ For a full diff see [`0.2.0...0.3.0`][0.2.0...0.3.0]
 
 #### Fixed
 
-* Dropped support for PHP 7.0, which allows proper handling of empty
-  PSR-4 namespace prefixes ([#30]), by [@localheinz]
+* Dropped support for PHP 7.0, which allows proper handling of empty PSR-4 namespace prefixes ([#30]), by [@localheinz]
 
 ### [`0.2.0`][0.2.0]
 
@@ -169,15 +161,12 @@ For a full diff see [`0.1.0...0.2.0`][0.1.0...0.2.0]
 
 #### Added
 
-* Added `--no-update-lock` option, which allows skipping the update of
-  `composer.lock` after normalization ([#28]), by [@localheinz]
-* Added the `VersionConstraintNormalizer`, which normalizes version
-  constraints ([#18]), by [@localheinz]
+* Added `--no-update-lock` option, which allows skipping the update of `composer.lock` after normalization ([#28]), by [@localheinz]
+* Added the `VersionConstraintNormalizer`, which normalizes version constraints ([#18]), by [@localheinz]
 
 #### Fixed
 
-* Using the `--no-scripts` option when invoking the `UpdateCommand` to
-  update `composer.lock` ([#19]), by [@localheinz]
+* Using the `--no-scripts` option when invoking the `UpdateCommand` to update `composer.lock` ([#19]), by [@localheinz]
 
 ### [`0.1.0`][0.1.0]
 
@@ -186,18 +175,11 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 #### Added
 
 * Added `NormalizeCommand` ([#1]), by [@localheinz]
-* Added `ConfigHashNormalizer`, which sorts entries in the `config`
-  section by key ([#2]), by [@localheinz]
-* Added the `NormalizePlugin`, which provides the `NormalizeCommand`
-  ([#3]), by [@localheinz]
-* Added the `PackageHashNormalizer` which sorts packages in the
-  `conflict`, `provide`, `replaces`, `require`, `require-dev`, and `suggest` sections
-  using the same algorithm that is used by the `sort-packages` option of
-  composer itself ([#6]), by [@localheinz]
+* Added `ConfigHashNormalizer`, which sorts entries in the `config` section by key ([#2]), by [@localheinz]
+* Added the `NormalizePlugin`, which provides the `NormalizeCommand` ([#3]), by [@localheinz]
+* Added the `PackageHashNormalizer` which sorts packages in the `conflict`, `provide`, `replaces`, `require`, `require-dev`, and `suggest` sections using the same algorithm that is used by the `sort-packages` option of composer itself ([#6]), by [@localheinz]
 * Added the `BinNormalizer`, which sorts entries in the `bin` section by
-* Added the `ComposerJsonNormalizer`, which composes all of the above
-  normalizers along with the `SchemaNormalizer`, to normalize
-  `composer.json` according to its underlying JSON schema ([#8] and [#10]), by [@localheinz]
+* Added the `ComposerJsonNormalizer`, which composes all of the above normalizers along with the `SchemaNormalizer`, to normalize `composer.json` according to its underlying JSON schema ([#8] and [#10]), by [@localheinz]
 
 [0.1.0]: https://github.com/localheinz/composer-normalize/releases/tag/0.1.0
 [0.2.0]: https://github.com/localheinz/composer-normalize/releases/tag/0.2.0
