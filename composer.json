@@ -33,7 +33,7 @@
     "phpstan/phpstan-deprecation-rules": "~0.11.2",
     "phpstan/phpstan-strict-rules": "~0.11.1",
     "phpunit/phpunit": "^8.4.3",
-    "symfony/filesystem": "^4.3.8"
+    "symfony/filesystem": "^4.4.0"
   },
   "config": {
     "preferred-install": "dist",
