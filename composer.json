@@ -40,9 +40,6 @@
     "sort-packages": true
   },
   "extra": {
-    "branch-alias": {
-      "dev-master": "2.0-dev"
-    },
     "class": "Localheinz\\Composer\\Normalize\\NormalizePlugin"
   },
   "autoload": {
