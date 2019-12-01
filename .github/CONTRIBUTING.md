@@ -11,10 +11,22 @@ We are using [`friendsofphp/php-cs-fixer`](https://github.com/FriendsOfPHP/PHP-C
 Run
 
 ```
-$ make cs
+$ make coding-standards
 ```
 
 to automatically fix coding standard violations.
+
+## Dependency Analysis
+
+We are using [`maglnet/composer-require-checker`](https://github.com/maglnet/ComposerRequireChecker) to prevent the use of unknown symbols in production code.
+
+Run
+
+```
+$ make dependency-analysis
+```
+
+to run a dependency analysis.
 
 ## Static Code Analysis
 
@@ -23,10 +35,22 @@ We are using [`phpstan/phpstan`](https://github.com/phpstan/phpstan) to statical
 Run
 
 ```
-$ make stan
+$ make static-code-analysis
 ```
 
 to run a static code analysis.
+
+We are also using the [baseline feature](https://medium.com/@ondrejmirtes/phpstans-baseline-feature-lets-you-hold-new-code-to-a-higher-standard-e77d815a5dff) of [`phpstan/phpstan`](https://github.com/phpstan/phpstan).
+
+Run
+
+```
+$ make static-code-analysis-baseline
+```
+
+to regenerate the baseline in [`../phpstan-baseline.neon`](../phpstan-baseline.neon).
+
+:exclamation: Ideally, the baseline should shrink over time.
 
 ## Tests
 
@@ -35,7 +59,7 @@ We are using [`phpunit/phpunit`](https://github.com/sebastianbergmann/phpunit) t
 Run
 
 ```
-$ make test
+$ make tests
 ```
 
 to run all the tests.
@@ -48,7 +72,7 @@ Run
 $ make
 ```
 
-to enforce coding standards, perform a static code analysis, and run tests!
+to enforce coding standards, run a dependency analysis, run a static code analysis, and run tests!
 
 ## Help
 

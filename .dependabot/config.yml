@@ -5,14 +5,21 @@ version: 1
 update_configs:
   - default_assignees:
       - "localheinz"
+    default_labels:
+      - "dependency"
     default_reviewers:
       - "localheinz"
     directory: "/"
     package_manager: "github_actions"
     update_schedule: "daily"
 
-  - default_assignees:
+  - automerged_updates:
+      - match:
+          dependency_type: "development"
+    default_assignees:
       - "localheinz"
+    default_labels:
+      - "dependency"
     default_reviewers:
       - "localheinz"
     directory: "/"
@@ -26,5 +33,5 @@ update_configs:
       - match:
           dependency_name: "localheinz/json-normalizer"
     package_manager: "php:composer"
-    update_schedule: "live"
+    update_schedule: "daily"
     version_requirement_updates: "increase_versions"

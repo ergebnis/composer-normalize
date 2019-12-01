@@ -1,4 +1,5 @@
 includes:
+	- phpstan-baseline.neon
 	- vendor/jangregor/phpstan-prophecy/src/extension.neon
 	- vendor/localheinz/phpstan-rules/rules.neon
 	- vendor/phpstan/phpstan-deprecation-rules/rules.neon
@@ -9,14 +10,6 @@ includes:
 parameters:
 	classesAllowedToBeExtended:
 		- Composer\Command\BaseCommand
-	ignoreErrors:
-		- '#Constructor in Localheinz\\Composer\\Normalize\\Command\\NormalizeCommand has parameter \$differ with default value.#'
-		- '#Constructor in Localheinz\\Composer\\Normalize\\Command\\NormalizeCommand has parameter \$formatter with default value.#'
-		- '#Method Localheinz\\Composer\\Normalize\\Command\\NormalizeCommand::__construct\(\) has parameter \$differ with a nullable type declaration.#'
-		- '#Method Localheinz\\Composer\\Normalize\\Command\\NormalizeCommand::__construct\(\) has parameter \$differ with null as default value.#'
-		- '#Method Localheinz\\Composer\\Normalize\\Command\\NormalizeCommand::__construct\(\) has parameter \$formatter with a nullable type declaration.#'
-		- '#Method Localheinz\\Composer\\Normalize\\Command\\NormalizeCommand::__construct\(\) has parameter \$formatter with null as default value.#'
-		- '#Method Localheinz\\Composer\\Normalize\\Command\\NormalizeCommand::indentFrom\(\) has a nullable return type declaration.#'
 	inferPrivatePropertyTypeFromConstructor: true
 	paths:
 		- src
