@@ -1,7 +1,7 @@
 # https://github.com/probot/settings
 
 branches:
-  - name: 1.x
+  - name: master
     protection:
       enforce_admins: false
       required_pull_request_reviews:
@@ -49,7 +49,7 @@ repository:
   allow_merge_commit: true
   allow_rebase_merge: false
   allow_squash_merge: false
-  default_branch: 1.x
+  default_branch: master
   description: ":musical_note: Provides a composer plugin for normalizing composer.json."
   has_downloads: true
   has_issues: true
