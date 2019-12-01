@@ -96,7 +96,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         );
 
         self::assertExitCodeSame(1, $exitCode);
-        self::assertContains('When using the indent-style option, an indent size needs to be specified using the indent-size option.', $output->fetch());
+        self::assertStringContainsString('When using the indent-style option, an indent size needs to be specified using the indent-size option.', $output->fetch());
         self::assertEquals($scenario->initialState(), $scenario->currentState());
     }
 
@@ -126,7 +126,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         );
 
         self::assertExitCodeSame(1, $exitCode);
-        self::assertContains('When using the indent-size option, an indent style (one of "space", "tab") needs to be specified using the indent-style option.', $output->fetch());
+        self::assertStringContainsString('When using the indent-size option, an indent style (one of "space", "tab") needs to be specified using the indent-style option.', $output->fetch());
         self::assertEquals($scenario->initialState(), $scenario->currentState());
     }
 
@@ -167,7 +167,7 @@ final class NormalizeCommandTest extends Framework\TestCase
             $indentStyle
         );
 
-        self::assertContains($expected, $output->fetch());
+        self::assertStringContainsString($expected, $output->fetch());
         self::assertEquals($scenario->initialState(), $scenario->currentState());
     }
 
@@ -210,7 +210,7 @@ final class NormalizeCommandTest extends Framework\TestCase
             $indentSize
         );
 
-        self::assertContains($expected, $output->fetch());
+        self::assertStringContainsString($expected, $output->fetch());
         self::assertEquals($scenario->initialState(), $scenario->currentState());
     }
 
@@ -297,7 +297,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         );
 
         self::assertExitCodeSame(1, $exitCode);
-        self::assertContains($exceptionMessage, $output->fetch());
+        self::assertStringContainsString($exceptionMessage, $output->fetch());
         self::assertEquals($initialState, $scenario->currentState());
     }
 
@@ -336,7 +336,7 @@ final class NormalizeCommandTest extends Framework\TestCase
             $scenario->composerJsonFileReference()
         );
 
-        self::assertContains($expected, $output->fetch());
+        self::assertStringContainsString($expected, $output->fetch());
         self::assertEquals($initialState, $scenario->currentState());
     }
 
@@ -375,7 +375,7 @@ final class NormalizeCommandTest extends Framework\TestCase
             $scenario->composerJsonFileReference()
         );
 
-        self::assertContains($expected, $output->fetch());
+        self::assertStringContainsString($expected, $output->fetch());
 
         $currentState = $scenario->currentState();
 
@@ -422,11 +422,11 @@ final class NormalizeCommandTest extends Framework\TestCase
             $scenario->composerJsonFileReference()
         );
 
-        self::assertContains($expected, $renderedOutput);
-        self::assertContains('--- original', $renderedOutput);
-        self::assertContains('+++ normalized', $renderedOutput);
-        self::assertContains('---------- begin diff ----------', $renderedOutput);
-        self::assertContains('----------- end diff -----------', $renderedOutput);
+        self::assertStringContainsString($expected, $renderedOutput);
+        self::assertStringContainsString('--- original', $renderedOutput);
+        self::assertStringContainsString('+++ normalized', $renderedOutput);
+        self::assertStringContainsString('---------- begin diff ----------', $renderedOutput);
+        self::assertStringContainsString('----------- end diff -----------', $renderedOutput);
         self::assertEquals($initialState, $scenario->currentState());
     }
 
@@ -473,7 +473,7 @@ final class NormalizeCommandTest extends Framework\TestCase
             $scenario->composerJsonFileReference()
         );
 
-        self::assertContains($expected, $output->fetch());
+        self::assertStringContainsString($expected, $output->fetch());
 
         $currentState = $scenario->currentState();
 
@@ -518,7 +518,7 @@ final class NormalizeCommandTest extends Framework\TestCase
             $scenario->composerJsonFileReference()
         );
 
-        self::assertContains($expected, $output->fetch());
+        self::assertStringContainsString($expected, $output->fetch());
 
         $currentState = $scenario->currentState();
 
@@ -556,7 +556,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         );
 
         self::assertExitCodeSame(1, $exitCode);
-        self::assertContains('The lock file is not up to date with the latest changes in composer.json, it is recommended that you run `composer update --lock`.', $output->fetch());
+        self::assertStringContainsString('The lock file is not up to date with the latest changes in composer.json, it is recommended that you run `composer update --lock`.', $output->fetch());
         self::assertEquals($initialState, $scenario->currentState());
     }
 
@@ -596,7 +596,7 @@ final class NormalizeCommandTest extends Framework\TestCase
             $scenario->composerJsonFileReference()
         );
 
-        self::assertContains($expected, $output->fetch());
+        self::assertStringContainsString($expected, $output->fetch());
         self::assertEquals($initialState, $scenario->currentState());
     }
 
@@ -636,7 +636,7 @@ final class NormalizeCommandTest extends Framework\TestCase
             $scenario->composerJsonFileReference()
         );
 
-        self::assertContains($expected, $output->fetch());
+        self::assertStringContainsString($expected, $output->fetch());
 
         $currentState = $scenario->currentState();
 
@@ -680,7 +680,7 @@ final class NormalizeCommandTest extends Framework\TestCase
             $scenario->composerJsonFileReference()
         );
 
-        self::assertContains($expected, $output->fetch());
+        self::assertStringContainsString($expected, $output->fetch());
 
         $currentState = $scenario->currentState();
 
@@ -728,9 +728,9 @@ final class NormalizeCommandTest extends Framework\TestCase
             $scenario->composerJsonFileReference()
         );
 
-        self::assertContains($expected, $renderedOutput);
-        self::assertContains('---------- begin diff ----------', $renderedOutput);
-        self::assertContains('----------- end diff -----------', $renderedOutput);
+        self::assertStringContainsString($expected, $renderedOutput);
+        self::assertStringContainsString('---------- begin diff ----------', $renderedOutput);
+        self::assertStringContainsString('----------- end diff -----------', $renderedOutput);
         self::assertEquals($initialState, $scenario->currentState());
     }
 
@@ -772,7 +772,7 @@ final class NormalizeCommandTest extends Framework\TestCase
             $scenario->composerJsonFileReference()
         );
 
-        self::assertContains($expected, $output->fetch());
+        self::assertStringContainsString($expected, $output->fetch());
 
         $currentState = $scenario->currentState();
 
