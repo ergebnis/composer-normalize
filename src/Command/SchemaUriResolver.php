@@ -34,7 +34,7 @@ final class SchemaUriResolver
         }
 
         $localSchemaUri = \sprintf(
-            '%s/../../../res/composer-schema.json',
+            '%s/../../data/Composer/res/composer-schema.json',
             \dirname($fileName)
         );
 
