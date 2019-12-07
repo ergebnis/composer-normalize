@@ -15,6 +15,7 @@ namespace Localheinz\Composer\Normalize\Test\Integration\Command;
 
 use Composer\Console\Application;
 use Composer\Factory;
+use Ergebnis\Test\Util\Helper;
 use Localheinz\Composer\Normalize\Command\NormalizeCommand;
 use Localheinz\Composer\Normalize\NormalizePlugin;
 use Localheinz\Composer\Normalize\Test\Util\CommandInvocation;
@@ -24,7 +25,6 @@ use Localheinz\Composer\Normalize\Test\Util\State;
 use Localheinz\Json\Normalizer\Format\Formatter;
 use Localheinz\Json\Normalizer\Json;
 use Localheinz\Json\Normalizer\NormalizerInterface;
-use Localheinz\Test\Util\Helper;
 use PHPUnit\Framework;
 use Symfony\Component\Console;
 use Symfony\Component\Filesystem;
