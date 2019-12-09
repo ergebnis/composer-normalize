@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fc5cbc4d5f887aa41a6a9483d68fe57f",
+    "content-hash": "04b9ee8ff6a367dcaea4f2eb34e21c91",
     "packages": [
         {
             "name": "justinrainbow/json-schema",
@@ -275,6 +275,7 @@
                 "json",
                 "printer"
             ],
+            "abandoned": "ergebnis/json-printer",
             "time": "2018-08-11T23:54:50+00:00"
         }
     ],
@@ -872,6 +873,73 @@
             "time": "2019-11-26T13:06:06+00:00"
         },
         {
+            "name": "ergebnis/phpstan-rules",
+            "version": "0.14.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ergebnis/phpstan-rules.git",
+                "reference": "217772cd009ec8a10f44c827137c4c4c85126258"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ergebnis/phpstan-rules/zipball/217772cd009ec8a10f44c827137c4c4c85126258",
+                "reference": "217772cd009ec8a10f44c827137c4c4c85126258",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "nikic/php-parser": "^4.2.3",
+                "php": "^7.2",
+                "phpstan/phpstan": "~0.11.15 || ~0.12.0"
+            },
+            "replace": {
+                "localheinz/phpstan-rules": "*"
+            },
+            "require-dev": {
+                "ergebnis/php-cs-fixer-config": "~1.1.0",
+                "ergebnis/test-util": "~0.9.0",
+                "infection/infection": "~0.13.6",
+                "localheinz/composer-normalize": "^1.3.1",
+                "nette/di": "^3.0.1",
+                "phpstan/phpstan-deprecation-rules": "~0.11.2",
+                "phpstan/phpstan-strict-rules": "~0.11.1",
+                "phpunit/phpunit": "^8.5.0",
+                "psr/container": "^1.0.0",
+                "zendframework/zend-servicemanager": "^2.0.0"
+            },
+            "type": "phpstan-extension",
+            "extra": {
+                "phpstan": {
+                    "includes": [
+                        "rules.neon"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Ergebnis\\PHPStan\\Rules\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Möller",
+                    "email": "am@localheinz.com"
+                }
+            ],
+            "description": "Provides additional rules for phpstan/phpstan.",
+            "homepage": "https://github.com/ergebnis/phpstan-rules",
+            "keywords": [
+                "PHPStan",
+                "phpstan-extreme-rules",
+                "phpstan-rules"
+            ],
+            "time": "2019-12-09T22:36:56+00:00"
+        },
+        {
             "name": "ergebnis/test-util",
             "version": "0.9.0",
             "source": {
@@ -1167,68 +1235,6 @@
                 "versions"
             ],
             "time": "2018-06-13T13:22:40+00:00"
-        },
-        {
-            "name": "localheinz/phpstan-rules",
-            "version": "0.13.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/localheinz/phpstan-rules.git",
-                "reference": "e05ea16b61e48436a9ebb98e432de56b2dcf2034"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/localheinz/phpstan-rules/zipball/e05ea16b61e48436a9ebb98e432de56b2dcf2034",
-                "reference": "e05ea16b61e48436a9ebb98e432de56b2dcf2034",
-                "shasum": ""
-            },
-            "require": {
-                "nikic/php-parser": "^4.2.3",
-                "php": "^7.1",
-                "phpstan/phpstan": "~0.11.15"
-            },
-            "require-dev": {
-                "infection/infection": "~0.13.6",
-                "localheinz/composer-normalize": "^1.3.1",
-                "localheinz/php-cs-fixer-config": "~1.23.0",
-                "localheinz/test-util": "~0.7.0",
-                "phpstan/phpstan-deprecation-rules": "~0.11.2",
-                "phpstan/phpstan-strict-rules": "~0.11.1",
-                "phpunit/phpunit": "^7.5.16",
-                "psr/container": "^1.0.0",
-                "zendframework/zend-servicemanager": "^2.0.0"
-            },
-            "type": "phpstan-extension",
-            "extra": {
-                "phpstan": {
-                    "includes": [
-                        "rules.neon"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Localheinz\\PHPStan\\Rules\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Andreas Möller",
-                    "email": "am@localheinz.com"
-                }
-            ],
-            "description": "Provides additional rules for phpstan/phpstan.",
-            "homepage": "https://github.com/localheinz/phpstan-rules",
-            "keywords": [
-                "PHPStan",
-                "phpstan-extreme-rules",
-                "phpstan-rules"
-            ],
-            "time": "2019-10-15T09:23:25+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -1807,16 +1813,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v4.2.4",
+            "version": "v4.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "97e59c7a16464196a8b9c77c47df68e4a39a45c4"
+                "reference": "9a9981c347c5c49d6dfe5cf826bb882b824080dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/97e59c7a16464196a8b9c77c47df68e4a39a45c4",
-                "reference": "97e59c7a16464196a8b9c77c47df68e4a39a45c4",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/9a9981c347c5c49d6dfe5cf826bb882b824080dc",
+                "reference": "9a9981c347c5c49d6dfe5cf826bb882b824080dc",
                 "shasum": ""
             },
             "require": {
@@ -1824,6 +1830,7 @@
                 "php": ">=7.0"
             },
             "require-dev": {
+                "ircmaxell/php-yacc": "0.0.5",
                 "phpunit/phpunit": "^6.5 || ^7.0 || ^8.0"
             },
             "bin": [
@@ -1832,7 +1839,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.2-dev"
+                    "dev-master": "4.3-dev"
                 }
             },
             "autoload": {
@@ -1854,7 +1861,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2019-09-01T07:51:21+00:00"
+            "time": "2019-11-08T13:50:10+00:00"
         },
         {
             "name": "ocramius/package-versions",

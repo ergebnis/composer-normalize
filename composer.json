@@ -26,9 +26,9 @@
   "require-dev": {
     "composer/composer": "^1.7.0",
     "ergebnis/php-cs-fixer-config": "~1.1.0",
+    "ergebnis/phpstan-rules": "~0.14.0",
     "ergebnis/test-util": "~0.9.0",
     "jangregor/phpstan-prophecy": "~0.4.2",
-    "localheinz/phpstan-rules": "~0.13.0",
     "phpstan/phpstan": "~0.11.19",
     "phpstan/phpstan-deprecation-rules": "~0.11.2",
     "phpstan/phpstan-strict-rules": "~0.11.1",
