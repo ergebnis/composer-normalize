@@ -1,17 +1,12 @@
 includes:
 	- phpstan-baseline.neon
-	- vendor/ergebnis/phpstan-rules/rules.neon
-	- vendor/jangregor/phpstan-prophecy/src/extension.neon
-	- vendor/phpstan/phpstan-deprecation-rules/rules.neon
-	- vendor/phpstan/phpstan-strict-rules/rules.neon
-	- vendor/phpstan/phpstan/conf/bleedingEdge.neon
-	- vendor/phpstan/phpstan/conf/config.levelmax.neon
 
 parameters:
 	ergebnis:
 		classesAllowedToBeExtended:
 			- Composer\Command\BaseCommand
 	inferPrivatePropertyTypeFromConstructor: true
+	level: max
 	paths:
 		- src
 		- test
