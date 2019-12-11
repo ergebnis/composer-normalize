@@ -16,6 +16,7 @@ namespace Localheinz\Composer\Normalize;
 use Composer\Composer;
 use Composer\Factory;
 use Composer\IO;
+use Composer\IO\IOInterface;
 use Composer\Plugin;
 use Localheinz\Composer\Json\Normalizer;
 use Localheinz\Composer\Normalize\Command\SchemaUriResolver;
@@ -23,6 +24,14 @@ use Localheinz\Composer\Normalize\Command\SchemaUriResolver;
 final class NormalizePlugin implements Plugin\Capability\CommandProvider, Plugin\Capable, Plugin\PluginInterface
 {
     public function activate(Composer $composer, IO\IOInterface $io): void
+    {
+    }
+
+    public function deactivate(Composer $composer, IOInterface $io): void
+    {
+    }
+
+    public function uninstall(Composer $composer, IOInterface $io): void
     {
     }
 
