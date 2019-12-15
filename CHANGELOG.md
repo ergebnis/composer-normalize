@@ -12,6 +12,7 @@ For a full diff see [`1.3.1...master`][1.3.1...master]
 ## Changed
 
 * Started using `ergebnis/composer-json-normalizer` instead of `localheinz/composer-json-normalizer`, `ergebnis/json-normalizer` instead of `localheinz/json-normalizer`, and `ergebnis/json-printer` instead of `localheinz/json-printer` ([#261]), by [@localheinz]
+* Removed default values for parameters `$formatter` and `$differ` of `Localheinz\Composer\Normalize\Command\NormalizeCommand`  ([#262]), by [@localheinz]
 
 ### Fixed
 
@@ -252,6 +253,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [#207]: https://github.com/localheinz/composer-normalize/pull/207
 [#235]: https://github.com/localheinz/composer-normalize/pull/235
 [#261]: https://github.com/localheinz/composer-normalize/pull/261
+[#262]: https://github.com/localheinz/composer-normalize/pull/262
 
 [@localheinz]: https://github.com/localheinz
 [@svenluijten]: https://github.com/svenluijten
