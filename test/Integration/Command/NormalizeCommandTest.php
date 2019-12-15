@@ -15,6 +15,10 @@ namespace Localheinz\Composer\Normalize\Test\Integration\Command;
 
 use Composer\Console\Application;
 use Composer\Factory;
+use Ergebnis\Json\Normalizer\Format\Formatter;
+use Ergebnis\Json\Normalizer\Json;
+use Ergebnis\Json\Normalizer\NormalizerInterface;
+use Ergebnis\Json\Printer\Printer;
 use Ergebnis\Test\Util\Helper;
 use Localheinz\Composer\Normalize\Command\NormalizeCommand;
 use Localheinz\Composer\Normalize\NormalizePlugin;
@@ -22,9 +26,6 @@ use Localheinz\Composer\Normalize\Test\Util\CommandInvocation;
 use Localheinz\Composer\Normalize\Test\Util\Directory;
 use Localheinz\Composer\Normalize\Test\Util\Scenario;
 use Localheinz\Composer\Normalize\Test\Util\State;
-use Localheinz\Json\Normalizer\Format\Formatter;
-use Localheinz\Json\Normalizer\Json;
-use Localheinz\Json\Normalizer\NormalizerInterface;
 use PHPUnit\Framework;
 use Symfony\Component\Console;
 use Symfony\Component\Filesystem;
@@ -284,7 +285,7 @@ final class NormalizeCommandTest extends Framework\TestCase
                     throw new \RuntimeException($this->exceptionMessage);
                 }
             },
-            new Formatter()
+            new Formatter(new Printer())
         ));
 
         $input = new Console\Input\ArrayInput($scenario->consoleParameters());
