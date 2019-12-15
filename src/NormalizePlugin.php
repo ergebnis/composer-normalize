@@ -17,7 +17,7 @@ use Composer\Composer;
 use Composer\Factory;
 use Composer\IO;
 use Composer\Plugin;
-use Localheinz\Composer\Json\Normalizer;
+use Ergebnis\Composer\Json\Normalizer;
 use Localheinz\Composer\Normalize\Command\SchemaUriResolver;
 
 final class NormalizePlugin implements Plugin\Capability\CommandProvider, Plugin\Capable, Plugin\PluginInterface

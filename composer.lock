@@ -4,8 +4,178 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2f171e16c1d129e8d570b6353f22e6cb",
+    "content-hash": "2dd4a2f40d8bc794b81180d6881eca08",
     "packages": [
+        {
+            "name": "ergebnis/composer-json-normalizer",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ergebnis/composer-json-normalizer.git",
+                "reference": "e23221df44973cd394fedc8cb70c19caaa6b027d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ergebnis/composer-json-normalizer/zipball/e23221df44973cd394fedc8cb70c19caaa6b027d",
+                "reference": "e23221df44973cd394fedc8cb70c19caaa6b027d",
+                "shasum": ""
+            },
+            "require": {
+                "ergebnis/json-normalizer": "~0.10.0",
+                "ext-json": "*",
+                "justinrainbow/json-schema": "^4.0.0 || ^5.0.0",
+                "php": "^7.2"
+            },
+            "require-dev": {
+                "ergebnis/php-cs-fixer-config": "~1.1.1",
+                "ergebnis/phpstan-rules": "~0.14.1",
+                "ergebnis/test-util": "~0.9.0",
+                "infection/infection": "~0.13.6",
+                "jangregor/phpstan-prophecy": "~0.5.0",
+                "phpstan/extension-installer": "^1.0.3",
+                "phpstan/phpstan": "~0.11.19",
+                "phpstan/phpstan-deprecation-rules": "~0.11.2",
+                "phpstan/phpstan-strict-rules": "~0.11.1",
+                "phpunit/phpunit": "^8.5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ergebnis\\Composer\\Json\\Normalizer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Möller",
+                    "email": "am@localheinz.com"
+                }
+            ],
+            "description": "Provides normalizers for normalizing composer.json.",
+            "homepage": "https://github.com/ergebnis/composer-json-normalizer",
+            "keywords": [
+                "composer",
+                "json",
+                "normalizer"
+            ],
+            "time": "2019-12-15T14:16:33+00:00"
+        },
+        {
+            "name": "ergebnis/json-normalizer",
+            "version": "0.10.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ergebnis/json-normalizer.git",
+                "reference": "a489b84d68f0e8a8c882a849550312a6e0c9b7f0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ergebnis/json-normalizer/zipball/a489b84d68f0e8a8c882a849550312a6e0c9b7f0",
+                "reference": "a489b84d68f0e8a8c882a849550312a6e0c9b7f0",
+                "shasum": ""
+            },
+            "require": {
+                "ergebnis/json-printer": "^3.0.1",
+                "ext-json": "*",
+                "justinrainbow/json-schema": "^4.0.0 || ^5.0.0",
+                "php": "^7.2"
+            },
+            "require-dev": {
+                "ergebnis/php-cs-fixer-config": "~1.1.1",
+                "ergebnis/phpstan-rules": "~0.14.1",
+                "ergebnis/test-util": "~0.9.0",
+                "infection/infection": "~0.13.6",
+                "jangregor/phpstan-prophecy": "~0.4.2",
+                "phpbench/phpbench": "~0.16.10",
+                "phpstan/extension-installer": "^1.0.3",
+                "phpstan/phpstan": "~0.11.19",
+                "phpstan/phpstan-deprecation-rules": "~0.11.2",
+                "phpstan/phpstan-strict-rules": "~0.11.1",
+                "phpunit/phpunit": "^8.5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ergebnis\\Json\\Normalizer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Möller",
+                    "email": "am@localheinz.com"
+                }
+            ],
+            "description": "Provides normalizers for normalizing JSON documents.",
+            "homepage": "https://github.com/ergebnis/json-normalizer",
+            "keywords": [
+                "json",
+                "normalizer"
+            ],
+            "time": "2019-12-15T11:48:50+00:00"
+        },
+        {
+            "name": "ergebnis/json-printer",
+            "version": "3.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ergebnis/json-printer.git",
+                "reference": "182fe2f4223e40ba4f1ca2ccdb35e2dd8c1e0878"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ergebnis/json-printer/zipball/182fe2f4223e40ba4f1ca2ccdb35e2dd8c1e0878",
+                "reference": "182fe2f4223e40ba4f1ca2ccdb35e2dd8c1e0878",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "php": "^7.2"
+            },
+            "require-dev": {
+                "ergebnis/php-cs-fixer-config": "~1.1.0",
+                "ergebnis/phpstan-rules": "~0.14.0",
+                "ergebnis/test-util": "~0.9.0",
+                "infection/infection": "~0.13.6",
+                "phpbench/phpbench": "~0.16.10",
+                "phpstan/extension-installer": "^1.0.3",
+                "phpstan/phpstan": "~0.11.19",
+                "phpstan/phpstan-deprecation-rules": "~0.11.2",
+                "phpstan/phpstan-strict-rules": "~0.11.1",
+                "phpunit/phpunit": "^8.5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ergebnis\\Json\\Printer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Möller",
+                    "email": "am@localheinz.com"
+                }
+            ],
+            "description": "Provides a JSON printer, allowing for flexible indentation.",
+            "homepage": "https://github.com/ergebnis/json-printer",
+            "keywords": [
+                "formatter",
+                "json",
+                "printer"
+            ],
+            "time": "2019-12-15T09:53:05+00:00"
+        },
         {
             "name": "justinrainbow/json-schema",
             "version": "5.2.7",
@@ -71,59 +241,6 @@
                 "schema"
             ],
             "time": "2018-02-14T22:26:30+00:00"
-        },
-        {
-            "name": "localheinz/composer-json-normalizer",
-            "version": "1.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/localheinz/composer-json-normalizer.git",
-                "reference": "bc9f574026fe86828df6ab32a4c8a3118cbd9ac2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/localheinz/composer-json-normalizer/zipball/bc9f574026fe86828df6ab32a4c8a3118cbd9ac2",
-                "reference": "bc9f574026fe86828df6ab32a4c8a3118cbd9ac2",
-                "shasum": ""
-            },
-            "require": {
-                "localheinz/json-normalizer": "~0.9.0",
-                "php": "^7.1"
-            },
-            "require-dev": {
-                "infection/infection": "~0.11.4",
-                "localheinz/php-cs-fixer-config": "~1.19.0",
-                "localheinz/phpstan-rules": "~0.5.0",
-                "localheinz/test-util": "~0.7.0",
-                "phpstan/phpstan": "~0.10.7",
-                "phpstan/phpstan-deprecation-rules": "~0.10.2",
-                "phpstan/phpstan-strict-rules": "~0.10.1",
-                "phpunit/phpunit": "^7.5.1"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Localheinz\\Composer\\Json\\Normalizer\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Andreas Möller",
-                    "email": "am@localheinz.com"
-                }
-            ],
-            "description": "Provides normalizers for normalizing composer.json.",
-            "homepage": "https://github.com/localheinz/composer-json-normalizer",
-            "keywords": [
-                "composer",
-                "json",
-                "normalizer"
-            ],
-            "time": "2019-01-09T14:43:16+00:00"
         },
         {
             "name": "localheinz/diff",
@@ -226,6 +343,7 @@
                 "json",
                 "normalizer"
             ],
+            "abandoned": "ergebnis/json-normalizer",
             "time": "2018-10-07T17:36:39+00:00"
         },
         {

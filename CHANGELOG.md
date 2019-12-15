@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 For a full diff see [`1.3.1...1.x`][1.3.1...1.x]
 
+## Changed
+
+* Started using `ergebnis/composer-json-normalizer` instead of `localheinz/composer-json-normalizer` ([#261]), by [@localheinz]
+
 ### Fixed
 
 * Dropped support for PHP 7.1 ([#235]), by [@localheinz]
@@ -249,6 +253,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [#190]: https://github.com/localheinz/composer-normalize/pull/190
 [#207]: https://github.com/localheinz/composer-normalize/pull/207
 [#235]: https://github.com/localheinz/composer-normalize/pull/235
+[#261]: https://github.com/localheinz/composer-normalize/pull/261
 
 [@localheinz]: https://github.com/localheinz
 [@svenluijten]: https://github.com/svenluijten

@@ -15,8 +15,9 @@ namespace Localheinz\Composer\Normalize\Command;
 
 use Composer\Command;
 use Composer\Factory;
+use Ergebnis\Json\Normalizer;
+use Ergebnis\Json\Printer;
 use Localheinz\Diff;
-use Localheinz\Json\Normalizer;
 use Symfony\Component\Console;
 
 final class NormalizeCommand extends Command\BaseCommand
@@ -59,7 +60,7 @@ final class NormalizeCommand extends Command\BaseCommand
 
         $this->factory = $factory;
         $this->normalizer = $normalizer;
-        $this->formatter = $formatter ?: new Normalizer\Format\Formatter();
+        $this->formatter = $formatter ?: new Normalizer\Format\Formatter(new Printer\Printer());
 
         if (null === $differ) {
             $differ = new Diff\Differ(new Diff\Output\StrictUnifiedDiffOutputBuilder([
