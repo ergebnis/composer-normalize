@@ -16,7 +16,6 @@ namespace Localheinz\Composer\Normalize\Command;
 use Composer\Command;
 use Composer\Factory;
 use Ergebnis\Json\Normalizer;
-use Ergebnis\Json\Printer;
 use Localheinz\Diff;
 use Symfony\Component\Console;
 
@@ -53,22 +52,14 @@ final class NormalizeCommand extends Command\BaseCommand
     public function __construct(
         Factory $factory,
         Normalizer\NormalizerInterface $normalizer,
-        ?Normalizer\Format\FormatterInterface $formatter = null,
-        ?Diff\Differ $differ = null
+        Normalizer\Format\FormatterInterface $formatter,
+        Diff\Differ $differ
     ) {
         parent::__construct('normalize');
 
         $this->factory = $factory;
         $this->normalizer = $normalizer;
-        $this->formatter = $formatter ?: new Normalizer\Format\Formatter(new Printer\Printer());
-
-        if (null === $differ) {
-            $differ = new Diff\Differ(new Diff\Output\StrictUnifiedDiffOutputBuilder([
-                'fromFile' => 'original',
-                'toFile' => 'normalized',
-            ]));
-        }
-
+        $this->formatter = $formatter;
         $this->differ = $differ;
     }
 

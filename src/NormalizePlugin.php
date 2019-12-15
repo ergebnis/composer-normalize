@@ -17,8 +17,10 @@ use Composer\Composer;
 use Composer\Factory;
 use Composer\IO;
 use Composer\Plugin;
-use Ergebnis\Composer\Json\Normalizer;
-use Localheinz\Composer\Normalize\Command\SchemaUriResolver;
+use Ergebnis\Composer\Json\Normalizer\ComposerJsonNormalizer;
+use Ergebnis\Json\Normalizer;
+use Ergebnis\Json\Printer;
+use Localheinz\Diff;
 
 final class NormalizePlugin implements Plugin\Capability\CommandProvider, Plugin\Capable, Plugin\PluginInterface
 {
@@ -38,7 +40,12 @@ final class NormalizePlugin implements Plugin\Capability\CommandProvider, Plugin
         return [
             new Command\NormalizeCommand(
                 new Factory(),
-                new Normalizer\ComposerJsonNormalizer(SchemaUriResolver::resolve())
+                new ComposerJsonNormalizer(Command\SchemaUriResolver::resolve()),
+                new Normalizer\Format\Formatter(new Printer\Printer()),
+                new Diff\Differ(new Diff\Output\StrictUnifiedDiffOutputBuilder([
+                    'fromFile' => 'original',
+                    'toFile' => 'normalized',
+                ]))
             ),
         ];
     }

@@ -26,6 +26,7 @@ use Localheinz\Composer\Normalize\Test\Util\CommandInvocation;
 use Localheinz\Composer\Normalize\Test\Util\Directory;
 use Localheinz\Composer\Normalize\Test\Util\Scenario;
 use Localheinz\Composer\Normalize\Test\Util\State;
+use Localheinz\Diff;
 use PHPUnit\Framework;
 use Symfony\Component\Console;
 use Symfony\Component\Filesystem;
@@ -285,7 +286,11 @@ final class NormalizeCommandTest extends Framework\TestCase
                     throw new \RuntimeException($this->exceptionMessage);
                 }
             },
-            new Formatter(new Printer())
+            new Formatter(new Printer()),
+            new Diff\Differ(new Diff\Output\StrictUnifiedDiffOutputBuilder([
+                'fromFile' => 'original',
+                'toFile' => 'normalized',
+            ]))
         ));
 
         $input = new Console\Input\ArrayInput($scenario->consoleParameters());
