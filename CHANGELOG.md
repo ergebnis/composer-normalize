@@ -13,7 +13,7 @@ For a full diff see [`1.3.1...1.x`][1.3.1...1.x]
 
 ## Changed
 
-* Started using `ergebnis/composer-json-normalizer` instead of `localheinz/composer-json-normalizer` ([#261]), by [@localheinz]
+* Started using `ergebnis/composer-json-normalizer` instead of `localheinz/composer-json-normalizer` and `ergebnis/json-normalizer` instead of `localheinz/json-normalizer` ([#261]), by [@localheinz]
 
 ### Fixed
 

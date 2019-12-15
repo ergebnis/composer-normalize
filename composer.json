@@ -20,8 +20,8 @@
     "php": "^7.2",
     "composer-plugin-api": "^1.1.0",
     "ergebnis/composer-json-normalizer": "^2.0.0",
-    "localheinz/diff": "^1.0.0",
-    "localheinz/json-normalizer": "~0.9.0"
+    "ergebnis/json-normalizer": "~0.10.0",
+    "localheinz/diff": "^1.0.0"
   },
   "require-dev": {
     "composer/composer": "^1.7.0",
