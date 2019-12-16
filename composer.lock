@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1914d029b20eaae05b84e81df7c760a5",
+    "content-hash": "e3a873e4b549fe699975894a91c9da19",
     "packages": [
         {
             "name": "ergebnis/composer-json-normalizer",
@@ -887,16 +887,16 @@
         },
         {
             "name": "ergebnis/phpstan-rules",
-            "version": "0.14.0",
+            "version": "0.14.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/phpstan-rules.git",
-                "reference": "217772cd009ec8a10f44c827137c4c4c85126258"
+                "reference": "c8926fe03a968213df4b13d9a3ee605566c02eed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/phpstan-rules/zipball/217772cd009ec8a10f44c827137c4c4c85126258",
-                "reference": "217772cd009ec8a10f44c827137c4c4c85126258",
+                "url": "https://api.github.com/repos/ergebnis/phpstan-rules/zipball/c8926fe03a968213df4b13d9a3ee605566c02eed",
+                "reference": "c8926fe03a968213df4b13d9a3ee605566c02eed",
                 "shasum": ""
             },
             "require": {
@@ -904,9 +904,6 @@
                 "nikic/php-parser": "^4.2.3",
                 "php": "^7.2",
                 "phpstan/phpstan": "~0.11.15 || ~0.12.0"
-            },
-            "replace": {
-                "localheinz/phpstan-rules": "*"
             },
             "require-dev": {
                 "ergebnis/php-cs-fixer-config": "~1.1.0",
@@ -950,7 +947,7 @@
                 "phpstan-extreme-rules",
                 "phpstan-rules"
             ],
-            "time": "2019-12-09T22:36:56+00:00"
+            "time": "2019-12-15T10:25:27+00:00"
         },
         {
             "name": "ergebnis/test-util",
