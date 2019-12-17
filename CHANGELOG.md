@@ -7,12 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
-For a full diff see [`1.3.1...master`][1.3.1...master]
+For a full diff see [`2.0.0...master`][2.0.0...master]
+
+## [`2.0.0`][2.0.0]
+
+For a full diff see [`1.3.1...2.0.0`][1.3.1...2.0.0]
 
 ## Changed
 
 * Started using `ergebnis/composer-json-normalizer` instead of `localheinz/composer-json-normalizer`, `ergebnis/json-normalizer` instead of `localheinz/json-normalizer`, and `ergebnis/json-printer` instead of `localheinz/json-printer` ([#261]), by [@localheinz]
-* Removed default values for parameters `$formatter` and `$differ` of `Ergebnis\Composer\Normalize\Command\NormalizeCommand`  ([#262]), by [@localheinz]
+* Removed default values for parameters `$formatter` and `$differ` of constructor of `Ergebnis\Composer\Normalize\Command\NormalizeCommand`  ([#262]), by [@localheinz]
 * Renamed vendor namespace `Localheinz` to `Ergebnis` after move to [@ergebnis] ([#267]), by [@localheinz]
 
   Run
@@ -234,6 +238,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [1.2.0]: https://github.com/ergebnis/composer-normalize/releases/tag/1.2.0
 [1.3.0]: https://github.com/ergebnis/composer-normalize/releases/tag/1.3.0
 [1.3.1]: https://github.com/ergebnis/composer-normalize/releases/tag/1.3.1
+[2.0.0]: https://github.com/ergebnis/composer-normalize/releases/tag/2.0.0
 
 [81bc3a8...0.1.0]: https://github.com/ergebnis/composer-normalize/compare/81bc3a8...0.1.0
 [0.1.0...0.2.0]: https://github.com/ergebnis/composer-normalize/compare/0.1.0...0.2.0
@@ -253,7 +258,8 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [1.1.4...1.2.0]: https://github.com/ergebnis/composer-normalize/compare/1.1.4...1.2.0
 [1.2.0...1.3.0]: https://github.com/ergebnis/composer-normalize/compare/1.2.0...1.3.0
 [1.3.0...1.3.1]: https://github.com/ergebnis/composer-normalize/compare/1.3.0...1.3.1
-[1.3.1...master]: https://github.com/ergebnis/composer-normalize/compare/1.3.1...master
+[1.3.1...2.0.0]: https://github.com/ergebnis/composer-normalize/compare/1.3.1...2.0.0
+[2.0.0...master]: https://github.com/ergebnis/composer-normalize/compare/2.0.0...master
 
 [#1]: https://github.com/ergebnis/composer-normalize/pull/1
 [#2]: https://github.com/ergebnis/composer-normalize/pull/2

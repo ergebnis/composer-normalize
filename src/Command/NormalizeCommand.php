@@ -32,24 +32,12 @@ final class NormalizeCommand extends Command\BaseCommand
         'tab' => "\t",
     ];
 
-    /**
-     * @var Factory
-     */
     private $factory;
 
-    /**
-     * @var Normalizer\NormalizerInterface
-     */
     private $normalizer;
 
-    /**
-     * @var Normalizer\Format\FormatterInterface
-     */
     private $formatter;
 
-    /**
-     * @var Diff\Differ
-     */
     private $differ;
 
     public function __construct(
