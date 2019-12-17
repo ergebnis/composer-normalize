@@ -8,24 +8,24 @@ declare(strict_types=1);
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
  *
- * @see https://github.com/localheinz/composer-normalize
+ * @see https://github.com/ergebnis/composer-normalize
  */
 
-namespace Localheinz\Composer\Normalize\Test\Integration\Command;
+namespace Ergebnis\Composer\Normalize\Test\Integration\Command;
 
 use Composer\Console\Application;
 use Composer\Factory;
+use Ergebnis\Composer\Normalize\Command\NormalizeCommand;
+use Ergebnis\Composer\Normalize\NormalizePlugin;
+use Ergebnis\Composer\Normalize\Test\Util\CommandInvocation;
+use Ergebnis\Composer\Normalize\Test\Util\Directory;
+use Ergebnis\Composer\Normalize\Test\Util\Scenario;
+use Ergebnis\Composer\Normalize\Test\Util\State;
 use Ergebnis\Json\Normalizer\Format\Formatter;
 use Ergebnis\Json\Normalizer\Json;
 use Ergebnis\Json\Normalizer\NormalizerInterface;
 use Ergebnis\Json\Printer\Printer;
 use Ergebnis\Test\Util\Helper;
-use Localheinz\Composer\Normalize\Command\NormalizeCommand;
-use Localheinz\Composer\Normalize\NormalizePlugin;
-use Localheinz\Composer\Normalize\Test\Util\CommandInvocation;
-use Localheinz\Composer\Normalize\Test\Util\Directory;
-use Localheinz\Composer\Normalize\Test\Util\Scenario;
-use Localheinz\Composer\Normalize\Test\Util\State;
 use Localheinz\Diff;
 use PHPUnit\Framework;
 use Symfony\Component\Console;
@@ -34,10 +34,10 @@ use Symfony\Component\Filesystem;
 /**
  * @internal
  *
- * @covers \Localheinz\Composer\Normalize\Command\NormalizeCommand
- * @covers \Localheinz\Composer\Normalize\NormalizePlugin
+ * @covers \Ergebnis\Composer\Normalize\Command\NormalizeCommand
+ * @covers \Ergebnis\Composer\Normalize\NormalizePlugin
  *
- * @uses \Localheinz\Composer\Normalize\Command\SchemaUriResolver
+ * @uses \Ergebnis\Composer\Normalize\Command\SchemaUriResolver
  */
 final class NormalizeCommandTest extends Framework\TestCase
 {

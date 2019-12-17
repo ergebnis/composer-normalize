@@ -1,5 +1,5 @@
 {
-  "name": "localheinz/composer-normalize",
+  "name": "ergebnis/composer-normalize",
   "type": "composer-plugin",
   "description": "Provides a composer plugin for normalizing composer.json.",
   "keywords": [
@@ -8,7 +8,7 @@
     "normalize",
     "plugin"
   ],
-  "homepage": "https://github.com/localheinz/composer-normalize",
+  "homepage": "https://github.com/ergebnis/composer-normalize",
   "license": "MIT",
   "authors": [
     {
@@ -42,20 +42,20 @@
     "sort-packages": true
   },
   "extra": {
-    "class": "Localheinz\\Composer\\Normalize\\NormalizePlugin"
+    "class": "Ergebnis\\Composer\\Normalize\\NormalizePlugin"
   },
   "autoload": {
     "psr-4": {
-      "Localheinz\\Composer\\Normalize\\": "src/"
+      "Ergebnis\\Composer\\Normalize\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Localheinz\\Composer\\Normalize\\Test\\": "test/"
+      "Ergebnis\\Composer\\Normalize\\Test\\": "test/"
     }
   },
   "support": {
-    "issues": "https://github.com/localheinz/composer-normalize/issues",
-    "source": "https://github.com/localheinz/composer-normalize"
+    "issues": "https://github.com/ergebnis/composer-normalize/issues",
+    "source": "https://github.com/ergebnis/composer-normalize"
   }
 }

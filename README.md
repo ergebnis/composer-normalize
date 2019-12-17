@@ -1,9 +1,9 @@
 # composer-normalize
 
-[![Continuous Integration](https://github.com/localheinz/composer-normalize/workflows/Continuous%20Integration/badge.svg)](https://github.com/localheinz/composer-normalize/actions)
-[![Code Coverage](https://codecov.io/gh/localheinz/composer-normalize/branch/master/graph/badge.svg)](https://codecov.io/gh/localheinz/composer-normalize)
-[![Latest Stable Version](https://poser.pugx.org/localheinz/composer-normalize/v/stable)](https://packagist.org/packages/localheinz/composer-normalize)
-[![Total Downloads](https://poser.pugx.org/localheinz/composer-normalize/downloads)](https://packagist.org/packages/localheinz/composer-normalize)
+[![Continuous Integration](https://github.com/ergebnis/composer-normalize/workflows/Continuous%20Integration/badge.svg)](https://github.com/ergebnis/composer-normalize/actions)
+[![Code Coverage](https://codecov.io/gh/ergebnis/composer-normalize/branch/master/graph/badge.svg)](https://codecov.io/gh/ergebnis/composer-normalize)
+[![Latest Stable Version](https://poser.pugx.org/ergebnis/composer-normalize/v/stable)](https://packagist.org/packages/ergebnis/composer-normalize)
+[![Total Downloads](https://poser.pugx.org/ergebnis/composer-normalize/downloads)](https://packagist.org/packages/ergebnis/composer-normalize)
 
 Provides a [`composer`](https://getcomposer.org) plugin for normalizing [`composer.json`](https://getcomposer.org/doc/04-schema.md).
 
@@ -21,7 +21,7 @@ I certainly have noticed, and rather than
 I decided to build something that structures `composer.json` in an automated
 fashion, but without changing the initial intent.
 
-In my opinion, the advantages of using `localheinz/composer-normalize` are
+In my opinion, the advantages of using `ergebnis/composer-normalize` are
 
 * no need to think (or argue) about where to add a new section
 * no need to think (or argue) about proper formatting
@@ -36,7 +36,7 @@ have written a blog post about [Normalizing composer.json](https://localheinz.co
 Run
 
 ```
-$ composer require --dev localheinz/composer-normalize
+$ composer require --dev ergebnis/composer-normalize
 ```
 
 ## Usage
@@ -59,7 +59,7 @@ The `NormalizeCommand` provided by the `NormalizePlugin` within this package wil
 * update the hash in `composer.lock` if it exists and if an update is necessary
 
 :bulb: Interested in what `ComposerJsonNormalizer` does? Head over to
-[`localheinz/composer-json-normalizer`](https://github.com/localheinz/composer-json-normalizer#normalizers) for a full explanation, or take a look at the [examples](https://github.com/localheinz/composer-normalize#examples)
+[`localheinz/composer-json-normalizer`](https://github.com/localheinz/composer-json-normalizer#normalizers) for a full explanation, or take a look at the [examples](https://github.com/ergebnis/composer-normalize#examples)
 
 ### Arguments
 
@@ -482,8 +482,8 @@ This package is licensed using the MIT License.
 
 ## GitHub Action
 
-`localheinz/composer-normalize` is also available as a [GitHub Action](https://github.com/features/actions) on the [GitHub Marketplace](https://github.com/marketplace), see [`composer-normalize-action`](https://github.com/marketplace/actions/composer-normalize-action) as well as the corresponding repository [`localheinz/composer-normalize-action`](https://github.com/localheinz/composer-normalize-action).
+`ergebnis/composer-normalize` is also available as a [GitHub Action](https://github.com/features/actions) on the [GitHub Marketplace](https://github.com/marketplace), see [`composer-normalize-action`](https://github.com/marketplace/actions/composer-normalize-action) as well as the corresponding repository [`localheinz/composer-normalize-action`](https://github.com/localheinz/composer-normalize-action).
 
 ## Services
 
-`localheinz/composer-normalize` is currently in use by [FlintCI](https://flintci.io), see https://flintci.io/docs#composernormalize.
+`ergebnis/composer-normalize` is currently in use by [FlintCI](https://flintci.io), see https://flintci.io/docs#composernormalize.

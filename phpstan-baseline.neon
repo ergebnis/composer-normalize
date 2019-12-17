@@ -3,7 +3,7 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Method Localheinz\\\\Composer\\\\Normalize\\\\Command\\\\NormalizeCommand\\:\\:indentFrom\\(\\) has a nullable return type declaration\\.$#"
+			message: "#^Method Ergebnis\\\\Composer\\\\Normalize\\\\Command\\\\NormalizeCommand\\:\\:indentFrom\\(\\) has a nullable return type declaration\\.$#"
 			count: 1
 			path: src/Command/NormalizeCommand.php
 

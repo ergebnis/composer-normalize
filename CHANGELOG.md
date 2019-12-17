@@ -12,7 +12,38 @@ For a full diff see [`1.3.1...master`][1.3.1...master]
 ## Changed
 
 * Started using `ergebnis/composer-json-normalizer` instead of `localheinz/composer-json-normalizer`, `ergebnis/json-normalizer` instead of `localheinz/json-normalizer`, and `ergebnis/json-printer` instead of `localheinz/json-printer` ([#261]), by [@localheinz]
-* Removed default values for parameters `$formatter` and `$differ` of `Localheinz\Composer\Normalize\Command\NormalizeCommand`  ([#262]), by [@localheinz]
+* Removed default values for parameters `$formatter` and `$differ` of `Ergebnis\Composer\Normalize\Command\NormalizeCommand`  ([#262]), by [@localheinz]
+* Renamed vendor namespace `Localheinz` to `Ergebnis` after move to [@ergebnis] ([#267]), by [@localheinz]
+
+  Run
+
+  ```
+  $ composer remove localheinz/composer-normalize
+  ```
+
+  and
+
+  ```
+  $ composer require ergebnis/composer-normalize
+  ```
+
+  to update.
+
+  Run
+
+  ```
+  $ find . -type f -exec sed -i '.bak' 's/Localheinz\\Composer\\Normalizer/Ergebnis\\Composer\\Normalize/g' {} \;
+  ```
+
+  to replace occurrences of `Localheinz\Composer\Normalize` with `Ergebnis\Composer\Normalize`.
+
+  Run
+
+  ```
+  $ find -type f -name '*.bak' -delete
+  ```
+
+  to delete backup files created in the previous step.
 
 ### Fixed
 
@@ -184,77 +215,79 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 * Added the `BinNormalizer`, which sorts entries in the `bin` section by
 * Added the `ComposerJsonNormalizer`, which composes all of the above normalizers along with the `SchemaNormalizer`, to normalize `composer.json` according to its underlying JSON schema ([#8] and [#10]), by [@localheinz]
 
-[0.1.0]: https://github.com/localheinz/composer-normalize/releases/tag/0.1.0
-[0.2.0]: https://github.com/localheinz/composer-normalize/releases/tag/0.2.0
-[0.3.0]: https://github.com/localheinz/composer-normalize/releases/tag/0.3.0
-[0.4.0]: https://github.com/localheinz/composer-normalize/releases/tag/0.4.0
-[0.5.0]: https://github.com/localheinz/composer-normalize/releases/tag/0.5.0
-[0.6.0]: https://github.com/localheinz/composer-normalize/releases/tag/0.6.0
-[0.7.0]: https://github.com/localheinz/composer-normalize/releases/tag/0.7.0
-[0.8.0]: https://github.com/localheinz/composer-normalize/releases/tag/0.8.0
-[0.9.0]: https://github.com/localheinz/composer-normalize/releases/tag/0.9.0
-[1.0.0]: https://github.com/localheinz/composer-normalize/releases/tag/1.0.0
-[1.1.0]: https://github.com/localheinz/composer-normalize/releases/tag/1.1.0
-[1.1.1]: https://github.com/localheinz/composer-normalize/releases/tag/1.1.1
-[1.1.2]: https://github.com/localheinz/composer-normalize/releases/tag/1.1.2
-[1.1.3]: https://github.com/localheinz/composer-normalize/releases/tag/1.1.3
-[1.1.4]: https://github.com/localheinz/composer-normalize/releases/tag/1.1.4
-[1.2.0]: https://github.com/localheinz/composer-normalize/releases/tag/1.2.0
-[1.3.0]: https://github.com/localheinz/composer-normalize/releases/tag/1.3.0
-[1.3.1]: https://github.com/localheinz/composer-normalize/releases/tag/1.3.1
+[0.1.0]: https://github.com/ergebnis/composer-normalize/releases/tag/0.1.0
+[0.2.0]: https://github.com/ergebnis/composer-normalize/releases/tag/0.2.0
+[0.3.0]: https://github.com/ergebnis/composer-normalize/releases/tag/0.3.0
+[0.4.0]: https://github.com/ergebnis/composer-normalize/releases/tag/0.4.0
+[0.5.0]: https://github.com/ergebnis/composer-normalize/releases/tag/0.5.0
+[0.6.0]: https://github.com/ergebnis/composer-normalize/releases/tag/0.6.0
+[0.7.0]: https://github.com/ergebnis/composer-normalize/releases/tag/0.7.0
+[0.8.0]: https://github.com/ergebnis/composer-normalize/releases/tag/0.8.0
+[0.9.0]: https://github.com/ergebnis/composer-normalize/releases/tag/0.9.0
+[1.0.0]: https://github.com/ergebnis/composer-normalize/releases/tag/1.0.0
+[1.1.0]: https://github.com/ergebnis/composer-normalize/releases/tag/1.1.0
+[1.1.1]: https://github.com/ergebnis/composer-normalize/releases/tag/1.1.1
+[1.1.2]: https://github.com/ergebnis/composer-normalize/releases/tag/1.1.2
+[1.1.3]: https://github.com/ergebnis/composer-normalize/releases/tag/1.1.3
+[1.1.4]: https://github.com/ergebnis/composer-normalize/releases/tag/1.1.4
+[1.2.0]: https://github.com/ergebnis/composer-normalize/releases/tag/1.2.0
+[1.3.0]: https://github.com/ergebnis/composer-normalize/releases/tag/1.3.0
+[1.3.1]: https://github.com/ergebnis/composer-normalize/releases/tag/1.3.1
 
-[81bc3a8...0.1.0]: https://github.com/localheinz/composer-normalize/compare/81bc3a8...0.1.0
-[0.1.0...0.2.0]: https://github.com/localheinz/composer-normalize/compare/0.1.0...0.2.0
-[0.2.0...0.3.0]: https://github.com/localheinz/composer-normalize/compare/0.2.0...0.3.0
-[0.3.0...0.4.0]: https://github.com/localheinz/composer-normalize/compare/0.3.0...0.4.0
-[0.4.0...0.5.0]: https://github.com/localheinz/composer-normalize/compare/0.4.0...0.5.0
-[0.5.0...0.6.0]: https://github.com/localheinz/composer-normalize/compare/0.5.0...0.6.0
-[0.6.0...0.7.0]: https://github.com/localheinz/composer-normalize/compare/0.6.0...0.7.0
-[0.7.0...0.8.0]: https://github.com/localheinz/composer-normalize/compare/0.7.0...0.8.0
-[0.8.0...0.9.0]: https://github.com/localheinz/composer-normalize/compare/0.8.0...0.9.0
-[0.9.0...1.0.0]: https://github.com/localheinz/composer-normalize/compare/0.9.0...1.0.0
-[1.0.0...1.1.0]: https://github.com/localheinz/composer-normalize/compare/1.0.0...1.1.0
-[1.1.0...1.1.1]: https://github.com/localheinz/composer-normalize/compare/1.1.0...1.1.1
-[1.1.1...1.1.2]: https://github.com/localheinz/composer-normalize/compare/1.1.1...1.1.2
-[1.1.2...1.1.3]: https://github.com/localheinz/composer-normalize/compare/1.1.2...1.1.3
-[1.1.3...1.1.4]: https://github.com/localheinz/composer-normalize/compare/1.1.3...1.1.4
-[1.1.4...1.2.0]: https://github.com/localheinz/composer-normalize/compare/1.1.4...1.2.0
-[1.2.0...1.3.0]: https://github.com/localheinz/composer-normalize/compare/1.2.0...1.3.0
-[1.3.0...1.3.1]: https://github.com/localheinz/composer-normalize/compare/1.3.0...1.3.1
-[1.3.1...master]: https://github.com/localheinz/composer-normalize/compare/1.3.1...master
+[81bc3a8...0.1.0]: https://github.com/ergebnis/composer-normalize/compare/81bc3a8...0.1.0
+[0.1.0...0.2.0]: https://github.com/ergebnis/composer-normalize/compare/0.1.0...0.2.0
+[0.2.0...0.3.0]: https://github.com/ergebnis/composer-normalize/compare/0.2.0...0.3.0
+[0.3.0...0.4.0]: https://github.com/ergebnis/composer-normalize/compare/0.3.0...0.4.0
+[0.4.0...0.5.0]: https://github.com/ergebnis/composer-normalize/compare/0.4.0...0.5.0
+[0.5.0...0.6.0]: https://github.com/ergebnis/composer-normalize/compare/0.5.0...0.6.0
+[0.6.0...0.7.0]: https://github.com/ergebnis/composer-normalize/compare/0.6.0...0.7.0
+[0.7.0...0.8.0]: https://github.com/ergebnis/composer-normalize/compare/0.7.0...0.8.0
+[0.8.0...0.9.0]: https://github.com/ergebnis/composer-normalize/compare/0.8.0...0.9.0
+[0.9.0...1.0.0]: https://github.com/ergebnis/composer-normalize/compare/0.9.0...1.0.0
+[1.0.0...1.1.0]: https://github.com/ergebnis/composer-normalize/compare/1.0.0...1.1.0
+[1.1.0...1.1.1]: https://github.com/ergebnis/composer-normalize/compare/1.1.0...1.1.1
+[1.1.1...1.1.2]: https://github.com/ergebnis/composer-normalize/compare/1.1.1...1.1.2
+[1.1.2...1.1.3]: https://github.com/ergebnis/composer-normalize/compare/1.1.2...1.1.3
+[1.1.3...1.1.4]: https://github.com/ergebnis/composer-normalize/compare/1.1.3...1.1.4
+[1.1.4...1.2.0]: https://github.com/ergebnis/composer-normalize/compare/1.1.4...1.2.0
+[1.2.0...1.3.0]: https://github.com/ergebnis/composer-normalize/compare/1.2.0...1.3.0
+[1.3.0...1.3.1]: https://github.com/ergebnis/composer-normalize/compare/1.3.0...1.3.1
+[1.3.1...master]: https://github.com/ergebnis/composer-normalize/compare/1.3.1...master
 
-[#1]: https://github.com/localheinz/composer-normalize/pull/1
-[#2]: https://github.com/localheinz/composer-normalize/pull/2
-[#3]: https://github.com/localheinz/composer-normalize/pull/3
-[#6]: https://github.com/localheinz/composer-normalize/pull/6
-[#8]: https://github.com/localheinz/composer-normalize/pull/8
-[#10]: https://github.com/localheinz/composer-normalize/pull/10
-[#18]: https://github.com/localheinz/composer-normalize/pull/18
-[#19]: https://github.com/localheinz/composer-normalize/pull/19
-[#28]: https://github.com/localheinz/composer-normalize/pull/28
-[#30]: https://github.com/localheinz/composer-normalize/pull/30
-[#38]: https://github.com/localheinz/composer-normalize/pull/38
-[#42]: https://github.com/localheinz/composer-normalize/pull/42
-[#51]: https://github.com/localheinz/composer-normalize/pull/51
-[#60]: https://github.com/localheinz/composer-normalize/pull/60
-[#62]: https://github.com/localheinz/composer-normalize/pull/62
-[#80]: https://github.com/localheinz/composer-normalize/pull/80
-[#86]: https://github.com/localheinz/composer-normalize/pull/86
-[#89]: https://github.com/localheinz/composer-normalize/pull/89
-[#94]: https://github.com/localheinz/composer-normalize/pull/94
-[#106]: https://github.com/localheinz/composer-normalize/pull/106
-[#139]: https://github.com/localheinz/composer-normalize/pull/139
-[#145]: https://github.com/localheinz/composer-normalize/pull/145
-[#157]: https://github.com/localheinz/composer-normalize/pull/157
-[#166]: https://github.com/localheinz/composer-normalize/pull/166
-[#173]: https://github.com/localheinz/composer-normalize/pull/173
-[#177]: https://github.com/localheinz/composer-normalize/pull/177
-[#190]: https://github.com/localheinz/composer-normalize/pull/190
-[#207]: https://github.com/localheinz/composer-normalize/pull/207
-[#235]: https://github.com/localheinz/composer-normalize/pull/235
-[#261]: https://github.com/localheinz/composer-normalize/pull/261
-[#262]: https://github.com/localheinz/composer-normalize/pull/262
+[#1]: https://github.com/ergebnis/composer-normalize/pull/1
+[#2]: https://github.com/ergebnis/composer-normalize/pull/2
+[#3]: https://github.com/ergebnis/composer-normalize/pull/3
+[#6]: https://github.com/ergebnis/composer-normalize/pull/6
+[#8]: https://github.com/ergebnis/composer-normalize/pull/8
+[#10]: https://github.com/ergebnis/composer-normalize/pull/10
+[#18]: https://github.com/ergebnis/composer-normalize/pull/18
+[#19]: https://github.com/ergebnis/composer-normalize/pull/19
+[#28]: https://github.com/ergebnis/composer-normalize/pull/28
+[#30]: https://github.com/ergebnis/composer-normalize/pull/30
+[#38]: https://github.com/ergebnis/composer-normalize/pull/38
+[#42]: https://github.com/ergebnis/composer-normalize/pull/42
+[#51]: https://github.com/ergebnis/composer-normalize/pull/51
+[#60]: https://github.com/ergebnis/composer-normalize/pull/60
+[#62]: https://github.com/ergebnis/composer-normalize/pull/62
+[#80]: https://github.com/ergebnis/composer-normalize/pull/80
+[#86]: https://github.com/ergebnis/composer-normalize/pull/86
+[#89]: https://github.com/ergebnis/composer-normalize/pull/89
+[#94]: https://github.com/ergebnis/composer-normalize/pull/94
+[#106]: https://github.com/ergebnis/composer-normalize/pull/106
+[#139]: https://github.com/ergebnis/composer-normalize/pull/139
+[#145]: https://github.com/ergebnis/composer-normalize/pull/145
+[#157]: https://github.com/ergebnis/composer-normalize/pull/157
+[#166]: https://github.com/ergebnis/composer-normalize/pull/166
+[#173]: https://github.com/ergebnis/composer-normalize/pull/173
+[#177]: https://github.com/ergebnis/composer-normalize/pull/177
+[#190]: https://github.com/ergebnis/composer-normalize/pull/190
+[#207]: https://github.com/ergebnis/composer-normalize/pull/207
+[#235]: https://github.com/ergebnis/composer-normalize/pull/235
+[#261]: https://github.com/ergebnis/composer-normalize/pull/261
+[#262]: https://github.com/ergebnis/composer-normalize/pull/262
+[#267]: https://github.com/ergebnis/composer-normalize/pull/267
 
+[@ergebnis]: https://github.com/ergebnis
 [@localheinz]: https://github.com/localheinz
 [@svenluijten]: https://github.com/svenluijten
 [@TravisCarden]: https://github.com/TravisCarden
