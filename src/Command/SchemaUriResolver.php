@@ -15,6 +15,9 @@ namespace Ergebnis\Composer\Normalize\Command;
 
 use Composer\Json;
 
+/**
+ * @internal
+ */
 final class SchemaUriResolver
 {
     public static function resolve(): string
