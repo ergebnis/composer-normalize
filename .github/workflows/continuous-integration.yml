@@ -46,7 +46,7 @@ jobs:
       - name: "Install locked dependencies with composer"
         run: composer install --no-interaction --no-progress --no-suggest
 
-      - name: "Run localheinz/composer-normalize"
+      - name: "Run ergebnis/composer-normalize"
         uses: docker://localheinz/composer-normalize-action:0.5.2
         with:
           args: --dry-run
