@@ -19,6 +19,9 @@ use Ergebnis\Json\Normalizer;
 use Localheinz\Diff;
 use Symfony\Component\Console;
 
+/**
+ * @internal
+ */
 final class NormalizeCommand extends Command\BaseCommand
 {
     /**

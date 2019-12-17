@@ -44,6 +44,7 @@ For a full diff see [`1.3.1...master`][1.3.1...master]
   ```
 
   to delete backup files created in the previous step.
+* Marked `Ergebnis\Composer\Normalize\Command\NormalizeCommand` and `Ergebnis\Composer\Normalize\Command\SchemaUriResolver` as internal to allow modifications without the need for major releases ([#270]), by [@localheinz]
 
 ### Fixed
 
@@ -286,6 +287,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [#261]: https://github.com/ergebnis/composer-normalize/pull/261
 [#262]: https://github.com/ergebnis/composer-normalize/pull/262
 [#267]: https://github.com/ergebnis/composer-normalize/pull/267
+[#270]: https://github.com/ergebnis/composer-normalize/pull/270
 
 [@ergebnis]: https://github.com/ergebnis
 [@localheinz]: https://github.com/localheinz
