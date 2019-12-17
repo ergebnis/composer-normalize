@@ -23,10 +23,10 @@ jobs:
 
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2.0.0
 
       - name: "Install PHP with extensions"
-        uses: shivammathur/setup-php@v1
+        uses: shivammathur/setup-php@1.6.1
         with:
           coverage: none
           extensions: "mbstring"
@@ -36,12 +36,12 @@ jobs:
         run: composer validate --strict
 
       - name: "Cache dependencies installed with composer"
-        uses: actions/cache@v1
+        uses: actions/cache@v1.0.3
         with:
           path: ~/.composer/cache
-          key: php${{ matrix.php-version }}-composer-locked-${{ hashFiles('**/composer.lock') }}
+          key: php-${{ matrix.php-version }}-composer-locked-${{ hashFiles('**/composer.lock') }}
           restore-keys: |
-            php${{ matrix.php-version }}-composer-locked-
+            php-${{ matrix.php-version }}-composer-locked-
 
       - name: "Install locked dependencies with composer"
         run: composer install --no-interaction --no-progress --no-suggest
@@ -55,12 +55,12 @@ jobs:
         run: mkdir -p .build/php-cs-fixer
 
       - name: "Cache cache directory for friendsofphp/php-cs-fixer"
-        uses: actions/cache@v1
+        uses: actions/cache@v1.0.3
         with:
           path: .build/php-cs-fixer
-          key: php${{ matrix.php-version }}-php-cs-fixer-${{ hashFiles('**/composer.lock') }}
+          key: php-${{ matrix.php-version }}-php-cs-fixer-${{ hashFiles('**/composer.lock') }}
           restore-keys: |
-            php${{ matrix.php-version }}-php-cs-fixer-
+            php-${{ matrix.php-version }}-php-cs-fixer-
 
       - name: "Run friendsofphp/php-cs-fixer"
         run: vendor/bin/php-cs-fixer fix --config=.php_cs --diff --diff-format=udiff --dry-run --verbose
@@ -77,30 +77,30 @@ jobs:
 
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2.0.0
 
       - name: "Install PHP with extensions"
-        uses: shivammathur/setup-php@v1
+        uses: shivammathur/setup-php@1.6.1
         with:
           coverage: none
           extensions: "mbstring"
           php-version: ${{ matrix.php-version }}
 
       - name: "Cache dependencies installed with composer"
-        uses: actions/cache@v1
+        uses: actions/cache@v1.0.3
         with:
           path: ~/.composer/cache
-          key: php${{ matrix.php-version }}-composer-locked-${{ hashFiles('**/composer.lock') }}
+          key: php-${{ matrix.php-version }}-composer-locked-${{ hashFiles('**/composer.lock') }}
           restore-keys: |
-            php${{ matrix.php-version }}-composer-locked-
+            php-${{ matrix.php-version }}-composer-locked-
 
       - name: "Install locked dependencies with composer"
         run: composer install --no-interaction --no-progress --no-suggest
 
       - name: "Run maglnet/composer-require-checker"
-        uses: docker://localheinz/composer-require-checker-action:1.1.1
+        uses: docker://webfactory/composer-require-checker:2.0.0
         with:
-          args: --config-file=composer-require-checker.json
+          args: check --config-file=composer-require-checker.json
 
   static-code-analysis:
     name: "Static Code Analysis"
@@ -114,17 +114,17 @@ jobs:
 
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2.0.0
 
       - name: "Install PHP with extensions"
-        uses: shivammathur/setup-php@v1
+        uses: shivammathur/setup-php@1.6.1
         with:
           coverage: none
           extensions: "mbstring"
           php-version: ${{ matrix.php-version }}
 
       - name: "Cache dependencies installed with composer"
-        uses: actions/cache@v1
+        uses: actions/cache@v1.0.3
         with:
           path: ~/.composer/cache
           key: ${{ matrix.php-version }}-composer-locked-${{ hashFiles('**/composer.lock') }}
@@ -156,22 +156,22 @@ jobs:
 
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2.0.0
 
       - name: "Install PHP with extensions"
-        uses: shivammathur/setup-php@v1
+        uses: shivammathur/setup-php@1.6.1
         with:
           coverage: none
           extensions: "mbstring"
           php-version: ${{ matrix.php-version }}
 
       - name: "Cache dependencies installed with composer"
-        uses: actions/cache@v1
+        uses: actions/cache@v1.0.3
         with:
           path: ~/.composer/cache
-          key: php${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('**/composer.lock') }}
+          key: php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('**/composer.lock') }}
           restore-keys: |
-            php${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-
+            php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-
 
       - name: "Install lowest dependencies with composer"
         if: matrix.dependencies == 'lowest'
@@ -206,22 +206,22 @@ jobs:
 
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2.0.0
 
       - name: "Install PHP with extensions"
-        uses: shivammathur/setup-php@v1
+        uses: shivammathur/setup-php@1.6.1
         with:
           coverage: pcov
           extensions: "mbstring"
           php-version: ${{ matrix.php-version }}
 
       - name: "Cache dependencies installed with composer"
-        uses: actions/cache@v1
+        uses: actions/cache@v1.0.3
         with:
           path: ~/.composer/cache
-          key: php${{ matrix.php-version }}-composer-locked-${{ hashFiles('**/composer.lock') }}
+          key: php-${{ matrix.php-version }}-composer-locked-${{ hashFiles('**/composer.lock') }}
           restore-keys: |
-            php${{ matrix.php-version }}-composer-locked-
+            php-${{ matrix.php-version }}-composer-locked-
 
       - name: "Install locked dependencies with composer"
         run: composer install --no-interaction --no-progress --no-suggest
