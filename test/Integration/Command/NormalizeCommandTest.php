@@ -36,8 +36,6 @@ use Symfony\Component\Filesystem;
  *
  * @covers \Ergebnis\Composer\Normalize\Command\NormalizeCommand
  * @covers \Ergebnis\Composer\Normalize\NormalizePlugin
- *
- * @uses \Ergebnis\Composer\Normalize\Command\SchemaUriResolver
  */
 final class NormalizeCommandTest extends Framework\TestCase
 {

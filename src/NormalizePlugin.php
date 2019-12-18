@@ -40,7 +40,10 @@ final class NormalizePlugin implements Plugin\Capability\CommandProvider, Plugin
         return [
             new Command\NormalizeCommand(
                 new Factory(),
-                new ComposerJsonNormalizer(Command\SchemaUriResolver::resolve()),
+                new ComposerJsonNormalizer(\sprintf(
+                    'file://%s',
+                    __DIR__ . '/../resource/schema.json'
+                )),
                 new Normalizer\Format\Formatter(new Printer\Printer()),
                 new Diff\Differ(new Diff\Output\StrictUnifiedDiffOutputBuilder([
                     'fromFile' => 'original',
