@@ -304,7 +304,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [#262]: https://github.com/ergebnis/composer-normalize/pull/262
 [#267]: https://github.com/ergebnis/composer-normalize/pull/267
 [#270]: https://github.com/ergebnis/composer-normalize/pull/270
-[#272]: https://github.com/ergebnis/composer-normalize/pull/272
+[#273]: https://github.com/ergebnis/composer-normalize/pull/273
 
 [@ergebnis]: https://github.com/ergebnis
 [@localheinz]: https://github.com/localheinz
