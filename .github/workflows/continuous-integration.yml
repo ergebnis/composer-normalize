@@ -19,7 +19,7 @@ jobs:
     strategy:
       matrix:
         php-version:
-          - 7.2
+          - 7.1
 
         dependencies:
           - locked
@@ -154,6 +154,7 @@ jobs:
     strategy:
       matrix:
         php-version:
+          - 7.1
           - 7.2
           - 7.3
           - 7.4
@@ -223,7 +224,7 @@ jobs:
       - name: "Install PHP with extensions"
         uses: shivammathur/setup-php@1.6.1
         with:
-          coverage: pcov
+          coverage: xdebug
           extensions: "mbstring"
           php-version: ${{ matrix.php-version }}
 
@@ -238,8 +239,11 @@ jobs:
       - name: "Install locked dependencies with composer"
         run: composer install --no-interaction --no-progress --no-suggest
 
-      - name: "Collect code coverage with pcov and phpunit/phpunit"
-        run: vendor/bin/phpunit --configuration=test/Integration/phpunit.xml --coverage-clover=.build/logs/clover.xml
+      - name: "Dump Xdebug filter with phpunit/phpunit"
+        run: vendor/bin/phpunit --configuration=test/Integration/phpunit.xml --dump-xdebug-filter=.build/phpunit/xdebug-filter.php
+
+      - name: "Collect code coverage with Xdebug and phpunit/phpunit"
+        run: vendor/bin/phpunit --configuration=test/Integration/phpunit.xml --coverage-clover=build/logs/clover.xml --prepend=.build/phpunit/xdebug-filter.php
 
       - name: "Send code coverage report to Codecov.io"
         env:
