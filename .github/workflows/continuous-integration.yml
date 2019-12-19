@@ -21,6 +21,9 @@ jobs:
         php-version:
           - 7.2
 
+        dependencies:
+          - locked
+
     steps:
       - name: "Checkout"
         uses: actions/checkout@v2.0.0
@@ -39,9 +42,9 @@ jobs:
         uses: actions/cache@v1.0.3
         with:
           path: ~/.composer/cache
-          key: php-${{ matrix.php-version }}-composer-locked-${{ hashFiles('**/composer.lock') }}
+          key: php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('**/composer.lock') }}
           restore-keys: |
-            php-${{ matrix.php-version }}-composer-locked-
+            php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-
 
       - name: "Install locked dependencies with composer"
         run: composer install --no-interaction --no-progress --no-suggest
@@ -75,6 +78,9 @@ jobs:
         php-version:
           - 7.4
 
+        dependencies:
+          - locked
+
     steps:
       - name: "Checkout"
         uses: actions/checkout@v2.0.0
@@ -90,9 +96,9 @@ jobs:
         uses: actions/cache@v1.0.3
         with:
           path: ~/.composer/cache
-          key: php-${{ matrix.php-version }}-composer-locked-${{ hashFiles('**/composer.lock') }}
+          key: php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('**/composer.lock') }}
           restore-keys: |
-            php-${{ matrix.php-version }}-composer-locked-
+            php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-
 
       - name: "Install locked dependencies with composer"
         run: composer install --no-interaction --no-progress --no-suggest
@@ -111,6 +117,9 @@ jobs:
       matrix:
         php-version:
           - 7.4
+
+        dependencies:
+          - locked
 
     steps:
       - name: "Checkout"
@@ -204,6 +213,9 @@ jobs:
         php-version:
           - 7.4
 
+        dependencies:
+          - locked
+
     steps:
       - name: "Checkout"
         uses: actions/checkout@v2.0.0
@@ -219,9 +231,9 @@ jobs:
         uses: actions/cache@v1.0.3
         with:
           path: ~/.composer/cache
-          key: php-${{ matrix.php-version }}-composer-locked-${{ hashFiles('**/composer.lock') }}
+          key: php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('**/composer.lock') }}
           restore-keys: |
-            php-${{ matrix.php-version }}-composer-locked-
+            php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-
 
       - name: "Install locked dependencies with composer"
         run: composer install --no-interaction --no-progress --no-suggest
