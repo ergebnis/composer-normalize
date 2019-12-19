@@ -3,10 +3,7 @@
 version: 1
 
 update_configs:
-  - automerged_updates:
-      - match:
-          dependency_type: "development"
-    default_assignees:
+  - default_assignees:
       - "localheinz"
     default_labels:
       - "dependency"
@@ -18,10 +15,6 @@ update_configs:
           dependency_name: "composer-plugin-api"
       - match:
           dependency_name: "composer/composer"
-      - match:
-          dependency_name: "localheinz/composer-json-normalizer"
-      - match:
-          dependency_name: "localheinz/json-normalizer"
     package_manager: "php:composer"
     update_schedule: "live"
     version_requirement_updates: "increase_versions"
