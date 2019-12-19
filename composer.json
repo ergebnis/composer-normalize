@@ -17,11 +17,11 @@
     }
   ],
   "require": {
-    "php": "^7.2",
+    "php": "^7.1",
     "composer-plugin-api": "^1.1.0",
-    "ergebnis/composer-json-normalizer": "^2.0.0",
-    "ergebnis/json-normalizer": "~0.10.0",
-    "ergebnis/json-printer": "^3.0.1",
+    "ergebnis/composer-json-normalizer": "^2.0.1",
+    "ergebnis/json-normalizer": "~0.10.1",
+    "ergebnis/json-printer": "^3.0.2",
     "localheinz/diff": "^1.0.1"
   },
   "require-dev": {
@@ -34,7 +34,7 @@
     "phpstan/phpstan": "~0.11.19",
     "phpstan/phpstan-deprecation-rules": "~0.11.2",
     "phpstan/phpstan-strict-rules": "~0.11.1",
-    "phpunit/phpunit": "^8.5.0",
+    "phpunit/phpunit": "^7.5.18",
     "symfony/filesystem": "^4.4.1"
   },
   "config": {
