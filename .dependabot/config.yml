@@ -3,7 +3,10 @@
 version: 1
 
 update_configs:
-  - default_assignees:
+  - automerged_updates:
+      - match:
+          dependency_type: "development"
+    default_assignees:
       - "localheinz"
     default_labels:
       - "dependency"
