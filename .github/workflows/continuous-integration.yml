@@ -4,248 +4,245 @@ on:
   pull_request:
   push:
     branches:
-      - master
+      - "master"
     tags:
       - "**"
 
 name: "Continuous Integration"
 
+env:
+  REQUIRED_PHP_EXTENSIONS: "mbstring"
+
 jobs:
   coding-standards:
     name: "Coding Standards"
 
-    runs-on: ubuntu-latest
+    runs-on: "ubuntu-latest"
 
     strategy:
       matrix:
         php-version:
-          - 7.1
+          - "7.1"
 
         dependencies:
-          - locked
+          - "locked"
 
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v2.0.0
+        uses: "actions/checkout@v2.0.0"
 
       - name: "Install PHP with extensions"
-        uses: shivammathur/setup-php@1.6.1
+        uses: "shivammathur/setup-php@1.6.2"
         with:
-          coverage: none
-          extensions: "mbstring"
-          php-version: ${{ matrix.php-version }}
+          coverage: "none"
+          extensions: "${{ env.REQUIRED_PHP_EXTENSIONS }}"
+          php-version: "${{ matrix.php-version }}"
 
       - name: "Validate composer.json and composer.lock"
-        run: composer validate --strict
+        run: "composer validate --strict"
 
       - name: "Cache dependencies installed with composer"
-        uses: actions/cache@v1.0.3
+        uses: "actions/cache@v1.0.3"
         with:
-          path: ~/.composer/cache
-          key: php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('**/composer.lock') }}
-          restore-keys: |
-            php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-
+          path: "~/.composer/cache"
+          key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('**/composer.lock') }}"
+          restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
 
       - name: "Install locked dependencies with composer"
-        run: composer install --no-interaction --no-progress --no-suggest
+        run: "composer install --no-interaction --no-progress --no-suggest"
 
       - name: "Run ergebnis/composer-normalize"
-        uses: docker://localheinz/composer-normalize-action:0.5.2
+        uses: "docker://localheinz/composer-normalize-action:0.5.2"
         with:
-          args: --dry-run
+          args: "--dry-run"
 
       - name: "Create cache directory for friendsofphp/php-cs-fixer"
-        run: mkdir -p .build/php-cs-fixer
+        run: "mkdir -p .build/php-cs-fixer"
 
       - name: "Cache cache directory for friendsofphp/php-cs-fixer"
-        uses: actions/cache@v1.0.3
+        uses: "actions/cache@v1.0.3"
         with:
-          path: .build/php-cs-fixer
-          key: php-${{ matrix.php-version }}-php-cs-fixer-${{ hashFiles('**/composer.lock') }}
-          restore-keys: |
-            php-${{ matrix.php-version }}-php-cs-fixer-
+          path: ".build/php-cs-fixer"
+          key: "php-${{ matrix.php-version }}-php-cs-fixer-${{ hashFiles('**/composer.lock') }}"
+          restore-keys: "php-${{ matrix.php-version }}-php-cs-fixer-"
 
       - name: "Run friendsofphp/php-cs-fixer"
-        run: vendor/bin/php-cs-fixer fix --config=.php_cs --diff --diff-format=udiff --dry-run --verbose
+        run: "vendor/bin/php-cs-fixer fix --config=.php_cs --diff --diff-format=udiff --dry-run --verbose"
 
   dependency-analysis:
     name: "Dependency Analysis"
 
-    runs-on: ubuntu-latest
+    runs-on: "ubuntu-latest"
 
     strategy:
       matrix:
         php-version:
-          - 7.4
+          - "7.4"
 
         dependencies:
-          - locked
+          - "locked"
 
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v2.0.0
+        uses: "actions/checkout@v2.0.0"
 
       - name: "Install PHP with extensions"
-        uses: shivammathur/setup-php@1.6.1
+        uses: "shivammathur/setup-php@1.6.2"
         with:
-          coverage: none
-          extensions: "mbstring"
-          php-version: ${{ matrix.php-version }}
+          coverage: "none"
+          extensions: "${{ env.REQUIRED_PHP_EXTENSIONS }}"
+          php-version: "${{ matrix.php-version }}"
 
       - name: "Cache dependencies installed with composer"
-        uses: actions/cache@v1.0.3
+        uses: "actions/cache@v1.0.3"
         with:
-          path: ~/.composer/cache
-          key: php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('**/composer.lock') }}
-          restore-keys: |
-            php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-
+          path: "~/.composer/cache"
+          key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('**/composer.lock') }}"
+          restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
 
       - name: "Install locked dependencies with composer"
-        run: composer install --no-interaction --no-progress --no-suggest
+        run: "composer install --no-interaction --no-progress --no-suggest"
 
       - name: "Run maglnet/composer-require-checker"
-        uses: docker://webfactory/composer-require-checker:2.0.0
+        uses: "docker://webfactory/composer-require-checker:2.0.0"
         with:
-          args: check --config-file=composer-require-checker.json
+          args: "check --config-file=composer-require-checker.json"
 
   static-code-analysis:
     name: "Static Code Analysis"
 
-    runs-on: ubuntu-latest
+    runs-on: "ubuntu-latest"
 
     strategy:
       matrix:
         php-version:
-          - 7.4
+          - "7.4"
 
         dependencies:
-          - locked
+          - "locked"
 
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v2.0.0
+        uses: "actions/checkout@v2.0.0"
 
       - name: "Install PHP with extensions"
-        uses: shivammathur/setup-php@1.6.1
+        uses: "shivammathur/setup-php@1.6.2"
         with:
-          coverage: none
-          extensions: "mbstring"
-          php-version: ${{ matrix.php-version }}
+          coverage: "none"
+          extensions: "${{ env.REQUIRED_PHP_EXTENSIONS }}"
+          php-version: "${{ matrix.php-version }}"
 
       - name: "Cache dependencies installed with composer"
-        uses: actions/cache@v1.0.3
+        uses: "actions/cache@v1.0.3"
         with:
-          path: ~/.composer/cache
-          key: ${{ matrix.php-version }}-composer-locked-${{ hashFiles('**/composer.lock') }}
-          restore-keys: |
-            ${{ matrix.php-version }}-composer-locked-
+          path: "~/.composer/cache"
+          key: "${{ matrix.php-version }}-composer-locked-${{ hashFiles('**/composer.lock') }}"
+          restore-keys: "${{ matrix.php-version }}-composer-locked-"
 
       - name: "Install locked dependencies with composer"
-        run: composer install --no-interaction --no-progress --no-suggest
+        run: "composer install --no-interaction --no-progress --no-suggest"
 
       - name: "Run phpstan/phpstan"
-        run: vendor/bin/phpstan analyse --configuration=phpstan.neon
+        run: "vendor/bin/phpstan analyse --configuration=phpstan.neon"
 
   tests:
     name: "Tests"
 
-    runs-on: ubuntu-latest
+    runs-on: "ubuntu-latest"
 
     strategy:
       matrix:
         php-version:
-          - 7.1
-          - 7.2
-          - 7.3
-          - 7.4
+          - "7.1"
+          - "7.2"
+          - "7.3"
+          - "7.4"
 
         dependencies:
-          - lowest
-          - locked
-          - highest
+          - "lowest"
+          - "locked"
+          - "highest"
 
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v2.0.0
+        uses: "actions/checkout@v2.0.0"
 
       - name: "Install PHP with extensions"
-        uses: shivammathur/setup-php@1.6.1
+        uses: "shivammathur/setup-php@1.6.2"
         with:
-          coverage: none
-          extensions: "mbstring"
-          php-version: ${{ matrix.php-version }}
+          coverage: "none"
+          extensions: "${{ env.REQUIRED_PHP_EXTENSIONS }}"
+          php-version: "${{ matrix.php-version }}"
 
       - name: "Cache dependencies installed with composer"
-        uses: actions/cache@v1.0.3
+        uses: "actions/cache@v1.0.3"
         with:
-          path: ~/.composer/cache
-          key: php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('**/composer.lock') }}
-          restore-keys: |
-            php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-
+          path: "~/.composer/cache"
+          key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('**/composer.lock') }}"
+          restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
 
       - name: "Install lowest dependencies with composer"
-        if: matrix.dependencies == 'lowest'
-        run: composer update --no-interaction --no-progress --no-suggest --prefer-lowest
+        if: "matrix.dependencies == 'lowest'"
+        run: "composer update --no-interaction --no-progress --no-suggest --prefer-lowest"
 
       - name: "Install locked dependencies with composer"
-        if: matrix.dependencies == 'locked'
-        run: composer install --no-interaction --no-progress --no-suggest
+        if: "matrix.dependencies == 'locked'"
+        run: "composer install --no-interaction --no-progress --no-suggest"
 
       - name: "Install highest dependencies with composer"
-        if: matrix.dependencies == 'highest'
-        run: composer update --no-interaction --no-progress --no-suggest
+        if: "matrix.dependencies == 'highest'"
+        run: "composer update --no-interaction --no-progress --no-suggest"
 
       - name: "Run auto-review tests with phpunit/phpunit"
-        run: vendor/bin/phpunit --configuration=test/AutoReview/phpunit.xml
+        run: "vendor/bin/phpunit --configuration=test/AutoReview/phpunit.xml"
 
       - name: "Run unit tests with phpunit/phpunit"
-        run: vendor/bin/phpunit --configuration=test/Unit/phpunit.xml
+        run: "vendor/bin/phpunit --configuration=test/Unit/phpunit.xml"
 
       - name: "Run integration tests with phpunit/phpunit"
-        run: vendor/bin/phpunit --configuration=test/Integration/phpunit.xml
+        run: "vendor/bin/phpunit --configuration=test/Integration/phpunit.xml"
 
   code-coverage:
     name: "Code Coverage"
 
-    runs-on: ubuntu-latest
+    runs-on: "ubuntu-latest"
 
     strategy:
       matrix:
         php-version:
-          - 7.4
+          - "7.4"
 
         dependencies:
-          - locked
+          - "locked"
 
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v2.0.0
+        uses: "actions/checkout@v2.0.0"
 
       - name: "Install PHP with extensions"
-        uses: shivammathur/setup-php@1.6.1
+        uses: "shivammathur/setup-php@1.6.2"
         with:
-          coverage: xdebug
-          extensions: "mbstring"
-          php-version: ${{ matrix.php-version }}
+          coverage: "xdebug"
+          extensions: "${{ env.REQUIRED_PHP_EXTENSIONS }}"
+          php-version: "${{ matrix.php-version }}"
 
       - name: "Cache dependencies installed with composer"
-        uses: actions/cache@v1.0.3
+        uses: "actions/cache@v1.0.3"
         with:
-          path: ~/.composer/cache
-          key: php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('**/composer.lock') }}
-          restore-keys: |
-            php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-
+          path: "~/.composer/cache"
+          key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('**/composer.lock') }}"
+          restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
 
       - name: "Install locked dependencies with composer"
-        run: composer install --no-interaction --no-progress --no-suggest
+        run: "composer install --no-interaction --no-progress --no-suggest"
 
       - name: "Dump Xdebug filter with phpunit/phpunit"
-        run: vendor/bin/phpunit --configuration=test/Integration/phpunit.xml --dump-xdebug-filter=.build/phpunit/xdebug-filter.php
+        run: "vendor/bin/phpunit --configuration=test/Integration/phpunit.xml --dump-xdebug-filter=.build/phpunit/xdebug-filter.php"
 
       - name: "Collect code coverage with Xdebug and phpunit/phpunit"
-        run: vendor/bin/phpunit --configuration=test/Integration/phpunit.xml --coverage-clover=build/logs/clover.xml --prepend=.build/phpunit/xdebug-filter.php
+        run: "vendor/bin/phpunit --configuration=test/Integration/phpunit.xml --coverage-clover=.build/logs/clover.xml --prepend=.build/phpunit/xdebug-filter.php"
 
       - name: "Send code coverage report to Codecov.io"
         env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-        run: bash <(curl -s https://codecov.io/bash)
+          CODECOV_TOKEN: "${{ secrets.CODECOV_TOKEN }}"
+        run: "bash <(curl -s https://codecov.io/bash)"

@@ -1,7 +1,11 @@
 # https://github.com/probot/settings
 
 branches:
-  - name: master
+  - name: "master"
+
+    # https://developer.github.com/v3/repos/branches/#remove-branch-protection
+    # https://developer.github.com/v3/repos/branches/#update-branch-protection
+
     protection:
       enforce_admins: false
       required_pull_request_reviews:
@@ -29,37 +33,56 @@ branches:
           - "codecov/patch"
           - "codecov/project"
         strict: false
-      restrictions: null
+      restrictions:
+        apps:
+          - "dependabot-preview"
+        teams: []
+        users: []
+
+# https://developer.github.com/v3/issues/labels/#create-a-label
+# https://developer.github.com/v3/issues/labels/#update-a-label
 
 labels:
-  - name: bug
-    color: ee0701
+  - name: "bug"
+    color: "#ee0701"
+    description: ""
 
-  - name: dependency
-    color: 0366d6
+  - name: "dependency"
+    color: "#0366d6"
+    description: ""
 
-  - name: enhancement
-    color: 0e8a16
+  - name: "enhancement"
+    color: "#0e8a16"
+    description: ""
 
-  - name: question
-    color: cc317c
+  - name: "question"
+    color: "#cc317c"
+    description: ""
 
-  - name: security
-    color: ee0701
+  - name: "security"
+    color: "#ee0701"
+    description: ""
 
-  - name: stale
-    color: eeeeee
+  - name: "stale"
+    color: "#eeeeee"
+    description: ""
+
+# https://developer.github.com/v3/repos/#edit
 
 repository:
   allow_merge_commit: true
   allow_rebase_merge: false
   allow_squash_merge: false
-  default_branch: master
+  default_branch: "master"
   description: ":musical_note: Provides a composer plugin for normalizing composer.json."
   has_downloads: true
   has_issues: true
   has_pages: false
   has_projects: false
   has_wiki: false
-  name: composer-normalize
+  name: "composer-normalize"
   private: false
+
+  # https://developer.github.com/v3/repos/branches/#remove-branch-protection
+
+  topics: "composer, composer-plugin, json, normalizer"
