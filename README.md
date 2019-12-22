@@ -53,13 +53,13 @@ The `NormalizeCommand` provided by the `NormalizePlugin` within this package wil
 
 * determine whether a `composer.json` exists
 * determine whether a `composer.lock` exists, and if so, whether it is up to date
-* use the `ComposerJsonNormalizer` from [`localheinz/composer-json-normalizer`](https://github.com/localheinz/composer-json-normalizer) to normalize the content of `composer.json`
+* use the `ComposerJsonNormalizer` from [`ergebnis/composer-json-normalizer`](https://github.com/ergebnis/composer-json-normalizer) to normalize the content of `composer.json`
 * format the normalized content (either as sniffed, or as specified using the `--indent-size` and `--indent-style` options)
 * write the normalized and formatted content of `composer.json` back to the file
 * update the hash in `composer.lock` if it exists and if an update is necessary
 
 :bulb: Interested in what `ComposerJsonNormalizer` does? Head over to
-[`localheinz/composer-json-normalizer`](https://github.com/localheinz/composer-json-normalizer#normalizers) for a full explanation, or take a look at the [examples](https://github.com/ergebnis/composer-normalize#examples)
+[`ergebnis/composer-json-normalizer`](https://github.com/ergebnis/composer-json-normalizer#normalizers) for a full explanation, or take a look at the [examples](https://github.com/ergebnis/composer-normalize#examples)
 
 ### Arguments
 
