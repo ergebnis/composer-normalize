@@ -5,6 +5,7 @@ parameters:
 	ergebnis:
 		classesAllowedToBeExtended:
 			- Composer\Command\BaseCommand
+			- LogicException
 	inferPrivatePropertyTypeFromConstructor: true
 	level: max
 	paths:
