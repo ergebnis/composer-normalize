@@ -15,6 +15,7 @@ namespace Ergebnis\Composer\Normalize\Command;
 
 use Composer\Command;
 use Composer\Factory;
+use Ergebnis\Composer\Normalize\Exception;
 use Ergebnis\Json\Normalizer;
 use Localheinz\Diff;
 use Symfony\Component\Console;
@@ -25,7 +26,7 @@ use Symfony\Component\Console;
 final class NormalizeCommand extends Command\BaseCommand
 {
     /**
-     * @var array
+     * @var array<string, string>
      */
     private static $indentStyles = [
         'space' => ' ',
@@ -316,8 +317,8 @@ final class NormalizeCommand extends Command\BaseCommand
             $diff
         );
 
-        $formatted = \array_map(static function (string $line) {
-            return \preg_replace(
+        $formatted = \array_map(static function (string $line): string {
+            $replaced = \preg_replace(
                 [
                     '/^(\+.*)$/',
                     '/^(-.*)$/',
@@ -328,6 +329,12 @@ final class NormalizeCommand extends Command\BaseCommand
                 ],
                 $line
             );
+
+            if (!\is_string($replaced)) {
+                throw Exception\ShouldNotHappen::create();
+            }
+
+            return $replaced;
         }, $lines);
 
         return \implode(

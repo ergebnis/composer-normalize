@@ -785,6 +785,9 @@ final class NormalizeCommandTest extends Framework\TestCase
         self::assertComposerLockFileNotFresh($currentState);
     }
 
+    /**
+     * @return \Generator<array<CommandInvocation>>
+     */
     public function providerCommandInvocation(): \Generator
     {
         foreach (self::commandInvocations() as $commandInvocation) {
@@ -794,6 +797,9 @@ final class NormalizeCommandTest extends Framework\TestCase
         }
     }
 
+    /**
+     * @return \Generator<array{0: CommandInvocation, 1: string}>
+     */
     public function providerCommandInvocationAndInvalidIndentSize(): \Generator
     {
         $faker = self::faker();
@@ -820,6 +826,9 @@ final class NormalizeCommandTest extends Framework\TestCase
         }
     }
 
+    /**
+     * @return \Generator<array{0: CommandInvocation, 1: int, 2: string}>
+     */
     public function providerCommandInvocationIndentSizeAndIndentStyle(): \Generator
     {
         $indentSizes = [

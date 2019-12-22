@@ -71,6 +71,11 @@ final class Scenario
         return State::fromDirectory($this->initialState->directory());
     }
 
+    /**
+     * @param array<string, bool|int|string> $parameters
+     *
+     * @return array<string, bool|int|string>
+     */
     public function consoleParametersWith(array $parameters): array
     {
         return \array_merge(
@@ -79,6 +84,9 @@ final class Scenario
         );
     }
 
+    /**
+     * @return array<string, string>
+     */
     public function consoleParameters(): array
     {
         $parameters = [
