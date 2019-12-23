@@ -7,11 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
-For a full diff see [`2.0.2...master`][2.0.2...master]
+For a full diff see [`2.1.0...master`][2.1.0...master].
+
+## [`2.1.0`][2.1.0]
+
+For a full diff see [`2.0.2...2.1.0`][2.0.2...2.1.0].
+
+### Added
+
+* Started compiling, signing, and uploading `composer-normalize.phar` and `composer-normalize.phar.asc` to release assets when a tag is pushed ([#292]), by [@localheinz]
 
 ## [`2.0.2`][2.0.2]
 
-For a full diff see [`2.0.1...2.0.2`][2.0.1...2.0.2]
+For a full diff see [`2.0.1...2.0.2`][2.0.1...2.0.2].
 
 ### Fixed
 
@@ -27,7 +35,7 @@ For a full diff see [`2.0.0...2.0.1`][2.0.0...2.0.1]
 
 ## [`2.0.0`][2.0.0]
 
-For a full diff see [`1.3.1...2.0.0`][1.3.1...2.0.0]
+For a full diff see [`1.3.1...2.0.0`][1.3.1...2.0.0].
 
 ## Changed
 
@@ -72,7 +80,7 @@ For a full diff see [`1.3.1...2.0.0`][1.3.1...2.0.0]
 
 ## [`1.3.1`][1.3.1]
 
-For a full diff see [`1.3.0...1.3.1`][1.3.0...1.3.1]
+For a full diff see [`1.3.0...1.3.1`][1.3.0...1.3.1].
 
 ### Fixed
 
@@ -80,7 +88,7 @@ For a full diff see [`1.3.0...1.3.1`][1.3.0...1.3.1]
 
 ## [`1.3.0`][1.3.0]
 
-For a full diff see [`1.2.0...1.3.0`][1.2.0...1.3.0]
+For a full diff see [`1.2.0...1.3.0`][1.2.0...1.3.0].
 
 ### Changed
 
@@ -88,7 +96,7 @@ For a full diff see [`1.2.0...1.3.0`][1.2.0...1.3.0]
 
 ## [`1.2.0`][1.2.0]
 
-For a full diff see [`1.1.4...1.2.0`][1.1.4...1.2.0]
+For a full diff see [`1.1.4...1.2.0`][1.1.4...1.2.0].
 
 ### Changed
 
@@ -96,7 +104,7 @@ For a full diff see [`1.1.4...1.2.0`][1.1.4...1.2.0]
 
 ## [`1.1.4`][1.1.4]
 
-For a full diff see [`1.1.3...1.1.4`][1.1.3...1.1.4]
+For a full diff see [`1.1.3...1.1.4`][1.1.3...1.1.4].
 
 ### Fixed
 
@@ -104,7 +112,7 @@ For a full diff see [`1.1.3...1.1.4`][1.1.3...1.1.4]
 
 ## [`1.1.3`][1.1.3]
 
-For a full diff see [`1.1.2...1.1.3`][1.1.2...1.1.3]
+For a full diff see [`1.1.2...1.1.3`][1.1.2...1.1.3].
 
 ### Fixed
 
@@ -112,7 +120,7 @@ For a full diff see [`1.1.2...1.1.3`][1.1.2...1.1.3]
 
 ## [`1.1.2`][1.1.2]
 
-For a full diff see [`1.1.1...1.1.2`][1.1.1...1.1.2]
+For a full diff see [`1.1.1...1.1.2`][1.1.1...1.1.2].
 
 ### Fixed
 
@@ -120,7 +128,7 @@ For a full diff see [`1.1.1...1.1.2`][1.1.1...1.1.2]
 
 ## [`1.1.1`][1.1.1]
 
-For a full diff see [`1.1.0...1.1.1`][1.1.0...1.1.1]
+For a full diff see [`1.1.0...1.1.1`][1.1.0...1.1.1].
 
 ### Removed
 
@@ -128,7 +136,7 @@ For a full diff see [`1.1.0...1.1.1`][1.1.0...1.1.1]
 
 ## [`1.1.0`][1.1.0]
 
-For a full diff see [`1.0.0...1.1.0`][1.0.0...1.1.0]
+For a full diff see [`1.0.0...1.1.0`][1.0.0...1.1.0].
 
 ### Deprecated
 
@@ -140,7 +148,7 @@ For a full diff see [`1.0.0...1.1.0`][1.0.0...1.1.0]
 
 ## [`1.0.0`][1.0.0]
 
-For a full diff see [`0.9.0...1.0.0`][0.9.0...1.0.0]
+For a full diff see [`0.9.0...1.0.0`][0.9.0...1.0.0].
 
 ### Added
 
@@ -152,7 +160,7 @@ For a full diff see [`0.9.0...1.0.0`][0.9.0...1.0.0]
 
 ## [`0.9.0`][0.9.0]
 
-For a full diff see [`0.8.0...0.9.0`][0.8.0...0.9.0]
+For a full diff see [`0.8.0...0.9.0`][0.8.0...0.9.0].
 
 ### Changed
 
@@ -164,7 +172,7 @@ For a full diff see [`0.8.0...0.9.0`][0.8.0...0.9.0]
 
 ## [`0.8.0`][0.8.0]
 
-For a full diff see [`0.7.0...0.8.0`][0.7.0...0.8.0]
+For a full diff see [`0.7.0...0.8.0`][0.7.0...0.8.0].
 
 ### Changed
 
@@ -172,7 +180,7 @@ For a full diff see [`0.7.0...0.8.0`][0.7.0...0.8.0]
 
 ## [`0.7.0`][0.7.0]
 
-For a full diff see [`0.6.0...0.7.0`][0.6.0...0.7.0]
+For a full diff see [`0.6.0...0.7.0`][0.6.0...0.7.0].
 
 ### Changed
 
@@ -180,7 +188,7 @@ For a full diff see [`0.6.0...0.7.0`][0.6.0...0.7.0]
 
 ## [`0.6.0`][0.6.0]
 
-For a full diff see [`0.5.0...0.6.0`][0.5.0...0.6.0]
+For a full diff see [`0.5.0...0.6.0`][0.5.0...0.6.0].
 
 ### Added
 
@@ -188,7 +196,7 @@ For a full diff see [`0.5.0...0.6.0`][0.5.0...0.6.0]
 
 ## [`0.5.0`][0.5.0]
 
-For a full diff see [`0.4.0...0.5.0`][0.4.0...0.5.0]
+For a full diff see [`0.4.0...0.5.0`][0.4.0...0.5.0].
 
 ### Changed
 
@@ -196,7 +204,7 @@ For a full diff see [`0.4.0...0.5.0`][0.4.0...0.5.0]
 
 ## [`0.4.0`][0.4.0]
 
-For a full diff see [`0.3.0...0.4.0`][0.3.0...0.4.0]
+For a full diff see [`0.3.0...0.4.0`][0.3.0...0.4.0].
 
 ### Added
 
@@ -204,7 +212,7 @@ For a full diff see [`0.3.0...0.4.0`][0.3.0...0.4.0]
 
 ## [`0.3.0`][0.3.0]
 
-For a full diff see [`0.2.0...0.3.0`][0.2.0...0.3.0]
+For a full diff see [`0.2.0...0.3.0`][0.2.0...0.3.0].
 
 ### Fixed
 
@@ -212,7 +220,7 @@ For a full diff see [`0.2.0...0.3.0`][0.2.0...0.3.0]
 
 ## [`0.2.0`][0.2.0]
 
-For a full diff see [`0.1.0...0.2.0`][0.1.0...0.2.0]
+For a full diff see [`0.1.0...0.2.0`][0.1.0...0.2.0].
 
 ### Added
 
@@ -257,6 +265,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [2.0.0]: https://github.com/ergebnis/composer-normalize/releases/tag/2.0.0
 [2.0.1]: https://github.com/ergebnis/composer-normalize/releases/tag/2.0.1
 [2.0.2]: https://github.com/ergebnis/composer-normalize/releases/tag/2.0.2
+[2.1.0]: https://github.com/ergebnis/composer-normalize/releases/tag/2.1.0
 
 [81bc3a8...0.1.0]: https://github.com/ergebnis/composer-normalize/compare/81bc3a8...0.1.0
 [0.1.0...0.2.0]: https://github.com/ergebnis/composer-normalize/compare/0.1.0...0.2.0
@@ -279,7 +288,8 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [1.3.1...2.0.0]: https://github.com/ergebnis/composer-normalize/compare/1.3.1...2.0.0
 [2.0.0...2.0.1]: https://github.com/ergebnis/composer-normalize/compare/2.0.0...2.0.1
 [2.0.1...2.0.2]: https://github.com/ergebnis/composer-normalize/compare/2.0.1...2.0.2
-[2.0.2...master]: https://github.com/ergebnis/composer-normalize/compare/2.0.2...master
+[2.0.2...2.1.0]: https://github.com/ergebnis/composer-normalize/compare/2.0.2...2.1.0
+[2.1.0...master]: https://github.com/ergebnis/composer-normalize/compare/2.1.0...master
 
 [#1]: https://github.com/ergebnis/composer-normalize/pull/1
 [#2]: https://github.com/ergebnis/composer-normalize/pull/2
@@ -316,6 +326,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [#270]: https://github.com/ergebnis/composer-normalize/pull/270
 [#273]: https://github.com/ergebnis/composer-normalize/pull/273
 [#280]: https://github.com/ergebnis/composer-normalize/pull/280
+[#292]: https://github.com/ergebnis/composer-normalize/pull/292
 
 [@ergebnis]: https://github.com/ergebnis
 [@localheinz]: https://github.com/localheinz

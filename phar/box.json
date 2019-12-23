@@ -1,0 +1,13 @@
+{
+  "$schema": "https://raw.githubusercontent.com/humbug/box/3.8.4/res/schema.json",
+  "compactors": [
+    "KevinGH\\Box\\Compactor\\Json",
+    "KevinGH\\Box\\Compactor\\Php"
+  ],
+  "compression": "GZ",
+  "files": [
+    "resource/schema.json"
+  ],
+  "main": "composer-normalize.php",
+  "output": "../.build/phar/composer-normalize.phar"
+}
