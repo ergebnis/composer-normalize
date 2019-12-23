@@ -1,0 +1,20 @@
+# https://help.github.com/en/categories/automating-your-workflow-with-github-actions
+
+name: "Verify Schema"
+
+on:
+  schedule:
+    - cron: "0 12 * * *"
+
+jobs:
+  verify-schema:
+    name: "Verify Schema"
+
+    runs-on: "ubuntu-latest"
+
+    steps:
+      - name: "Checkout"
+        uses: "actions/checkout@v2.0.0"
+
+      - name: "Verify schema is up-to-date"
+        run: "diff -u ./resource/schema.json <(wget -qO- 'https://getcomposer.org/schema.json')"
