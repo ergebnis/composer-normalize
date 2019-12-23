@@ -16,5 +16,14 @@ jobs:
       - name: "Checkout"
         uses: "actions/checkout@v2.0.0"
 
-      - name: "Verify schema is up-to-date"
-        run: "diff -u ./resource/schema.json <(wget -qO- 'https://getcomposer.org/schema.json')"
+      - name: "Download schema"
+        run: "wget --output-document=resource/schema.json https://getcomposer.org/schema.json"
+
+      - name: "Commit updated schema"
+        uses: "stefanzweifel/git-auto-commit-action@v2.5.0"
+        with:
+          branch: "master"
+          commit_message: "Enhancement: Update schema.json"
+          file_pattern: "resource\\/schema\\.json"
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
