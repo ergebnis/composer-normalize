@@ -1,6 +1,7 @@
 # composer-normalize
 
 [![Continuous Integration](https://github.com/ergebnis/composer-normalize/workflows/Continuous%20Integration/badge.svg)](https://github.com/ergebnis/composer-normalize/actions)
+[![Schema](https://github.com/ergebnis/composer-normalize/workflows/Schema/badge.svg)](https://github.com/ergebnis/composer-normalize/actions)
 [![Code Coverage](https://codecov.io/gh/ergebnis/composer-normalize/branch/master/graph/badge.svg)](https://codecov.io/gh/ergebnis/composer-normalize)
 [![Latest Stable Version](https://poser.pugx.org/ergebnis/composer-normalize/v/stable)](https://packagist.org/packages/ergebnis/composer-normalize)
 [![Total Downloads](https://poser.pugx.org/ergebnis/composer-normalize/downloads)](https://packagist.org/packages/ergebnis/composer-normalize)

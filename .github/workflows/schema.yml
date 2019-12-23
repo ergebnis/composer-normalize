@@ -1,14 +1,14 @@
 # https://help.github.com/en/categories/automating-your-workflow-with-github-actions
 
-name: "Verify Schema"
+name: "Schema"
 
 on:
   schedule:
     - cron: "0 12 * * *"
 
 jobs:
-  verify-schema:
-    name: "Verify Schema"
+  schema:
+    name: "Schema"
 
     runs-on: "ubuntu-latest"
 
