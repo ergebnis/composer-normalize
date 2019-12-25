@@ -18,11 +18,11 @@ use Ergebnis\Json\Normalizer;
 use Ergebnis\Json\Printer;
 use Localheinz\Diff;
 
-require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 $command = new Normalize\Command\NormalizeCommand(
     new Composer\Factory(),
-    new ComposerJsonNormalizer(__DIR__ . '/resource/schema.json'),
+    new ComposerJsonNormalizer(__DIR__ . '/../resource/schema.json'),
     new Normalizer\Format\Formatter(new Printer\Printer()),
     new Diff\Differ(new Diff\Output\StrictUnifiedDiffOutputBuilder([
         'fromFile' => 'original',

@@ -41,10 +41,6 @@ jobs:
           extensions: "${{ env.REQUIRED_PHP_EXTENSIONS }}"
           php-version: "${{ matrix.php-version }}"
 
-      - name: "Validate composer.json and composer.lock"
-        run: "composer validate --strict"
-        working-directory: "phar"
-
       - name: "Cache dependencies installed with composer"
         uses: "actions/cache@v1.0.3"
         with:
@@ -52,18 +48,17 @@ jobs:
           key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('**/composer.lock') }}-phar"
           restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-phar"
 
-      - name: "Install locked dependencies required for compiling Phar with composer"
+      - name: "Install locked dependencies with composer"
         run: "composer install --no-interaction --no-progress --no-suggest"
-        working-directory: "phar"
 
-      - name: "Copy files"
-        run: "cp -r resource phar/resource && cp -r src phar/src"
+      - name: "Require composer/composer"
+        run: "composer require composer/composer:1.9.1 --no-interaction --no-progress --no-suggest"
 
       - name: "Validate configuration for humbug/box"
-        run: "phar/box.phar validate phar/box.json"
+        run: "phar/box.phar validate box.json"
 
       - name: "Compile composer-normalize.phar with humbug/box"
-        run: "phar/box.phar compile --config=phar/box.json"
+        run: "phar/box.phar compile --config=box.json"
 
       - name: "Show info about composer-normalize.phar with humbug/box"
         run: "phar/box.phar info ${{ env.COMPOSER_NORMALIZE_PHAR }}"
