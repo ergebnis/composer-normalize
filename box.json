@@ -8,6 +8,6 @@
   "files": [
     "resource/schema.json"
   ],
-  "main": "composer-normalize.php",
-  "output": "../.build/phar/composer-normalize.phar"
+  "main": "phar/composer-normalize.php",
+  "output": ".build/phar/composer-normalize.phar"
 }

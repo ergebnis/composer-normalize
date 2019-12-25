@@ -22,14 +22,10 @@ help: ## Displays this list of targets with descriptions
 
 .PHONY: phar
 phar: vendor ## Builds a phar with humbug/box
-	rm -rf phar/resource phar/src
-	cp -r resource phar/resource
-	cp -r src phar/src
-	composer validate --strict --working-dir=phar
-	composer install --no-interaction --no-progress --no-suggest --working-dir=phar
-	docker run --interactive --rm --tty --workdir=/app --volume ${PWD}/phar:/app localheinz/composer-normalize-action:0.5.2
-	phar/box.phar validate phar/box.json
-	phar/box.phar compile --config=phar/box.json
+	phar/box.phar validate box.json
+	composer require composer/composer:1.9.1  --no-interaction --no-progress --no-suggest
+	phar/box.phar compile --config=box.json
+	git checkout HEAD -- composer.json composer.lock
 	phar/box.phar info .build/phar/composer-normalize.phar
 	.build/phar/composer-normalize.phar
 
