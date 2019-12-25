@@ -1,5 +1,6 @@
 # composer-normalize
 
+[![Continuous Deployment](https://github.com/ergebnis/composer-normalize/workflows/Continuous%20Deployment/badge.svg)](https://github.com/ergebnis/composer-normalize/actions)
 [![Continuous Integration](https://github.com/ergebnis/composer-normalize/workflows/Continuous%20Integration/badge.svg)](https://github.com/ergebnis/composer-normalize/actions)
 [![Schema](https://github.com/ergebnis/composer-normalize/workflows/Schema/badge.svg)](https://github.com/ergebnis/composer-normalize/actions)
 [![Code Coverage](https://codecov.io/gh/ergebnis/composer-normalize/branch/master/graph/badge.svg)](https://codecov.io/gh/ergebnis/composer-normalize)

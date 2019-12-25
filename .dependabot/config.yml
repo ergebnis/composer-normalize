@@ -12,6 +12,20 @@ update_configs:
       - "dependency"
     default_reviewers:
       - "localheinz"
+    directory: "/phar"
+    package_manager: "php:composer"
+    update_schedule: "live"
+    version_requirement_updates: "increase_versions"
+
+  - automerged_updates:
+      - match:
+          dependency_type: "development"
+    default_assignees:
+      - "localheinz"
+    default_labels:
+      - "dependency"
+    default_reviewers:
+      - "localheinz"
     directory: "/"
     ignored_updates:
       - match:

@@ -1,2 +1,5 @@
 /.build/
+/phar/resource/
+/phar/src/
+/phar/vendor/
 /vendor/
