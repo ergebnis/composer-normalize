@@ -244,3 +244,60 @@ jobs:
         env:
           CODECOV_TOKEN: "${{ secrets.CODECOV_TOKEN }}"
         run: "bash <(curl -s https://codecov.io/bash)"
+
+  compile-phar:
+    name: "Compile Phar"
+
+    runs-on: "ubuntu-latest"
+
+    strategy:
+      matrix:
+        php-version:
+          - "7.4"
+
+        dependencies:
+          - "locked"
+
+    env:
+      COMPOSER_NORMALIZE_PHAR: ".build/phar/composer-normalize.phar"
+
+    steps:
+      - name: "Checkout"
+        uses: "actions/checkout@v2.0.0"
+
+      - name: "Install PHP with extensions"
+        uses: "shivammathur/setup-php@1.6.2"
+        with:
+          coverage: "none"
+          extensions: "${{ env.REQUIRED_PHP_EXTENSIONS }}"
+          php-version: "${{ matrix.php-version }}"
+
+      - name: "Validate composer.json and composer.lock"
+        run: "composer validate --strict"
+        working-directory: "phar"
+
+      - name: "Cache dependencies installed with composer"
+        uses: "actions/cache@v1.0.3"
+        with:
+          path: "~/.composer/cache"
+          key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('**/composer.lock') }}-phar"
+          restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-phar"
+
+      - name: "Install locked dependencies required for compiling Phar with composer"
+        run: "composer install --no-interaction --no-progress --no-suggest"
+        working-directory: "phar"
+
+      - name: "Copy files"
+        run: "cp -r resource phar/resource && cp -r src phar/src"
+
+      - name: "Validate configuration for humbug/box"
+        run: "phar/box.phar validate phar/box.json"
+
+      - name: "Compile composer-normalize.phar with humbug/box"
+        run: "phar/box.phar compile --config=phar/box.json"
+
+      - name: "Show info about composer-normalize.phar with humbug/box"
+        run: "phar/box.phar info ${{ env.COMPOSER_NORMALIZE_PHAR }}"
+
+      - name: "Run composer-normalize.phar"
+        run: "${{ env.COMPOSER_NORMALIZE_PHAR }}"
