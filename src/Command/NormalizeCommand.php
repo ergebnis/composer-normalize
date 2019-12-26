@@ -153,13 +153,16 @@ final class NormalizeCommand extends Command\BaseCommand
 
         try {
             $normalized = $this->normalizer->normalize($json);
-        } catch (\InvalidArgumentException $exception) {
+        } catch (Normalizer\Exception\OriginalInvalidAccordingToSchemaException $exception) {
             $io->writeError(\sprintf(
                 '<error>%s</error>',
                 $exception->getMessage()
             ));
 
-            return $this->validateComposerFile($output);
+            return $this->validateComposerFile(
+                $output,
+                $composerFile
+            );
         } catch (\RuntimeException $exception) {
             $io->writeError(\sprintf(
                 '<error>%s</error>',
@@ -347,12 +350,13 @@ final class NormalizeCommand extends Command\BaseCommand
      * @see https://getcomposer.org/doc/03-cli.md#validate
      *
      * @param Console\Output\OutputInterface $output
+     * @param string                         $composerFile
      *
      * @throws \Exception
      *
      * @return int
      */
-    private function validateComposerFile(Console\Output\OutputInterface $output): int
+    private function validateComposerFile(Console\Output\OutputInterface $output, string $composerFile): int
     {
         /** @var Console\Application $application */
         $application = $this->getApplication();
@@ -360,6 +364,7 @@ final class NormalizeCommand extends Command\BaseCommand
         return $application->run(
             new Console\Input\ArrayInput([
                 'command' => 'validate',
+                'file' => $composerFile,
                 '--no-check-all' => true,
                 '--no-check-lock' => true,
                 '--no-check-publish' => true,
