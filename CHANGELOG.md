@@ -7,7 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
-For a full diff see [`2.1.0...master`][2.1.0...master].
+For a full diff see [`2.1.1...master`][2.1.1...master].
+
+## [`2.1.1`][2.1.1]
+
+For a full diff see [`2.1.0...2.1.1`][2.1.0...2.1.1].
+
+### Fixed
+
+* Actually run `composer validate` to show validation errors when `composer.json` is not valid according to its schema ([#297]), by [@localheinz]
 
 ## [`2.1.0`][2.1.0]
 
@@ -266,6 +274,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [2.0.1]: https://github.com/ergebnis/composer-normalize/releases/tag/2.0.1
 [2.0.2]: https://github.com/ergebnis/composer-normalize/releases/tag/2.0.2
 [2.1.0]: https://github.com/ergebnis/composer-normalize/releases/tag/2.1.0
+[2.1.1]: https://github.com/ergebnis/composer-normalize/releases/tag/2.1.1
 
 [81bc3a8...0.1.0]: https://github.com/ergebnis/composer-normalize/compare/81bc3a8...0.1.0
 [0.1.0...0.2.0]: https://github.com/ergebnis/composer-normalize/compare/0.1.0...0.2.0
@@ -289,7 +298,8 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [2.0.0...2.0.1]: https://github.com/ergebnis/composer-normalize/compare/2.0.0...2.0.1
 [2.0.1...2.0.2]: https://github.com/ergebnis/composer-normalize/compare/2.0.1...2.0.2
 [2.0.2...2.1.0]: https://github.com/ergebnis/composer-normalize/compare/2.0.2...2.1.0
-[2.1.0...master]: https://github.com/ergebnis/composer-normalize/compare/2.1.0...master
+[2.1.0...2.1.1]: https://github.com/ergebnis/composer-normalize/compare/2.1.0...2.1.1
+[2.1.1...master]: https://github.com/ergebnis/composer-normalize/compare/2.1.1...master
 
 [#1]: https://github.com/ergebnis/composer-normalize/pull/1
 [#2]: https://github.com/ergebnis/composer-normalize/pull/2
@@ -327,6 +337,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [#273]: https://github.com/ergebnis/composer-normalize/pull/273
 [#280]: https://github.com/ergebnis/composer-normalize/pull/280
 [#292]: https://github.com/ergebnis/composer-normalize/pull/292
+[#297]: https://github.com/ergebnis/composer-normalize/pull/297
 
 [@ergebnis]: https://github.com/ergebnis
 [@localheinz]: https://github.com/localheinz

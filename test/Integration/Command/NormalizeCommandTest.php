@@ -243,7 +243,12 @@ final class NormalizeCommandTest extends Framework\TestCase
         );
 
         self::assertExitCodeSame(1, $exitCode);
-        self::assertRegExp('/Original JSON is not valid according to schema ".*"/', $output->fetch());
+
+        $display = $output->fetch();
+
+        self::assertRegExp('/Original JSON is not valid according to schema ".*"/', $display);
+        self::assertContains('See https://getcomposer.org/doc/04-schema.md for details on the schema', $display);
+        self::assertContains('No license specified, it is recommended to do so. For closed-source software you may use "proprietary" as license.', $display);
         self::assertEquals($initialState, $scenario->currentState());
     }
 
