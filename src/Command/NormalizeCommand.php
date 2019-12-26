@@ -231,16 +231,10 @@ final class NormalizeCommand extends Command\BaseCommand
 
         $this->resetComposer();
 
-        $file = $input->getArgument('file');
-
-        if (\is_string($file)) {
-            return $this->updateLockerInWorkingDirectory(
-                $output,
-                \dirname($file)
-            );
-        }
-
-        return $this->updateLocker($output);
+        return $this->updateLockerInWorkingDirectory(
+            $output,
+            \dirname($composerFile)
+        );
     }
 
     /**
@@ -369,33 +363,6 @@ final class NormalizeCommand extends Command\BaseCommand
                 '--no-check-lock' => true,
                 '--no-check-publish' => true,
                 '--strict' => true,
-            ]),
-            $output
-        );
-    }
-
-    /**
-     * @see https://getcomposer.org/doc/03-cli.md#update
-     *
-     * @param Console\Output\OutputInterface $output
-     *
-     * @throws \Exception
-     *
-     * @return int
-     */
-    private function updateLocker(Console\Output\OutputInterface $output): int
-    {
-        /** @var Console\Application $application */
-        $application = $this->getApplication();
-
-        return $application->run(
-            new Console\Input\ArrayInput([
-                'command' => 'update',
-                '--lock' => true,
-                '--no-autoloader' => true,
-                '--no-plugins' => true,
-                '--no-scripts' => true,
-                '--no-suggest' => true,
             ]),
             $output
         );
