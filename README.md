@@ -35,13 +35,41 @@ have written a blog post about [Normalizing composer.json](https://localheinz.co
 
 ## Installation
 
+### Composer
+
 Run
 
 ```
 $ composer require --dev ergebnis/composer-normalize
 ```
 
+to install `ergebnis/composer-normalize` as a composer plugin.
+
+### Phar
+
+Head over to http://github.com/ergebnis/composer-normalize/releases/latest and download the latest `composer-normalize.phar`.
+
+Run
+
+```
+$ chmod +x composer-normalize.phar
+```
+
+to make the downloaded `composer-normalize.phar` executable.
+
+### Phive
+
+Run
+
+```
+$ phive install ergebnis/composer-normalize
+```
+
+to install `ergebnis/composer-normalize` with [PHIVE](https://phar.io).
+
 ## Usage
+
+### Composer
 
 Run
 
@@ -50,6 +78,28 @@ $ composer normalize
 ```
 
 to normalize `composer.json` in the working directory.
+
+### Phar
+
+Run
+
+```
+$ ./composer-normalize.phar
+```
+
+to normalize `composer.json` in the working directory.
+
+### Phive
+
+Run
+
+```
+$ ./tools/composer-normalize
+```
+
+to normalize `composer.json` in the working directory.
+
+### Details
 
 The `NormalizeCommand` provided by the `NormalizePlugin` within this package will
 
