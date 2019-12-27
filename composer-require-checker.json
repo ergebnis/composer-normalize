@@ -17,6 +17,7 @@
     "void",
     "Composer\\Command\\BaseCommand",
     "Composer\\Composer",
+    "Composer\\Console\\Application",
     "Composer\\Factory",
     "Composer\\IO\\IOInterface",
     "Composer\\Json\\JsonFile",

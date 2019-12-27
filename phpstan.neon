@@ -5,6 +5,7 @@ parameters:
 	ergebnis:
 		classesAllowedToBeExtended:
 			- Composer\Command\BaseCommand
+			- Composer\Console\Application
 			- LogicException
 	inferPrivatePropertyTypeFromConstructor: true
 	level: max

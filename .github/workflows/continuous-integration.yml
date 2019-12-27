@@ -285,6 +285,9 @@ jobs:
       - name: "Require composer/composer"
         run: "composer require composer/composer:1.9.1 --no-interaction --no-progress --no-suggest"
 
+      - name: "Remove git placeholder configuration with jq"
+        run: "echo $(cat box.json | jq 'del(.git)') > box.json"
+
       - name: "Validate configuration for humbug/box"
         run: "phar/box.phar validate box.json"
 

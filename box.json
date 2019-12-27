@@ -8,6 +8,7 @@
   "files": [
     "resource/schema.json"
   ],
+  "git": "git",
   "main": "phar/composer-normalize.php",
   "output": ".build/phar/composer-normalize.phar"
 }
