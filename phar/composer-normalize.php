@@ -11,8 +11,8 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/composer-normalize
  */
 
-use Composer\Console\Application;
-use Ergebnis\Composer\Json\Normalizer\ComposerJsonNormalizer;
+use Composer\Factory;
+use Ergebnis\Composer\Json;
 use Ergebnis\Composer\Normalize;
 use Ergebnis\Json\Normalizer;
 use Ergebnis\Json\Printer;
@@ -21,8 +21,8 @@ use Localheinz\Diff;
 require_once __DIR__ . '/../vendor/autoload.php';
 
 $command = new Normalize\Command\NormalizeCommand(
-    new Composer\Factory(),
-    new ComposerJsonNormalizer(__DIR__ . '/../resource/schema.json'),
+    new Factory(),
+    new Json\Normalizer\ComposerJsonNormalizer(__DIR__ . '/../resource/schema.json'),
     new Normalizer\Format\Formatter(new Printer\Printer()),
     new Diff\Differ(new Diff\Output\StrictUnifiedDiffOutputBuilder([
         'fromFile' => 'original',
@@ -30,7 +30,7 @@ $command = new Normalize\Command\NormalizeCommand(
     ]))
 );
 
-$application = new Application();
+$application = new Normalize\Application();
 
 $application->add($command);
 $application->setDefaultCommand($command->getName());
