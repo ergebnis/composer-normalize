@@ -17,6 +17,7 @@ use Ergebnis\Composer\Normalize;
 use Ergebnis\Json\Normalizer;
 use Ergebnis\Json\Printer;
 use Localheinz\Diff;
+use Symfony\Component\Console;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
@@ -33,5 +34,16 @@ $command = new Normalize\Command\NormalizeCommand(
 $application = new Normalize\Application();
 
 $application->add($command);
-$application->setDefaultCommand($command->getName());
-$application->run();
+
+if (1 === \count($argv) || 'normalize' !== $argv[1]) {
+    \array_splice(
+        $argv,
+        1,
+        0,
+        [
+            'normalize',
+        ]
+    );
+}
+
+$application->run(new Console\Input\ArgvInput($argv));

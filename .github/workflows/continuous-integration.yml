@@ -299,3 +299,6 @@ jobs:
 
       - name: "Run composer-normalize.phar"
         run: "${{ env.COMPOSER_NORMALIZE_PHAR }}"
+
+      - name: "Run composer-normalize.phar with argument and options"
+        run: "${{ env.COMPOSER_NORMALIZE_PHAR }} --dry-run composer.json"
