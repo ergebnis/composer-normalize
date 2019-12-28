@@ -28,6 +28,7 @@ phar: vendor ## Builds a phar with humbug/box
 	git checkout HEAD -- composer.json composer.lock
 	phar/box.phar info .build/phar/composer-normalize.phar
 	.build/phar/composer-normalize.phar
+	.build/phar/composer-normalize.phar --dry-run composer.json
 
 .PHONY: static-code-analysis
 static-code-analysis: vendor ## Runs a static code analysis with phpstan/phpstan
