@@ -119,6 +119,7 @@ The `NormalizeCommand` provided by the `NormalizePlugin` within this package wil
 
 ### Options
 
+* `--diff`: Show the results of normalizing
 * `--dry-run`: Show the results of normalizing, but do not modify any files
 * `--indent-size`: Indent size (an integer greater than 0); should be used with the `--indent-style` option
 * `--indent-style`: Indent style (one of "space", "tab"); should be used with the `--indent-size` option

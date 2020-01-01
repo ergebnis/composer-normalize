@@ -65,6 +65,12 @@ final class NormalizeCommand extends Command\BaseCommand
                 'Path to composer.json file'
             ),
             new Console\Input\InputOption(
+                'diff',
+                null,
+                Console\Input\InputOption::VALUE_NONE,
+                'Show the results of normalizing'
+            ),
+            new Console\Input\InputOption(
                 'dry-run',
                 null,
                 Console\Input\InputOption::VALUE_NONE,
@@ -192,7 +198,7 @@ final class NormalizeCommand extends Command\BaseCommand
             return 0;
         }
 
-        if (true === $input->getOption('dry-run')) {
+        if (true === $input->getOption('diff') || true === $input->getOption('dry-run')) {
             $io->writeError(\sprintf(
                 '<error>%s is not normalized.</error>',
                 $composerFile
@@ -212,7 +218,9 @@ final class NormalizeCommand extends Command\BaseCommand
                 '<fg=yellow>----------- end diff -----------</>',
                 '',
             ]);
+        }
 
+        if (true === $input->getOption('dry-run')) {
             return 1;
         }
 

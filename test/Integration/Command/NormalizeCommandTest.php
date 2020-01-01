@@ -397,6 +397,57 @@ final class NormalizeCommandTest extends Framework\TestCase
      *
      * @param CommandInvocation $commandInvocation
      */
+    public function testSucceedsWhenComposerJsonIsPresentAndValidAndComposerLockIsNotPresentAndComposerJsonIsNotYetNormalizedAndDiffOptionIsUsed(CommandInvocation $commandInvocation): void
+    {
+        $scenario = self::createScenario(
+            $commandInvocation,
+            __DIR__ . '/../../Fixture/json/valid/lock/not-present/json/not-yet-normalized'
+        );
+
+        $initialState = $scenario->initialState();
+
+        self::assertComposerJsonFileExists($initialState);
+        self::assertComposerLockFileNotExists($initialState);
+
+        $application = self::createApplicationWithNormalizeCommandAsProvidedByNormalizePlugin();
+
+        $input = new Console\Input\ArrayInput($scenario->consoleParametersWith([
+            '--diff' => true,
+        ]));
+
+        $output = new Console\Output\BufferedOutput();
+
+        $exitCode = $application->run(
+            $input,
+            $output
+        );
+
+        self::assertExitCodeSame(0, $exitCode);
+
+        $expected = \sprintf(
+            'Successfully normalized %s.',
+            $scenario->composerJsonFileReference()
+        );
+
+        $renderedOutput = $output->fetch();
+
+        self::assertStringContainsString($expected, $renderedOutput);
+        self::assertStringContainsString('--- original', $renderedOutput);
+        self::assertStringContainsString('+++ normalized', $renderedOutput);
+        self::assertStringContainsString('---------- begin diff ----------', $renderedOutput);
+        self::assertStringContainsString('----------- end diff -----------', $renderedOutput);
+
+        $currentState = $scenario->currentState();
+
+        self::assertComposerJsonFileModified($initialState, $currentState);
+        self::assertComposerLockFileNotExists($currentState);
+    }
+
+    /**
+     * @dataProvider providerCommandInvocation
+     *
+     * @param CommandInvocation $commandInvocation
+     */
     public function testFailsWhenComposerJsonIsPresentAndValidAndComposerLockIsNotPresentAndComposerJsonIsNotYetNormalizedAndDryRunOptionIsUsed(CommandInvocation $commandInvocation): void
     {
         $scenario = self::createScenario(
