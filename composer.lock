@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "25aae493f112fa04354b9373da8d74bb",
+    "content-hash": "57d9c37b0fb16cb4d5e57e4d52a0b79c",
     "packages": [
         {
             "name": "ergebnis/composer-json-normalizer",
@@ -835,33 +835,38 @@
         },
         {
             "name": "ergebnis/php-cs-fixer-config",
-            "version": "1.1.2",
+            "version": "1.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/php-cs-fixer-config.git",
-                "reference": "cd964747d45e41509161828863e896a682563970"
+                "reference": "53f9184461a68110a2b838abe79ec44fc77265e2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/php-cs-fixer-config/zipball/cd964747d45e41509161828863e896a682563970",
-                "reference": "cd964747d45e41509161828863e896a682563970",
+                "url": "https://api.github.com/repos/ergebnis/php-cs-fixer-config/zipball/53f9184461a68110a2b838abe79ec44fc77265e2",
+                "reference": "53f9184461a68110a2b838abe79ec44fc77265e2",
                 "shasum": ""
             },
             "require": {
+                "ext-filter": "*",
                 "friendsofphp/php-cs-fixer": "~2.16.0",
                 "php": "^7.1"
             },
             "require-dev": {
-                "ergebnis/composer-normalize": "^1.3.1",
-                "ergebnis/phpstan-rules": "~0.13.0",
+                "ergebnis/composer-normalize": "^2.0.2",
+                "ergebnis/phpstan-rules": "~0.14.2",
                 "ergebnis/test-util": "~0.9.1",
                 "infection/infection": "~0.13.6",
-                "jangregor/phpstan-prophecy": "~0.4.2",
+                "jangregor/phpstan-prophecy": "~0.5.1",
                 "phpstan/extension-installer": "^1.0.3",
-                "phpstan/phpstan": "~0.11.19",
-                "phpstan/phpstan-deprecation-rules": "~0.11.2",
-                "phpstan/phpstan-strict-rules": "~0.11.1",
-                "phpunit/phpunit": "^7.5.18"
+                "phpstan/phpstan": "~0.12.3",
+                "phpstan/phpstan-deprecation-rules": "~0.12.0",
+                "phpstan/phpstan-phpunit": "~0.12.3",
+                "phpstan/phpstan-strict-rules": "~0.12.0",
+                "phpunit/phpunit": "^7.5.18",
+                "psalm/plugin-phpunit": "~0.8.0",
+                "symfony/filesystem": "^4.4.0",
+                "vimeo/psalm": "^3.8.1"
             },
             "type": "library",
             "autoload": {
@@ -881,7 +886,7 @@
             ],
             "description": "Provides a configuration factory and multiple rule sets for friendsofphp/php-cs-fixer.",
             "homepage": "https://github.com/ergebnis/php-cs-fixer-config",
-            "time": "2019-12-19T09:40:03+00:00"
+            "time": "2020-01-02T19:00:57+00:00"
         },
         {
             "name": "ergebnis/phpstan-rules",
