@@ -25,18 +25,15 @@ final class Directory
      */
     private $exists;
 
-    private function __construct()
+    private function __construct(string $path)
     {
+        $this->path = $path;
+        $this->exists = \file_exists($path) && \is_dir($path);
     }
 
     public static function fromPath(string $path): self
     {
-        $directory = new self();
-
-        $directory->path = $path;
-        $directory->exists = \file_exists($path) && \is_dir($path);
-
-        return $directory;
+        return new self($path);
     }
 
     public function path(): string

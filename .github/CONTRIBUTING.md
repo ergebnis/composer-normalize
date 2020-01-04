@@ -30,7 +30,7 @@ to run a dependency analysis.
 
 ## Static Code Analysis
 
-We are using [`phpstan/phpstan`](https://github.com/phpstan/phpstan) to statically analyze the code.
+We are using [`phpstan/phpstan`](https://github.com/phpstan/phpstan) and [`vimeo/psalm`](https://github.com/vimeo/psalm) to statically analyze the code.
 
 Run
 
@@ -40,7 +40,7 @@ $ make static-code-analysis
 
 to run a static code analysis.
 
-We are also using the [baseline feature](https://medium.com/@ondrejmirtes/phpstans-baseline-feature-lets-you-hold-new-code-to-a-higher-standard-e77d815a5dff) of [`phpstan/phpstan`](https://github.com/phpstan/phpstan).
+We are also using the baseline features of [`phpstan/phpstan`(https://medium.com/@ondrejmirtes/phpstans-baseline-feature-lets-you-hold-new-code-to-a-higher-standard-e77d815a5dff) and [`vimeo/psalm`](https://psalm.dev/docs/running_psalm/dealing_with_code_issues/#using-a-baseline-file).
 
 Run
 
@@ -48,9 +48,9 @@ Run
 $ make static-code-analysis-baseline
 ```
 
-to regenerate the baseline in [`../phpstan-baseline.neon`](../phpstan-baseline.neon).
+to regenerate the baselines in [`../phpstan-baseline.neon`](../phpstan-baseline.neon) and [`../psalm-baseline.xml`](../psalm-baseline.xml).
 
-:exclamation: Ideally, the baseline should shrink over time.
+:exclamation: Ideally, the baselines should shrink over time.
 
 ## Tests
 

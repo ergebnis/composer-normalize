@@ -35,32 +35,29 @@ final class State
      */
     private $vendorDirectory;
 
-    private function __construct()
+    private function __construct(Directory $directory)
     {
-    }
+        $this->directory = $directory;
 
-    public static function fromDirectory(Directory $directory): self
-    {
-        $state = new self();
-
-        $state->directory = $directory;
-
-        $state->composerJsonFile = File::fromPath(\sprintf(
+        $this->composerJsonFile = File::fromPath(\sprintf(
             '%s/composer.json',
             $directory->path()
         ));
 
-        $state->composerLockFile = File::fromPath(\sprintf(
+        $this->composerLockFile = File::fromPath(\sprintf(
             '%s/composer.lock',
             $directory->path()
         ));
 
-        $state->vendorDirectory = Directory::fromPath(\sprintf(
+        $this->vendorDirectory = Directory::fromPath(\sprintf(
             '%s/vendor',
             $directory->path()
         ));
+    }
 
-        return $state;
+    public static function fromDirectory(Directory $directory): self
+    {
+        return new self($directory);
     }
 
     public function directory(): Directory

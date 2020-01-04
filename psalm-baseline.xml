@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files psalm-version="3.8.1@8e54e3aa060fc490d86d0e2abbf62750516d40fd">
+  <file src="src/Application.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>Application</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/Command/NormalizeCommand.php">
+    <MissingPropertyType occurrences="4">
+      <code>$factory</code>
+      <code>$normalizer</code>
+      <code>$formatter</code>
+      <code>$differ</code>
+    </MissingPropertyType>
+    <PossiblyInvalidArgument occurrences="9">
+      <code>$composerFile</code>
+      <code>$composerFile</code>
+      <code>$composerFile</code>
+      <code>$composerFile</code>
+      <code>$composerFile</code>
+      <code>$composerFile</code>
+      <code>$composerFile</code>
+      <code>$composerFile</code>
+      <code>$composerFile</code>
+    </PossiblyInvalidArgument>
+  </file>
+  <file src="test/Integration/Command/NormalizeCommandTest.php">
+    <NonStaticSelfCall occurrences="3"/>
+  </file>
+  <file src="test/Util/File.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>$path</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="test/Util/Scenario.php">
+    <MissingConstructor occurrences="1">
+      <code>$commandInvocation</code>
+    </MissingConstructor>
+  </file>
+</files>
