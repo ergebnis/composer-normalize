@@ -31,15 +31,19 @@ phar: vendor ## Builds a phar with humbug/box
 	.build/phar/composer-normalize.phar --dry-run composer.json
 
 .PHONY: static-code-analysis
-static-code-analysis: vendor ## Runs a static code analysis with phpstan/phpstan
+static-code-analysis: vendor ## Runs a static code analysis with phpstan/phpstan and vimeo/psalm
 	mkdir -p .build/phpstan
 	vendor/bin/phpstan analyse --configuration=phpstan.neon
+	mkdir -p .build/psalm
+	vendor/bin/psalm --config=psalm.xml --show-info=false
 
 .PHONY: static-code-analysis-baseline
-static-code-analysis-baseline: vendor ## Generates a baseline for static code analysis with phpstan/phpstan
+static-code-analysis-baseline: vendor ## Generates a baseline for static code analysis with phpstan/phpstan and vimeo/psalm
 	mkdir -p .build/phpstan
 	echo '' > phpstan-baseline.neon
 	vendor/bin/phpstan analyze --configuration=phpstan.neon --error-format=baselineNeon > phpstan-baseline.neon || true
+	mkdir -p .build/psalm
+	vendor/bin/psalm --config=psalm.xml --set-baseline=psalm-baseline.xml
 
 .PHONY: tests
 tests: vendor ## Runs auto-review, unit, and integration tests with phpunit/phpunit
