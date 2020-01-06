@@ -95,7 +95,7 @@ jobs:
         id: "create-release"
         uses: "actions/create-release@v1.0.0"
         env:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          GITHUB_TOKEN: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
         with:
           draft: false
           prerelease: false
@@ -105,7 +105,7 @@ jobs:
       - name: "Upload composer-normalize.phar"
         uses: "actions/upload-release-asset@v1.0.1"
         env:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          GITHUB_TOKEN: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
         with:
           asset_content_type: "text/plain"
           asset_name: "composer-normalize.phar"
@@ -115,7 +115,7 @@ jobs:
       - name: "Upload composer-normalize.phar.asc"
         uses: "actions/upload-release-asset@v1.0.1"
         env:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          GITHUB_TOKEN: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
         with:
           asset_content_type: "text/plain"
           asset_name: "composer-normalize.phar.asc"

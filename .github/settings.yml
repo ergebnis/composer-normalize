@@ -38,7 +38,8 @@ branches:
         apps:
           - "dependabot-preview"
         teams: []
-        users: []
+        users:
+          - "ergebnis-bot"
 
 # https://developer.github.com/v3/issues/labels/#create-a-label
 # https://developer.github.com/v3/issues/labels/#update-a-label

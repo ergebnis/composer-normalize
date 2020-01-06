@@ -29,4 +29,4 @@ jobs:
           commit_message: "Enhancement: Update schema.json"
           file_pattern: "resource\\/schema\\.json"
         env:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN_LOCALHEINZ }}"
+          GITHUB_TOKEN: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
