@@ -16,7 +16,7 @@ jobs:
         with:
           days-before-close: 5
           days-before-stale: 60
-          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          repo-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
           stale-issue-label: 'stale'
           stale-issue-message: >
             This issue has been automatically marked as stale because it has not had

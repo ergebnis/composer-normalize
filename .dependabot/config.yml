@@ -10,10 +10,12 @@ update_configs:
       include_scope: true
       prefix: "Build"
     default_assignees:
+      - "ergebnis-bot"
       - "localheinz"
     default_labels:
       - "dependency"
     default_reviewers:
+      - "ergebnis-bot"
       - "localheinz"
     directory: "/"
     ignored_updates:
