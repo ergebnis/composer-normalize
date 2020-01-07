@@ -38,7 +38,7 @@
     "phpunit/phpunit": "^7.5.19",
     "psalm/plugin-phpunit": "~0.8.0",
     "symfony/filesystem": "^4.4.1",
-    "vimeo/psalm": "^3.8.1"
+    "vimeo/psalm": "^3.8.2"
   },
   "config": {
     "platform": {
