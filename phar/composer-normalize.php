@@ -12,7 +12,6 @@ declare(strict_types=1);
  */
 
 use Composer\Factory;
-use Ergebnis\Composer\Json;
 use Ergebnis\Composer\Normalize;
 use Ergebnis\Json\Normalizer;
 use Ergebnis\Json\Printer;
@@ -23,7 +22,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 $command = new Normalize\Command\NormalizeCommand(
     new Factory(),
-    new Json\Normalizer\ComposerJsonNormalizer(__DIR__ . '/../resource/schema.json'),
+    new Normalizer\Vendor\Composer\ComposerJsonNormalizer(__DIR__ . '/../resource/schema.json'),
     new Normalizer\Format\Formatter(new Printer\Printer()),
     new Diff\Differ(new Diff\Output\StrictUnifiedDiffOutputBuilder([
         'fromFile' => 'original',

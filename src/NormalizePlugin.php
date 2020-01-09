@@ -17,7 +17,6 @@ use Composer\Composer;
 use Composer\Factory;
 use Composer\IO;
 use Composer\Plugin;
-use Ergebnis\Composer\Json\Normalizer\ComposerJsonNormalizer;
 use Ergebnis\Json\Normalizer;
 use Ergebnis\Json\Printer;
 use Localheinz\Diff;
@@ -40,7 +39,7 @@ final class NormalizePlugin implements Plugin\Capability\CommandProvider, Plugin
         return [
             new Command\NormalizeCommand(
                 new Factory(),
-                new ComposerJsonNormalizer(\sprintf(
+                new Normalizer\Vendor\Composer\ComposerJsonNormalizer(\sprintf(
                     'file://%s',
                     __DIR__ . '/../resource/schema.json'
                 )),
