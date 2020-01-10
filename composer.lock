@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "eff41e2d3318eb752c5fd8e1433fe693",
+    "content-hash": "faeb2a7d7a504bdeff7922eebfe3a75d",
     "packages": [
         {
             "name": "ergebnis/json-normalizer",
@@ -2169,21 +2169,21 @@
         },
         {
             "name": "phpstan/phpstan-phpunit",
-            "version": "0.12.5",
+            "version": "0.12.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan-phpunit.git",
-                "reference": "fe49777a04d8dafcfb3958e3441d9c982a1e40ae"
+                "reference": "26394996368b6d033d012547d3197f4e07e23021"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan-phpunit/zipball/fe49777a04d8dafcfb3958e3441d9c982a1e40ae",
-                "reference": "fe49777a04d8dafcfb3958e3441d9c982a1e40ae",
+                "url": "https://api.github.com/repos/phpstan/phpstan-phpunit/zipball/26394996368b6d033d012547d3197f4e07e23021",
+                "reference": "26394996368b6d033d012547d3197f4e07e23021",
                 "shasum": ""
             },
             "require": {
                 "php": "~7.1",
-                "phpstan/phpstan": "^0.12.3"
+                "phpstan/phpstan": "^0.12.4"
             },
             "conflict": {
                 "phpunit/phpunit": "<7.0"
@@ -2221,7 +2221,7 @@
                 "MIT"
             ],
             "description": "PHPUnit extensions and rules for PHPStan",
-            "time": "2020-01-03T10:04:21+00:00"
+            "time": "2020-01-10T12:07:21+00:00"
         },
         {
             "name": "phpstan/phpstan-strict-rules",
