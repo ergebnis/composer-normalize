@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dbd68a7c5898450f0f3427425c3a63bc",
+    "content-hash": "eff41e2d3318eb752c5fd8e1433fe693",
     "packages": [
         {
             "name": "ergebnis/json-normalizer",
@@ -2612,16 +2612,16 @@
         },
         {
             "name": "psalm/plugin-phpunit",
-            "version": "0.8.0",
+            "version": "0.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/psalm/phpunit-psalm-plugin.git",
-                "reference": "1dcd8ff7719b78b858d7560dd2d912a55272bfbc"
+                "reference": "021eb5a8c1c735f820a6bfb93b7a63f1d1c2c012"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/psalm/phpunit-psalm-plugin/zipball/1dcd8ff7719b78b858d7560dd2d912a55272bfbc",
-                "reference": "1dcd8ff7719b78b858d7560dd2d912a55272bfbc",
+                "url": "https://api.github.com/repos/psalm/phpunit-psalm-plugin/zipball/021eb5a8c1c735f820a6bfb93b7a63f1d1c2c012",
+                "reference": "021eb5a8c1c735f820a6bfb93b7a63f1d1c2c012",
                 "shasum": ""
             },
             "require": {
@@ -2665,7 +2665,7 @@
                 }
             ],
             "description": "Psalm plugin for PHPUnit",
-            "time": "2019-11-27T15:49:38+00:00"
+            "time": "2020-01-10T00:31:44+00:00"
         },
         {
             "name": "psr/container",
