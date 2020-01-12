@@ -536,7 +536,7 @@ This package is licensed using the MIT License.
 
 ## GitHub Action
 
-`ergebnis/composer-normalize` is also available as a [GitHub Action](https://github.com/features/actions) on the [GitHub Marketplace](https://github.com/marketplace), see [`composer-normalize-action`](https://github.com/marketplace/actions/composer-normalize-action) as well as the corresponding repository [`localheinz/composer-normalize-action`](https://github.com/localheinz/composer-normalize-action).
+`ergebnis/composer-normalize` is also available as a [GitHub Action](https://github.com/features/actions) on the [GitHub Marketplace](https://github.com/marketplace), see [`composer-normalize-action`](https://github.com/marketplace/actions/composer-normalize-action) as well as the corresponding repository [`ergebnis/composer-normalize-action`](https://github.com/ergebnis/composer-normalize-action).
 
 ## Services
 
