@@ -40,7 +40,6 @@ branches:
         teams: []
         users:
           - "ergebnis-bot"
-          - "localheinz"
 
 # https://developer.github.com/v3/issues/labels/#create-a-label
 # https://developer.github.com/v3/issues/labels/#update-a-label
