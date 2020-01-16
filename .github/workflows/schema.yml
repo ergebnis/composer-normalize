@@ -22,11 +22,17 @@ jobs:
       - name: "Show diff"
         run: "git diff resource/schema.json"
 
-      - name: "Commit updated schema"
-        uses: "stefanzweifel/git-auto-commit-action@v2.5.0"
+      - name: "Open pull request updating schema"
+        uses: "gr2m/create-or-update-pull-request-action@v1.2.9"
         with:
-          branch: "master"
-          commit_message: "Enhancement: Update schema.json"
-          file_pattern: "resource\\/schema\\.json"
+          author: "Andreas Möller <am@localheinz.com>"
+          branch: "feature/schema"
+          body: |
+            This PR
+
+            * [x] updates `schema.json`
+          commit-message: "Enhancement: Update schema.json"
+          path: "resource/"
+          title: "Enhancement: Update schema.json"
         env:
-          GITHUB_TOKEN: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
