@@ -4,7 +4,7 @@ name: "Schema"
 
 on:
   schedule:
-    - cron: "0 12 * * *"
+    - cron: "0 9 * * *"
 
 jobs:
   schema:
