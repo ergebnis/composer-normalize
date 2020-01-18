@@ -35,4 +35,4 @@ jobs:
           path: "resource/"
           title: "Enhancement: Update schema.json"
         env:
-          GITHUB_TOKEN: "${{ secrets.ERGEBNIS_BOT__TOKEN }}"
+          GITHUB_TOKEN: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
