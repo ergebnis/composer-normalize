@@ -1,0 +1,85 @@
+# https://help.github.com/en/categories/automating-your-workflow-with-github-actions
+
+name: "License"
+
+on:
+  schedule:
+    - cron: "1 0 1 1 *"
+
+env:
+  REQUIRED_PHP_EXTENSIONS: "mbstring"
+
+jobs:
+  license:
+    name: "License"
+
+    runs-on: "ubuntu-latest"
+
+    strategy:
+      matrix:
+        php-version:
+          - "7.1"
+
+        dependencies:
+          - "locked"
+
+    steps:
+      - name: "Checkout"
+        uses: "actions/checkout@v2.0.0"
+
+      - name: "Install PHP with extensions"
+        uses: "shivammathur/setup-php@1.7.3"
+        with:
+          coverage: "none"
+          extensions: "${{ env.REQUIRED_PHP_EXTENSIONS }}"
+          php-version: "${{ matrix.php-version }}"
+
+      - name: "Validate composer.json and composer.lock"
+        run: "composer validate --strict"
+
+      - name: "Cache dependencies installed with composer"
+        uses: "actions/cache@v1.0.3"
+        with:
+          path: "~/.composer/cache"
+          key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('**/composer.lock') }}"
+          restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
+
+      - name: "Install lowest dependencies with composer"
+        if: "matrix.dependencies == 'lowest'"
+        run: "composer update --no-interaction --no-progress --no-suggest --prefer-lowest"
+
+      - name: "Install locked dependencies with composer"
+        if: "matrix.dependencies == 'locked'"
+        run: "composer install --no-interaction --no-progress --no-suggest"
+
+      - name: "Install highest dependencies with composer"
+        if: "matrix.dependencies == 'highest'"
+        run: "composer update --no-interaction --no-progress --no-suggest"
+
+      - name: "Create cache directory for friendsofphp/php-cs-fixer"
+        run: "mkdir -p .build/php-cs-fixer"
+
+      - name: "Cache cache directory for friendsofphp/php-cs-fixer"
+        uses: "actions/cache@v1.0.3"
+        with:
+          path: ".build/php-cs-fixer"
+          key: "php-${{ matrix.php-version }}-php-cs-fixer-${{ hashFiles('**/composer.lock') }}"
+          restore-keys: "php-${{ matrix.php-version }}-php-cs-fixer-"
+
+      - name: "Run friendsofphp/php-cs-fixer"
+        run: "vendor/bin/php-cs-fixer fix --config=.php_cs --diff --diff-format=udiff --dry-run --verbose"
+
+      - name: "Open pull request updating license year"
+        uses: "gr2m/create-or-update-pull-request-action@v1.2.9"
+        with:
+          author: "ergebnis-bot <bot@ergebn.is>"
+          branch: "feature/license-year"
+          body: |
+            This PR
+
+            * [x] updates the license year
+          commit-message: "Enhancement: Update license year"
+          path: "."
+          title: "Enhancement: Update license year"
+        env:
+          GITHUB_TOKEN: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"

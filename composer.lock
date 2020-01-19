@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "eebb6179ec3bef619f16b51b7e03ff9e",
+    "content-hash": "d9411a9437b3b9c639ef0d47dbd78767",
     "packages": [
         {
             "name": "ergebnis/json-normalizer",
@@ -914,6 +914,64 @@
             "description": "Provides a way to collect classy constructs from source or a directory.",
             "homepage": "https://github.com/ergebnis/classy",
             "time": "2019-12-19T08:25:00+00:00"
+        },
+        {
+            "name": "ergebnis/license",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ergebnis/license.git",
+                "reference": "ca94bcaabcbd56e663899fc4510e9cfdd8c6329c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ergebnis/license/zipball/ca94bcaabcbd56e663899fc4510e9cfdd8c6329c",
+                "reference": "ca94bcaabcbd56e663899fc4510e9cfdd8c6329c",
+                "shasum": ""
+            },
+            "require": {
+                "ext-filter": "*",
+                "php": "^7.1"
+            },
+            "require-dev": {
+                "ergebnis/composer-normalize": "^2.2.2",
+                "ergebnis/php-cs-fixer-config": "~1.1.3",
+                "ergebnis/phpstan-rules": "~0.14.2",
+                "ergebnis/test-util": "~0.9.1",
+                "infection/infection": "~0.13.6",
+                "jangregor/phpstan-prophecy": "~0.6.0",
+                "phpstan/extension-installer": "^1.0.3",
+                "phpstan/phpstan": "~0.12.5",
+                "phpstan/phpstan-deprecation-rules": "~0.12.2",
+                "phpstan/phpstan-phpunit": "~0.12.6",
+                "phpstan/phpstan-strict-rules": "~0.12.1",
+                "phpunit/phpunit": "^7.5.20",
+                "psalm/plugin-phpunit": "~0.8.1",
+                "symfony/filesystem": "^4.4.0",
+                "vimeo/psalm": "^3.8.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ergebnis\\License\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Möller",
+                    "email": "am@localheinz.com"
+                }
+            ],
+            "description": "Provides an abstraction for a license.",
+            "homepage": "https://github.com/ergebnis/license",
+            "keywords": [
+                "license"
+            ],
+            "time": "2020-01-19T13:40:34+00:00"
         },
         {
             "name": "ergebnis/php-cs-fixer-config",
