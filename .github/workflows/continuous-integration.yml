@@ -30,7 +30,7 @@ jobs:
         uses: "actions/checkout@v2.0.0"
 
       - name: "Install PHP with extensions"
-        uses: "shivammathur/setup-php@1.7.1"
+        uses: "shivammathur/setup-php@1.7.3"
         with:
           coverage: "none"
           extensions: "${{ env.REQUIRED_PHP_EXTENSIONS }}"
@@ -94,7 +94,7 @@ jobs:
         uses: "actions/checkout@v2.0.0"
 
       - name: "Install PHP with extensions"
-        uses: "shivammathur/setup-php@1.7.1"
+        uses: "shivammathur/setup-php@1.7.3"
         with:
           coverage: "none"
           extensions: "${{ env.REQUIRED_PHP_EXTENSIONS }}"
@@ -202,7 +202,7 @@ jobs:
         uses: "actions/checkout@v2.0.0"
 
       - name: "Install PHP with extensions"
-        uses: "shivammathur/setup-php@1.7.1"
+        uses: "shivammathur/setup-php@1.7.3"
         with:
           coverage: "none"
           extensions: "${{ env.REQUIRED_PHP_EXTENSIONS }}"
@@ -254,7 +254,7 @@ jobs:
         uses: "actions/checkout@v2.0.0"
 
       - name: "Install PHP with extensions"
-        uses: "shivammathur/setup-php@1.7.1"
+        uses: "shivammathur/setup-php@1.7.3"
         with:
           coverage: "xdebug"
           extensions: "${{ env.REQUIRED_PHP_EXTENSIONS }}"
@@ -311,7 +311,7 @@ jobs:
         uses: "actions/checkout@v2.0.0"
 
       - name: "Install PHP with extensions"
-        uses: "shivammathur/setup-php@1.7.1"
+        uses: "shivammathur/setup-php@1.7.3"
         with:
           coverage: "none"
           extensions: "${{ env.REQUIRED_PHP_EXTENSIONS }}"
@@ -367,8 +367,8 @@ jobs:
       - name: "Run composer-normalize.phar with argument and options"
         run: "${{ env.COMPOSER_NORMALIZE_PHAR }} --dry-run composer.json"
 
-  approve:
-    name: "Approve"
+  review:
+    name: "Review"
 
     runs-on: "ubuntu-latest"
 
@@ -384,5 +384,11 @@ jobs:
       - name: "Approve pull requests created by dependabot that update development dependencies"
         uses: "hmarr/auto-approve-action@v2.0.0"
         if: "(github.actor == 'dependabot[bot]' || github.actor == 'dependabot-preview[bot]') && github.event_name == 'pull_request' && startsWith(github.event.pull_request.title, 'Build(deps-dev)')"
+        with:
+          github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
+
+      - name: "Approve pull requests created by @ergebnis-bot that update the license year"
+        uses: "hmarr/auto-approve-action@v2.0.0"
+        if: "github.actor == 'ergebnis-bot' && github.event_name == 'pull_request' && github.event.pull_request.title == 'Enhancement: Update license year'"
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
