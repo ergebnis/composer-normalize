@@ -25,7 +25,7 @@ jobs:
       - name: "Open pull request updating schema"
         uses: "gr2m/create-or-update-pull-request-action@v1.2.9"
         with:
-          author: "<bot@ergebn.is>"
+          author: "ergebnis-bot <bot@ergebn.is>"
           branch: "feature/schema"
           body: |
             This PR
