@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d9411a9437b3b9c639ef0d47dbd78767",
+    "content-hash": "187821795fdf29ff73d65816fc2438a6",
     "packages": [
         {
             "name": "ergebnis/json-normalizer",
@@ -515,24 +515,23 @@
         },
         {
             "name": "composer/semver",
-            "version": "1.5.0",
+            "version": "1.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/semver.git",
-                "reference": "46d9139568ccb8d9e7cdd4539cab7347568a5e2e"
+                "reference": "c6bea70230ef4dd483e6bbcab6005f682ed3a8de"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/semver/zipball/46d9139568ccb8d9e7cdd4539cab7347568a5e2e",
-                "reference": "46d9139568ccb8d9e7cdd4539cab7347568a5e2e",
+                "url": "https://api.github.com/repos/composer/semver/zipball/c6bea70230ef4dd483e6bbcab6005f682ed3a8de",
+                "reference": "c6bea70230ef4dd483e6bbcab6005f682ed3a8de",
                 "shasum": ""
             },
             "require": {
                 "php": "^5.3.2 || ^7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.5 || ^5.0.5",
-                "phpunit/phpunit-mock-objects": "2.3.0 || ^3.0"
+                "phpunit/phpunit": "^4.5 || ^5.0.5"
             },
             "type": "library",
             "extra": {
@@ -573,7 +572,7 @@
                 "validation",
                 "versioning"
             ],
-            "time": "2019-03-19T17:25:45+00:00"
+            "time": "2020-01-13T12:06:48+00:00"
         },
         {
             "name": "composer/spdx-licenses",
@@ -975,16 +974,16 @@
         },
         {
             "name": "ergebnis/php-cs-fixer-config",
-            "version": "1.1.3",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/php-cs-fixer-config.git",
-                "reference": "53f9184461a68110a2b838abe79ec44fc77265e2"
+                "reference": "42453e7d7d95c045fd036dede4274069eb83d32c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/php-cs-fixer-config/zipball/53f9184461a68110a2b838abe79ec44fc77265e2",
-                "reference": "53f9184461a68110a2b838abe79ec44fc77265e2",
+                "url": "https://api.github.com/repos/ergebnis/php-cs-fixer-config/zipball/42453e7d7d95c045fd036dede4274069eb83d32c",
+                "reference": "42453e7d7d95c045fd036dede4274069eb83d32c",
                 "shasum": ""
             },
             "require": {
@@ -993,20 +992,21 @@
                 "php": "^7.1"
             },
             "require-dev": {
-                "ergebnis/composer-normalize": "^2.0.2",
+                "ergebnis/composer-normalize": "^2.2.2",
+                "ergebnis/license": "~0.1.0",
                 "ergebnis/phpstan-rules": "~0.14.2",
                 "ergebnis/test-util": "~0.9.1",
                 "infection/infection": "~0.13.6",
-                "jangregor/phpstan-prophecy": "~0.5.1",
+                "jangregor/phpstan-prophecy": "~0.6.0",
                 "phpstan/extension-installer": "^1.0.3",
-                "phpstan/phpstan": "~0.12.3",
-                "phpstan/phpstan-deprecation-rules": "~0.12.0",
-                "phpstan/phpstan-phpunit": "~0.12.3",
-                "phpstan/phpstan-strict-rules": "~0.12.0",
-                "phpunit/phpunit": "^7.5.18",
-                "psalm/plugin-phpunit": "~0.8.0",
+                "phpstan/phpstan": "~0.12.5",
+                "phpstan/phpstan-deprecation-rules": "~0.12.2",
+                "phpstan/phpstan-phpunit": "~0.12.6",
+                "phpstan/phpstan-strict-rules": "~0.12.1",
+                "phpunit/phpunit": "^7.5.20",
+                "psalm/plugin-phpunit": "~0.8.1",
                 "symfony/filesystem": "^4.4.0",
-                "vimeo/psalm": "^3.8.1"
+                "vimeo/psalm": "^3.8.3"
             },
             "type": "library",
             "autoload": {
@@ -1026,7 +1026,7 @@
             ],
             "description": "Provides a configuration factory and multiple rule sets for friendsofphp/php-cs-fixer.",
             "homepage": "https://github.com/ergebnis/php-cs-fixer-config",
-            "time": "2020-01-02T19:00:57+00:00"
+            "time": "2020-01-20T08:00:08+00:00"
         },
         {
             "name": "ergebnis/phpstan-rules",
