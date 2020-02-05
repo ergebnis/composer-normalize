@@ -29,7 +29,7 @@
     "ergebnis/php-cs-fixer-config": "^2.0.0",
     "ergebnis/phpstan-rules": "~0.14.3",
     "ergebnis/test-util": "~0.9.1",
-    "jangregor/phpstan-prophecy": "~0.6.0",
+    "jangregor/phpstan-prophecy": "~0.6.1",
     "phpstan/extension-installer": "^1.0.3",
     "phpstan/phpstan": "~0.12.9",
     "phpstan/phpstan-deprecation-rules": "~0.12.2",
