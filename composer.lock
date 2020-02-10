@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a1577dc9ec11c3406b8e56d56a89d549",
+    "content-hash": "2d2a2eb9933b5145bed0974880627d04",
     "packages": [
         {
             "name": "ergebnis/json-normalizer",
@@ -4329,16 +4329,16 @@
         },
         {
             "name": "vimeo/psalm",
-            "version": "3.8.4",
+            "version": "3.8.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vimeo/psalm.git",
-                "reference": "c2972dd759aa98561b75a5d68acfc4b634152464"
+                "reference": "e6ec5fa22a7b9e61670a24d07b3119aff80dcd89"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vimeo/psalm/zipball/c2972dd759aa98561b75a5d68acfc4b634152464",
-                "reference": "c2972dd759aa98561b75a5d68acfc4b634152464",
+                "url": "https://api.github.com/repos/vimeo/psalm/zipball/e6ec5fa22a7b9e61670a24d07b3119aff80dcd89",
+                "reference": "e6ec5fa22a7b9e61670a24d07b3119aff80dcd89",
                 "shasum": ""
             },
             "require": {
@@ -4420,7 +4420,7 @@
                 "inspection",
                 "php"
             ],
-            "time": "2020-02-07T15:56:31+00:00"
+            "time": "2020-02-07T17:15:50+00:00"
         },
         {
             "name": "webmozart/assert",
