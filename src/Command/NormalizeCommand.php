@@ -372,7 +372,7 @@ final class NormalizeCommand extends Command\BaseCommand
                 '--no-check-all' => true,
                 '--no-check-lock' => true,
                 '--no-check-publish' => true,
-                '--strict' => true,
+                //'--strict' => true,
             ]),
             $output
         );
