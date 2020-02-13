@@ -168,7 +168,7 @@ final class NormalizeCommand extends Command\BaseCommand
             return $this->validateComposerFile(
                 $output,
                 $composerFile
-            );
+            ) ?: 1;
         } catch (\RuntimeException $exception) {
             $io->writeError(\sprintf(
                 '<error>%s</error>',
@@ -363,7 +363,9 @@ final class NormalizeCommand extends Command\BaseCommand
         /** @var Console\Application $application */
         $application = $this->getApplication();
 
-        return $application->run(
+        $validateCommand = $application->find('validate');
+
+        return $validateCommand->run(
             new Console\Input\ArrayInput([
                 'command' => 'validate',
                 'file' => $composerFile,
@@ -391,7 +393,9 @@ final class NormalizeCommand extends Command\BaseCommand
         /** @var Console\Application $application */
         $application = $this->getApplication();
 
-        return $application->run(
+        $updateCommand = $application->find('update');
+
+        return $updateCommand->run(
             new Console\Input\ArrayInput([
                 'command' => 'update',
                 '--lock' => true,
