@@ -369,7 +369,7 @@ final class NormalizeCommand extends Command\BaseCommand
                 'file' => $composerFile,
                 '--no-check-all' => true,
                 '--no-check-lock' => true,
-                '--no-check-publish' => true,
+                //'--no-check-publish' => true,
                 //'--strict' => true,
             ]),
             $output
