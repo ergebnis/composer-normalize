@@ -165,10 +165,12 @@ final class NormalizeCommand extends Command\BaseCommand
                 $exception->getMessage()
             ));
 
-            return $this->validateComposerFile(
+            $this->validateComposerFile(
                 $output,
                 $composerFile
             );
+
+            return 1;
         } catch (\RuntimeException $exception) {
             $io->writeError(\sprintf(
                 '<error>%s</error>',
