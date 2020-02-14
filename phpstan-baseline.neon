@@ -5,3 +5,8 @@ parameters:
 			count: 1
 			path: src/Command/NormalizeCommand.php
 
+		-
+			message: "#^Call to function method_exists\\(\\) with Symfony\\\\Component\\\\Console\\\\Application and 'isAutoExitEnabled' will always evaluate to true\\.$#"
+			count: 1
+			path: src/Command/NormalizeCommand.php
+

@@ -362,10 +362,7 @@ final class NormalizeCommand extends Command\BaseCommand
      */
     private function validateComposerFile(Console\Output\OutputInterface $output, string $composerFile): int
     {
-        /** @var Console\Application $application */
-        $application = $this->getApplication();
-
-        return $application->run(
+        return $this->applicationRun(
             new Console\Input\ArrayInput([
                 'command' => 'validate',
                 'file' => $composerFile,
@@ -390,10 +387,7 @@ final class NormalizeCommand extends Command\BaseCommand
      */
     private function updateLockerInWorkingDirectory(Console\Output\OutputInterface $output, string $workingDirectory): int
     {
-        /** @var Console\Application $application */
-        $application = $this->getApplication();
-
-        return $application->run(
+        return $this->applicationRun(
             new Console\Input\ArrayInput([
                 'command' => 'update',
                 '--lock' => true,
@@ -405,5 +399,36 @@ final class NormalizeCommand extends Command\BaseCommand
             ]),
             $output
         );
+    }
+
+    /**
+     * @param Console\Input\InputInterface   $input
+     * @param Console\Output\OutputInterface $output
+     *
+     * @throws \Exception
+     *
+     * @return int
+     */
+    private function applicationRun(Console\Input\InputInterface $input, Console\Output\OutputInterface $output): int
+    {
+        /** @var Console\Application $application */
+        $application = $this->getApplication();
+
+        if (\method_exists($application, 'isAutoExitEnabled')) {
+            $savedAutoExit = $application->isAutoExitEnabled();
+        } else {
+            // BC layer for symfony/console < 3.1
+            $autoExitProperty = new \ReflectionProperty(Console\Application::class, 'autoExit');
+            $autoExitProperty->setAccessible(true);
+            $savedAutoExit = (bool) $autoExitProperty->getValue($application);
+        }
+
+        $application->setAutoExit(false);
+
+        try {
+            return $application->run($input, $output);
+        } finally {
+            $application->setAutoExit($savedAutoExit);
+        }
     }
 }
