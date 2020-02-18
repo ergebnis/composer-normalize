@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c40d773072d9796d40e6504930ef715b",
+    "content-hash": "5c49c85f8f7d9457ed6997c263b620ec",
     "packages": [
         {
             "name": "ergebnis/json-normalizer",
@@ -1380,16 +1380,16 @@
         },
         {
             "name": "jangregor/phpstan-prophecy",
-            "version": "0.6.1",
+            "version": "0.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Jan0707/phpstan-prophecy.git",
-                "reference": "ecd367a2551da3d4921bbd9ae8eefbe2fc04eb8f"
+                "reference": "9f3422fa720d3dbd28ffba40f06aeba1edfecef9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Jan0707/phpstan-prophecy/zipball/ecd367a2551da3d4921bbd9ae8eefbe2fc04eb8f",
-                "reference": "ecd367a2551da3d4921bbd9ae8eefbe2fc04eb8f",
+                "url": "https://api.github.com/repos/Jan0707/phpstan-prophecy/zipball/9f3422fa720d3dbd28ffba40f06aeba1edfecef9",
+                "reference": "9f3422fa720d3dbd28ffba40f06aeba1edfecef9",
                 "shasum": ""
             },
             "require": {
@@ -1398,7 +1398,7 @@
             },
             "conflict": {
                 "phpspec/prophecy": "<1.7,>=2.0",
-                "phpunit/phpunit": "<6.0,>=9.0"
+                "phpunit/phpunit": "<6.0,>=10.0"
             },
             "require-dev": {
                 "ergebnis/composer-normalize": "^2.1.1",
@@ -1436,7 +1436,7 @@
                 }
             ],
             "description": "Provides a phpstan/phpstan extension for phpspec/prophecy",
-            "time": "2020-02-05T16:38:06+00:00"
+            "time": "2020-02-17T16:55:34+00:00"
         },
         {
             "name": "myclabs/deep-copy",
