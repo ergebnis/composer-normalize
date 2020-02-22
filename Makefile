@@ -1,3 +1,5 @@
+COMPOSER_VERSION:=1.9.1
+
 .PHONY: it
 it: coding-standards dependency-analysis static-code-analysis tests ## Runs the coding-standards, dependency-analysis, static-code-analysis, and tests targets
 
@@ -23,7 +25,7 @@ help: ## Displays this list of targets with descriptions
 .PHONY: phar
 phar: vendor ## Builds a phar with humbug/box
 	phar/box.phar validate box.json
-	composer require composer/composer:1.9.1  --no-interaction --no-progress --no-suggest
+	composer require composer/composer:${COMPOSER_VERSION}  --no-interaction --no-progress --no-suggest
 	phar/box.phar compile --config=box.json
 	git checkout HEAD -- composer.json composer.lock
 	phar/box.phar info .build/phar/composer-normalize.phar

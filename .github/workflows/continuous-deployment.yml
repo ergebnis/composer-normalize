@@ -8,6 +8,7 @@ on:
       - "**"
 
 env:
+  COMPOSER_VERSION: "1.9.1"
   REQUIRED_PHP_EXTENSIONS: "mbstring"
 
 jobs:
@@ -52,7 +53,7 @@ jobs:
         run: "composer install --no-interaction --no-progress --no-suggest"
 
       - name: "Require composer/composer"
-        run: "composer require composer/composer:1.9.1 --no-interaction --no-progress --no-suggest"
+        run: "composer require composer/composer:${{ env.COMPOSER_VERSION }} --no-interaction --no-progress --no-suggest"
 
       - name: "Validate configuration for humbug/box"
         run: "phar/box.phar validate box.json"
