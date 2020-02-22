@@ -28,7 +28,7 @@ jobs:
         uses: "actions/checkout@v2.0.0"
 
       - name: "Install PHP with extensions"
-        uses: "shivammathur/setup-php@1.7.3"
+        uses: "shivammathur/setup-php@2.0.2"
         with:
           coverage: "none"
           extensions: "${{ env.REQUIRED_PHP_EXTENSIONS }}"
@@ -37,10 +37,14 @@ jobs:
       - name: "Validate composer.json and composer.lock"
         run: "composer validate --strict"
 
+      - name: "Determine composer cache directory"
+        id: "determine-composer-cache-directory"
+        run: "echo \"::set-output name=directory::$(composer config cache-dir)\""
+
       - name: "Cache dependencies installed with composer"
-        uses: "actions/cache@v1.0.3"
+        uses: "actions/cache@v1.1.2"
         with:
-          path: "~/.composer/cache"
+          path: "${{ steps.determine-composer-cache-directory.outputs.directory }}"
           key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('**/composer.lock') }}"
           restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
 
@@ -60,7 +64,7 @@ jobs:
         run: "mkdir -p .build/php-cs-fixer"
 
       - name: "Cache cache directory for friendsofphp/php-cs-fixer"
-        uses: "actions/cache@v1.0.3"
+        uses: "actions/cache@v1.1.2"
         with:
           path: ".build/php-cs-fixer"
           key: "php-${{ matrix.php-version }}-php-cs-fixer-${{ hashFiles('**/composer.lock') }}"
