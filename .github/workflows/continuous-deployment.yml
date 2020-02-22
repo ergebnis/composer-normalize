@@ -103,6 +103,7 @@ jobs:
           tag_name: "${{ steps.determine-tag.outputs.tag }}"
 
       - name: "Upload composer-normalize.phar"
+        if: "always()"
         uses: "actions/upload-release-asset@v1.0.1"
         env:
           GITHUB_TOKEN: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
@@ -113,6 +114,7 @@ jobs:
           upload_url: "${{ steps.create-release.outputs.upload_url }}"
 
       - name: "Upload composer-normalize.phar.asc"
+        if: "always()"
         uses: "actions/upload-release-asset@v1.0.1"
         env:
           GITHUB_TOKEN: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
