@@ -41,7 +41,7 @@ final class NormalizePlugin implements Plugin\Capability\CommandProvider, Plugin
                 new Factory(),
                 new Normalizer\Vendor\Composer\ComposerJsonNormalizer(\sprintf(
                     'file://%s',
-                    __DIR__ . '/../resource/schema.json'
+                    \realpath(__DIR__ . '/../resource/schema.json')
                 )),
                 new Normalizer\Format\Formatter(new Printer\Printer()),
                 new Diff\Differ(new Diff\Output\StrictUnifiedDiffOutputBuilder([
