@@ -17,13 +17,13 @@ jobs:
           days-before-close: 5
           days-before-stale: 60
           repo-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
-          stale-issue-label: 'stale'
-          stale-issue-message: >
-            This issue has been automatically marked as stale because it has not had
-            recent activity. It will be closed if no further activity occurs. Thank you
-            for your contributions.
+          stale-issue-label: "stale"
+          stale-issue-message: |
+            Since this issue has not had any activity within the last sixty days, I have marked it as stale.
+
+            I will close it if no further activity occurs within the next five days.
           stale-pr-label: "stale"
-          stale-pr-message: >
-            This PR has been automatically marked as stale because it has not had
-            recent activity. It will be closed if no further activity occurs. Thank you
-            for your contributions.
+          stale-pr-message: |
+            Since this pull request has not had any activity within the last sixty days, I have marked it as stale.
+
+            I will close it if no further activity occurs within the next five days.
