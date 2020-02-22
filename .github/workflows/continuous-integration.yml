@@ -9,6 +9,7 @@ on:
       - "master"
 
 env:
+  COMPOSER_VERSION: "1.9.1"
   REQUIRED_PHP_EXTENSIONS: "mbstring"
 
 jobs:
@@ -371,7 +372,7 @@ jobs:
         run: "composer install --no-interaction --no-progress --no-suggest"
 
       - name: "Require composer/composer"
-        run: "composer require composer/composer:1.9.1 --no-interaction --no-progress --no-suggest"
+        run: "composer require composer/composer:${{ env.COMPOSER_VERSION }} --no-interaction --no-progress --no-suggest"
 
       - name: "Remove git placeholder configuration with jq"
         run: "echo $(cat box.json | jq 'del(.git)') > box.json"
