@@ -9,7 +9,7 @@ on:
       - "master"
 
 env:
-  COMPOSER_VERSION: "1.9.1"
+  COMPOSER_VERSION: "1.9.3"
   REQUIRED_PHP_EXTENSIONS: "mbstring"
 
 jobs:
