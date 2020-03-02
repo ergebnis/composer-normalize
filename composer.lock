@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2dd3a46d7c3d11d657a6f6a638594873",
+    "content-hash": "258368e4ca5d245a4ee8ea443894b17f",
     "packages": [
         {
             "name": "ergebnis/json-normalizer",
@@ -3690,7 +3690,7 @@
         },
         {
             "name": "symfony/filesystem",
-            "version": "v4.4.4",
+            "version": "v4.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
