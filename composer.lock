@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1fc9abaf0f7e95854cd2124e5a604799",
+    "content-hash": "f301e1d929f1eacb0961dc98981467d8",
     "packages": [
         {
             "name": "ergebnis/json-normalizer",
@@ -636,16 +636,16 @@
         },
         {
             "name": "composer/xdebug-handler",
-            "version": "1.4.0",
+            "version": "1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/xdebug-handler.git",
-                "reference": "cbe23383749496fe0f373345208b79568e4bc248"
+                "reference": "1ab9842d69e64fb3a01be6b656501032d1b78cb7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/xdebug-handler/zipball/cbe23383749496fe0f373345208b79568e4bc248",
-                "reference": "cbe23383749496fe0f373345208b79568e4bc248",
+                "url": "https://api.github.com/repos/composer/xdebug-handler/zipball/1ab9842d69e64fb3a01be6b656501032d1b78cb7",
+                "reference": "1ab9842d69e64fb3a01be6b656501032d1b78cb7",
                 "shasum": ""
             },
             "require": {
@@ -676,7 +676,7 @@
                 "Xdebug",
                 "performance"
             ],
-            "time": "2019-11-06T16:40:04+00:00"
+            "time": "2020-03-01T12:26:26+00:00"
         },
         {
             "name": "doctrine/annotations",
@@ -3486,16 +3486,16 @@
         },
         {
             "name": "symfony/console",
-            "version": "v4.4.4",
+            "version": "v4.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "f512001679f37e6a042b51897ed24a2f05eba656"
+                "reference": "4fa15ae7be74e53f6ec8c83ed403b97e23b665e9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/f512001679f37e6a042b51897ed24a2f05eba656",
-                "reference": "f512001679f37e6a042b51897ed24a2f05eba656",
+                "url": "https://api.github.com/repos/symfony/console/zipball/4fa15ae7be74e53f6ec8c83ed403b97e23b665e9",
+                "reference": "4fa15ae7be74e53f6ec8c83ed403b97e23b665e9",
                 "shasum": ""
             },
             "require": {
@@ -3558,7 +3558,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2020-01-25T12:44:29+00:00"
+            "time": "2020-02-24T13:10:00+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -4329,16 +4329,16 @@
         },
         {
             "name": "vimeo/psalm",
-            "version": "3.9.3",
+            "version": "3.9.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vimeo/psalm.git",
-                "reference": "2e4154d76e24d1b4e59e6cc2bebef7790cb9e550"
+                "reference": "352bd3f5c5789db04e4010856c2f4e01ed354f4e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vimeo/psalm/zipball/2e4154d76e24d1b4e59e6cc2bebef7790cb9e550",
-                "reference": "2e4154d76e24d1b4e59e6cc2bebef7790cb9e550",
+                "url": "https://api.github.com/repos/vimeo/psalm/zipball/352bd3f5c5789db04e4010856c2f4e01ed354f4e",
+                "reference": "352bd3f5c5789db04e4010856c2f4e01ed354f4e",
                 "shasum": ""
             },
             "require": {
@@ -4368,10 +4368,11 @@
             },
             "require-dev": {
                 "bamarni/composer-bin-plugin": "^1.2",
+                "brianium/paratest": "^4.0.0",
                 "ext-curl": "*",
                 "phpmyadmin/sql-parser": "5.1.0",
                 "phpspec/prophecy": ">=1.9.0",
-                "phpunit/phpunit": "^7.5.16 || ^8.0",
+                "phpunit/phpunit": "^7.5.16 || ^8.5",
                 "psalm/plugin-phpunit": "^0.9",
                 "slevomat/coding-standard": "^5.0",
                 "squizlabs/php_codesniffer": "^3.5",
@@ -4420,7 +4421,7 @@
                 "inspection",
                 "php"
             ],
-            "time": "2020-02-19T01:30:37+00:00"
+            "time": "2020-03-06T20:23:11+00:00"
         },
         {
             "name": "webmozart/assert",
