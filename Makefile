@@ -1,4 +1,4 @@
-COMPOSER_VERSION:=1.9.3
+COMPOSER_VERSION:=1.10.0
 
 .PHONY: it
 it: coding-standards dependency-analysis static-code-analysis tests ## Runs the coding-standards, dependency-analysis, static-code-analysis, and tests targets
