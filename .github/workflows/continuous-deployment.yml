@@ -8,7 +8,7 @@ on:
       - "**"
 
 env:
-  COMPOSER_VERSION: "1.9.3"
+  COMPOSER_VERSION: "1.10.0"
   REQUIRED_PHP_EXTENSIONS: "mbstring"
 
 jobs:
