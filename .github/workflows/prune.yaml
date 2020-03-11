@@ -1,18 +1,20 @@
 # https://github.com/actions/stale
 
-name: "Stale"
+name: "Prune"
 
-on:
+on: # yamllint disable-line rule:truthy
   schedule:
     - cron: "0 12 * * *"
 
 jobs:
-  stale:
+  prune:
+    name: "Issues"
+
     runs-on: "ubuntu-latest"
 
     steps:
-      - name: "Close stale issues and pull requests"
-        uses: "actions/stale@v1.1.0"
+      - name: "Prune issues and pull requests"
+        uses: "actions/stale@v1"
         with:
           days-before-close: 5
           days-before-stale: 60
