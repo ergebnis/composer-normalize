@@ -7,7 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
-For a full diff see [`2.2.4...master`][2.2.4...master].
+For a full diff see [`2.3.0...master`][2.3.0...master].
+
+## [`2.3.0`][2.3.0]
+
+For a full diff see [`2.2.4...2.3.0`][2.2.4...2.3.0].
+
+### Changed
+
+* Updated `schema.json` ([#374]), by [@ergebnis-bot]
 
 ## [`2.2.4`][2.2.4]
 
@@ -329,6 +337,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [2.2.2]: https://github.com/ergebnis/composer-normalize/releases/tag/2.2.2
 [2.2.3]: https://github.com/ergebnis/composer-normalize/releases/tag/2.2.3
 [2.2.4]: https://github.com/ergebnis/composer-normalize/releases/tag/2.2.4
+[2.3.0]: https://github.com/ergebnis/composer-normalize/releases/tag/2.3.0
 
 [81bc3a8...0.1.0]: https://github.com/ergebnis/composer-normalize/compare/81bc3a8...0.1.0
 [0.1.0...0.2.0]: https://github.com/ergebnis/composer-normalize/compare/0.1.0...0.2.0
@@ -359,7 +368,8 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [2.2.1...2.2.2]: https://github.com/ergebnis/composer-normalize/compare/2.2.1...2.2.2
 [2.2.2...2.2.3]: https://github.com/ergebnis/composer-normalize/compare/2.2.2...2.2.3
 [2.2.3...2.2.4]: https://github.com/ergebnis/composer-normalize/compare/2.2.3...2.2.4
-[2.2.4...master]: https://github.com/ergebnis/composer-normalize/compare/2.2.4...master
+[2.2.4...2.3.0]: https://github.com/ergebnis/composer-normalize/compare/2.2.4...2.3.0
+[2.3.0...master]: https://github.com/ergebnis/composer-normalize/compare/2.3.0...master
 
 [#1]: https://github.com/ergebnis/composer-normalize/pull/1
 [#2]: https://github.com/ergebnis/composer-normalize/pull/2
@@ -404,6 +414,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [#322]: https://github.com/ergebnis/composer-normalize/pull/322
 [#354]: https://github.com/ergebnis/composer-normalize/pull/354
 [#364]: https://github.com/ergebnis/composer-normalize/pull/364
+[#374]: https://github.com/ergebnis/composer-normalize/pull/374
 
 [@ergebnis]: https://github.com/ergebnis
 [@ergebnis-bot]: https://github.com/ergebnis-bot
