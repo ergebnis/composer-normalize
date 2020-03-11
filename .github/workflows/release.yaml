@@ -1,8 +1,8 @@
 # https://help.github.com/en/categories/automating-your-workflow-with-github-actions
 
-name: "Continuous Deployment"
+name: "Release"
 
-on:
+on: # yamllint disable-line rule:truthy
   push:
     tags:
       - "**"
@@ -33,24 +33,37 @@ jobs:
 
     steps:
       - name: "Checkout"
-        uses: "actions/checkout@v2.0.0"
+        uses: "actions/checkout@v2"
 
       - name: "Install PHP with extensions"
-        uses: "shivammathur/setup-php@2.0.2"
+        uses: "shivammathur/setup-php@2"
         with:
           coverage: "none"
           extensions: "${{ env.REQUIRED_PHP_EXTENSIONS }}"
           php-version: "${{ matrix.php-version }}"
 
+      - name: "Determine composer cache directory"
+        id: "determine-composer-cache-directory"
+        run: "echo \"::set-output name=directory::$(composer config cache-dir)\""
+
       - name: "Cache dependencies installed with composer"
-        uses: "actions/cache@v1.1.2"
+        uses: "actions/cache@v1"
         with:
-          path: "~/.composer/cache"
+          path: "${{ steps.determine-composer-cache-directory.outputs.directory }}"
           key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('**/composer.lock') }}-phar"
           restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-phar"
 
-      - name: "Install locked dependencies with composer"
+      - name: "Install lowest dependencies from composer.json"
+        if: "matrix.dependencies == 'lowest'"
+        run: "composer update --no-interaction --no-progress --no-suggest --prefer-lowest"
+
+      - name: "Install locked dependencies from composer.lock"
+        if: "matrix.dependencies == 'locked'"
         run: "composer install --no-interaction --no-progress --no-suggest"
+
+      - name: "Install highest dependencies from composer.json"
+        if: "matrix.dependencies == 'highest'"
+        run: "composer update --no-interaction --no-progress --no-suggest"
 
       - name: "Require composer/composer"
         run: "composer require composer/composer:${{ env.COMPOSER_VERSION }} --no-interaction --no-progress --no-suggest"
@@ -94,7 +107,7 @@ jobs:
 
       - name: "Create release"
         id: "create-release"
-        uses: "actions/create-release@v1.0.0"
+        uses: "actions/create-release@v1"
         env:
           GITHUB_TOKEN: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
         with:
@@ -105,7 +118,7 @@ jobs:
 
       - name: "Upload composer-normalize.phar"
         if: "always()"
-        uses: "actions/upload-release-asset@v1.0.1"
+        uses: "actions/upload-release-asset@v1"
         env:
           GITHUB_TOKEN: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
         with:
@@ -116,7 +129,7 @@ jobs:
 
       - name: "Upload composer-normalize.phar.asc"
         if: "always()"
-        uses: "actions/upload-release-asset@v1.0.1"
+        uses: "actions/upload-release-asset@v1"
         env:
           GITHUB_TOKEN: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
         with:

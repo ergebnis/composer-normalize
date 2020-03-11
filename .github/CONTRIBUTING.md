@@ -2,7 +2,13 @@
 
 We are using [GitHub Actions](https://github.com/features/actions) as a continuous integration system.
 
-For details, see [`workflows/continuous-integration.yml`](workflows/continuous-integration.yml).
+For details, take a look at the following workflow configuration files:
+
+- [`workflows/integrate.yaml`](workflows/integrate.yaml)
+- [`workflows/prune.yaml`](workflows/prune.yaml)
+- [`workflows/release.yaml`](workflows/release.yaml)
+- [`workflows/renew.yaml`](workflows/renew.yaml)
+- [`workflows/update.yaml`](workflows/update.yaml)
 
 ## Coding Standards
 
