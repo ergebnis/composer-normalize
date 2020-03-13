@@ -9,7 +9,7 @@ on: # yamllint disable-line rule:truthy
       - "master"
 
 env:
-  COMPOSER_VERSION: "1.10.0"
+  COMPOSER_VERSION: "1.10.1"
   REQUIRED_PHP_EXTENSIONS: "mbstring"
 
 jobs:
