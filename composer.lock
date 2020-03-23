@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "76018ef918a23f9c830aff9b905deb93",
+    "content-hash": "00361130393823de43de39fd44de3dac",
     "packages": [
         {
             "name": "ergebnis/json-normalizer",
@@ -1160,20 +1160,20 @@
         },
         {
             "name": "felixfbecker/advanced-json-rpc",
-            "version": "v3.1.0",
+            "version": "v3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/felixfbecker/php-advanced-json-rpc.git",
-                "reference": "a407a6cb0325cd489c6dff57afcba6baeccc0483"
+                "reference": "0ed363f8de17d284d479ec813c9ad3f6834b5c40"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/felixfbecker/php-advanced-json-rpc/zipball/a407a6cb0325cd489c6dff57afcba6baeccc0483",
-                "reference": "a407a6cb0325cd489c6dff57afcba6baeccc0483",
+                "url": "https://api.github.com/repos/felixfbecker/php-advanced-json-rpc/zipball/0ed363f8de17d284d479ec813c9ad3f6834b5c40",
+                "reference": "0ed363f8de17d284d479ec813c9ad3f6834b5c40",
                 "shasum": ""
             },
             "require": {
-                "netresearch/jsonmapper": "^1.0",
+                "netresearch/jsonmapper": "^1.0 || ^2.0",
                 "php": ">=7.0",
                 "phpdocumentor/reflection-docblock": "^4.0.0 || ^5.0.0"
             },
@@ -1197,7 +1197,7 @@
                 }
             ],
             "description": "A more advanced JSONRPC implementation",
-            "time": "2020-02-11T20:48:40+00:00"
+            "time": "2020-03-11T15:21:41+00:00"
         },
         {
             "name": "felixfbecker/language-server-protocol",
@@ -4336,16 +4336,16 @@
         },
         {
             "name": "vimeo/psalm",
-            "version": "3.9.5",
+            "version": "3.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vimeo/psalm.git",
-                "reference": "0cfe565d0afbcd31eadcc281b9017b5692911661"
+                "reference": "6058725256c24841c3d5dad4474696ded73a9968"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vimeo/psalm/zipball/0cfe565d0afbcd31eadcc281b9017b5692911661",
-                "reference": "0cfe565d0afbcd31eadcc281b9017b5692911661",
+                "url": "https://api.github.com/repos/vimeo/psalm/zipball/6058725256c24841c3d5dad4474696ded73a9968",
+                "reference": "6058725256c24841c3d5dad4474696ded73a9968",
                 "shasum": ""
             },
             "require": {
@@ -4428,7 +4428,7 @@
                 "inspection",
                 "php"
             ],
-            "time": "2020-03-09T22:59:56+00:00"
+            "time": "2020-03-22T14:44:48+00:00"
         },
         {
             "name": "webmozart/assert",
