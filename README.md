@@ -1,10 +1,10 @@
 # composer-normalize
 
-[![Integrate](https://github.com/ergebnis/php-library-template/workflows/Integrate/badge.svg?branch=master)](https://github.com/ergebnis/php-library-template/actions)
-[![Prune](https://github.com/ergebnis/php-library-template/workflows/Prune/badge.svg?branch=master)](https://github.com/ergebnis/php-library-template/actions)
-[![Release](https://github.com/ergebnis/php-library-template/workflows/Release/badge.svg?branch=master)](https://github.com/ergebnis/php-library-template/actions)
-[![Renew](https://github.com/ergebnis/php-library-template/workflows/Renew/badge.svg?branch=master)](https://github.com/ergebnis/php-library-template/actions)
-[![Update](https://github.com/ergebnis/php-library-template/workflows/Update/badge.svg?branch=master)](https://github.com/ergebnis/php-library-template/actions)
+[![Integrate](https://github.com/ergebnis/composer-normalize/workflows/Integrate/badge.svg?branch=master)](https://github.com/ergebnis/composer-normalize/actions)
+[![Prune](https://github.com/ergebnis/composer-normalize/workflows/Prune/badge.svg?branch=master)](https://github.com/ergebnis/composer-normalize/actions)
+[![Release](https://github.com/ergebnis/composer-normalize/workflows/Release/badge.svg?branch=master)](https://github.com/ergebnis/composer-normalize/actions)
+[![Renew](https://github.com/ergebnis/composer-normalize/workflows/Renew/badge.svg?branch=master)](https://github.com/ergebnis/composer-normalize/actions)
+[![Update](https://github.com/ergebnis/composer-normalize/workflows/Update/badge.svg?branch=master)](https://github.com/ergebnis/composer-normalize/actions)
 
 [![Code Coverage](https://codecov.io/gh/ergebnis/composer-normalize/branch/master/graph/badge.svg)](https://codecov.io/gh/ergebnis/composer-normalize)
 [![Type Coverage](https://shepherd.dev/github/ergebnis/composer-normalize/coverage.svg)](https://shepherd.dev/github/ergebnis/composer-normalize)
