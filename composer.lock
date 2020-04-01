@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8d5a007492d4c7ce42b55af524dfe5dd",
+    "content-hash": "0c00d7d3b2adedd35104ac8cb6232992",
     "packages": [
         {
             "name": "ergebnis/json-normalizer",
@@ -2104,20 +2104,20 @@
         },
         {
             "name": "phpstan/extension-installer",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/extension-installer.git",
-                "reference": "295656793c53b5eb73a38486032ad1bd650264bc"
+                "reference": "2e041def501d661b806f50000c8a4dccbd4907b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/extension-installer/zipball/295656793c53b5eb73a38486032ad1bd650264bc",
-                "reference": "295656793c53b5eb73a38486032ad1bd650264bc",
+                "url": "https://api.github.com/repos/phpstan/extension-installer/zipball/2e041def501d661b806f50000c8a4dccbd4907b4",
+                "reference": "2e041def501d661b806f50000c8a4dccbd4907b4",
                 "shasum": ""
             },
             "require": {
-                "composer-plugin-api": "^1.1",
+                "composer-plugin-api": "^1.1 || ^2.0",
                 "php": "^7.1",
                 "phpstan/phpstan": ">=0.11.6"
             },
@@ -2125,6 +2125,7 @@
                 "composer/composer": "^1.8",
                 "consistence/coding-standard": "^3.8",
                 "dealerdirect/phpcodesniffer-composer-installer": "^0.4.4",
+                "ergebnis/composer-normalize": "^2.0.2",
                 "jakub-onderka/php-parallel-lint": "^1.0",
                 "phing/phing": "^2.16",
                 "phpstan/phpstan-strict-rules": "^0.11",
@@ -2144,7 +2145,7 @@
                 "MIT"
             ],
             "description": "Composer plugin for automatic installation of PHPStan extensions",
-            "time": "2019-10-18T17:09:48+00:00"
+            "time": "2020-03-31T16:00:42+00:00"
         },
         {
             "name": "phpstan/phpstan",
