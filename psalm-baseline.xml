@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="3.9.5@0cfe565d0afbcd31eadcc281b9017b5692911661">
+<files psalm-version="3.10.1@eeed5ecccc10131397f0eb7ee6da810c0be3a7fc">
   <file src="src/Application.php">
     <PropertyNotSetInConstructor occurrences="1">
       <code>Application</code>
@@ -64,7 +64,6 @@
       <code>\Generator&lt;array{0: CommandInvocation, 1: string}&gt;</code>
       <code>\Generator&lt;array{0: CommandInvocation, 1: int, 2: string}&gt;</code>
     </MixedInferredReturnType>
-    <NonStaticSelfCall occurrences="3"/>
   </file>
   <file src="test/Util/File.php">
     <PropertyNotSetInConstructor occurrences="1">

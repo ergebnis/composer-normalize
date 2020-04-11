@@ -1,4 +1,5 @@
 /.build/
+/.notes/
 /phar/resource/
 /phar/src/
 /phar/vendor/
