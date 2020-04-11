@@ -2,6 +2,7 @@ extends: "default"
 
 ignore: |
   .build/
+  .notes/
   vendor/
 
 rules:
@@ -32,7 +33,7 @@ rules:
   document-start:
     present: false
   indentation:
-    check-multi-line-strings: true
+    check-multi-line-strings: false
     indent-sequences: true
     spaces: 2
   empty-lines:

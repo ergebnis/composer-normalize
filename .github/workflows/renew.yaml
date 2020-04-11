@@ -74,7 +74,7 @@ jobs:
         run: "vendor/bin/php-cs-fixer fix --config=.php_cs --diff --diff-format=udiff --dry-run --verbose"
 
       - name: "Open pull request updating license year"
-        uses: "gr2m/create-or-update-pull-request-action@v1.2.9"
+        uses: "gr2m/create-or-update-pull-request-action@v1.2.10"
         with:
           author: "ergebnis-bot <bot@ergebn.is>"
           branch: "feature/license-year"

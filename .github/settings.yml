@@ -31,8 +31,6 @@ branches:
           - "Tests (7.4, highest)"
           - "Code Coverage (7.4, locked)"
           - "Compile Phar (7.4, locked)"
-          - "codecov/patch"
-          - "codecov/project"
         strict: false
       restrictions:
 
@@ -41,8 +39,7 @@ branches:
         # Note: User, app, and team restrictions are only available for organization-owned repositories.
         # Set to null to disable when using this configuration for a repository on a personal account.
 
-        apps:
-          - "dependabot-preview"
+        apps: []
         teams: []
         users:
           - "ergebnis-bot"
@@ -61,6 +58,10 @@ labels:
 
   - name: "enhancement"
     color: "0e8a16"
+    description: ""
+
+  - name: "merge"
+    color: "6f42c1"
     description: ""
 
   - name: "question"
