@@ -159,16 +159,21 @@ final class NormalizeCommand extends Command\BaseCommand
 
         try {
             $normalized = $this->normalizer->normalize($json);
-        } catch (Normalizer\Exception\OriginalInvalidAccordingToSchemaException $exception) {
+        } catch (Normalizer\Exception\OriginalInvalidAccordingToSchemaException | Normalizer\Exception\NormalizedInvalidAccordingToSchemaException $exception) {
             $io->writeError(\sprintf(
                 '<error>%s</error>',
                 $exception->getMessage()
             ));
 
-            return $this->validateComposerFile(
-                $output,
-                $composerFile
-            );
+            $errors = $exception->errors();
+
+            \array_walk($errors, static function (string $error) use ($io): void {
+                $io->writeError($error);
+            });
+
+            $io->writeError('<warning>See https://getcomposer.org/doc/04-schema.md for details on the schema</warning>');
+
+            return 1;
         } catch (\RuntimeException $exception) {
             $io->writeError(\sprintf(
                 '<error>%s</error>',
@@ -345,34 +350,6 @@ final class NormalizeCommand extends Command\BaseCommand
         return \implode(
             "\n",
             $formatted
-        );
-    }
-
-    /**
-     * @see https://getcomposer.org/doc/03-cli.md#validate
-     *
-     * @param Console\Output\OutputInterface $output
-     * @param string                         $composerFile
-     *
-     * @throws \Exception
-     *
-     * @return int
-     */
-    private function validateComposerFile(Console\Output\OutputInterface $output, string $composerFile): int
-    {
-        /** @var Console\Application $application */
-        $application = $this->getApplication();
-
-        return $application->run(
-            new Console\Input\ArrayInput([
-                'command' => 'validate',
-                'file' => $composerFile,
-                '--no-check-all' => true,
-                '--no-check-lock' => true,
-                '--no-check-publish' => true,
-                '--strict' => true,
-            ]),
-            $output
         );
     }
 
