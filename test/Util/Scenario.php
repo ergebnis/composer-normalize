@@ -35,22 +35,6 @@ final class Scenario
         return $scenario;
     }
 
-    /**
-     * @deprecated
-     *
-     * @param Directory $directory
-     *
-     * @return Scenario
-     */
-    public static function fromDirectory(Directory $directory): self
-    {
-        $scenario = new self();
-
-        $scenario->initialState = State::fromDirectory($directory);
-
-        return $scenario;
-    }
-
     public function directory(): Directory
     {
         return $this->initialState->directory();
