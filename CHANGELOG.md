@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`2.3.2...master`][2.3.2...master].
 
+### Changed
+
+* Started showing validation error messages as obtained from validation instead of relying on on executing composer validate ([#406]), by [@localheinz]
+
 ## [`2.3.2`][2.3.2]
 
 For a full diff see [`2.3.1...2.3.2`][2.3.1...2.3.2].
@@ -436,6 +440,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [#374]: https://github.com/ergebnis/composer-normalize/pull/374
 [#379]: https://github.com/ergebnis/composer-normalize/pull/379
 [#380]: https://github.com/ergebnis/composer-normalize/pull/380
+[#406]: https://github.com/ergebnis/composer-normalize/pull/406
 
 [@ergebnis]: https://github.com/ergebnis
 [@ergebnis-bot]: https://github.com/ergebnis-bot
