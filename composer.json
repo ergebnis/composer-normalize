@@ -33,7 +33,7 @@
     "phpstan/extension-installer": "^1.0.4",
     "phpstan/phpstan": "~0.12.18",
     "phpstan/phpstan-deprecation-rules": "~0.12.2",
-    "phpstan/phpstan-phpunit": "~0.12.7",
+    "phpstan/phpstan-phpunit": "~0.12.8",
     "phpstan/phpstan-strict-rules": "~0.12.2",
     "phpunit/phpunit": "^7.5.20",
     "psalm/plugin-phpunit": "~0.10.0",
