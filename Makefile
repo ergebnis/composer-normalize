@@ -33,6 +33,10 @@ phar: vendor ## Builds a phar with humbug/box
 	.build/phar/composer-normalize.phar
 	.build/phar/composer-normalize.phar --dry-run composer.json
 
+.PHONY: schema
+schema: vendor ## Updates the schema
+	wget --output-document=resource/schema.json https://getcomposer.org/schema.json
+
 .PHONY: static-code-analysis
 static-code-analysis: vendor ## Runs a static code analysis with phpstan/phpstan and vimeo/psalm
 	mkdir -p .build/phpstan
