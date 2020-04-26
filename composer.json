@@ -24,7 +24,7 @@
     "localheinz/diff": "^1.0.1"
   },
   "require-dev": {
-    "composer/composer": "^1.10.1",
+    "composer/composer": "^1.10.5",
     "ergebnis/license": "~0.1.0",
     "ergebnis/php-cs-fixer-config": "^2.1.2",
     "ergebnis/phpstan-rules": "~0.14.4",
