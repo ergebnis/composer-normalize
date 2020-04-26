@@ -9,6 +9,7 @@ For details, take a look at the following workflow configuration files:
 - [`workflows/release.yaml`](workflows/release.yaml)
 - [`workflows/renew.yaml`](workflows/renew.yaml)
 - [`workflows/update.yaml`](workflows/update.yaml)
+- [`workflows/triage.yaml`](workflows/triage.yaml)
 
 ## Coding Standards
 

@@ -1,0 +1,42 @@
+name: "Triage"
+
+on: # yamllint disable-line rule:truthy
+  pull_request: null
+
+jobs:
+  label:
+    name: "Label"
+
+    runs-on: "ubuntu-latest"
+
+    steps:
+      - name: "Add labels based on branch name"
+        if: "github.event.action == 'opened'"
+        uses: "actions/github-script@0.8.0"
+        with:
+          github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
+          script: |
+            const branchPrefixLabels = {
+              feature: "enhancement",
+              fix: "bug",
+            }
+
+            const pullRequest = context.payload.pull_request
+            const repository = context.repo
+
+            const branchName = pullRequest.head.ref
+
+            const matches = branchName.match(new RegExp('^([^/]+)\/'));
+
+            if (matches instanceof Array && branchPrefixLabels.hasOwnProperty(matches[1])) {
+              const label = branchPrefixLabels[matches[1]]
+
+              github.issues.addLabels({
+                issue_number: pullRequest.number,
+                labels: [
+                  label
+                ],
+                owner: repository.owner,
+                repo: repository.repo,
+              });
+            }
