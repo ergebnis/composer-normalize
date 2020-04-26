@@ -1060,8 +1060,8 @@ final class NormalizeCommandTest extends Framework\TestCase
         self::assertComposerLockFileExists($actual);
 
         self::assertJsonStringNotEqualsJsonString(
-            $expected->composerLockFile()->contents(),
-            $actual->composerLockFile()->contents(),
+            self::normalizeLockFileContents($expected->composerLockFile()->contents()),
+            self::normalizeLockFileContents($actual->composerLockFile()->contents()),
             'Failed asserting that initial composer.lock has been modified.'
         );
     }
@@ -1071,10 +1071,31 @@ final class NormalizeCommandTest extends Framework\TestCase
         self::assertComposerLockFileExists($actual);
 
         self::assertJsonStringEqualsJsonString(
-            $expected->composerLockFile()->contents(),
-            $actual->composerLockFile()->contents(),
+            self::normalizeLockFileContents($expected->composerLockFile()->contents()),
+            self::normalizeLockFileContents($actual->composerLockFile()->contents()),
             'Failed asserting that initial composer.lock has not been modified.'
         );
+    }
+
+    private static function normalizeLockFileContents(string $contents): string
+    {
+        $decoded = \json_decode(
+            $contents,
+            true
+        );
+
+        unset($decoded['plugin-api-version']);
+
+        $normalized = \json_encode(
+            $decoded,
+            \JSON_PRETTY_PRINT | \JSON_UNESCAPED_SLASHES | \JSON_PRESERVE_ZERO_FRACTION
+        );
+
+        if (!\is_string($normalized)) {
+            throw new \RuntimeException('Failed normalizing contents of lock file.');
+        }
+
+        return $normalized;
     }
 
     private static function clearTemporaryDirectory(): void
