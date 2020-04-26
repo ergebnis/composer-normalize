@@ -1,0 +1,18 @@
+{
+  "require": {
+    "php": "^7.1"
+  },
+  "require-dev": {
+    "ergebnis/license": "~0.1.0",
+    "ergebnis/php-cs-fixer-config": "^2.1.2",
+    "psalm/plugin-phpunit": "~0.10.0",
+    "vimeo/psalm": "^3.11.2"
+  },
+  "config": {
+    "platform": {
+      "php": "7.1.33"
+    },
+    "preferred-install": "dist",
+    "sort-packages": true
+  }
+}

@@ -24,7 +24,8 @@
       <code>$composerFile</code>
       <code>$diff</code>
     </MixedArgument>
-    <MixedAssignment occurrences="6">
+    <MixedAssignment occurrences="7">
+      <code>$composerFile</code>
       <code>$composerFile</code>
       <code>$composer</code>
       <code>$locker</code>
@@ -44,16 +45,6 @@
       <code>isLocked</code>
       <code>diff</code>
     </MixedMethodCall>
-    <PossiblyInvalidArgument occurrences="8">
-      <code>$composerFile</code>
-      <code>$composerFile</code>
-      <code>$composerFile</code>
-      <code>$composerFile</code>
-      <code>$composerFile</code>
-      <code>$composerFile</code>
-      <code>$composerFile</code>
-      <code>$composerFile</code>
-    </PossiblyInvalidArgument>
   </file>
   <file src="test/Integration/Command/NormalizeCommandTest.php">
     <MixedArgumentTypeCoercion occurrences="2"/>

@@ -13,7 +13,7 @@ code-coverage: vendor ## Collects coverage from running integration tests with p
 coding-standards: vendor ## Fixes code style issues with friendsofphp/php-cs-fixer
 	yamllint -c .yamllint.yaml --strict .
 	mkdir -p .build/php-cs-fixer
-	vendor/bin/php-cs-fixer fix --config=.php_cs --diff --diff-format=udiff --verbose
+	tools/vendor/bin/php-cs-fixer fix --config=.php_cs --diff --diff-format=udiff --verbose
 
 .PHONY: dependency-analysis
 dependency-analysis: vendor ## Runs a dependency analysis with maglnet/composer-require-checker
@@ -42,14 +42,14 @@ static-code-analysis: vendor ## Runs a static code analysis with phpstan/phpstan
 	mkdir -p .build/phpstan
 	vendor/bin/phpstan analyse --configuration=phpstan.neon
 	mkdir -p .build/psalm
-	vendor/bin/psalm --config=psalm.xml --diff --diff-methods --show-info=false --stats --threads=4
+	tools/vendor/bin/psalm --config=psalm.xml --diff --diff-methods --show-info=false --stats --threads=4
 
 .PHONY: static-code-analysis-baseline
 static-code-analysis-baseline: vendor ## Generates a baseline for static code analysis with phpstan/phpstan and vimeo/psalm
 	mkdir -p .build/phpstan
 	vendor/bin/phpstan analyze --configuration=phpstan.neon --generate-baseline=phpstan-baseline.neon
 	mkdir -p .build/psalm
-	vendor/bin/psalm --config=psalm.xml --set-baseline=psalm-baseline.xml
+	tools/vendor/bin/psalm --config=psalm.xml --set-baseline=psalm-baseline.xml
 
 .PHONY: tests
 tests: vendor ## Runs auto-review, unit, and integration tests with phpunit/phpunit
@@ -58,7 +58,8 @@ tests: vendor ## Runs auto-review, unit, and integration tests with phpunit/phpu
 	vendor/bin/phpunit --configuration=test/Unit/phpunit.xml
 	vendor/bin/phpunit --configuration=test/Integration/phpunit.xml
 
-vendor: composer.json composer.lock
+vendor: composer.json composer.lock tools/composer.json tools/composer.lock
 	composer validate --strict
 	composer install --no-interaction --no-progress --no-suggest
+	composer install --no-interaction --no-progress --no-suggest --working-dir=tools
 	docker run --interactive --rm --tty --workdir=/app --volume ${PWD}:/app localheinz/composer-normalize-action:0.5.2
