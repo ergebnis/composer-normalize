@@ -6,11 +6,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`2.3.2...master`][2.3.2...master].
+For a full diff see [`2.4.0...master`][2.4.0...master].
+
+## [`2.4.0`][2.4.0]
+
+For a full diff see [`2.3.2...2.4.0`][2.3.2...2.4.0].
 
 ### Changed
 
 * Started showing validation error messages as obtained from validation instead of relying on on executing composer validate ([#406]), by [@localheinz]
+* Made plugin compatible with `composer/composer:^2.0.0`  ([#412]), by [@localheinz]
 
 ## [`2.3.2`][2.3.2]
 
@@ -359,6 +364,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [2.3.0]: https://github.com/ergebnis/composer-normalize/releases/tag/2.3.0
 [2.3.1]: https://github.com/ergebnis/composer-normalize/releases/tag/2.3.1
 [2.3.2]: https://github.com/ergebnis/composer-normalize/releases/tag/2.3.2
+[2.4.0]: https://github.com/ergebnis/composer-normalize/releases/tag/2.4.0
 
 [81bc3a8...0.1.0]: https://github.com/ergebnis/composer-normalize/compare/81bc3a8...0.1.0
 [0.1.0...0.2.0]: https://github.com/ergebnis/composer-normalize/compare/0.1.0...0.2.0
@@ -392,7 +398,8 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [2.2.4...2.3.0]: https://github.com/ergebnis/composer-normalize/compare/2.2.4...2.3.0
 [2.3.0...2.3.1]: https://github.com/ergebnis/composer-normalize/compare/2.3.0...2.3.1
 [2.3.1...2.3.2]: https://github.com/ergebnis/composer-normalize/compare/2.3.1...2.3.2
-[2.3.2...master]: https://github.com/ergebnis/composer-normalize/compare/2.3.2...master
+[2.3.2...2.4.0]: https://github.com/ergebnis/composer-normalize/compare/2.4.0...master
+[2.4.0...master]: https://github.com/ergebnis/composer-normalize/compare/2.4.0...master
 
 [#1]: https://github.com/ergebnis/composer-normalize/pull/1
 [#2]: https://github.com/ergebnis/composer-normalize/pull/2
@@ -441,6 +448,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [#379]: https://github.com/ergebnis/composer-normalize/pull/379
 [#380]: https://github.com/ergebnis/composer-normalize/pull/380
 [#406]: https://github.com/ergebnis/composer-normalize/pull/406
+[#412]: https://github.com/ergebnis/composer-normalize/pull/412
 
 [@ergebnis]: https://github.com/ergebnis
 [@ergebnis-bot]: https://github.com/ergebnis-bot

@@ -226,6 +226,10 @@ jobs:
           - "7.3"
           - "7.4"
 
+        composer-version:
+          - "1"
+          - "2"
+
         dependencies:
           - "lowest"
           - "locked"
@@ -241,6 +245,17 @@ jobs:
           coverage: "none"
           extensions: "${{ env.REQUIRED_PHP_EXTENSIONS }}"
           php-version: "${{ matrix.php-version }}"
+
+      - name: "Install composer:^1"
+        if: "matrix.composer-version == '1'"
+        run: "composer self-update ${{ env.COMPOSER_VERSION }}"
+
+      - name: "Install composer:^2"
+        if: "matrix.composer-version == '2'"
+        run: "composer self-update --snapshot"
+
+      - name: "Show composer version"
+        run: "composer --version"
 
       - name: "Determine composer cache directory"
         id: "determine-composer-cache-directory"

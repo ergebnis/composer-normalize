@@ -18,13 +18,14 @@
   ],
   "require": {
     "php": "^7.1",
-    "composer-plugin-api": "^1.1.0",
+    "composer-plugin-api": "^1.1.0 || ^2.0.0",
     "ergebnis/json-normalizer": "~0.12.0",
     "ergebnis/json-printer": "^3.0.2",
     "localheinz/diff": "^1.0.1"
   },
   "require-dev": {
     "composer/composer": "^1.10.5",
+    "composer/package-versions-deprecated": "^1.8.0",
     "ergebnis/license": "~0.1.0",
     "ergebnis/php-cs-fixer-config": "^2.1.2",
     "ergebnis/phpstan-rules": "~0.14.4",
