@@ -70,6 +70,21 @@ jobs:
         if: "matrix.dependencies == 'highest'"
         run: "composer update --no-interaction --no-progress --no-suggest"
 
+      - name: "Install lowest dependencies from composer.json in tools/"
+        if: "matrix.dependencies == 'lowest'"
+        run: "composer update --no-interaction --no-progress --no-suggest --prefer-lowest"
+        working-directory: "tools/"
+
+      - name: "Install locked dependencies from composer.lock in tools/"
+        if: "matrix.dependencies == 'locked'"
+        run: "composer install --no-interaction --no-progress --no-suggest"
+        working-directory: "tools/"
+
+      - name: "Install highest dependencies from composer.json in tools/"
+        if: "matrix.dependencies == 'highest'"
+        run: "composer update --no-interaction --no-progress --no-suggest"
+        working-directory: "tools/"
+
       - name: "Run ergebnis/composer-normalize"
         uses: "docker://localheinz/composer-normalize-action:0.5.2"
         with:
@@ -86,7 +101,7 @@ jobs:
           restore-keys: "php-${{ matrix.php-version }}-php-cs-fixer-"
 
       - name: "Run friendsofphp/php-cs-fixer"
-        run: "vendor/bin/php-cs-fixer fix --config=.php_cs --diff --diff-format=udiff --dry-run --verbose"
+        run: "tools/vendor/bin/php-cs-fixer fix --config=.php_cs --diff --diff-format=udiff --dry-run --verbose"
 
   dependency-analysis:
     name: "Dependency Analysis"
@@ -187,6 +202,21 @@ jobs:
         if: "matrix.dependencies == 'highest'"
         run: "composer update --no-interaction --no-progress --no-suggest"
 
+      - name: "Install lowest dependencies from composer.json in tools/"
+        if: "matrix.dependencies == 'lowest'"
+        run: "composer update --no-interaction --no-progress --no-suggest --prefer-lowest"
+        working-directory: "tools/"
+
+      - name: "Install locked dependencies from composer.lock in tools/"
+        if: "matrix.dependencies == 'locked'"
+        run: "composer install --no-interaction --no-progress --no-suggest"
+        working-directory: "tools/"
+
+      - name: "Install highest dependencies from composer.json in tools/"
+        if: "matrix.dependencies == 'highest'"
+        run: "composer update --no-interaction --no-progress --no-suggest"
+        working-directory: "tools/"
+
       - name: "Create cache directory for phpstan/phpstan"
         run: "mkdir -p .build/phpstan"
 
@@ -211,7 +241,7 @@ jobs:
           restore-keys: "php-${{ matrix.php-version }}-psalm-"
 
       - name: "Run vimeo/psalm"
-        run: "vendor/bin/psalm --config=psalm.xml --diff --diff-methods --shepherd --show-info=false --stats --threads=4"
+        run: "tools/vendor/bin/psalm --config=psalm.xml --diff --diff-methods --shepherd --show-info=false --stats --threads=4"
 
   tests:
     name: "Tests"
@@ -396,6 +426,9 @@ jobs:
       - name: "Install highest dependencies from composer.json"
         if: "matrix.dependencies == 'highest'"
         run: "composer update --no-interaction --no-progress --no-suggest"
+
+      - name: "Remove composer/composer"
+        run: "composer remove composer/composer --no-interaction --no-progress"
 
       - name: "Require composer/composer"
         run: "composer require composer/composer:${{ env.COMPOSER_VERSION }} --no-interaction --no-progress --no-suggest"

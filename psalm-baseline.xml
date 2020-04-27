@@ -57,6 +57,12 @@
   </file>
   <file src="test/Integration/Command/NormalizeCommandTest.php">
     <MixedArgumentTypeCoercion occurrences="2"/>
+    <MixedArrayAccess occurrences="1">
+      <code>$decoded['plugin-api-version']</code>
+    </MixedArrayAccess>
+    <MixedAssignment occurrences="1">
+      <code>$decoded</code>
+    </MixedAssignment>
     <MixedInferredReturnType occurrences="3">
       <code>\Generator&lt;array&lt;CommandInvocation&gt;&gt;</code>
       <code>\Generator&lt;array{0: CommandInvocation, 1: string}&gt;</code>

@@ -24,10 +24,8 @@
     "localheinz/diff": "^1.0.1"
   },
   "require-dev": {
-    "composer/composer": "^1.10.5",
+    "composer/composer": "^1.10.5 || ^2.0.0",
     "composer/package-versions-deprecated": "^1.8.0",
-    "ergebnis/license": "~0.1.0",
-    "ergebnis/php-cs-fixer-config": "^2.1.2",
     "ergebnis/phpstan-rules": "~0.14.4",
     "ergebnis/test-util": "~1.0.0",
     "jangregor/phpstan-prophecy": "~0.6.2",
@@ -37,9 +35,7 @@
     "phpstan/phpstan-phpunit": "~0.12.8",
     "phpstan/phpstan-strict-rules": "~0.12.2",
     "phpunit/phpunit": "^7.5.20",
-    "psalm/plugin-phpunit": "~0.10.0",
-    "symfony/filesystem": "^4.4.7",
-    "vimeo/psalm": "^3.11.2"
+    "symfony/filesystem": "^4.4.7"
   },
   "config": {
     "platform": {
@@ -61,6 +57,8 @@
       "Ergebnis\\Composer\\Normalize\\Test\\": "test/"
     }
   },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
   "support": {
     "issues": "https://github.com/ergebnis/composer-normalize/issues",
     "source": "https://github.com/ergebnis/composer-normalize"
