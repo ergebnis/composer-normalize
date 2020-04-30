@@ -15,6 +15,7 @@ namespace Ergebnis\Composer\Normalize\Command;
 
 use Composer\Command;
 use Composer\Factory;
+use Composer\IO;
 use Ergebnis\Composer\Normalize\Exception;
 use Ergebnis\Json\Normalizer;
 use Localheinz\Diff;
@@ -121,19 +122,10 @@ final class NormalizeCommand extends Command\BaseCommand
             $composerFile = Factory::getComposerFile();
         }
 
-        try {
-            $composer = $this->factory->createComposer(
-                $io,
-                $composerFile
-            );
-        } catch (\Exception $exception) {
-            $io->writeError(\sprintf(
-                '<error>%s</error>',
-                $exception->getMessage()
-            ));
-
-            return 1;
-        }
+        $composer = $this->factory->createComposer(
+            $io,
+            $composerFile
+        );
 
         if (false === $input->getOption('dry-run') && !\is_writable($composerFile)) {
             $io->writeError(\sprintf(
@@ -159,19 +151,22 @@ final class NormalizeCommand extends Command\BaseCommand
 
         try {
             $normalized = $this->normalizer->normalize($json);
-        } catch (Normalizer\Exception\OriginalInvalidAccordingToSchemaException | Normalizer\Exception\NormalizedInvalidAccordingToSchemaException $exception) {
-            $io->writeError(\sprintf(
-                '<error>%s</error>',
-                $exception->getMessage()
-            ));
+        } catch (Normalizer\Exception\OriginalInvalidAccordingToSchemaException $exception) {
+            $io->writeError('<error>Original composer.json does not match the expected JSON schema:</error>');
 
-            $errors = $exception->errors();
+            $this->showValidationErrors(
+                $io,
+                ...$exception->errors()
+            );
 
-            \array_walk($errors, static function (string $error) use ($io): void {
-                $io->writeError($error);
-            });
+            return 1;
+        } catch (Normalizer\Exception\NormalizedInvalidAccordingToSchemaException $exception) {
+            $io->writeError('<error>Normalized composer.json does not match the expected JSON schema:</error>');
 
-            $io->writeError('<warning>See https://getcomposer.org/doc/04-schema.md for details on the schema</warning>');
+            $this->showValidationErrors(
+                $io,
+                ...$exception->errors()
+            );
 
             return 1;
         } catch (\RuntimeException $exception) {
@@ -307,6 +302,18 @@ final class NormalizeCommand extends Command\BaseCommand
         }
 
         return $indent;
+    }
+
+    private function showValidationErrors(IO\IOInterface $io, string ...$errors): void
+    {
+        foreach ($errors as $error) {
+            $io->writeError(\sprintf(
+                '<error>- %s</error>',
+                $error
+            ));
+        }
+
+        $io->writeError('<warning>See https://getcomposer.org/doc/04-schema.md for details on the schema</warning>');
     }
 
     /**
