@@ -1,3 +1,7 @@
 {
-  "description": "This composer.json is not valid as it is missing required fields."
+  "_comment": "This composer.json is not valid according to a lax validation, as existing fields have unexpected types",
+  "name": [
+    "foo",
+    "bar"
+  ]
 }

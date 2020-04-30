@@ -26,7 +26,7 @@ help: ## Displays this list of targets with descriptions
 .PHONY: phar
 phar: vendor ## Builds a phar with humbug/box
 	phar/box.phar validate box.json
-	composer require composer/composer:${COMPOSER_VERSION}  --no-interaction --no-progress --no-suggest
+	composer require composer/composer:${COMPOSER_VERSION}  --no-interaction --no-progress --no-suggest --update-with-dependencies
 	phar/box.phar compile --config=box.json
 	git checkout HEAD -- composer.json composer.lock
 	phar/box.phar info .build/phar/composer-normalize.phar

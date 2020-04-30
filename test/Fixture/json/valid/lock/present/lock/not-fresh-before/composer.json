@@ -1,7 +1,6 @@
 {
-  "name": "foo/bar",
   "type": "library",
-  "description": "This composer.json is valid, a composer.lock is present, but not fresh before invoking the command.",
+  "_comment": "This composer.json is valid according to a lax validation, a composer.lock is present, but not fresh before invoking the command.",
   "keywords": [
     "foo",
     "bar"
