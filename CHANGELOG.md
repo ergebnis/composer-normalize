@@ -6,12 +6,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`2.5.0...master`][2.5.0...master].
+For a full diff see [`2.5.1...master`][2.5.1...master].
+
+## [`2.5.1`][2.5.1]
+
+For a full diff see [`2.5.0...2.5.1`][2.5.0...2.5.1].
 
 ### Fixed
 
 * Started updating lock files with a new `Composer\Console\Application` instead of reusing the current instance ([#420]), by [@localheinz]
 * Stopped using the deprecated `--no-suggest` option when updating the lock file ([#422]), by [@localheinz]
+* Started relaxing schema in place to avoid issues resolving references and the like on Windows ([#424]), by [@localheinz]
 
 ## [`2.5.0`][2.5.0]
 
@@ -379,6 +384,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [2.3.2]: https://github.com/ergebnis/composer-normalize/releases/tag/2.3.2
 [2.4.0]: https://github.com/ergebnis/composer-normalize/releases/tag/2.4.0
 [2.5.0]: https://github.com/ergebnis/composer-normalize/releases/tag/2.5.0
+[2.5.1]: https://github.com/ergebnis/composer-normalize/releases/tag/2.5.1
 
 [81bc3a8...0.1.0]: https://github.com/ergebnis/composer-normalize/compare/81bc3a8...0.1.0
 [0.1.0...0.2.0]: https://github.com/ergebnis/composer-normalize/compare/0.1.0...0.2.0
@@ -414,7 +420,8 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [2.3.1...2.3.2]: https://github.com/ergebnis/composer-normalize/compare/2.3.1...2.3.2
 [2.3.2...2.4.0]: https://github.com/ergebnis/composer-normalize/compare/2.4.0...master
 [2.4.0...2.5.0]: https://github.com/ergebnis/composer-normalize/compare/2.4.0...2.5.0
-[2.5.0...master]: https://github.com/ergebnis/composer-normalize/compare/2.5.0...master
+[2.5.0...2.5.1]: https://github.com/ergebnis/composer-normalize/compare/2.5.0...2.5.1
+[2.5.1...master]: https://github.com/ergebnis/composer-normalize/compare/2.5.1...master
 
 [#1]: https://github.com/ergebnis/composer-normalize/pull/1
 [#2]: https://github.com/ergebnis/composer-normalize/pull/2
@@ -467,6 +474,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [#416]: https://github.com/ergebnis/composer-normalize/pull/416
 [#420]: https://github.com/ergebnis/composer-normalize/pull/420
 [#422]: https://github.com/ergebnis/composer-normalize/pull/422
+[#424]: https://github.com/ergebnis/composer-normalize/pull/424
 
 [@ergebnis]: https://github.com/ergebnis
 [@ergebnis-bot]: https://github.com/ergebnis-bot
