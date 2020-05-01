@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phive xmlns="https://phar.io/phive">
+  <phar name="composer-normalize" version="^2.1.2" installed="2.1.2" location="./tools/composer-normalize" copy="true"/>
+</phive>

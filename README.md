@@ -540,10 +540,6 @@ This package is licensed using the MIT License.
 
 Please have a look at [`LICENSE.md`](LICENSE.md).
 
-## GitHub Action
-
-`ergebnis/composer-normalize` is also available as a [GitHub Action](https://github.com/features/actions) on the [GitHub Marketplace](https://github.com/marketplace), see [`composer-normalize-action`](https://github.com/marketplace/actions/composer-normalize-action) as well as the corresponding repository [`ergebnis/composer-normalize-action`](https://github.com/ergebnis/composer-normalize-action).
-
 ## Services
 
 `ergebnis/composer-normalize` is currently in use by [FlintCI](https://flintci.io), see https://flintci.io/docs#composernormalize.
