@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Ergebnis\Composer\Normalize\Command;
 
 use Composer\Command;
+use Composer\Console\Application;
 use Composer\Factory;
 use Composer\IO;
 use Ergebnis\Composer\Normalize\Exception;
@@ -235,10 +236,12 @@ final class NormalizeCommand extends Command\BaseCommand
 
         $io->write('<info>Updating lock file.</info>');
 
-        $this->resetComposer();
+        $application = new Application();
+
+        $application->setAutoExit(false);
 
         return self::updateLockerInWorkingDirectory(
-            $this->getApplication(),
+            $application,
             $output,
             \dirname($composerFile)
         );
