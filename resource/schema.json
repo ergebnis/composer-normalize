@@ -2,8 +2,8 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "name": "Package",
     "type": "object",
-    "additionalProperties": false,
-    "required": [ "name", "description" ],
+    "additionalProperties": true,
+    "required": [],
     "properties": {
         "name": {
             "type": "string",
@@ -48,7 +48,10 @@
             "description": "Package release date, in 'YYYY-MM-DD', 'YYYY-MM-DD HH:MM:SS' or 'YYYY-MM-DDTHH:MM:SSZ' format."
         },
         "license": {
-            "type": ["string", "array"],
+            "type": [
+                "string",
+                "array"
+            ],
             "description": "License name. Or an array of license names."
         },
         "authors": {
@@ -109,7 +112,10 @@
                     "description": "If true, the Composer autoloader will also look for classes in the PHP include path."
                 },
                 "preferred-install": {
-                    "type": ["string", "object"],
+                    "type": [
+                        "string",
+                        "object"
+                    ],
                     "description": "The install method Composer will prefer to use, defaults to auto and can be any of source, dist, auto, or a hash of {\"pattern\": \"preference\"}."
                 },
                 "notify-on-install": {
@@ -172,7 +178,10 @@
                     "description": "A hash of domain name => {\"username\": \"...\", \"password\": \"...\"}.",
                     "additionalProperties": {
                         "type": "object",
-                        "required": ["username", "password"],
+                        "required": [
+                            "username",
+                            "password"
+                        ],
                         "properties": {
                             "username": {
                                 "type": "string",
@@ -186,7 +195,10 @@
                     }
                 },
                 "store-auths": {
-                    "type": ["string", "boolean"],
+                    "type": [
+                        "string",
+                        "boolean"
+                    ],
                     "description": "What to do after prompting for authentication, one of: true (store), false (do not store) or \"prompt\" (ask every time), defaults to prompt."
                 },
                 "platform": {
@@ -233,15 +245,24 @@
                     "description": "The cache time-to-live for files, defaults to the value of cache-ttl."
                 },
                 "cache-files-maxsize": {
-                    "type": ["string", "integer"],
+                    "type": [
+                        "string",
+                        "integer"
+                    ],
                     "description": "The cache max size for the files cache, defaults to \"300MiB\"."
                 },
                 "bin-compat": {
-                    "enum": ["auto", "full"],
+                    "enum": [
+                        "auto",
+                        "full"
+                    ],
                     "description": "The compatibility of the binaries, defaults to \"auto\" (automatically guessed) and can be \"full\" (compatible with both Windows and Unix-based systems)."
                 },
                 "discard-changes": {
-                    "type": ["string", "boolean"],
+                    "type": [
+                        "string",
+                        "boolean"
+                    ],
                     "description": "The default style of handling dirty updates, defaults to false and can be any of true, false or \"stash\"."
                 },
                 "autoloader-suffix": {
@@ -309,7 +330,10 @@
             }
         },
         "extra": {
-            "type": ["object", "array"],
+            "type": [
+                "object",
+                "array"
+            ],
             "description": "Arbitrary extra data that can be used by plugins, for example, package of type composer-plugin may have a 'class' key defining an installer class name.",
             "additionalProperties": true
         },
@@ -324,7 +348,10 @@
                     "type": "object",
                     "description": "This is a hash of namespaces (keys) and the directories they can be found into (values, can be arrays of paths) by the autoloader.",
                     "additionalProperties": {
-                        "type": ["string", "array"],
+                        "type": [
+                            "string",
+                            "array"
+                        ],
                         "items": {
                             "type": "string"
                         }
@@ -334,7 +361,10 @@
                     "type": "object",
                     "description": "This is a hash of namespaces (keys) and the PSR-4 directories they can map to (values, can be arrays of paths) by the autoloader.",
                     "additionalProperties": {
-                        "type": ["string", "array"],
+                        "type": [
+                            "string",
+                            "array"
+                        ],
                         "items": {
                             "type": "string"
                         }
@@ -351,7 +381,9 @@
             }
         },
         "archive": {
-            "type": ["object"],
+            "type": [
+                "object"
+            ],
             "description": "Options for creating package archives for distribution.",
             "properties": {
                 "exclude": {
@@ -361,20 +393,37 @@
             }
         },
         "repositories": {
-            "type": ["object", "array"],
+            "type": [
+                "object",
+                "array"
+            ],
             "description": "A set of additional repositories where packages can be found.",
             "additionalProperties": {
                 "oneOf": [
-                    { "$ref": "#/definitions/repository" },
-                    { "type": "boolean", "enum": [false] }
+                    {
+                        "$ref": "#/definitions/repository"
+                    },
+                    {
+                        "type": "boolean",
+                        "enum": [
+                            false
+                        ]
+                    }
                 ]
             },
             "items": {
                 "oneOf": [
-                    { "$ref": "#/definitions/repository" },
+                    {
+                        "$ref": "#/definitions/repository"
+                    },
                     {
                         "type": "object",
-                        "additionalProperties": { "type": "boolean", "enum": [false] },
+                        "additionalProperties": {
+                            "type": "boolean",
+                            "enum": [
+                                false
+                            ]
+                        },
                         "minProperties": 1,
                         "maxProperties": 1
                     }
@@ -382,100 +431,161 @@
             }
         },
         "minimum-stability": {
-            "type": ["string"],
+            "type": [
+                "string"
+            ],
             "description": "The minimum stability the packages must have to be install-able. Possible values are: dev, alpha, beta, RC, stable.",
             "pattern": "^dev|alpha|beta|rc|RC|stable$"
         },
         "prefer-stable": {
-            "type": ["boolean"],
+            "type": [
+                "boolean"
+            ],
             "description": "If set to true, stable packages will be preferred to dev packages when possible, even if the minimum-stability allows unstable packages."
         },
         "bin": {
-            "type": ["string", "array"],
+            "type": [
+                "string",
+                "array"
+            ],
             "description": "A set of files, or a single file, that should be treated as binaries and symlinked into bin-dir (from config).",
             "items": {
                 "type": "string"
             }
         },
         "include-path": {
-            "type": ["array"],
+            "type": [
+                "array"
+            ],
             "description": "DEPRECATED: A list of directories which should get added to PHP's include path. This is only present to support legacy projects, and all new code should preferably use autoloading.",
             "items": {
                 "type": "string"
             }
         },
         "scripts": {
-            "type": ["object"],
+            "type": [
+                "object"
+            ],
             "description": "Script listeners that will be executed before/after some events.",
             "properties": {
                 "pre-install-cmd": {
-                    "type": ["array", "string"],
+                    "type": [
+                        "array",
+                        "string"
+                    ],
                     "description": "Occurs before the install command is executed, contains one or more Class::method callables or shell commands."
                 },
                 "post-install-cmd": {
-                    "type": ["array", "string"],
+                    "type": [
+                        "array",
+                        "string"
+                    ],
                     "description": "Occurs after the install command is executed, contains one or more Class::method callables or shell commands."
                 },
                 "pre-update-cmd": {
-                    "type": ["array", "string"],
+                    "type": [
+                        "array",
+                        "string"
+                    ],
                     "description": "Occurs before the update command is executed, contains one or more Class::method callables or shell commands."
                 },
                 "post-update-cmd": {
-                    "type": ["array", "string"],
+                    "type": [
+                        "array",
+                        "string"
+                    ],
                     "description": "Occurs after the update command is executed, contains one or more Class::method callables or shell commands."
                 },
                 "pre-status-cmd": {
-                    "type": ["array", "string"],
+                    "type": [
+                        "array",
+                        "string"
+                    ],
                     "description": "Occurs before the status command is executed, contains one or more Class::method callables or shell commands."
                 },
                 "post-status-cmd": {
-                    "type": ["array", "string"],
+                    "type": [
+                        "array",
+                        "string"
+                    ],
                     "description": "Occurs after the status command is executed, contains one or more Class::method callables or shell commands."
                 },
                 "pre-package-install": {
-                    "type": ["array", "string"],
+                    "type": [
+                        "array",
+                        "string"
+                    ],
                     "description": "Occurs before a package is installed, contains one or more Class::method callables or shell commands."
                 },
                 "post-package-install": {
-                    "type": ["array", "string"],
+                    "type": [
+                        "array",
+                        "string"
+                    ],
                     "description": "Occurs after a package is installed, contains one or more Class::method callables or shell commands."
                 },
                 "pre-package-update": {
-                    "type": ["array", "string"],
+                    "type": [
+                        "array",
+                        "string"
+                    ],
                     "description": "Occurs before a package is updated, contains one or more Class::method callables or shell commands."
                 },
                 "post-package-update": {
-                    "type": ["array", "string"],
+                    "type": [
+                        "array",
+                        "string"
+                    ],
                     "description": "Occurs after a package is updated, contains one or more Class::method callables or shell commands."
                 },
                 "pre-package-uninstall": {
-                    "type": ["array", "string"],
+                    "type": [
+                        "array",
+                        "string"
+                    ],
                     "description": "Occurs before a package has been uninstalled, contains one or more Class::method callables or shell commands."
                 },
                 "post-package-uninstall": {
-                    "type": ["array", "string"],
+                    "type": [
+                        "array",
+                        "string"
+                    ],
                     "description": "Occurs after a package has been uninstalled, contains one or more Class::method callables or shell commands."
                 },
                 "pre-autoload-dump": {
-                    "type": ["array", "string"],
+                    "type": [
+                        "array",
+                        "string"
+                    ],
                     "description": "Occurs before the autoloader is dumped, contains one or more Class::method callables or shell commands."
                 },
                 "post-autoload-dump": {
-                    "type": ["array", "string"],
+                    "type": [
+                        "array",
+                        "string"
+                    ],
                     "description": "Occurs after the autoloader is dumped, contains one or more Class::method callables or shell commands."
                 },
                 "post-root-package-install": {
-                    "type": ["array", "string"],
+                    "type": [
+                        "array",
+                        "string"
+                    ],
                     "description": "Occurs after the root-package is installed, contains one or more Class::method callables or shell commands."
                 },
                 "post-create-project-cmd": {
-                    "type": ["array", "string"],
+                    "type": [
+                        "array",
+                        "string"
+                    ],
                     "description": "Occurs after the create-project command is executed, contains one or more Class::method callables or shell commands."
                 }
             }
         },
         "scripts-descriptions": {
-            "type": ["object"],
+            "type": [
+                "object"
+            ],
             "description": "Descriptions for custom commands, shown in console help.",
             "additionalProperties": {
                 "type": "string"
@@ -550,18 +660,26 @@
             }
         },
         "non-feature-branches": {
-            "type": ["array"],
+            "type": [
+                "array"
+            ],
             "description": "A set of string or regex patterns for non-numeric branch names that will not be handled as feature branches.",
             "items": {
                 "type": "string"
             }
         },
         "abandoned": {
-            "type": ["boolean", "string"],
+            "type": [
+                "boolean",
+                "string"
+            ],
             "description": "Indicates whether this package has been abandoned, it can be boolean or a package name/URL pointing to a recommended alternative. Defaults to false."
         },
         "_comment": {
-            "type": ["array", "string"],
+            "type": [
+                "array",
+                "string"
+            ],
             "description": "A key to store comments in"
         }
     },
@@ -572,7 +690,9 @@
             "items": {
                 "type": "object",
                 "additionalProperties": false,
-                "required": [ "name"],
+                "required": [
+                    "name"
+                ],
                 "properties": {
                     "name": {
                         "type": "string",
@@ -603,7 +723,10 @@
                     "type": "object",
                     "description": "This is a hash of namespaces (keys) and the directories they can be found in (values, can be arrays of paths) by the autoloader.",
                     "additionalProperties": {
-                        "type": ["string", "array"],
+                        "type": [
+                            "string",
+                            "array"
+                        ],
                         "items": {
                             "type": "string"
                         }
@@ -613,7 +736,10 @@
                     "type": "object",
                     "description": "This is a hash of namespaces (keys) and the PSR-4 directories they can map to (values, can be arrays of paths) by the autoloader.",
                     "additionalProperties": {
-                        "type": ["string", "array"],
+                        "type": [
+                            "string",
+                            "array"
+                        ],
                         "items": {
                             "type": "string"
                         }
@@ -636,58 +762,151 @@
         "repository": {
             "type": "object",
             "oneOf": [
-                { "$ref": "#/definitions/composer-repository" },
-                { "$ref": "#/definitions/vcs-repository" },
-                { "$ref": "#/definitions/path-repository" },
-                { "$ref": "#/definitions/artifact-repository" },
-                { "$ref": "#/definitions/pear-repository" },
-                { "$ref": "#/definitions/package-repository" }
+                {
+                    "$ref": "#/definitions/composer-repository"
+                },
+                {
+                    "$ref": "#/definitions/vcs-repository"
+                },
+                {
+                    "$ref": "#/definitions/path-repository"
+                },
+                {
+                    "$ref": "#/definitions/artifact-repository"
+                },
+                {
+                    "$ref": "#/definitions/pear-repository"
+                },
+                {
+                    "$ref": "#/definitions/package-repository"
+                }
             ]
         },
         "composer-repository": {
             "type": "object",
-            "required": ["type", "url"],
+            "required": [
+                "type",
+                "url"
+            ],
             "properties": {
-                "type": { "type": "string", "enum": ["composer"] },
-                "url": { "type": "string" },
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "composer"
+                    ]
+                },
+                "url": {
+                    "type": "string"
+                },
                 "options": {
                     "type": "object",
                     "additionalProperties": true
                 },
-                "allow_ssl_downgrade": { "type": "boolean" },
-                "force-lazy-providers": { "type": "boolean" }
+                "allow_ssl_downgrade": {
+                    "type": "boolean"
+                },
+                "force-lazy-providers": {
+                    "type": "boolean"
+                }
             }
         },
         "vcs-repository": {
             "type": "object",
-            "required": ["type", "url"],
+            "required": [
+                "type",
+                "url"
+            ],
             "properties": {
-                "type": { "type": "string", "enum": ["vcs", "github", "git", "gitlab", "git-bitbucket", "hg", "hg-bitbucket", "fossil", "perforce", "svn"] },
-                "url": { "type": "string" },
-                "no-api": { "type": "boolean" },
-                "secure-http": { "type": "boolean" },
-                "svn-cache-credentials": { "type": "boolean" },
-                "trunk-path": { "type": ["string", "boolean"] },
-                "branches-path": { "type": ["string", "boolean"] },
-                "tags-path": { "type": ["string", "boolean"] },
-                "package-path": { "type": "string" },
-                "depot": { "type": "string" },
-                "branch": { "type": "string" },
-                "unique_perforce_client_name": { "type": "string" },
-                "p4user": { "type": "string" },
-                "p4password": { "type": "string" }
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "vcs",
+                        "github",
+                        "git",
+                        "gitlab",
+                        "git-bitbucket",
+                        "hg",
+                        "hg-bitbucket",
+                        "fossil",
+                        "perforce",
+                        "svn"
+                    ]
+                },
+                "url": {
+                    "type": "string"
+                },
+                "no-api": {
+                    "type": "boolean"
+                },
+                "secure-http": {
+                    "type": "boolean"
+                },
+                "svn-cache-credentials": {
+                    "type": "boolean"
+                },
+                "trunk-path": {
+                    "type": [
+                        "string",
+                        "boolean"
+                    ]
+                },
+                "branches-path": {
+                    "type": [
+                        "string",
+                        "boolean"
+                    ]
+                },
+                "tags-path": {
+                    "type": [
+                        "string",
+                        "boolean"
+                    ]
+                },
+                "package-path": {
+                    "type": "string"
+                },
+                "depot": {
+                    "type": "string"
+                },
+                "branch": {
+                    "type": "string"
+                },
+                "unique_perforce_client_name": {
+                    "type": "string"
+                },
+                "p4user": {
+                    "type": "string"
+                },
+                "p4password": {
+                    "type": "string"
+                }
             }
         },
         "path-repository": {
             "type": "object",
-            "required": ["type", "url"],
+            "required": [
+                "type",
+                "url"
+            ],
             "properties": {
-                "type": { "type": "string", "enum": ["path"] },
-                "url": { "type": "string" },
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "path"
+                    ]
+                },
+                "url": {
+                    "type": "string"
+                },
                 "options": {
                     "type": "object",
                     "properties": {
-                        "symlink": { "type": ["boolean", "null"] }
+                        "symlink": {
+                            "type": [
+                                "boolean",
+                                "null"
+                            ]
+                        }
                     },
                     "additionalProperties": true
                 }
@@ -695,32 +914,66 @@
         },
         "artifact-repository": {
             "type": "object",
-            "required": ["type", "url"],
+            "required": [
+                "type",
+                "url"
+            ],
             "properties": {
-                "type": { "type": "string", "enum": ["artifact"] },
-                "url": { "type": "string" }
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "artifact"
+                    ]
+                },
+                "url": {
+                    "type": "string"
+                }
             }
         },
         "pear-repository": {
             "type": "object",
-            "required": ["type", "url"],
+            "required": [
+                "type",
+                "url"
+            ],
             "properties": {
-                "type": { "type": "string", "enum": ["pear"] },
-                "url": { "type": "string" },
-                "vendor-alias": { "type": "string" }
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "pear"
+                    ]
+                },
+                "url": {
+                    "type": "string"
+                },
+                "vendor-alias": {
+                    "type": "string"
+                }
             }
         },
         "package-repository": {
             "type": "object",
-            "required": ["type", "package"],
+            "required": [
+                "type",
+                "package"
+            ],
             "properties": {
-                "type": { "type": "string", "enum": ["package"] },
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "package"
+                    ]
+                },
                 "package": {
                     "oneOf": [
-                        { "$ref": "#/definitions/inline-package" },
+                        {
+                            "$ref": "#/definitions/inline-package"
+                        },
                         {
                             "type": "array",
-                            "items": { "$ref": "#/definitions/inline-package" }
+                            "items": {
+                                "$ref": "#/definitions/inline-package"
+                            }
                         }
                     ]
                 }
@@ -728,7 +981,10 @@
         },
         "inline-package": {
             "type": "object",
-            "required": ["name", "version"],
+            "required": [
+                "name",
+                "version"
+            ],
             "properties": {
                 "name": {
                     "type": "string",
@@ -806,14 +1062,19 @@
                     }
                 },
                 "extra": {
-                    "type": ["object", "array"],
+                    "type": [
+                        "object",
+                        "array"
+                    ],
                     "additionalProperties": true
                 },
                 "autoload": {
                     "$ref": "#/definitions/autoload"
                 },
                 "archive": {
-                    "type": ["object"],
+                    "type": [
+                        "object"
+                    ],
                     "properties": {
                         "exclude": {
                             "type": "array"
@@ -821,14 +1082,19 @@
                     }
                 },
                 "bin": {
-                    "type": ["string", "array"],
+                    "type": [
+                        "string",
+                        "array"
+                    ],
                     "description": "A set of files, or a single file, that should be treated as binaries and symlinked into bin-dir (from config).",
                     "items": {
                         "type": "string"
                     }
                 },
                 "include-path": {
-                    "type": ["array"],
+                    "type": [
+                        "array"
+                    ],
                     "description": "DEPRECATED: A list of directories which should get added to PHP's include path. This is only present to support legacy projects, and all new code should preferably use autoloading.",
                     "items": {
                         "type": "string"
@@ -836,7 +1102,11 @@
                 },
                 "source": {
                     "type": "object",
-                    "required": ["type", "url", "reference"],
+                    "required": [
+                        "type",
+                        "url",
+                        "reference"
+                    ],
                     "properties": {
                         "type": {
                             "type": "string"
@@ -854,7 +1124,10 @@
                 },
                 "dist": {
                     "type": "object",
-                    "required": ["type", "url"],
+                    "required": [
+                        "type",
+                        "url"
+                    ],
                     "properties": {
                         "type": {
                             "type": "string"

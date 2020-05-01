@@ -36,6 +36,7 @@ phar: vendor ## Builds a phar with humbug/box
 .PHONY: schema
 schema: vendor ## Updates the schema
 	wget --output-document=resource/schema.json https://getcomposer.org/schema.json
+	php bin/laxify-schema.php
 
 .PHONY: static-code-analysis
 static-code-analysis: vendor ## Runs a static code analysis with phpstan/phpstan and vimeo/psalm

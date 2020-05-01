@@ -6,8 +6,7 @@
   ],
   "compression": "GZ",
   "files": [
-    "resource/schema.json",
-    "resource/schema-lax.json"
+    "resource/schema.json"
   ],
   "git": "git",
   "main": "phar/composer-normalize.php",

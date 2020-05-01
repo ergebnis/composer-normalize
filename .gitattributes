@@ -1,5 +1,6 @@
 /.dependabot/                   export-ignore
 /.github/                       export-ignore
+/bin/                           export-ignore
 /phar/                          export-ignore
 /test/                          export-ignore
 /tools/                         export-ignore
