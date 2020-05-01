@@ -730,12 +730,16 @@ final class NormalizeCommandTest extends Framework\TestCase
 
         self::assertExitCodeSame(0, $exitCode);
 
+        $display = $output->fetch();
+
+        self::assertStringNotContainsString('A script named hello would override a Composer command and has been skipped', $display);
+
         $expected = \sprintf(
             'Successfully normalized %s.',
             $scenario->composerJsonFileReference()
         );
 
-        self::assertStringContainsString($expected, $output->fetch());
+        self::assertStringContainsString($expected, $display);
 
         $currentState = $scenario->currentState();
 
