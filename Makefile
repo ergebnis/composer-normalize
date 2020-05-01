@@ -63,4 +63,4 @@ vendor: composer.json composer.lock tools/composer.json tools/composer.lock
 	composer validate --strict
 	composer install --no-interaction --no-progress --no-suggest
 	composer install --no-interaction --no-progress --no-suggest --working-dir=tools
-	docker run --interactive --rm --tty --workdir=/app --volume ${PWD}:/app localheinz/composer-normalize-action:0.5.2
+	tools/composer-normalize

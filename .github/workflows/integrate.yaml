@@ -86,9 +86,7 @@ jobs:
         working-directory: "tools/"
 
       - name: "Run ergebnis/composer-normalize"
-        uses: "docker://localheinz/composer-normalize-action:0.5.2"
-        with:
-          args: "--dry-run"
+        run: "tools/composer-normalize --dry-run"
 
       - name: "Create cache directory for friendsofphp/php-cs-fixer"
         run: "mkdir -p .build/php-cs-fixer"
