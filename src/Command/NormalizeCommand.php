@@ -371,7 +371,6 @@ final class NormalizeCommand extends Command\BaseCommand
                 '--no-autoloader' => true,
                 '--no-plugins' => true,
                 '--no-scripts' => true,
-                '--no-suggest' => true,
                 '--working-dir' => $workingDirectory,
             ]),
             $output
