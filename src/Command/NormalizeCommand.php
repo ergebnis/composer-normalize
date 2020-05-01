@@ -106,7 +106,7 @@ final class NormalizeCommand extends Command\BaseCommand
         $io = $this->getIO();
 
         try {
-            $indent = $this->indentFrom($input);
+            $indent = self::indentFrom($input);
         } catch (\RuntimeException $exception) {
             $io->writeError(\sprintf(
                 '<error>%s</error>',
@@ -154,7 +154,7 @@ final class NormalizeCommand extends Command\BaseCommand
         } catch (Normalizer\Exception\OriginalInvalidAccordingToSchemaException $exception) {
             $io->writeError('<error>Original composer.json does not match the expected JSON schema:</error>');
 
-            $this->showValidationErrors(
+            self::showValidationErrors(
                 $io,
                 ...$exception->errors()
             );
@@ -163,7 +163,7 @@ final class NormalizeCommand extends Command\BaseCommand
         } catch (Normalizer\Exception\NormalizedInvalidAccordingToSchemaException $exception) {
             $io->writeError('<error>Normalized composer.json does not match the expected JSON schema:</error>');
 
-            $this->showValidationErrors(
+            self::showValidationErrors(
                 $io,
                 ...$exception->errors()
             );
@@ -204,17 +204,15 @@ final class NormalizeCommand extends Command\BaseCommand
                 $composerFile
             ));
 
+            $diff = $this->differ->diff(
+                $json->encoded(),
+                $formatted->encoded()
+            );
+
             $io->write([
                 '',
                 '<fg=yellow>---------- begin diff ----------</>',
-            ]);
-
-            $io->write($this->diff(
-                $json->encoded(),
-                $formatted->encoded()
-            ));
-
-            $io->write([
+                self::formatDiff($diff),
                 '<fg=yellow>----------- end diff -----------</>',
                 '',
             ]);
@@ -239,7 +237,8 @@ final class NormalizeCommand extends Command\BaseCommand
 
         $this->resetComposer();
 
-        return $this->updateLockerInWorkingDirectory(
+        return self::updateLockerInWorkingDirectory(
+            $this->getApplication(),
             $output,
             \dirname($composerFile)
         );
@@ -252,7 +251,7 @@ final class NormalizeCommand extends Command\BaseCommand
      *
      * @return null|Normalizer\Format\Indent
      */
-    private function indentFrom(Console\Input\InputInterface $input): ?Normalizer\Format\Indent
+    private static function indentFrom(Console\Input\InputInterface $input): ?Normalizer\Format\Indent
     {
         /** @var null|string $indentSize */
         $indentSize = $input->getOption('indent-size');
@@ -304,7 +303,7 @@ final class NormalizeCommand extends Command\BaseCommand
         return $indent;
     }
 
-    private function showValidationErrors(IO\IOInterface $io, string ...$errors): void
+    private static function showValidationErrors(IO\IOInterface $io, string ...$errors): void
     {
         foreach ($errors as $error) {
             $io->writeError(\sprintf(
@@ -316,19 +315,8 @@ final class NormalizeCommand extends Command\BaseCommand
         $io->writeError('<warning>See https://getcomposer.org/doc/04-schema.md for details on the schema</warning>');
     }
 
-    /**
-     * @param string $before
-     * @param string $after
-     *
-     * @return string
-     */
-    private function diff(string $before, string $after): string
+    private static function formatDiff(string $diff): string
     {
-        $diff = $this->differ->diff(
-            $before,
-            $after
-        );
-
         $lines = \explode(
             "\n",
             $diff
@@ -363,6 +351,7 @@ final class NormalizeCommand extends Command\BaseCommand
     /**
      * @see https://getcomposer.org/doc/03-cli.md#update
      *
+     * @param Console\Application            $application
      * @param Console\Output\OutputInterface $output
      * @param string                         $workingDirectory
      *
@@ -370,11 +359,11 @@ final class NormalizeCommand extends Command\BaseCommand
      *
      * @return int
      */
-    private function updateLockerInWorkingDirectory(Console\Output\OutputInterface $output, string $workingDirectory): int
-    {
-        /** @var Console\Application $application */
-        $application = $this->getApplication();
-
+    private static function updateLockerInWorkingDirectory(
+        Console\Application $application,
+        Console\Output\OutputInterface $output,
+        string $workingDirectory
+    ): int {
         return $application->run(
             new Console\Input\ArrayInput([
                 'command' => 'update',
