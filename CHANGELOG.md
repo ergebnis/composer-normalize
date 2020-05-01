@@ -10,6 +10,7 @@ For a full diff see [`2.5.0...master`][2.5.0...master].
 
 ### Fixed
 
+* Started updating lock files with a new `Composer\Console\Application` instead of reusing the current instance ([#420]), by [@localheinz]
 * Stopped using the deprecated `--no-suggest` option when updating the lock file ([#422]), by [@localheinz]
 
 ## [`2.5.0`][2.5.0]
@@ -464,6 +465,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [#406]: https://github.com/ergebnis/composer-normalize/pull/406
 [#412]: https://github.com/ergebnis/composer-normalize/pull/412
 [#416]: https://github.com/ergebnis/composer-normalize/pull/416
+[#420]: https://github.com/ergebnis/composer-normalize/pull/420
 [#422]: https://github.com/ergebnis/composer-normalize/pull/422
 
 [@ergebnis]: https://github.com/ergebnis
