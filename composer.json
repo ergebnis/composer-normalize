@@ -30,7 +30,7 @@
     "ergebnis/test-util": "~1.0.0",
     "jangregor/phpstan-prophecy": "~0.6.2",
     "phpstan/extension-installer": "^1.0.4",
-    "phpstan/phpstan": "~0.12.20",
+    "phpstan/phpstan": "~0.12.21",
     "phpstan/phpstan-deprecation-rules": "~0.12.2",
     "phpstan/phpstan-phpunit": "~0.12.8",
     "phpstan/phpstan-strict-rules": "~0.12.2",
