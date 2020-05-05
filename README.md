@@ -547,3 +547,7 @@ Please have a look at [`LICENSE.md`](LICENSE.md).
 ## Services
 
 `ergebnis/composer-normalize` is currently in use by [FlintCI](https://flintci.io), see https://flintci.io/docs#composernormalize.
+
+## Curious what I am building?
+
+:mailbox_with_mail: [Subscribe to my list](https://localheinz.com/projects/), and I will occasionally send you an email to let you know what I am working on.
