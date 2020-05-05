@@ -10,7 +10,7 @@ code-coverage: vendor ## Collects coverage from running integration tests with p
 	vendor/bin/phpunit --configuration=test/Integration/phpunit.xml --coverage-text --prepend=.build/phpunit/xdebug-filter.php
 
 .PHONY: coding-standards
-coding-standards: vendor ## Fixes code style issues with friendsofphp/php-cs-fixer
+coding-standards: vendor ## Lints YAML files with yamllint and fixes code style issues with friendsofphp/php-cs-fixer
 	yamllint -c .yamllint.yaml --strict .
 	mkdir -p .build/php-cs-fixer
 	tools/vendor/bin/php-cs-fixer fix --config=.php_cs --diff --diff-format=udiff --verbose

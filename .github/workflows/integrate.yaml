@@ -185,8 +185,8 @@ jobs:
         uses: "actions/cache@v1"
         with:
           path: "${{ steps.determine-composer-cache-directory.outputs.directory }}"
-          key: "${{ matrix.php-version }}-composer-locked-${{ hashFiles('composer.lock') }}"
-          restore-keys: "${{ matrix.php-version }}-composer-locked-"
+          key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
+          restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
 
       - name: "Install lowest dependencies from composer.json"
         if: "matrix.dependencies == 'lowest'"
@@ -494,9 +494,6 @@ jobs:
               reviewers: reviewers,
             })
 
-      - name: "Wait"
-        run: "sleep 3"
-
       - name: "Assign @ergebnis-bot"
         uses: "actions/github-script@0.8.0"
         with:
@@ -516,9 +513,6 @@ jobs:
               repo: repository.repo,
             })
 
-      - name: "Wait"
-        run: "sleep 3"
-
       - name: "Approve pull request"
         uses: "actions/github-script@0.8.0"
         if: "github.actor != 'ergebnis-bot'"
@@ -534,9 +528,6 @@ jobs:
               pull_number: pullRequest.number,
               repo: repository.repo,
             })
-
-      - name: "Wait"
-        run: "sleep 3"
 
       - name: "Merge pull request"
         uses: "actions/github-script@0.8.0"
