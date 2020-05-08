@@ -28,7 +28,7 @@
     "composer/package-versions-deprecated": "^1.8.0",
     "ergebnis/phpstan-rules": "~0.14.4",
     "ergebnis/test-util": "~1.0.0",
-    "jangregor/phpstan-prophecy": "~0.6.2",
+    "jangregor/phpstan-prophecy": "~0.7.0",
     "phpstan/extension-installer": "^1.0.4",
     "phpstan/phpstan": "~0.12.23",
     "phpstan/phpstan-deprecation-rules": "~0.12.2",
