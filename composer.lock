@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a53a2e0c7d292fa1c7c481b48d9eb223",
+    "content-hash": "329f3ce736054d9a45a605b7efb24946",
     "packages": [
         {
             "name": "ergebnis/json-normalizer",
@@ -303,12 +303,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "a074819a5193e6cee802947eb9ad873a2b5fe63e"
+                "reference": "b5f8f750c21f492a308b529bfc399363d7cf9d8e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/a074819a5193e6cee802947eb9ad873a2b5fe63e",
-                "reference": "a074819a5193e6cee802947eb9ad873a2b5fe63e",
+                "url": "https://api.github.com/repos/composer/composer/zipball/b5f8f750c21f492a308b529bfc399363d7cf9d8e",
+                "reference": "b5f8f750c21f492a308b529bfc399363d7cf9d8e",
                 "shasum": ""
             },
             "require": {
@@ -377,7 +377,7 @@
                 "dependency",
                 "package"
             ],
-            "time": "2020-05-08T15:43:07+00:00"
+            "time": "2020-05-09T13:51:57+00:00"
         },
         {
             "name": "composer/package-versions-deprecated",
@@ -1411,16 +1411,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "0.12.23",
+            "version": "0.12.24",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "71e529efced79e055fa8318b692e7f7d03ea4e75"
+                "reference": "823a120fea50b68742b2be2285818202ecce511e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/71e529efced79e055fa8318b692e7f7d03ea4e75",
-                "reference": "71e529efced79e055fa8318b692e7f7d03ea4e75",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/823a120fea50b68742b2be2285818202ecce511e",
+                "reference": "823a120fea50b68742b2be2285818202ecce511e",
                 "shasum": ""
             },
             "require": {
@@ -1449,7 +1449,7 @@
                 "MIT"
             ],
             "description": "PHPStan - PHP Static Analysis Tool",
-            "time": "2020-05-05T12:55:44+00:00"
+            "time": "2020-05-10T14:25:55+00:00"
         },
         {
             "name": "phpstan/phpstan-deprecation-rules",
