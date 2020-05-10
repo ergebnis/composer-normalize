@@ -26,7 +26,7 @@
   "require-dev": {
     "composer/composer": "^1.10.5 || ^2.0.0",
     "composer/package-versions-deprecated": "^1.8.0",
-    "ergebnis/phpstan-rules": "~0.14.4",
+    "ergebnis/phpstan-rules": "~0.15.0",
     "ergebnis/test-util": "~1.0.0",
     "jangregor/phpstan-prophecy": "~0.7.0",
     "phpstan/extension-installer": "^1.0.4",
