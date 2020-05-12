@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "98df2003ddaf69706a2d64b86b82118b",
+    "content-hash": "d90e39c908c14255c5f068a0e8b45be3",
     "packages": [
         {
             "name": "ergebnis/json-normalizer",
@@ -890,16 +890,16 @@
         },
         {
             "name": "jangregor/phpstan-prophecy",
-            "version": "0.7.0",
+            "version": "0.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Jan0707/phpstan-prophecy.git",
-                "reference": "5f8e53c4089f2a33496e564d16b547df2e6d98a7"
+                "reference": "d599ec96dce8087ba4f32d7d9f9cb4565239e3db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Jan0707/phpstan-prophecy/zipball/5f8e53c4089f2a33496e564d16b547df2e6d98a7",
-                "reference": "5f8e53c4089f2a33496e564d16b547df2e6d98a7",
+                "url": "https://api.github.com/repos/Jan0707/phpstan-prophecy/zipball/d599ec96dce8087ba4f32d7d9f9cb4565239e3db",
+                "reference": "d599ec96dce8087ba4f32d7d9f9cb4565239e3db",
                 "shasum": ""
             },
             "require": {
@@ -946,7 +946,7 @@
                 }
             ],
             "description": "Provides a phpstan/phpstan extension for phpspec/prophecy",
-            "time": "2020-05-08T14:08:11+00:00"
+            "time": "2020-05-12T08:04:04+00:00"
         },
         {
             "name": "myclabs/deep-copy",
