@@ -40,6 +40,7 @@ jobs:
         with:
           coverage: "none"
           extensions: "${{ env.REQUIRED_PHP_EXTENSIONS }}"
+          ini-values: "phar.readonly=0"
           php-version: "${{ matrix.php-version }}"
 
       - name: "Determine composer cache directory"
