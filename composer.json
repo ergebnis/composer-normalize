@@ -35,7 +35,7 @@
     "phpstan/phpstan-phpunit": "~0.12.9",
     "phpstan/phpstan-strict-rules": "~0.12.2",
     "phpunit/phpunit": "^7.5.20",
-    "symfony/filesystem": "^4.4.8"
+    "symfony/filesystem": "^4.4.9"
   },
   "config": {
     "platform": {
