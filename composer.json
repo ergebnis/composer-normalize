@@ -32,7 +32,7 @@
     "phpstan/extension-installer": "^1.0.4",
     "phpstan/phpstan": "~0.12.25",
     "phpstan/phpstan-deprecation-rules": "~0.12.4",
-    "phpstan/phpstan-phpunit": "~0.12.10",
+    "phpstan/phpstan-phpunit": "~0.12.11",
     "phpstan/phpstan-strict-rules": "~0.12.2",
     "phpunit/phpunit": "^7.5.20",
     "symfony/filesystem": "^4.4.9"
