@@ -6,7 +6,7 @@ on: # yamllint disable-line rule:truthy
   pull_request: null
   push:
     branches:
-      - "master"
+      - "main"
 
 env:
   COMPOSER_VERSION: "1.10.5"
