@@ -18,7 +18,6 @@ branches:
           - "Coding Standards (7.1, locked)"
           - "Compile Phar (7.4, locked)"
           - "Dependency Analysis (7.4, locked)"
-          - "Label"
           - "Static Code Analysis (7.4, locked)"
           - "Static Code Analysis (7.4, locked)"
           - "Tests (7.1, 1, highest)"
