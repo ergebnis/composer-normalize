@@ -1,0 +1,44 @@
+# https://help.github.com/en/github/administering-a-repository/configuration-options-for-dependency-updates#target-branch
+
+version: 2
+
+updates:
+  - commit-message:
+      include: "scope"
+      prefix: "Build"
+    directory: "/"
+    ignore:
+      - dependency-name: "composer/composer"
+        versions:
+          - ">= 0"
+      - dependency-name: "composer-plugin-api"
+        versions:
+          - ">= 0"
+    labels:
+      - "dependency"
+    open-pull-requests-limit: 10
+    package-ecosystem: "composer"
+    schedule:
+      interval: "daily"
+
+  - commit-message:
+      include: "scope"
+      prefix: "Build"
+    directory: "/tools"
+    labels:
+      - "dependency"
+    open-pull-requests-limit: 10
+    package-ecosystem: "composer"
+    schedule:
+      interval: "daily"
+
+  - commit-message:
+      include: "scope"
+      prefix: "Build"
+    directory: "/"
+    labels:
+      - "dependency"
+    open-pull-requests-limit: 10
+    package-ecosystem: "github-actions"
+    schedule:
+      interval: "daily"
