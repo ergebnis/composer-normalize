@@ -12,7 +12,7 @@ declare(strict_types=1);
  */
 
 use Ergebnis\License;
-use Ergebnis\PhpCsFixer\Config;
+use Ergebnis\PhpCsFixer;
 
 $license = License\Type\MIT::markdown(
     __DIR__ . '/LICENSE.md',
@@ -26,14 +26,13 @@ $license = License\Type\MIT::markdown(
 
 $license->save();
 
-$config = Config\Factory::fromRuleSet(new Config\RuleSet\Php71($license->header()));
+$config = PhpCsFixer\Config\Factory::fromRuleSet(new PhpCsFixer\Config\RuleSet\Php71($license->header()));
 
 $config->getFinder()
     ->ignoreDotFiles(false)
     ->in(__DIR__)
     ->exclude([
         '.build/',
-        '.dependabot/',
         '.github/',
         '.notes/',
     ])
