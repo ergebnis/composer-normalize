@@ -11,6 +11,7 @@ on: # yamllint disable-line rule:truthy
 env:
   COMPOSER_VERSION: "1.10.5"
   PHP_EXTENSIONS: "mbstring"
+  PHP_INI_VALUES: "phar.readonly=0"
 
 jobs:
   coding-standards:
@@ -42,6 +43,7 @@ jobs:
         with:
           coverage: "none"
           extensions: "${{ env.PHP_EXTENSIONS }}"
+          ini-values: "${{ env.PHP_INI_VALUES }}"
           php-version: "${{ matrix.php-version }}"
 
       - name: "Validate composer.json and composer.lock"
@@ -123,6 +125,7 @@ jobs:
         with:
           coverage: "none"
           extensions: "${{ env.PHP_EXTENSIONS }}"
+          ini-values: "${{ env.PHP_INI_VALUES }}"
           php-version: "${{ matrix.php-version }}"
 
       - name: "Determine composer cache directory"
@@ -175,6 +178,7 @@ jobs:
         with:
           coverage: "none"
           extensions: "${{ env.PHP_EXTENSIONS }}"
+          ini-values: "${{ env.PHP_INI_VALUES }}"
           php-version: "${{ matrix.php-version }}"
 
       - name: "Determine composer cache directory"
@@ -272,6 +276,7 @@ jobs:
         with:
           coverage: "none"
           extensions: "${{ env.PHP_EXTENSIONS }}"
+          ini-values: "${{ env.PHP_INI_VALUES }}"
           php-version: "${{ matrix.php-version }}"
 
       - name: "Install composer:^1"
@@ -339,6 +344,7 @@ jobs:
         with:
           coverage: "xdebug"
           extensions: "${{ env.PHP_EXTENSIONS }}"
+          ini-values: "${{ env.PHP_INI_VALUES }}"
           php-version: "${{ matrix.php-version }}"
 
       - name: "Determine composer cache directory"
@@ -400,7 +406,7 @@ jobs:
         with:
           coverage: "none"
           extensions: "${{ env.PHP_EXTENSIONS }}"
-          ini-values: "phar.readonly=0"
+          ini-values: "${{ env.PHP_INI_VALUES }}"
           php-version: "${{ matrix.php-version }}"
 
       - name: "Determine composer cache directory"
