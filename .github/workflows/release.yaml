@@ -9,7 +9,7 @@ on: # yamllint disable-line rule:truthy
 
 env:
   COMPOSER_VERSION: "1.10.5"
-  REQUIRED_PHP_EXTENSIONS: "mbstring"
+  PHP_EXTENSIONS: "mbstring"
 
 jobs:
   release:
@@ -39,7 +39,7 @@ jobs:
         uses: "shivammathur/setup-php@v2"
         with:
           coverage: "none"
-          extensions: "${{ env.REQUIRED_PHP_EXTENSIONS }}"
+          extensions: "${{ env.PHP_EXTENSIONS }}"
           ini-values: "phar.readonly=0"
           php-version: "${{ matrix.php-version }}"
 
