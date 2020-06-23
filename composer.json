@@ -21,6 +21,7 @@
     "composer-plugin-api": "^1.1.0 || ^2.0.0",
     "ergebnis/json-normalizer": "~0.12.0",
     "ergebnis/json-printer": "^3.0.2",
+    "justinrainbow/json-schema": "^5.2.10",
     "localheinz/diff": "^1.0.1"
   },
   "require-dev": {
