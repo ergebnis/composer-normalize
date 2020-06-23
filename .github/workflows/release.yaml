@@ -10,7 +10,7 @@ on: # yamllint disable-line rule:truthy
 env:
   COMPOSER_VERSION: "1.10.5"
   PHP_EXTENSIONS: "mbstring"
-  PHP_INI_VALUES: "phar.readonly=0"
+  PHP_INI_VALUES: "memory_limit=-1, phar.readonly=0"
 
 jobs:
   release:
