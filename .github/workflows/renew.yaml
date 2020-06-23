@@ -8,6 +8,7 @@ on: # yamllint disable-line rule:truthy
 
 env:
   PHP_EXTENSIONS: "mbstring"
+  PHP_INI_VALUES: "phar.readonly=0"
 
 jobs:
   license:
@@ -32,6 +33,7 @@ jobs:
         with:
           coverage: "none"
           extensions: "${{ env.PHP_EXTENSIONS }}"
+          ini-values: "${{ env.PHP_INI_VALUES }}"
           php-version: "${{ matrix.php-version }}"
 
       - name: "Validate composer.json and composer.lock"
