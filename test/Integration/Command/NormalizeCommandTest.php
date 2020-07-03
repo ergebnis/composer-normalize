@@ -306,7 +306,7 @@ final class NormalizeCommandTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider providerCommandInvocationAndInvalidIndentSize
+     * @dataProvider providerCommandInvocation
      *
      * @param CommandInvocation $commandInvocation
      */
