@@ -7,7 +7,7 @@
     {"name": "Andreas Möller", "email": "am@localheinz.com"}
   ],
   "require": {
-    "php": "^7.1",
+    "php": "^5.6",
     "ext-json": "*"
   },
   "_comment": "This composer.json is valid according to a lax validation, a composer.lock is present and fresh before invoking the command, composer.json is not yet normalized, and composer.lock is still fresh after invoking the command."

@@ -370,6 +370,7 @@ final class NormalizeCommand extends Command\BaseCommand
         return $application->run(
             new Console\Input\ArrayInput([
                 'command' => 'update',
+                '--ignore-platform-reqs' => true,
                 '--lock' => true,
                 '--no-autoloader' => true,
                 '--no-plugins' => true,
