@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5787e3fe85f9994c13a47350485b22a7",
+    "content-hash": "0578ba4326440eb256705a1f1fd9c5b3",
     "packages": [
         {
             "name": "ergebnis/json-normalizer",
@@ -3512,7 +3512,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.1",
+        "php": "^7.1 || ^8.0",
         "composer-plugin-api": "^1.1.0 || ^2.0.0"
     },
     "platform-dev": [],

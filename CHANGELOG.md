@@ -6,7 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`2.5.2...main`][2.5.2...main].
+For a full diff see [`2.6.0...main`][2.6.0...main].
+
+## [`2.6.0`][2.6.0]
+
+For a full diff see [`2.5.2...2.6.0`][2.5.2...2.6.0].
+
+### Added
+
+* Added support for PHP 8.0 ([#465]), by [@core23]
 
 ## [`2.5.2`][2.5.2]
 
@@ -394,6 +402,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [2.5.0]: https://github.com/ergebnis/composer-normalize/releases/tag/2.5.0
 [2.5.1]: https://github.com/ergebnis/composer-normalize/releases/tag/2.5.1
 [2.5.2]: https://github.com/ergebnis/composer-normalize/releases/tag/2.5.2
+[2.6.0]: https://github.com/ergebnis/composer-normalize/releases/tag/2.6.0
 
 [81bc3a8...0.1.0]: https://github.com/ergebnis/composer-normalize/compare/81bc3a8...0.1.0
 [0.1.0...0.2.0]: https://github.com/ergebnis/composer-normalize/compare/0.1.0...0.2.0
@@ -431,7 +440,8 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [2.4.0...2.5.0]: https://github.com/ergebnis/composer-normalize/compare/2.4.0...2.5.0
 [2.5.0...2.5.1]: https://github.com/ergebnis/composer-normalize/compare/2.5.0...2.5.1
 [2.5.1...2.5.2]: https://github.com/ergebnis/composer-normalize/compare/2.5.1...2.5.2
-[2.5.2...main]: https://github.com/ergebnis/composer-normalize/compare/2.5.2...main
+[2.5.2...2.6.0]: https://github.com/ergebnis/composer-normalize/compare/2.5.2...2.6.0
+[2.6.0...main]: https://github.com/ergebnis/composer-normalize/compare/2.6.0...main
 
 [#1]: https://github.com/ergebnis/composer-normalize/pull/1
 [#2]: https://github.com/ergebnis/composer-normalize/pull/2
@@ -485,10 +495,12 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [#420]: https://github.com/ergebnis/composer-normalize/pull/420
 [#422]: https://github.com/ergebnis/composer-normalize/pull/422
 [#424]: https://github.com/ergebnis/composer-normalize/pull/424
+[#465]: https://github.com/ergebnis/composer-normalize/pull/465
 [#481]: https://github.com/ergebnis/composer-normalize/pull/481
 
-[@ergebnis]: https://github.com/ergebnis
+[@core23]: https://github.com/core23
 [@ergebnis-bot]: https://github.com/ergebnis-bot
+[@ergebnis]: https://github.com/ergebnis
 [@localheinz]: https://github.com/localheinz
 [@svenluijten]: https://github.com/svenluijten
 [@TravisCarden]: https://github.com/TravisCarden
