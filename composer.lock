@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "de2391c539a44c1bdbd18de082a13e71",
+    "content-hash": "60a0430475fba071d8adab12b358c203",
     "packages": [
         {
             "name": "ergebnis/json-normalizer",
@@ -237,16 +237,16 @@
         },
         {
             "name": "localheinz/diff",
-            "version": "1.0.1",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localheinz/diff.git",
-                "reference": "bd5661db4bbed26c6f25df8851fd9f4b424a356e"
+                "reference": "2c03ecae53c1c0d7ee3181fe1c394d5082c4c4bd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localheinz/diff/zipball/bd5661db4bbed26c6f25df8851fd9f4b424a356e",
-                "reference": "bd5661db4bbed26c6f25df8851fd9f4b424a356e",
+                "url": "https://api.github.com/repos/localheinz/diff/zipball/2c03ecae53c1c0d7ee3181fe1c394d5082c4c4bd",
+                "reference": "2c03ecae53c1c0d7ee3181fe1c394d5082c4c4bd",
                 "shasum": ""
             },
             "require": {
@@ -284,7 +284,13 @@
                 "unidiff",
                 "unified diff"
             ],
-            "time": "2019-12-17T07:42:37+00:00"
+            "funding": [
+                {
+                    "url": "https://github.com/sebastianbergmann",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-07-05T19:59:19+00:00"
         }
     ],
     "packages-dev": [
