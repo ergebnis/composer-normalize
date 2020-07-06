@@ -22,7 +22,7 @@
     "ergebnis/json-normalizer": "~0.13.0",
     "ergebnis/json-printer": "^3.1.0",
     "justinrainbow/json-schema": "^5.2.10",
-    "localheinz/diff": "^1.1.0"
+    "localheinz/diff": "^1.1.1"
   },
   "require-dev": {
     "composer/composer": "^1.10.8 || ^2.0.0",

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "60a0430475fba071d8adab12b358c203",
+    "content-hash": "54e5e211220e997744e0f55622c6798c",
     "packages": [
         {
             "name": "ergebnis/json-normalizer",
@@ -237,24 +237,24 @@
         },
         {
             "name": "localheinz/diff",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localheinz/diff.git",
-                "reference": "2c03ecae53c1c0d7ee3181fe1c394d5082c4c4bd"
+                "reference": "851bb20ea8358c86f677f5f111c4ab031b1c764c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localheinz/diff/zipball/2c03ecae53c1c0d7ee3181fe1c394d5082c4c4bd",
-                "reference": "2c03ecae53c1c0d7ee3181fe1c394d5082c4c4bd",
+                "url": "https://api.github.com/repos/localheinz/diff/zipball/851bb20ea8358c86f677f5f111c4ab031b1c764c",
+                "reference": "851bb20ea8358c86f677f5f111c4ab031b1c764c",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1"
+                "php": "^7.1 || ^8.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "^7.5 || ^8.0",
-                "symfony/process": "^2 || ^3.3 || ^4"
+                "symfony/process": "^4.2 || ^5"
             },
             "type": "library",
             "autoload": {
@@ -277,7 +277,7 @@
                 }
             ],
             "description": "Fork of sebastian/diff for use with ergebnis/composer-normalize",
-            "homepage": "https://github.com/sebastianbergmann/diff",
+            "homepage": "https://github.com/localheinz/diff",
             "keywords": [
                 "diff",
                 "udiff",
@@ -290,7 +290,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-07-05T19:59:19+00:00"
+            "time": "2020-07-06T04:49:32+00:00"
         }
     ],
     "packages-dev": [
