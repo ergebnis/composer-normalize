@@ -6,7 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`2.6.0...main`][2.6.0...main].
+For a full diff see [`2.6.1...main`][2.6.1...main].
+
+## [`2.6.1`][2.6.1]
+
+For a full diff see [`2.6.0...2.6.1`][2.6.0...2.6.1].
+
+### Fixed
+
+* Added support for PHP 8.0, for real ([#484], [#485], [#487]), by [@dependabot]
 
 ## [`2.6.0`][2.6.0]
 
@@ -403,6 +411,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [2.5.1]: https://github.com/ergebnis/composer-normalize/releases/tag/2.5.1
 [2.5.2]: https://github.com/ergebnis/composer-normalize/releases/tag/2.5.2
 [2.6.0]: https://github.com/ergebnis/composer-normalize/releases/tag/2.6.0
+[2.6.1]: https://github.com/ergebnis/composer-normalize/releases/tag/2.6.1
 
 [81bc3a8...0.1.0]: https://github.com/ergebnis/composer-normalize/compare/81bc3a8...0.1.0
 [0.1.0...0.2.0]: https://github.com/ergebnis/composer-normalize/compare/0.1.0...0.2.0
@@ -441,7 +450,8 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [2.5.0...2.5.1]: https://github.com/ergebnis/composer-normalize/compare/2.5.0...2.5.1
 [2.5.1...2.5.2]: https://github.com/ergebnis/composer-normalize/compare/2.5.1...2.5.2
 [2.5.2...2.6.0]: https://github.com/ergebnis/composer-normalize/compare/2.5.2...2.6.0
-[2.6.0...main]: https://github.com/ergebnis/composer-normalize/compare/2.6.0...main
+[2.6.0...2.6.1]: https://github.com/ergebnis/composer-normalize/compare/2.6.0...2.6.1
+[2.6.1...main]: https://github.com/ergebnis/composer-normalize/compare/2.6.1...main
 
 [#1]: https://github.com/ergebnis/composer-normalize/pull/1
 [#2]: https://github.com/ergebnis/composer-normalize/pull/2
@@ -497,8 +507,12 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [#424]: https://github.com/ergebnis/composer-normalize/pull/424
 [#465]: https://github.com/ergebnis/composer-normalize/pull/465
 [#481]: https://github.com/ergebnis/composer-normalize/pull/481
+[#484]: https://github.com/ergebnis/composer-normalize/pull/484
+[#485]: https://github.com/ergebnis/composer-normalize/pull/485
+[#487]: https://github.com/ergebnis/composer-normalize/pull/487
 
 [@core23]: https://github.com/core23
+[@dependabot]: https://github.com/dependabot
 [@ergebnis-bot]: https://github.com/ergebnis-bot
 [@ergebnis]: https://github.com/ergebnis
 [@localheinz]: https://github.com/localheinz
