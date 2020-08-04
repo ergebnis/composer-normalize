@@ -112,7 +112,7 @@ jobs:
 
       - name: "Create release"
         id: "create-release"
-        uses: "actions/create-release@v1.1.1"
+        uses: "actions/create-release@v1.1.2"
         env:
           GITHUB_TOKEN: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
         with:
