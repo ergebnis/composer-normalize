@@ -1,5 +1,5 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
+    "$schema": "https://json-schema.org/draft-04/schema#",
     "name": "Package",
     "type": "object",
     "additionalProperties": true,
@@ -7,7 +7,8 @@
     "properties": {
         "name": {
             "type": "string",
-            "description": "Package name, including 'vendor-name/' prefix."
+            "description": "Package name, including 'vendor-name/' prefix.",
+            "pattern": "^[a-z0-9]([_.-]?[a-z0-9]+)*/[a-z0-9](([_.]?|-{0,2})[a-z0-9]+)*$"
         },
         "type": {
             "description": "Package type, either 'library' for common packages, 'composer-plugin' for plugins, 'metapackage' for empty packages, or a custom type ([a-z0-9-]+) defined by whatever project this package applies to.",
@@ -326,6 +327,10 @@
                 "lock": {
                     "type": "boolean",
                     "description": "Defaults to true. If set to false, Composer will not create a composer.lock file."
+                },
+                "platform-check": {
+                    "type": "boolean",
+                    "description": "Defaults to true. If set to false, Composer will not create and require a platform_check.php file as part of the autoloader bootstrap."
                 }
             }
         },
@@ -386,6 +391,10 @@
             ],
             "description": "Options for creating package archives for distribution.",
             "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "A base name for archive."
+                },
                 "exclude": {
                     "type": "array",
                     "description": "A list of patterns for paths to exclude or include if prefixed with an exclamation mark."
@@ -668,6 +677,12 @@
                 "type": "string"
             }
         },
+        "default-branch": {
+            "type": [
+                "boolean"
+            ],
+            "description": "Internal use only, do not specify this in composer.json. Indicates whether this version is the default branch of the linked VCS repository. Defaults to false."
+        },
         "abandoned": {
             "type": [
                 "boolean",
@@ -798,6 +813,21 @@
                 "url": {
                     "type": "string"
                 },
+                "canonical": {
+                    "type": "boolean"
+                },
+                "only": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "exclude": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
                 "options": {
                     "type": "object",
                     "additionalProperties": true
@@ -834,6 +864,21 @@
                 },
                 "url": {
                     "type": "string"
+                },
+                "canonical": {
+                    "type": "boolean"
+                },
+                "only": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "exclude": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
                 },
                 "no-api": {
                     "type": "boolean"
@@ -898,6 +943,21 @@
                 "url": {
                     "type": "string"
                 },
+                "canonical": {
+                    "type": "boolean"
+                },
+                "only": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "exclude": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
                 "options": {
                     "type": "object",
                     "properties": {
@@ -927,6 +987,21 @@
                 },
                 "url": {
                     "type": "string"
+                },
+                "canonical": {
+                    "type": "boolean"
+                },
+                "only": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "exclude": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
                 }
             }
         },
@@ -946,6 +1021,21 @@
                 "url": {
                     "type": "string"
                 },
+                "canonical": {
+                    "type": "boolean"
+                },
+                "only": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "exclude": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
                 "vendor-alias": {
                     "type": "string"
                 }
@@ -963,6 +1053,21 @@
                     "enum": [
                         "package"
                     ]
+                },
+                "canonical": {
+                    "type": "boolean"
+                },
+                "only": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "exclude": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
                 },
                 "package": {
                     "oneOf": [
