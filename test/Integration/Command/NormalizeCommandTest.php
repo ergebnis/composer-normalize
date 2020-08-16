@@ -590,7 +590,7 @@ final class NormalizeCommandTest extends Framework\TestCase
     {
         $scenario = self::createScenario(
             $commandInvocation,
-            __DIR__ . '/../../Fixture/json/valid/lock/present/lock/not-fresh-before'
+            __DIR__ . '/../../Fixture/json/valid/lock/present/lock/not-fresh-before/no-check-lock/false'
         );
 
         $initialState = $scenario->initialState();
@@ -613,6 +613,95 @@ final class NormalizeCommandTest extends Framework\TestCase
         self::assertExitCodeSame(1, $exitCode);
         self::assertStringContainsString('The lock file is not up to date with the latest changes in composer.json, it is recommended that you run `composer update --lock`.', $output->fetch());
         self::assertEquals($initialState, $scenario->currentState());
+    }
+
+    /**
+     * @dataProvider providerCommandInvocation
+     *
+     * @param CommandInvocation $commandInvocation
+     */
+    public function testSucceedsWhenComposerJsonIsPresentAndValidAccordingToLaxValidationAndComposerLockIsPresentButNotFreshBeforeNoCheckLockOptionIsUsedAndComposerJsonIsAlreadyNormalized(CommandInvocation $commandInvocation): void
+    {
+        $scenario = self::createScenario(
+            $commandInvocation,
+            __DIR__ . '/../../Fixture/json/valid/lock/present/lock/not-fresh-before/no-check-lock/true/json/already-normalized'
+        );
+
+        $initialState = $scenario->initialState();
+
+        self::assertComposerJsonFileExists($initialState);
+        self::assertComposerLockFileExists($initialState);
+        self::assertComposerLockFileNotFresh($initialState);
+
+        $application = self::createApplicationWithNormalizeCommandAsProvidedByNormalizePlugin();
+
+        $input = new Console\Input\ArrayInput($scenario->consoleParametersWith([
+            '--no-check-lock' => true,
+        ]));
+
+        $output = new Console\Output\BufferedOutput();
+
+        $exitCode = $application->run(
+            $input,
+            $output
+        );
+
+        self::assertExitCodeSame(0, $exitCode);
+
+        $expected = \sprintf(
+            '%s is already normalized.',
+            $scenario->composerJsonFileReference()
+        );
+
+        self::assertStringContainsString($expected, $output->fetch());
+        self::assertEquals($initialState, $scenario->currentState());
+    }
+
+    /**
+     * @dataProvider providerCommandInvocation
+     *
+     * @param CommandInvocation $commandInvocation
+     */
+    public function testSucceedsWhenComposerJsonIsPresentAndValidAccordingToLaxValidationAndComposerLockIsPresentButNotFreshBeforeNoCheckLockOptionIsUsedAndComposerJsonIsNotYetNormalized(CommandInvocation $commandInvocation): void
+    {
+        $scenario = self::createScenario(
+            $commandInvocation,
+            __DIR__ . '/../../Fixture/json/valid/lock/present/lock/not-fresh-before/no-check-lock/true/json/not-yet-normalized'
+        );
+
+        $initialState = $scenario->initialState();
+
+        self::assertComposerJsonFileExists($initialState);
+        self::assertComposerLockFileExists($initialState);
+        self::assertComposerLockFileNotFresh($initialState);
+
+        $application = self::createApplicationWithNormalizeCommandAsProvidedByNormalizePlugin();
+
+        $input = new Console\Input\ArrayInput($scenario->consoleParametersWith([
+            '--no-check-lock' => true,
+        ]));
+
+        $output = new Console\Output\BufferedOutput();
+
+        $exitCode = $application->run(
+            $input,
+            $output
+        );
+
+        self::assertExitCodeSame(0, $exitCode);
+
+        $expected = \sprintf(
+            'Successfully normalized %s.',
+            $scenario->composerJsonFileReference()
+        );
+
+        self::assertStringContainsString($expected, $output->fetch());
+
+        $currentState = $scenario->currentState();
+
+        self::assertComposerJsonFileModified($initialState, $currentState);
+        self::assertComposerLockFileModified($initialState, $currentState);
+        self::assertComposerLockFileFresh($currentState);
     }
 
     /**

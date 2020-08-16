@@ -12,6 +12,10 @@ For a full diff see [`2.7.0...main`][2.7.0...main].
 
 For a full diff see [`2.6.1...2.7.0`][2.6.1...2.7.0].
 
+### Added
+
+* Added `--no-check-lock` option which allows skipping validation of `composer.lock` ([#515]), by [@localheinz]
+
 ### Changed
 
 * Updated `schema.json` ([#512]), by [@ergebnis-bot]
@@ -521,6 +525,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [#485]: https://github.com/ergebnis/composer-normalize/pull/485
 [#487]: https://github.com/ergebnis/composer-normalize/pull/487
 [#512]: https://github.com/ergebnis/composer-normalize/pull/512
+[#515]: https://github.com/ergebnis/composer-normalize/pull/515
 
 [@core23]: https://github.com/core23
 [@dependabot]: https://github.com/dependabot
