@@ -1,0 +1,19 @@
+{
+  "type": "library",
+  "_comment": "This composer.json is valid according to a lax validation, a composer.lock is present, but not fresh before invoking the command with the --no-check-lock option, and not yet normalized.",
+  "keywords": [
+    "foo",
+    "bar"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Andreas Möller",
+      "email": "am@localheinz.com"
+    }
+  ],
+  "require": {
+    "ext-json": "*",
+    "php": "^5.6"
+  }
+}

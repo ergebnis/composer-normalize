@@ -94,6 +94,12 @@ final class NormalizeCommand extends Command\BaseCommand
                 )
             ),
             new Console\Input\InputOption(
+                'no-check-lock',
+                null,
+                Console\Input\InputOption::VALUE_NONE,
+                'Do not check if lock file is up to date'
+            ),
+            new Console\Input\InputOption(
                 'no-update-lock',
                 null,
                 Console\Input\InputOption::VALUE_NONE,
@@ -139,7 +145,7 @@ final class NormalizeCommand extends Command\BaseCommand
 
         $locker = $composer->getLocker();
 
-        if ($locker->isLocked() && !$locker->isFresh()) {
+        if (false === $input->getOption('no-check-lock') && $locker->isLocked() && !$locker->isFresh()) {
             $io->writeError('<error>The lock file is not up to date with the latest changes in composer.json, it is recommended that you run `composer update --lock`.</error>');
 
             return 1;

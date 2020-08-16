@@ -109,7 +109,7 @@ to normalize `composer.json` in the working directory.
 The `NormalizeCommand` provided by the `NormalizePlugin` within this package will
 
 * determine whether a `composer.json` exists
-* determine whether a `composer.lock` exists, and if so, whether it is up to date
+* determine whether a `composer.lock` exists, and if so, whether it is up to date (unless the `--no-check-lock` option is used)
 * use the `ComposerJsonNormalizer` from [`ergebnis/composer-json-normalizer`](https://github.com/ergebnis/composer-json-normalizer) to normalize the content of `composer.json`
 * format the normalized content (either as sniffed, or as specified using the `--indent-size` and `--indent-style` options)
 * write the normalized and formatted content of `composer.json` back to the file
@@ -128,6 +128,7 @@ The `NormalizeCommand` provided by the `NormalizePlugin` within this package wil
 * `--dry-run`: Show the results of normalizing, but do not modify any files
 * `--indent-size`: Indent size (an integer greater than 0); should be used with the `--indent-style` option
 * `--indent-style`: Indent style (one of "space", "tab"); should be used with the `--indent-size` option
+* `--no-check-lock`: Do not check if lock file is up to date
 * `--no-update-lock`: Do not update lock file if it exists
 
 ### Continuous Integration
