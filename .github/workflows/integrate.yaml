@@ -258,7 +258,6 @@ jobs:
           - "7.2"
           - "7.3"
           - "7.4"
-          - "8.0"
 
         composer-version:
           - "1"
@@ -268,6 +267,19 @@ jobs:
           - "lowest"
           - "locked"
           - "highest"
+
+        include:
+          - php-version: "8.0"
+            composer-version: "2"
+            dependencies: "lowest"
+
+          - php-version: "8.0"
+            composer-version: "2"
+            dependencies: "locked"
+
+          - php-version: "8.0"
+            composer-version: "2"
+            dependencies: "highest"
 
     steps:
       - name: "Checkout"
