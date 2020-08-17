@@ -98,7 +98,7 @@ jobs:
         run: "gpg --armor --local-user \"${{ secrets.GPG_LOCAL_USER }}\" --output ${{ env.COMPOSER_NORMALIZE_PHAR_SIGNATURE }} --passphrase \"${{ secrets.GPG_KEY_PASSPHRASE }}\" --pinentry-mode loopback --yes --detach-sig ${{ env.COMPOSER_NORMALIZE_PHAR }}"
 
       - name: "Receive key with gpg"
-        run: "gpg --receive-key \"${{ secrets.GPG_LOCAL_USER }}\""
+        run: "gpg --keyserver hkps://keys.openpgp.org --receive-key \"${{ secrets.GPG_LOCAL_USER }}\""
 
       - name: "Verify signature of composer-normalize.phar with gpg"
         run: "gpg --verify ${{ env.COMPOSER_NORMALIZE_PHAR_SIGNATURE }} ${{ env.COMPOSER_NORMALIZE_PHAR }}"
