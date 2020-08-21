@@ -139,6 +139,7 @@ final class NormalizeCommandTest extends Framework\TestCase
     {
         $faker = self::faker();
 
+        /** @var string $indentStyle */
         $indentStyle = $faker->sentence;
 
         $scenario = self::createScenario(
@@ -181,6 +182,12 @@ final class NormalizeCommandTest extends Framework\TestCase
     {
         $faker = self::faker();
 
+        /** @var string $indentStyle */
+        $indentStyle = $faker->randomElement([
+            'space',
+            'tab',
+        ]);
+
         $scenario = self::createScenario(
             $commandInvocation,
             __DIR__ . '/../../Fixture/json/valid/lock/not-present/json/not-yet-normalized'
@@ -190,10 +197,7 @@ final class NormalizeCommandTest extends Framework\TestCase
 
         $input = new Console\Input\ArrayInput($scenario->consoleParametersWith([
             '--indent-size' => $indentSize,
-            '--indent-style' => $faker->randomElement([
-                'space',
-                'tab',
-            ]),
+            '--indent-style' => $indentStyle,
         ]));
 
         $output = new Console\Output\BufferedOutput();
@@ -264,6 +268,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         self::assertComposerJsonFileExists($initialState);
         self::assertComposerLockFileNotExists($initialState);
 
+        /** @var string $exceptionMessage */
         $exceptionMessage = self::faker()->sentence;
 
         $application = self::createApplication(new NormalizeCommand(
@@ -948,10 +953,14 @@ final class NormalizeCommandTest extends Framework\TestCase
     {
         $faker = self::faker();
 
+        /** @var int $numberGreaterThanZero */
+        $numberGreaterThanZero = $faker->numberBetween(1);
+
+        /** @var array<string> $indentSizes */
         $indentSizes = [
             'string-arbitrary' => $faker->sentence,
             'integer-zero-casted-to-string' => (string) 0,
-            'integer-less-than-zero-casted-to-string' => (string) (-1 * $faker->numberBetween(1)),
+            'integer-less-than-zero-casted-to-string' => (string) (-1 * $numberGreaterThanZero),
         ];
 
         foreach (self::commandInvocations() as $commandInvocation) {
@@ -975,6 +984,7 @@ final class NormalizeCommandTest extends Framework\TestCase
      */
     public function providerCommandInvocationIndentSizeAndIndentStyle(): \Generator
     {
+        /** @var array<int> $indentSizes */
         $indentSizes = [
             1,
             self::faker()->numberBetween(2, 4),
@@ -991,7 +1001,7 @@ final class NormalizeCommandTest extends Framework\TestCase
                     $key = \sprintf(
                         '%s-indent-size-%d-indent-style-%s',
                         $commandInvocation->style(),
-                        $indentSize,
+                        (string) $indentSize,
                         $indentStyle
                     );
 
