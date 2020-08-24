@@ -509,7 +509,7 @@ jobs:
               "ergebnis-bot",
             ]
 
-            await github.pulls.createReviewRequest({
+            await github.pulls.requestReviewers({
               owner: repository.owner,
               pull_number: pullRequest.number,
               repo: repository.repo,
