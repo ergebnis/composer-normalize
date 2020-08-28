@@ -252,6 +252,12 @@
                     ],
                     "description": "The cache max size for the files cache, defaults to \"300MiB\"."
                 },
+                "cache-read-only": {
+                    "type": [
+                        "boolean"
+                    ],
+                    "description": "Whether to use the Composer cache in read-only mode."
+                },
                 "bin-compat": {
                     "enum": [
                         "auto",
