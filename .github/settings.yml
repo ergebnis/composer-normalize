@@ -3,8 +3,8 @@
 branches:
   - name: "main"
 
-    # https://developer.github.com/v3/repos/branches/#remove-branch-protection
-    # https://developer.github.com/v3/repos/branches/#update-branch-protection
+    # https://docs.github.com/en/rest/reference/repos#delete-branch-protection
+    # https://docs.github.com/en/rest/reference/repos#update-branch-protection
 
     protection:
       enforce_admins: false
@@ -50,7 +50,7 @@ branches:
         strict: false
       restrictions:
 
-        # https://developer.github.com/v3/repos/branches/#parameters-1
+        # https://docs.github.com/en/rest/reference/repos#list-branches--parameters
 
         # Note: User, app, and team restrictions are only available for organization-owned repositories.
         # Set to null to disable when using this configuration for a repository on a personal account.
@@ -60,8 +60,8 @@ branches:
         users:
           - "ergebnis-bot"
 
-# https://developer.github.com/v3/issues/labels/#create-a-label
-# https://developer.github.com/v3/issues/labels/#update-a-label
+# https://docs.github.com/en/rest/reference/issues#create-a-label
+# https://docs.github.com/en/rest/reference/issues#update-a-label
 
 labels:
   - name: "bug"
@@ -92,7 +92,7 @@ labels:
     color: "eeeeee"
     description: ""
 
-# https://developer.github.com/v3/repos/#edit
+# https://docs.github.com/en/rest/reference/repos#update-a-repository
 
 repository:
   allow_merge_commit: true
@@ -110,6 +110,6 @@ repository:
   name: "composer-normalize"
   private: false
 
-  # https://developer.github.com/v3/repos/branches/#remove-branch-protection
+  # https://docs.github.com/en/rest/reference/repos#replace-all-repository-topics
 
   topics: "composer, composer-plugin, json, normalizer"
