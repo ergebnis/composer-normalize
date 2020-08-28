@@ -1,10 +1,14 @@
-# https://github.com/actions/stale
+# https://docs.github.com/en/actions
 
 name: "Prune"
 
 on: # yamllint disable-line rule:truthy
   schedule:
     - cron: "0 12 * * *"
+
+env:
+  DAYS_BEFORE_CLOSE: 14
+  DAYS_BEFORE_STALE: 180
 
 jobs:
   prune:
@@ -14,18 +18,18 @@ jobs:
 
     steps:
       - name: "Prune issues and pull requests"
-        uses: "actions/stale@v3"
+        uses: "actions/stale@v3.0.10"
         with:
-          days-before-close: 5
-          days-before-stale: 60
+          days-before-close: "${{ env.DAYS_BEFORE_CLOSE }}"
+          days-before-stale: "${{ env.DAYS_BEFORE_STALE }}"
           repo-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
           stale-issue-label: "stale"
           stale-issue-message: |
-            Since this issue has not had any activity within the last sixty days, I have marked it as stale.
+            Since this issue has not had any activity within the last ${{ env.DAYS_BEFORE_STALE }} days, I have marked it as stale.
 
-            I will close it if no further activity occurs within the next five days.
+            I will close it if no further activity occurs within the next ${{ env.DAYS_BEFORE_CLOSE }} days.
           stale-pr-label: "stale"
           stale-pr-message: |
-            Since this pull request has not had any activity within the last sixty days, I have marked it as stale.
+            Since this pull request has not had any activity within the last ${{ env.DAYS_BEFORE_STALE }} days, I have marked it as stale.
 
-            I will close it if no further activity occurs within the next five days.
+            I will close it if no further activity occurs within the next ${{ env.DAYS_BEFORE_CLOSE }} days.

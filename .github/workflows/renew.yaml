@@ -1,4 +1,4 @@
-# https://help.github.com/en/categories/automating-your-workflow-with-github-actions
+# https://docs.github.com/en/actions
 
 name: "Renew"
 
@@ -7,6 +7,8 @@ on: # yamllint disable-line rule:truthy
     - cron: "1 0 1 1 *"
 
 env:
+  ERGEBNIS_BOT_EMAIL: "bot@ergebn.is"
+  ERGEBNIS_BOT_NAME: "ergebnis-bot"
   PHP_EXTENSIONS: "mbstring"
   PHP_INI_VALUES: "memory_limit=-1, phar.readonly=0"
 
@@ -29,7 +31,7 @@ jobs:
         uses: "actions/checkout@v2.3.2"
 
       - name: "Install PHP with extensions"
-        uses: "shivammathur/setup-php@v2"
+        uses: "shivammathur/setup-php@2.4.3"
         with:
           coverage: "none"
           extensions: "${{ env.PHP_EXTENSIONS }}"
@@ -40,36 +42,28 @@ jobs:
         run: "composer validate --strict"
 
       - name: "Determine composer cache directory"
-        id: "determine-composer-cache-directory"
-        run: "echo \"::set-output name=directory::$(composer config cache-dir)\""
+        uses: "./.github/actions/composer/composer/determine-cache-directory"
 
       - name: "Cache dependencies installed with composer"
-        uses: "actions/cache@v2"
+        uses: "actions/cache@v2.1.1"
         with:
-          path: "${{ steps.determine-composer-cache-directory.outputs.directory }}"
-          key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('**/composer.lock') }}"
+          path: "${{ env.COMPOSER_CACHE_DIR }}"
+          key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
           restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
 
-      - name: "Install lowest dependencies from composer.json"
-        if: "matrix.dependencies == 'lowest'"
-        run: "composer update --no-interaction --no-progress --no-suggest --prefer-lowest"
-
-      - name: "Install locked dependencies from composer.lock"
-        if: "matrix.dependencies == 'locked'"
-        run: "composer install --no-interaction --no-progress --no-suggest"
-
-      - name: "Install highest dependencies from composer.json"
-        if: "matrix.dependencies == 'highest'"
-        run: "composer update --no-interaction --no-progress --no-suggest"
+      - name: "Install ${{ matrix.dependencies }} dependencies with composer"
+        uses: "./.github/actions/composer/composer/install"
+        with:
+          dependencies: "${{ matrix.dependencies }}"
 
       - name: "Create cache directory for friendsofphp/php-cs-fixer"
         run: "mkdir -p .build/php-cs-fixer"
 
       - name: "Cache cache directory for friendsofphp/php-cs-fixer"
-        uses: "actions/cache@v2"
+        uses: "actions/cache@v2.1.1"
         with:
           path: ".build/php-cs-fixer"
-          key: "php-${{ matrix.php-version }}-php-cs-fixer-${{ hashFiles('**/composer.lock') }}"
+          key: "php-${{ matrix.php-version }}-php-cs-fixer-${{ hashFiles('composer.lock') }}"
           restore-keys: "php-${{ matrix.php-version }}-php-cs-fixer-"
 
       - name: "Run friendsofphp/php-cs-fixer"
@@ -78,7 +72,7 @@ jobs:
       - name: "Open pull request updating license year"
         uses: "gr2m/create-or-update-pull-request-action@v1.2.10"
         with:
-          author: "ergebnis-bot <bot@ergebn.is>"
+          author: "${{ env.ERGEBNIS_BOT_NAME }} <${{ env.ERGEBNIS_BOT_EMAIL }}>"
           branch: "feature/license-year"
           body: |
             This PR

@@ -1,5 +1,5 @@
 {
-  "symbol-whitelist" : [
+  "symbol-whitelist": [
     "array",
     "bool",
     "callable",

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="3.11.2@d470903722cfcbc1cd04744c5491d3e6d13ec3d9">
+<files psalm-version="3.14.2@3538fe1955d47f6ee926c0769d71af6db08aa488">
   <file src="src/Application.php">
     <PropertyNotSetInConstructor occurrences="1">
       <code>Application</code>
@@ -12,17 +12,16 @@
       <code>$formatter</code>
       <code>$differ</code>
     </MissingPropertyType>
-    <MixedArgument occurrences="10">
+    <MixedArgument occurrences="9">
       <code>$composerFile</code>
       <code>$composerFile</code>
-      <code>$composerFile</code>
-      <code>$composerFile</code>
-      <code>$composerFile</code>
-      <code>$formatted-&gt;encoded()</code>
       <code>$composerFile</code>
       <code>$composerFile</code>
       <code>$composerFile</code>
       <code>$diff</code>
+      <code>$composerFile</code>
+      <code>$composerFile</code>
+      <code>$composerFile</code>
     </MixedArgument>
     <MixedAssignment occurrences="6">
       <code>$composerFile</code>
@@ -40,9 +39,9 @@
       <code>normalize</code>
       <code>format</code>
       <code>encoded</code>
+      <code>diff</code>
       <code>encoded</code>
       <code>isLocked</code>
-      <code>diff</code>
     </MixedMethodCall>
     <PossiblyInvalidArgument occurrences="8">
       <code>$composerFile</code>
@@ -56,7 +55,7 @@
     </PossiblyInvalidArgument>
   </file>
   <file src="test/Integration/Command/NormalizeCommandTest.php">
-    <MixedArgumentTypeCoercion occurrences="2"/>
+    <MixedArgumentTypeCoercion occurrences="1"/>
     <MixedArrayAccess occurrences="1">
       <code>$decoded['plugin-api-version']</code>
     </MixedArrayAccess>
@@ -68,6 +67,11 @@
       <code>\Generator&lt;array{0: CommandInvocation, 1: string}&gt;</code>
       <code>\Generator&lt;array{0: CommandInvocation, 1: int, 2: string}&gt;</code>
     </MixedInferredReturnType>
+    <UnnecessaryVarAnnotation occurrences="3">
+      <code>string</code>
+      <code>string</code>
+      <code>int</code>
+    </UnnecessaryVarAnnotation>
   </file>
   <file src="test/Util/File.php">
     <PropertyNotSetInConstructor occurrences="1">
