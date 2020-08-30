@@ -15,17 +15,11 @@ branches:
       required_status_checks:
         contexts:
           - "Code Coverage (7.4, locked)"
-          - "Coding Standards (7.1, locked)"
+          - "Coding Standards (7.2, locked)"
           - "Compile Phar (7.4, locked)"
           - "Dependency Analysis (7.4, locked)"
           - "Static Code Analysis (7.4, locked)"
           - "Static Code Analysis (7.4, locked)"
-          - "Tests (7.1, 1, highest)"
-          - "Tests (7.1, 1, locked)"
-          - "Tests (7.1, 1, lowest)"
-          - "Tests (7.1, 2, highest)"
-          - "Tests (7.1, 2, locked)"
-          - "Tests (7.1, 2, lowest)"
           - "Tests (7.2, 1, highest)"
           - "Tests (7.2, 1, locked)"
           - "Tests (7.2, 1, lowest)"

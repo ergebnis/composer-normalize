@@ -17,7 +17,7 @@
     }
   ],
   "require": {
-    "php": "^7.1 || ^8.0",
+    "php": "^7.2 || ^8.0",
     "composer-plugin-api": "^1.1.0 || ^2.0.0",
     "ergebnis/json-normalizer": "~0.13.0",
     "ergebnis/json-printer": "^3.1.0",
@@ -40,7 +40,7 @@
   },
   "config": {
     "platform": {
-      "php": "7.1.33"
+      "php": "7.2.33"
     },
     "preferred-install": "dist",
     "sort-packages": true
