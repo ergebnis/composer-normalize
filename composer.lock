@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "baaea86fab34891f143ca0ca6fa95865",
+    "content-hash": "17aadbd0ccf0008297d8ed77fb3fed77",
     "packages": [
         {
             "name": "ergebnis/json-normalizer",
@@ -833,37 +833,37 @@
         },
         {
             "name": "ergebnis/phpstan-rules",
-            "version": "0.15.1",
+            "version": "0.15.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/phpstan-rules.git",
-                "reference": "e6e2bbf0edd7f78b26dfd72daa01d28500ad3e6c"
+                "reference": "87571fcb13e070946e63c50aedb0adb9ead37b23"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/phpstan-rules/zipball/e6e2bbf0edd7f78b26dfd72daa01d28500ad3e6c",
-                "reference": "e6e2bbf0edd7f78b26dfd72daa01d28500ad3e6c",
+                "url": "https://api.github.com/repos/ergebnis/phpstan-rules/zipball/87571fcb13e070946e63c50aedb0adb9ead37b23",
+                "reference": "87571fcb13e070946e63c50aedb0adb9ead37b23",
                 "shasum": ""
             },
             "require": {
                 "ext-mbstring": "*",
                 "nikic/php-parser": "^4.2.3",
-                "php": "^7.1",
+                "php": "^7.2",
                 "phpstan/phpstan": "~0.11.15 || ~0.12.0"
             },
             "require-dev": {
-                "ergebnis/composer-normalize": "^2.6.1",
+                "ergebnis/composer-normalize": "^2.7.1",
                 "ergebnis/license": "^1.0.0",
                 "ergebnis/php-cs-fixer-config": "^2.2.1",
                 "ergebnis/test-util": "^1.0.0",
-                "infection/infection": "~0.13.6",
+                "infection/infection": "~0.15.3",
                 "nette/di": "^3.0.1",
                 "phpstan/phpstan-deprecation-rules": "~0.11.2",
                 "phpstan/phpstan-strict-rules": "~0.11.1",
-                "phpunit/phpunit": "^7.5.20",
-                "psalm/plugin-phpunit": "~0.10.1",
+                "phpunit/phpunit": "^8.5.8",
+                "psalm/plugin-phpunit": "~0.11.0",
                 "psr/container": "^1.0.0",
-                "vimeo/psalm": "^3.13.1",
+                "vimeo/psalm": "^3.14.2",
                 "zendframework/zend-servicemanager": "^2.0.0"
             },
             "type": "phpstan-extension",
@@ -902,7 +902,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-07-31T18:01:05+00:00"
+            "time": "2020-08-29T09:03:47+00:00"
         },
         {
             "name": "ergebnis/test-util",
@@ -1140,16 +1140,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v4.7.0",
+            "version": "v4.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "21dce06dfbf0365c6a7cc8fdbdc995926c6a9300"
+                "reference": "aaee038b912e567780949787d5fe1977be11a778"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/21dce06dfbf0365c6a7cc8fdbdc995926c6a9300",
-                "reference": "21dce06dfbf0365c6a7cc8fdbdc995926c6a9300",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/aaee038b912e567780949787d5fe1977be11a778",
+                "reference": "aaee038b912e567780949787d5fe1977be11a778",
                 "shasum": ""
             },
             "require": {
@@ -1157,8 +1157,8 @@
                 "php": ">=7.0"
             },
             "require-dev": {
-                "ircmaxell/php-yacc": "0.0.5",
-                "phpunit/phpunit": "^6.5 || ^7.0 || ^8.0"
+                "ircmaxell/php-yacc": "^0.0.7",
+                "phpunit/phpunit": "^6.5 || ^7.0 || ^8.0 || ^9.0"
             },
             "bin": [
                 "bin/php-parse"
@@ -1166,7 +1166,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.7-dev"
+                    "dev-master": "4.9-dev"
                 }
             },
             "autoload": {
@@ -1188,7 +1188,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2020-07-25T13:18:53+00:00"
+            "time": "2020-08-18T19:48:01+00:00"
         },
         {
             "name": "phar-io/manifest",
