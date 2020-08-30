@@ -23,7 +23,7 @@ jobs:
     strategy:
       matrix:
         php-version:
-          - "7.1"
+          - "7.2"
 
         dependencies:
           - "locked"
@@ -228,7 +228,6 @@ jobs:
       fail-fast: false
       matrix:
         php-version:
-          - "7.1"
           - "7.2"
           - "7.3"
           - "7.4"
