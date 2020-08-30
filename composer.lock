@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "80e7ed85357d90faa7b9adbd11777343",
+    "content-hash": "baaea86fab34891f143ca0ca6fa95865",
     "packages": [
         {
             "name": "ergebnis/json-normalizer",
@@ -760,40 +760,44 @@
         },
         {
             "name": "ergebnis/classy",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/classy.git",
-                "reference": "a763926a0a1e908cc30317494ea8bba6440e41e7"
+                "reference": "1479cf8af6a75b11586ab2b2a87482d090c99dfb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/classy/zipball/a763926a0a1e908cc30317494ea8bba6440e41e7",
-                "reference": "a763926a0a1e908cc30317494ea8bba6440e41e7",
+                "url": "https://api.github.com/repos/ergebnis/classy/zipball/1479cf8af6a75b11586ab2b2a87482d090c99dfb",
+                "reference": "1479cf8af6a75b11586ab2b2a87482d090c99dfb",
                 "shasum": ""
             },
             "require": {
                 "ext-tokenizer": "*",
-                "php": "^7.1"
+                "php": "^7.2 || ^8.0"
             },
             "require-dev": {
-                "ergebnis/composer-normalize": "^2.2.2",
-                "ergebnis/license": "~0.1.0",
-                "ergebnis/php-cs-fixer-config": "^2.0.0",
-                "ergebnis/phpstan-rules": "~0.14.2",
-                "ergebnis/test-util": "~0.7.0",
-                "infection/infection": "~0.13.6",
-                "phpbench/phpbench": "~0.16.10",
-                "phpstan/extension-installer": "^1.0.3",
-                "phpstan/phpstan": "~0.12.7",
-                "phpstan/phpstan-deprecation-rules": "~0.12.2",
-                "phpstan/phpstan-strict-rules": "~0.12.2",
-                "phpunit/phpunit": "^7.5.20",
-                "psalm/plugin-phpunit": "~0.8.1",
-                "vimeo/psalm": "^3.8.3",
+                "ergebnis/composer-normalize": "^2.7.1",
+                "ergebnis/license": "^1.0.0",
+                "ergebnis/php-cs-fixer-config": "^2.2.1",
+                "ergebnis/phpstan-rules": "~0.15.2",
+                "ergebnis/test-util": "^1.0.0",
+                "infection/infection": "~0.15.3",
+                "phpstan/extension-installer": "^1.0.4",
+                "phpstan/phpstan": "~0.12.40",
+                "phpstan/phpstan-deprecation-rules": "~0.12.5",
+                "phpstan/phpstan-strict-rules": "~0.12.4",
+                "phpunit/phpunit": "^8.5.8",
+                "psalm/plugin-phpunit": "~0.11.0",
+                "vimeo/psalm": "^3.14.2",
                 "zendframework/zend-file": "^2.8.3"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.0-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Ergebnis\\Classy\\": "src/"
@@ -809,9 +813,23 @@
                     "email": "am@localheinz.com"
                 }
             ],
-            "description": "Provides a way to collect classy constructs from source or a directory.",
+            "description": "Provides a finder for classy constructs (classes, interfaces, and traits).",
             "homepage": "https://github.com/ergebnis/classy",
-            "time": "2020-01-21T08:19:00+00:00"
+            "keywords": [
+                "classes",
+                "classy",
+                "constructs",
+                "finder",
+                "interfaces",
+                "traits"
+            ],
+            "funding": [
+                {
+                    "url": "https://github.com/localheinz",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-08-30T10:41:50+00:00"
         },
         {
             "name": "ergebnis/phpstan-rules",
@@ -888,37 +906,37 @@
         },
         {
             "name": "ergebnis/test-util",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/test-util.git",
-                "reference": "44bdb78d14fbaf6411002c16022fd1bb7327ad37"
+                "reference": "bbb15e417b44044a93ac083fa1d73ae5551c7505"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/test-util/zipball/44bdb78d14fbaf6411002c16022fd1bb7327ad37",
-                "reference": "44bdb78d14fbaf6411002c16022fd1bb7327ad37",
+                "url": "https://api.github.com/repos/ergebnis/test-util/zipball/bbb15e417b44044a93ac083fa1d73ae5551c7505",
+                "reference": "bbb15e417b44044a93ac083fa1d73ae5551c7505",
                 "shasum": ""
             },
             "require": {
-                "ergebnis/classy": "^1.0.0",
+                "ergebnis/classy": "^1.1.0",
                 "fzaninotto/faker": "^1.9.0",
-                "php": "^7.1"
+                "php": "^7.2 || ^8.0"
             },
             "require-dev": {
-                "ergebnis/composer-normalize": "^2.2.4",
-                "ergebnis/license": "~0.1.0",
-                "ergebnis/php-cs-fixer-config": "^2.1.0",
-                "ergebnis/phpstan-rules": "~0.14.3",
-                "infection/infection": "~0.13.6",
-                "phpstan/extension-installer": "^1.0.3",
-                "phpstan/phpstan": "~0.12.14",
-                "phpstan/phpstan-deprecation-rules": "~0.12.2",
-                "phpstan/phpstan-phpunit": "~0.12.6",
-                "phpstan/phpstan-strict-rules": "~0.12.2",
-                "phpunit/phpunit": "^7.5.20",
-                "psalm/plugin-phpunit": "~0.9.0",
-                "vimeo/psalm": "^3.9.5"
+                "ergebnis/composer-normalize": "^2.7.1",
+                "ergebnis/license": "^1.0.0",
+                "ergebnis/php-cs-fixer-config": "^2.2.1",
+                "ergebnis/phpstan-rules": "~0.15.2",
+                "infection/infection": "~0.15.3",
+                "phpstan/extension-installer": "^1.0.4",
+                "phpstan/phpstan": "~0.12.40",
+                "phpstan/phpstan-deprecation-rules": "~0.12.5",
+                "phpstan/phpstan-phpunit": "~0.12.16",
+                "phpstan/phpstan-strict-rules": "~0.12.4",
+                "phpunit/phpunit": "^8.5.8",
+                "psalm/plugin-phpunit": "~0.11.0",
+                "vimeo/psalm": "^3.14.2"
             },
             "type": "library",
             "autoload": {
@@ -946,19 +964,11 @@
             ],
             "funding": [
                 {
-                    "url": "http://paypal.me/localheinz",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://www.buymeacoffee.com/localheinz",
-                    "type": "custom"
-                },
-                {
                     "url": "https://github.com/localheinz",
                     "type": "github"
                 }
             ],
-            "time": "2020-03-11T11:08:49+00:00"
+            "time": "2020-08-30T10:56:49+00:00"
         },
         {
             "name": "fzaninotto/faker",
