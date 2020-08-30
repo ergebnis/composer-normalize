@@ -6,8 +6,7 @@ it: coding-standards static-code-analysis tests ## Runs the coding-standards, st
 .PHONY: code-coverage
 code-coverage: vendor ## Collects coverage from running integration tests with phpunit/phpunit
 	mkdir -p .build/phpunit
-	vendor/bin/phpunit --configuration=test/Integration/phpunit.xml --dump-xdebug-filter=.build/phpunit/xdebug-filter.php
-	vendor/bin/phpunit --configuration=test/Integration/phpunit.xml --coverage-text --prepend=.build/phpunit/xdebug-filter.php
+	vendor/bin/phpunit --configuration=test/Integration/phpunit.xml --coverage-text
 
 .PHONY: coding-standards
 coding-standards: vendor ## Normalizes composer.json with ergebnis/composer-normalize, lints YAML files with yamllint and fixes code style issues with friendsofphp/php-cs-fixer
