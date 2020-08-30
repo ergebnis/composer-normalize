@@ -20,7 +20,7 @@
     "php": "^7.2 || ^8.0",
     "composer-plugin-api": "^1.1.0 || ^2.0.0",
     "ergebnis/json-normalizer": "~0.13.0",
-    "ergebnis/json-printer": "^3.1.0",
+    "ergebnis/json-printer": "^3.1.1",
     "justinrainbow/json-schema": "^5.2.10",
     "localheinz/diff": "^1.1.1"
   },
