@@ -5,7 +5,7 @@
   "require-dev": {
     "ergebnis/license": "~1.0.0",
     "ergebnis/php-cs-fixer-config": "^2.2.1",
-    "psalm/plugin-phpunit": "~0.11.0",
+    "psalm/plugin-phpunit": "~0.12.1",
     "vimeo/psalm": "^3.14.2"
   },
   "config": {
