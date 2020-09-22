@@ -383,7 +383,7 @@
                 },
                 "classmap": {
                     "type": "array",
-                    "description": "This is an array of directories that contain classes to be included in the class-map generation process."
+                    "description": "This is an array of paths that contain classes to be included in the class-map generation process."
                 },
                 "files": {
                     "type": "array",
@@ -768,7 +768,7 @@
                 },
                 "classmap": {
                     "type": "array",
-                    "description": "This is an array of directories that contain classes to be included in the class-map generation process."
+                    "description": "This is an array of paths that contain classes to be included in the class-map generation process."
                 },
                 "files": {
                     "type": "array",
