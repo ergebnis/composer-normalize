@@ -6,7 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`2.8.1...main`][2.8.1...main].
+For a full diff see [`2.8.2...main`][2.8.2...main].
+
+## [`2.8.2`][2.8.2]
+
+For a full diff see [`2.8.1...2.8.2`][2.8.1...2.8.2].
+
+### Changed
+
+* Require at least `composer/composer:^1.10.13` ([#554]), by [@localheinz]
 
 ## [`2.8.1`][2.8.1]
 
@@ -443,6 +451,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [2.7.0]: https://github.com/ergebnis/composer-normalize/releases/tag/2.7.0
 [2.8.0]: https://github.com/ergebnis/composer-normalize/releases/tag/2.8.0
 [2.8.1]: https://github.com/ergebnis/composer-normalize/releases/tag/2.8.1
+[2.8.2]: https://github.com/ergebnis/composer-normalize/releases/tag/2.8.2
 
 [81bc3a8...0.1.0]: https://github.com/ergebnis/composer-normalize/compare/81bc3a8...0.1.0
 [0.1.0...0.2.0]: https://github.com/ergebnis/composer-normalize/compare/0.1.0...0.2.0
@@ -485,7 +494,8 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [2.6.1...2.7.0]: https://github.com/ergebnis/composer-normalize/compare/2.6.1...2.7.0
 [2.7.0...2.8.0]: https://github.com/ergebnis/composer-normalize/compare/2.7.0...2.8.0
 [2.8.0...2.8.1]: https://github.com/ergebnis/composer-normalize/compare/2.8.0...2.8.1
-[2.8.1...main]: https://github.com/ergebnis/composer-normalize/compare/2.8.1...main
+[2.8.1...2.8.2]: https://github.com/ergebnis/composer-normalize/compare/2.8.1...2.8.2
+[2.8.2...main]: https://github.com/ergebnis/composer-normalize/compare/2.8.2...main
 
 [#1]: https://github.com/ergebnis/composer-normalize/pull/1
 [#2]: https://github.com/ergebnis/composer-normalize/pull/2
@@ -548,6 +558,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [#515]: https://github.com/ergebnis/composer-normalize/pull/515
 [#526]: https://github.com/ergebnis/composer-normalize/pull/526
 [#529]: https://github.com/ergebnis/composer-normalize/pull/529
+[#554]: https://github.com/ergebnis/composer-normalize/pull/554
 
 [@core23]: https://github.com/core23
 [@dependabot]: https://github.com/dependabot
