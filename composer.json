@@ -25,7 +25,7 @@
     "localheinz/diff": "^1.1.1"
   },
   "require-dev": {
-    "composer/composer": "^1.10.8 || ^2.0.0",
+    "composer/composer": "^1.10.13 || ^2.0.0",
     "composer/package-versions-deprecated": "^1.11.99",
     "ergebnis/phpstan-rules": "~0.15.2",
     "ergebnis/test-util": "^1.1.0",
