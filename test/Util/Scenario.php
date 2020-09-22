@@ -25,11 +25,11 @@ final class Scenario
      */
     private $initialState;
 
-    public static function fromCommandInvocationAndInitialState(CommandInvocation $invocationStyle, State $initialState): self
+    public static function fromCommandInvocationAndInitialState(CommandInvocation $commandInvocation, State $initialState): self
     {
         $scenario = new self();
 
-        $scenario->commandInvocation = $invocationStyle;
+        $scenario->commandInvocation = $commandInvocation;
         $scenario->initialState = $initialState;
 
         return $scenario;
