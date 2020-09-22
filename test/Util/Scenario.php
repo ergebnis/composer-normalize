@@ -25,14 +25,18 @@ final class Scenario
      */
     private $initialState;
 
-    public static function fromCommandInvocationAndInitialState(CommandInvocation $invocationStyle, State $initialState): self
+    private function __construct(CommandInvocation $commandInvocation, State $initialState)
     {
-        $scenario = new self();
+        $this->commandInvocation = $commandInvocation;
+        $this->initialState = $initialState;
+    }
 
-        $scenario->commandInvocation = $invocationStyle;
-        $scenario->initialState = $initialState;
-
-        return $scenario;
+    public static function fromCommandInvocationAndInitialState(CommandInvocation $commandInvocation, State $initialState): self
+    {
+        return new self(
+            $commandInvocation,
+            $initialState
+        );
     }
 
     public function directory(): Directory
