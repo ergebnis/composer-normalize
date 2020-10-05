@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7a6a9d0160f71b7c2372a9a1f2eb966f",
+    "content-hash": "2224336e5a34e6e6226736a4066052a5",
     "packages": [
         {
             "name": "ergebnis/json-normalizer",
@@ -888,16 +888,16 @@
         },
         {
             "name": "ergebnis/test-util",
-            "version": "1.1.0",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/test-util.git",
-                "reference": "bbb15e417b44044a93ac083fa1d73ae5551c7505"
+                "reference": "5b0f606becadf7158ca86a123c9d7de795efaff8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/test-util/zipball/bbb15e417b44044a93ac083fa1d73ae5551c7505",
-                "reference": "bbb15e417b44044a93ac083fa1d73ae5551c7505",
+                "url": "https://api.github.com/repos/ergebnis/test-util/zipball/5b0f606becadf7158ca86a123c9d7de795efaff8",
+                "reference": "5b0f606becadf7158ca86a123c9d7de795efaff8",
                 "shasum": ""
             },
             "require": {
@@ -906,19 +906,19 @@
                 "php": "^7.2 || ^8.0"
             },
             "require-dev": {
-                "ergebnis/composer-normalize": "^2.7.1",
-                "ergebnis/license": "^1.0.0",
-                "ergebnis/php-cs-fixer-config": "^2.2.1",
+                "ergebnis/composer-normalize": "^2.8.2",
+                "ergebnis/license": "^1.1.0",
+                "ergebnis/php-cs-fixer-config": "^2.2.2",
                 "ergebnis/phpstan-rules": "~0.15.2",
                 "infection/infection": "~0.15.3",
-                "phpstan/extension-installer": "^1.0.4",
-                "phpstan/phpstan": "~0.12.40",
+                "phpstan/extension-installer": "^1.0.5",
+                "phpstan/phpstan": "~0.12.48",
                 "phpstan/phpstan-deprecation-rules": "~0.12.5",
                 "phpstan/phpstan-phpunit": "~0.12.16",
-                "phpstan/phpstan-strict-rules": "~0.12.4",
+                "phpstan/phpstan-strict-rules": "~0.12.5",
                 "phpunit/phpunit": "^8.5.8",
-                "psalm/plugin-phpunit": "~0.11.0",
-                "vimeo/psalm": "^3.14.2"
+                "psalm/plugin-phpunit": "~0.12.2",
+                "vimeo/psalm": "^3.16"
             },
             "type": "library",
             "autoload": {
@@ -936,7 +936,7 @@
                     "email": "am@localheinz.com"
                 }
             ],
-            "description": "Provides utilities for tests.",
+            "description": "Provides a helper trait and generic data providers for tests.",
             "homepage": "https://github.com/ergebnis/test-util",
             "keywords": [
                 "assertion",
@@ -950,7 +950,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-08-30T10:56:49+00:00"
+            "time": "2020-10-04T09:36:32+00:00"
         },
         {
             "name": "fzaninotto/faker",
