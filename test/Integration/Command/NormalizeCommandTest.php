@@ -247,7 +247,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         );
 
         self::assertExitCodeSame(1, $exitCode);
-        self::assertContains('does not match the expected JSON schema', $output->fetch());
+        self::assertStringContainsString('does not match the expected JSON schema', $output->fetch());
         self::assertEquals($initialState, $scenario->currentState());
     }
 
