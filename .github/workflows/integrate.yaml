@@ -66,7 +66,7 @@ jobs:
           dependencies: "${{ matrix.dependencies }}"
 
       - name: "Run ergebnis/composer-normalize"
-        run: "tools/composer-normalize --dry-run"
+        run: ".phive/composer-normalize --dry-run"
 
       - name: "Create cache directory for friendsofphp/php-cs-fixer"
         run: "mkdir -p .build/php-cs-fixer"
@@ -121,7 +121,7 @@ jobs:
           dependencies: "${{ matrix.dependencies }}"
 
       - name: "Run maglnet/composer-require-checker"
-        run: "tools/composer-require-checker check --config-file=$(pwd)/composer-require-checker.json"
+        run: ".phive/composer-require-checker check --config-file=$(pwd)/composer-require-checker.json"
 
   static-code-analysis:
     name: "Static Code Analysis"
