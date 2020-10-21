@@ -13,4 +13,4 @@ runs:
   steps:
     - name: "Determine composer cache directory"
       shell: "bash"
-      run: "echo \"::set-env name=COMPOSER_CACHE_DIR::$(composer config cache-dir)\""
+      run: "echo \"COMPOSER_CACHE_DIR=$(composer config cache-dir)\" >> $GITHUB_ENV"

@@ -1,8 +1,8 @@
 /.github/                       export-ignore
+/.phive/                        export-ignore
 /bin/                           export-ignore
 /phar/                          export-ignore
 /test/                          export-ignore
-/tools/                         export-ignore
 /.editorconfig                  export-ignore
 /.gitattributes                 export-ignore
 /.gitignore                     export-ignore
