@@ -254,11 +254,7 @@ final class NormalizeCommand extends Command\BaseCommand
     }
 
     /**
-     * @param Console\Input\InputInterface $input
-     *
      * @throws \RuntimeException
-     *
-     * @return null|Normalizer\Format\Indent
      */
     private static function indentFrom(Console\Input\InputInterface $input): ?Normalizer\Format\Indent
     {
@@ -360,13 +356,7 @@ final class NormalizeCommand extends Command\BaseCommand
     /**
      * @see https://getcomposer.org/doc/03-cli.md#update
      *
-     * @param Console\Application            $application
-     * @param Console\Output\OutputInterface $output
-     * @param string                         $workingDirectory
-     *
      * @throws \Exception
-     *
-     * @return int
      */
     private static function updateLockerInWorkingDirectory(
         Console\Application $application,
