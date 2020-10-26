@@ -60,7 +60,7 @@ jobs:
           dependencies: "${{ matrix.dependencies }}"
 
       - name: "Remove composer/composer"
-        run: "composer remove composer/composer --no-interaction --no-progress"
+        run: "composer remove composer/composer --no-interaction --no-progress --with-all-dependencies"
 
       - name: "Require composer/composer"
         run: "composer require composer/composer:${{ env.COMPOSER_VERSION }} --no-interaction --no-progress --no-suggest"
