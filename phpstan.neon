@@ -7,6 +7,7 @@ parameters:
 		classesAllowedToBeExtended:
 			- Composer\Command\BaseCommand
 			- Composer\Console\Application
+			- Ergebnis\Composer\Normalize\Test\Integration\Command\AbstractTestCase
 			- LogicException
 	inferPrivatePropertyTypeFromConstructor: true
 	level: max
