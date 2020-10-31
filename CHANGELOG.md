@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`2.9.0...main`][2.9.0...main].
 
+### Fixed
+
+* Required at least `composer/composer:^1.10.17` and used `composer/composer:1.10.17` for `composer-normalize.phar` ([#596]), by [@localheinz]
+
 ## [`2.9.0`][2.9.0]
 
 For a full diff see [`2.8.2...2.9.0`][2.8.2...2.9.0].
@@ -18,7 +22,7 @@ For a full diff see [`2.8.2...2.9.0`][2.8.2...2.9.0].
 
 ### Fixed
 
-* Required at least `composer/composer:^1.10.15` and use `composer/composer:1.10.15` for `composer-normalize.phar` ([#582]), by [@localheinz]
+* Required at least `composer/composer:^1.10.15` and used `composer/composer:1.10.15` for `composer-normalize.phar` ([#582]), by [@localheinz]
 
 ## [`2.8.2`][2.8.2]
 
@@ -575,6 +579,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [#554]: https://github.com/ergebnis/composer-normalize/pull/554
 [#572]: https://github.com/ergebnis/composer-normalize/pull/572
 [#582]: https://github.com/ergebnis/composer-normalize/pull/582
+[#596]: https://github.com/ergebnis/composer-normalize/pull/596
 
 [@core23]: https://github.com/core23
 [@dependabot]: https://github.com/dependabot
