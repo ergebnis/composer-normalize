@@ -21,7 +21,7 @@ use Ergebnis\Composer\Normalize\Test\Util\CommandInvocation;
 use Ergebnis\Composer\Normalize\Test\Util\Directory;
 use Ergebnis\Composer\Normalize\Test\Util\Scenario;
 use Ergebnis\Composer\Normalize\Test\Util\State;
-use Ergebnis\Json\Normalizer\Format\Formatter;
+use Ergebnis\Json\Normalizer\Format;
 use Ergebnis\Json\Normalizer\Json;
 use Ergebnis\Json\Normalizer\NormalizerInterface;
 use Ergebnis\Json\Printer\Printer;
@@ -80,10 +80,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         $application = self::createApplicationWithNormalizeCommandAsProvidedByNormalizePlugin();
 
         $input = new Console\Input\ArrayInput($scenario->consoleParametersWith([
-            '--indent-style' => self::faker()->randomElement([
-                'space',
-                'tab',
-            ]),
+            '--indent-style' => self::faker()->randomElement(\array_keys(Format\Indent::CHARACTERS)),
         ]));
 
         $output = new Console\Output\BufferedOutput();
@@ -174,10 +171,7 @@ final class NormalizeCommandTest extends Framework\TestCase
         $faker = self::faker();
 
         /** @var string $indentStyle */
-        $indentStyle = $faker->randomElement([
-            'space',
-            'tab',
-        ]);
+        $indentStyle = $faker->randomElement(\array_keys(Format\Indent::CHARACTERS));
 
         $scenario = self::createScenario(
             $commandInvocation,
@@ -276,7 +270,7 @@ final class NormalizeCommandTest extends Framework\TestCase
                     throw new \RuntimeException($this->exceptionMessage);
                 }
             },
-            new Formatter(new Printer()),
+            new Format\Formatter(new Printer()),
             new Diff\Differ(new Diff\Output\StrictUnifiedDiffOutputBuilder([
                 'fromFile' => 'original',
                 'toFile' => 'normalized',
@@ -947,14 +941,9 @@ final class NormalizeCommandTest extends Framework\TestCase
             self::faker()->numberBetween(2, 4),
         ];
 
-        $indentStyles = [
-            'space',
-            'tab',
-        ];
-
         foreach (self::commandInvocations() as $commandInvocation) {
             foreach ($indentSizes as $indentSize) {
-                foreach ($indentStyles as $indentStyle) {
+                foreach (\array_keys(Format\Indent::CHARACTERS) as $indentStyle) {
                     $key = \sprintf(
                         '%s-indent-size-%d-indent-style-%s',
                         $commandInvocation->style(),

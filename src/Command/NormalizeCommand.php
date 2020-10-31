@@ -27,14 +27,6 @@ use Symfony\Component\Console;
  */
 final class NormalizeCommand extends Command\BaseCommand
 {
-    /**
-     * @var array<string, string>
-     */
-    private static $indentStyles = [
-        'space' => ' ',
-        'tab' => "\t",
-    ];
-
     private $factory;
 
     private $normalizer;
@@ -90,7 +82,7 @@ final class NormalizeCommand extends Command\BaseCommand
                 Console\Input\InputOption::VALUE_REQUIRED,
                 \sprintf(
                     'Indent style (one of "%s"); should be used with the --indent-size option',
-                    \implode('", "', \array_keys(self::$indentStyles))
+                    \implode('", "', \array_keys(Normalizer\Format\Indent::CHARACTERS))
                 )
             ),
             new Console\Input\InputOption(
@@ -275,7 +267,7 @@ final class NormalizeCommand extends Command\BaseCommand
         if (null === $indentStyle) {
             throw new \RuntimeException(\sprintf(
                 'When using the indent-size option, an indent style (one of "%s") needs to be specified using the indent-style option.',
-                \implode('", "', \array_keys(self::$indentStyles))
+                \implode('", "', \array_keys(Normalizer\Format\Indent::CHARACTERS))
             ));
         }
 
@@ -300,7 +292,7 @@ final class NormalizeCommand extends Command\BaseCommand
         } catch (Normalizer\Exception\InvalidIndentStyleException $exception) {
             throw new \RuntimeException(\sprintf(
                 'Indent style needs to be one of "%s", but "%s" is not.',
-                \implode('", "', \array_keys(self::$indentStyles)),
+                \implode('", "', \array_keys(Normalizer\Format\Indent::CHARACTERS)),
                 $indentStyle
             ));
         }
