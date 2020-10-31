@@ -54,20 +54,13 @@
       <code>$composerFile</code>
     </PossiblyInvalidArgument>
   </file>
-  <file src="test/Integration/Command/AbstractTestCase.php">
+  <file src="test/Integration/Command/NormalizeCommand/AbstractTestCase.php">
     <MixedArrayAccess occurrences="1">
       <code>$decoded['plugin-api-version']</code>
     </MixedArrayAccess>
     <MixedAssignment occurrences="1">
       <code>$decoded</code>
     </MixedAssignment>
-  </file>
-  <file src="test/Integration/Command/NormalizeCommandTest.php">
-    <MixedArgumentTypeCoercion occurrences="1"/>
-    <UnnecessaryVarAnnotation occurrences="2">
-      <code>string</code>
-      <code>string</code>
-    </UnnecessaryVarAnnotation>
   </file>
   <file src="test/Util/File.php">
     <PropertyNotSetInConstructor occurrences="1">
