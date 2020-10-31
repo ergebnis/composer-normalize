@@ -13,23 +13,15 @@ declare(strict_types=1);
 
 namespace Ergebnis\Composer\Normalize\Test\Integration\Command;
 
-use Composer\Console\Application;
 use Composer\Factory;
 use Ergebnis\Composer\Normalize\Command\NormalizeCommand;
-use Ergebnis\Composer\Normalize\NormalizePlugin;
-use Ergebnis\Composer\Normalize\Test\Util\CommandInvocation;
-use Ergebnis\Composer\Normalize\Test\Util\Directory;
-use Ergebnis\Composer\Normalize\Test\Util\Scenario;
-use Ergebnis\Composer\Normalize\Test\Util\State;
+use Ergebnis\Composer\Normalize\Test;
 use Ergebnis\Json\Normalizer\Format;
 use Ergebnis\Json\Normalizer\Json;
 use Ergebnis\Json\Normalizer\NormalizerInterface;
 use Ergebnis\Json\Printer\Printer;
-use Ergebnis\Test\Util\Helper;
 use Localheinz\Diff;
-use PHPUnit\Framework;
 use Symfony\Component\Console;
-use Symfony\Component\Filesystem;
 
 /**
  * @internal
@@ -37,40 +29,12 @@ use Symfony\Component\Filesystem;
  * @covers \Ergebnis\Composer\Normalize\Command\NormalizeCommand
  * @covers \Ergebnis\Composer\Normalize\NormalizePlugin
  */
-final class NormalizeCommandTest extends Framework\TestCase
+final class NormalizeCommandTest extends AbstractTestCase
 {
-    use Helper;
-
-    /**
-     * @var string
-     */
-    private $currentWorkingDirectory;
-
-    public static function tearDownAfterClass(): void
-    {
-        self::clearTemporaryDirectory();
-    }
-
-    protected function setUp(): void
-    {
-        $currentWorkingDirectory = \getcwd();
-
-        if (false === $currentWorkingDirectory) {
-            throw new \RuntimeException('Unable to determine current working directory.');
-        }
-
-        $this->currentWorkingDirectory = $currentWorkingDirectory;
-    }
-
-    protected function tearDown(): void
-    {
-        \chdir($this->currentWorkingDirectory);
-    }
-
     /**
      * @dataProvider \Ergebnis\Composer\Normalize\Test\DataProvider\Command\NormalizeCommandProvider::commandInvocation()
      */
-    public function testFailsWhenIndentStyleIsUsedWithoutIndentSize(CommandInvocation $commandInvocation): void
+    public function testFailsWhenIndentStyleIsUsedWithoutIndentSize(Test\Util\CommandInvocation $commandInvocation): void
     {
         $scenario = self::createScenario(
             $commandInvocation,
@@ -98,7 +62,7 @@ final class NormalizeCommandTest extends Framework\TestCase
     /**
      * @dataProvider \Ergebnis\Composer\Normalize\Test\DataProvider\Command\NormalizeCommandProvider::commandInvocation()
      */
-    public function testFailsWhenIndentSizeIsUsedWithoutIndentStyle(CommandInvocation $commandInvocation): void
+    public function testFailsWhenIndentSizeIsUsedWithoutIndentStyle(Test\Util\CommandInvocation $commandInvocation): void
     {
         $scenario = self::createScenario(
             $commandInvocation,
@@ -126,7 +90,7 @@ final class NormalizeCommandTest extends Framework\TestCase
     /**
      * @dataProvider \Ergebnis\Composer\Normalize\Test\DataProvider\Command\NormalizeCommandProvider::commandInvocation()
      */
-    public function testFailsWhenIndentStyleIsInvalid(CommandInvocation $commandInvocation): void
+    public function testFailsWhenIndentStyleIsInvalid(Test\Util\CommandInvocation $commandInvocation): void
     {
         $faker = self::faker();
 
@@ -166,7 +130,7 @@ final class NormalizeCommandTest extends Framework\TestCase
     /**
      * @dataProvider \Ergebnis\Composer\Normalize\Test\DataProvider\Command\NormalizeCommandProvider::commandInvocationAndInvalidIndentSize
      */
-    public function testFailsWhenIndentSizeIsInvalid(CommandInvocation $commandInvocation, string $indentSize): void
+    public function testFailsWhenIndentSizeIsInvalid(Test\Util\CommandInvocation $commandInvocation, string $indentSize): void
     {
         $faker = self::faker();
 
@@ -206,7 +170,7 @@ final class NormalizeCommandTest extends Framework\TestCase
     /**
      * @dataProvider \Ergebnis\Composer\Normalize\Test\DataProvider\Command\NormalizeCommandProvider::commandInvocation()
      */
-    public function testFailsWhenComposerJsonIsPresentButNotValidAccordingToLaxValidation(CommandInvocation $commandInvocation): void
+    public function testFailsWhenComposerJsonIsPresentButNotValidAccordingToLaxValidation(Test\Util\CommandInvocation $commandInvocation): void
     {
         $scenario = self::createScenario(
             $commandInvocation,
@@ -237,7 +201,7 @@ final class NormalizeCommandTest extends Framework\TestCase
     /**
      * @dataProvider \Ergebnis\Composer\Normalize\Test\DataProvider\Command\NormalizeCommandProvider::commandInvocation()
      */
-    public function testFailsWhenComposerJsonIsPresentAndValidAccordingToLaxValidationAndComposerLockIsNotPresentAndRuntimeExceptionIsThrownDuringNormalization(CommandInvocation $commandInvocation): void
+    public function testFailsWhenComposerJsonIsPresentAndValidAccordingToLaxValidationAndComposerLockIsNotPresentAndRuntimeExceptionIsThrownDuringNormalization(Test\Util\CommandInvocation $commandInvocation): void
     {
         $scenario = self::createScenario(
             $commandInvocation,
@@ -294,7 +258,7 @@ final class NormalizeCommandTest extends Framework\TestCase
     /**
      * @dataProvider \Ergebnis\Composer\Normalize\Test\DataProvider\Command\NormalizeCommandProvider::commandInvocation()
      */
-    public function testSucceedsWhenComposerJsonIsPresentAndValidAccordingToLaxValidationAndComposerLockIsNotPresentAndComposerJsonIsAlreadyNormalized(CommandInvocation $commandInvocation): void
+    public function testSucceedsWhenComposerJsonIsPresentAndValidAccordingToLaxValidationAndComposerLockIsNotPresentAndComposerJsonIsAlreadyNormalized(Test\Util\CommandInvocation $commandInvocation): void
     {
         $scenario = self::createScenario(
             $commandInvocation,
@@ -331,7 +295,7 @@ final class NormalizeCommandTest extends Framework\TestCase
     /**
      * @dataProvider \Ergebnis\Composer\Normalize\Test\DataProvider\Command\NormalizeCommandProvider::commandInvocation()
      */
-    public function testSucceedsWhenComposerJsonIsPresentAndValidAccordingToLaxValidationAndComposerLockIsNotPresentAndComposerJsonIsNotYetNormalized(CommandInvocation $commandInvocation): void
+    public function testSucceedsWhenComposerJsonIsPresentAndValidAccordingToLaxValidationAndComposerLockIsNotPresentAndComposerJsonIsNotYetNormalized(Test\Util\CommandInvocation $commandInvocation): void
     {
         $scenario = self::createScenario(
             $commandInvocation,
@@ -372,7 +336,7 @@ final class NormalizeCommandTest extends Framework\TestCase
     /**
      * @dataProvider \Ergebnis\Composer\Normalize\Test\DataProvider\Command\NormalizeCommandProvider::commandInvocation()
      */
-    public function testSucceedsWhenComposerJsonIsPresentAndValidAccordingToLaxValidationAndComposerLockIsNotPresentAndComposerJsonIsNotYetNormalizedAndDiffOptionIsUsed(CommandInvocation $commandInvocation): void
+    public function testSucceedsWhenComposerJsonIsPresentAndValidAccordingToLaxValidationAndComposerLockIsNotPresentAndComposerJsonIsNotYetNormalizedAndDiffOptionIsUsed(Test\Util\CommandInvocation $commandInvocation): void
     {
         $scenario = self::createScenario(
             $commandInvocation,
@@ -421,7 +385,7 @@ final class NormalizeCommandTest extends Framework\TestCase
     /**
      * @dataProvider \Ergebnis\Composer\Normalize\Test\DataProvider\Command\NormalizeCommandProvider::commandInvocation()
      */
-    public function testFailsWhenComposerJsonIsPresentAndValidAccordingToLaxValidationAndComposerLockIsNotPresentAndComposerJsonIsNotYetNormalizedAndDryRunOptionIsUsed(CommandInvocation $commandInvocation): void
+    public function testFailsWhenComposerJsonIsPresentAndValidAccordingToLaxValidationAndComposerLockIsNotPresentAndComposerJsonIsNotYetNormalizedAndDryRunOptionIsUsed(Test\Util\CommandInvocation $commandInvocation): void
     {
         $scenario = self::createScenario(
             $commandInvocation,
@@ -467,7 +431,7 @@ final class NormalizeCommandTest extends Framework\TestCase
      * @dataProvider \Ergebnis\Composer\Normalize\Test\DataProvider\Command\NormalizeCommandProvider::commandInvocationIndentSizeAndIndentStyle
      */
     public function testSucceedsWhenComposerJsonIsPresentAndValidAccordingToLaxValidationAndComposerLockIsNotPresentAndComposerJsonIsNotYetNormalizedAndIndentSizeAndIndentStyleOptionsAreUsed(
-        CommandInvocation $commandInvocation,
+        Test\Util\CommandInvocation $commandInvocation,
         int $indentSize,
         string $indentStyle
     ): void {
@@ -513,7 +477,7 @@ final class NormalizeCommandTest extends Framework\TestCase
     /**
      * @dataProvider \Ergebnis\Composer\Normalize\Test\DataProvider\Command\NormalizeCommandProvider::commandInvocation()
      */
-    public function testSucceedsWhenComposerJsonIsPresentAndValidAccordingToLaxValidationAndComposerLockIsNotPresentAndComposerJsonIsNotYetNormalizedAndNoUpdateLockOptionIsUsed(CommandInvocation $commandInvocation): void
+    public function testSucceedsWhenComposerJsonIsPresentAndValidAccordingToLaxValidationAndComposerLockIsNotPresentAndComposerJsonIsNotYetNormalizedAndNoUpdateLockOptionIsUsed(Test\Util\CommandInvocation $commandInvocation): void
     {
         $scenario = self::createScenario(
             $commandInvocation,
@@ -556,7 +520,7 @@ final class NormalizeCommandTest extends Framework\TestCase
     /**
      * @dataProvider \Ergebnis\Composer\Normalize\Test\DataProvider\Command\NormalizeCommandProvider::commandInvocation()
      */
-    public function testFailsWhenComposerJsonIsPresentAndValidAccordingToLaxValidationAndComposerLockIsPresentButNotFreshBefore(CommandInvocation $commandInvocation): void
+    public function testFailsWhenComposerJsonIsPresentAndValidAccordingToLaxValidationAndComposerLockIsPresentButNotFreshBefore(Test\Util\CommandInvocation $commandInvocation): void
     {
         $scenario = self::createScenario(
             $commandInvocation,
@@ -588,7 +552,7 @@ final class NormalizeCommandTest extends Framework\TestCase
     /**
      * @dataProvider \Ergebnis\Composer\Normalize\Test\DataProvider\Command\NormalizeCommandProvider::commandInvocation()
      */
-    public function testSucceedsWhenComposerJsonIsPresentAndValidAccordingToLaxValidationAndComposerLockIsPresentButNotFreshBeforeNoCheckLockOptionIsUsedAndComposerJsonIsAlreadyNormalized(CommandInvocation $commandInvocation): void
+    public function testSucceedsWhenComposerJsonIsPresentAndValidAccordingToLaxValidationAndComposerLockIsPresentButNotFreshBeforeNoCheckLockOptionIsUsedAndComposerJsonIsAlreadyNormalized(Test\Util\CommandInvocation $commandInvocation): void
     {
         $scenario = self::createScenario(
             $commandInvocation,
@@ -628,7 +592,7 @@ final class NormalizeCommandTest extends Framework\TestCase
     /**
      * @dataProvider \Ergebnis\Composer\Normalize\Test\DataProvider\Command\NormalizeCommandProvider::commandInvocation()
      */
-    public function testSucceedsWhenComposerJsonIsPresentAndValidAccordingToLaxValidationAndComposerLockIsPresentButNotFreshBeforeNoCheckLockOptionIsUsedAndComposerJsonIsNotYetNormalized(CommandInvocation $commandInvocation): void
+    public function testSucceedsWhenComposerJsonIsPresentAndValidAccordingToLaxValidationAndComposerLockIsPresentButNotFreshBeforeNoCheckLockOptionIsUsedAndComposerJsonIsNotYetNormalized(Test\Util\CommandInvocation $commandInvocation): void
     {
         $scenario = self::createScenario(
             $commandInvocation,
@@ -673,7 +637,7 @@ final class NormalizeCommandTest extends Framework\TestCase
     /**
      * @dataProvider \Ergebnis\Composer\Normalize\Test\DataProvider\Command\NormalizeCommandProvider::commandInvocation()
      */
-    public function testSucceedsWhenComposerJsonIsPresentAndValidAccordingToLaxValidationAndComposerLockIsPresentAndFreshBeforeAndComposerJsonIsAlreadyNormalized(CommandInvocation $commandInvocation): void
+    public function testSucceedsWhenComposerJsonIsPresentAndValidAccordingToLaxValidationAndComposerLockIsPresentAndFreshBeforeAndComposerJsonIsAlreadyNormalized(Test\Util\CommandInvocation $commandInvocation): void
     {
         $scenario = self::createScenario(
             $commandInvocation,
@@ -711,7 +675,7 @@ final class NormalizeCommandTest extends Framework\TestCase
     /**
      * @dataProvider \Ergebnis\Composer\Normalize\Test\DataProvider\Command\NormalizeCommandProvider::commandInvocation()
      */
-    public function testSucceedsWhenComposerJsonIsPresentAndValidAccordingToLaxValidationAndComposerLockIsPresentAndFreshBeforeAndComposerJsonIsNotYetNormalizedAndComposerLockIsFreshAfter(CommandInvocation $commandInvocation): void
+    public function testSucceedsWhenComposerJsonIsPresentAndValidAccordingToLaxValidationAndComposerLockIsPresentAndFreshBeforeAndComposerJsonIsNotYetNormalizedAndComposerLockIsFreshAfter(Test\Util\CommandInvocation $commandInvocation): void
     {
         $scenario = self::createScenario(
             $commandInvocation,
@@ -753,7 +717,7 @@ final class NormalizeCommandTest extends Framework\TestCase
     /**
      * @dataProvider \Ergebnis\Composer\Normalize\Test\DataProvider\Command\NormalizeCommandProvider::commandInvocation()
      */
-    public function testSucceedsWhenComposerJsonIsPresentAndValidAccordingToLaxValidationAndComposerLockIsPresentAndFreshBeforeAndComposerJsonIsNotYetNormalizedAndComposerLockIsNotFreshAfter(CommandInvocation $commandInvocation): void
+    public function testSucceedsWhenComposerJsonIsPresentAndValidAccordingToLaxValidationAndComposerLockIsPresentAndFreshBeforeAndComposerJsonIsNotYetNormalizedAndComposerLockIsNotFreshAfter(Test\Util\CommandInvocation $commandInvocation): void
     {
         $scenario = self::createScenario(
             $commandInvocation,
@@ -800,7 +764,7 @@ final class NormalizeCommandTest extends Framework\TestCase
     /**
      * @dataProvider \Ergebnis\Composer\Normalize\Test\DataProvider\Command\NormalizeCommandProvider::commandInvocation()
      */
-    public function testFailsWhenComposerJsonIsPresentAndValidAccordingToLaxValidationAndComposerLockIsPresentAndFreshBeforeAndComposerJsonIsNotYetNormalizedAndDryRunOptionIsUsed(CommandInvocation $commandInvocation): void
+    public function testFailsWhenComposerJsonIsPresentAndValidAccordingToLaxValidationAndComposerLockIsPresentAndFreshBeforeAndComposerJsonIsNotYetNormalizedAndDryRunOptionIsUsed(Test\Util\CommandInvocation $commandInvocation): void
     {
         $scenario = self::createScenario(
             $commandInvocation,
@@ -843,7 +807,7 @@ final class NormalizeCommandTest extends Framework\TestCase
     /**
      * @dataProvider \Ergebnis\Composer\Normalize\Test\DataProvider\Command\NormalizeCommandProvider::commandInvocation()
      */
-    public function testSucceedsWhenComposerJsonIsPresentAndValidAccordingToLaxValidationAndComposerLockIsPresentAndFreshBeforeAndComposerJsonIsNotYetNormalizedAndNoUpdateLockOptionIsUsed(CommandInvocation $commandInvocation): void
+    public function testSucceedsWhenComposerJsonIsPresentAndValidAccordingToLaxValidationAndComposerLockIsPresentAndFreshBeforeAndComposerJsonIsNotYetNormalizedAndNoUpdateLockOptionIsUsed(Test\Util\CommandInvocation $commandInvocation): void
     {
         $scenario = self::createScenario(
             $commandInvocation,
@@ -883,234 +847,5 @@ final class NormalizeCommandTest extends Framework\TestCase
         self::assertComposerJsonFileModified($initialState, $currentState);
         self::assertComposerLockFileNotModified($initialState, $currentState);
         self::assertComposerLockFileNotFresh($currentState);
-    }
-
-    private static function createScenario(CommandInvocation $commandInvocation, string $fixtureDirectory): Scenario
-    {
-        if (!\is_dir($fixtureDirectory)) {
-            throw new \InvalidArgumentException(\sprintf(
-                'Fixture directory "%s" does not exist',
-                $fixtureDirectory
-            ));
-        }
-
-        self::clearTemporaryDirectory();
-
-        /** @var string $fixtureDirectory */
-        $fixtureDirectory = \realpath($fixtureDirectory);
-
-        $temporaryFixtureDirectory = \str_replace(
-            self::fixtureDirectory(),
-            self::temporaryDirectory(),
-            $fixtureDirectory
-        );
-
-        self::copyFiles(
-            $fixtureDirectory,
-            $temporaryFixtureDirectory
-        );
-
-        $scenario = Scenario::fromCommandInvocationAndInitialState(
-            $commandInvocation,
-            State::fromDirectory(Directory::fromPath($temporaryFixtureDirectory))
-        );
-
-        if ($commandInvocation->is(CommandInvocation::inCurrentWorkingDirectory())) {
-            \chdir($scenario->directory()->path());
-        }
-
-        return $scenario;
-    }
-
-    private static function createApplication(NormalizeCommand $command): Application
-    {
-        $application = new Application();
-
-        $application->add($command);
-        $application->setAutoExit(false);
-
-        return $application;
-    }
-
-    private static function createApplicationWithNormalizeCommandAsProvidedByNormalizePlugin(): Application
-    {
-        $plugin = new NormalizePlugin();
-
-        $commands = \array_filter($plugin->getCommands(), static function ($command): bool {
-            return $command instanceof NormalizeCommand;
-        });
-
-        if (0 === \count($commands)) {
-            throw new \RuntimeException(\sprintf(
-                'Expected "%s" to provide an instance of "%s" as command.',
-                NormalizePlugin::class,
-                NormalizeCommand::class
-            ));
-        }
-
-        /** @var NormalizeCommand $normalizeCommand */
-        $normalizeCommand = \array_shift($commands);
-
-        return self::createApplication($normalizeCommand);
-    }
-
-    private static function assertComposerJsonFileExists(State $state): void
-    {
-        self::assertFileExists($state->composerJsonFile()->path());
-    }
-
-    private static function assertComposerJsonFileModified(State $expected, State $actual): void
-    {
-        self::assertComposerJsonFileExists($actual);
-
-        self::assertNotEquals(
-            $expected->composerJsonFile()->contents(),
-            $actual->composerJsonFile()->contents(),
-            'Failed asserting that initial composer.json has been modified.'
-        );
-    }
-
-    private static function assertComposerLockFileExists(State $state): void
-    {
-        self::assertFileExists($state->composerLockFile()->path());
-    }
-
-    private static function assertComposerLockFileNotExists(State $state): void
-    {
-        self::assertFileNotExists($state->composerLockFile()->path());
-    }
-
-    private static function assertComposerLockFileFresh(State $state): void
-    {
-        self::assertComposerJsonFileExists($state);
-        self::assertComposerLockFileExists($state);
-
-        $exitCode = self::validateComposer($state);
-
-        self::assertSame(0, $exitCode, \sprintf(
-            'Failed asserting that composer.lock is fresh in %s.',
-            $state->directory()->path()
-        ));
-    }
-
-    private static function assertComposerLockFileNotFresh(State $state): void
-    {
-        self::assertComposerJsonFileExists($state);
-        self::assertComposerLockFileExists($state);
-
-        $exitCode = self::validateComposer($state);
-
-        self::assertNotSame(0, $exitCode, \sprintf(
-            'Failed asserting that composer.lock is not fresh in %s.',
-            $state->directory()->path()
-        ));
-    }
-
-    private static function assertComposerLockFileModified(State $expected, State $actual): void
-    {
-        self::assertComposerLockFileExists($actual);
-
-        self::assertJsonStringNotEqualsJsonString(
-            self::normalizeLockFileContents($expected->composerLockFile()->contents()),
-            self::normalizeLockFileContents($actual->composerLockFile()->contents()),
-            'Failed asserting that initial composer.lock has been modified.'
-        );
-    }
-
-    private static function assertComposerLockFileNotModified(State $expected, State $actual): void
-    {
-        self::assertComposerLockFileExists($actual);
-
-        self::assertJsonStringEqualsJsonString(
-            self::normalizeLockFileContents($expected->composerLockFile()->contents()),
-            self::normalizeLockFileContents($actual->composerLockFile()->contents()),
-            'Failed asserting that initial composer.lock has not been modified.'
-        );
-    }
-
-    private static function normalizeLockFileContents(string $contents): string
-    {
-        $decoded = \json_decode(
-            $contents,
-            true
-        );
-
-        unset($decoded['plugin-api-version']);
-
-        $normalized = \json_encode(
-            $decoded,
-            \JSON_PRETTY_PRINT | \JSON_UNESCAPED_SLASHES | \JSON_PRESERVE_ZERO_FRACTION
-        );
-
-        if (!\is_string($normalized)) {
-            throw new \RuntimeException('Failed normalizing contents of lock file.');
-        }
-
-        return $normalized;
-    }
-
-    private static function clearTemporaryDirectory(): void
-    {
-        $fileSystem = new Filesystem\Filesystem();
-
-        $fileSystem->remove(self::temporaryDirectory());
-    }
-
-    private static function copyFiles(string $sourceDirectory, string $targetDirectory): void
-    {
-        $fileSystem = new Filesystem\Filesystem();
-
-        $fileSystem->mkdir($targetDirectory);
-        $fileSystem->mirror(
-            $sourceDirectory,
-            $targetDirectory
-        );
-    }
-
-    private static function fixtureDirectory(): string
-    {
-        /** @var string $projectDirectory */
-        $projectDirectory = \realpath(__DIR__ . '/../../..');
-
-        return \sprintf(
-            '%s/test/Fixture',
-            $projectDirectory
-        );
-    }
-
-    private static function temporaryDirectory(): string
-    {
-        /** @var string $projectDirectory */
-        $projectDirectory = \realpath(__DIR__ . '/../../..');
-
-        return \sprintf(
-            '%s/.build/fixture',
-            $projectDirectory
-        );
-    }
-
-    private static function assertExitCodeSame(int $expected, int $actual): void
-    {
-        self::assertSame($expected, $actual, \sprintf(
-            'Failed asserting that exit code %d is identical to %d.',
-            $actual,
-            $expected
-        ));
-    }
-
-    private static function validateComposer(State $state): int
-    {
-        $application = new Application();
-
-        $application->setAutoExit(false);
-
-        return $application->run(
-            new Console\Input\ArrayInput([
-                'command' => 'validate',
-                '--no-check-publish' => true,
-                '--working-dir' => $state->directory()->path(),
-            ]),
-            new Console\Output\BufferedOutput()
-        );
     }
 }
