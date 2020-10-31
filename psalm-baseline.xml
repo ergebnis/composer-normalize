@@ -12,7 +12,8 @@
       <code>$formatter</code>
       <code>$normalizer</code>
     </MissingPropertyType>
-    <MixedArgument occurrences="9">
+    <MixedArgument occurrences="10">
+      <code>$composer-&gt;getPackage()-&gt;getExtra()</code>
       <code>$composerFile</code>
       <code>$composerFile</code>
       <code>$composerFile</code>
@@ -31,13 +32,15 @@
       <code>$locker</code>
       <code>$normalized</code>
     </MixedAssignment>
-    <MixedMethodCall occurrences="10">
+    <MixedMethodCall occurrences="12">
       <code>createComposer</code>
       <code>diff</code>
       <code>encoded</code>
       <code>encoded</code>
       <code>format</code>
+      <code>getExtra</code>
       <code>getLocker</code>
+      <code>getPackage</code>
       <code>isFresh</code>
       <code>isLocked</code>
       <code>isLocked</code>

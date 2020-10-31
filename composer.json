@@ -50,7 +50,11 @@
     "sort-packages": true
   },
   "extra": {
-    "class": "Ergebnis\\Composer\\Normalize\\NormalizePlugin"
+    "class": "Ergebnis\\Composer\\Normalize\\NormalizePlugin",
+    "composer-normalize": {
+      "indent-size": 2,
+      "indent-style": "space"
+    }
   },
   "autoload": {
     "psr-4": {

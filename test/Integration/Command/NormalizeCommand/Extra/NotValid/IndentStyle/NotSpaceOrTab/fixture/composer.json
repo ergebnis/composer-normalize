@@ -1,0 +1,19 @@
+{
+  "type": "library",
+  "_comment": "This composer.json is valid according to a lax validation, , a composer.lock is not present, and composer.json is not yet normalized.",
+  "keywords": ["foo", "bar"],
+  "license": "MIT",
+  "authors": [
+    {"name": "Andreas Möller", "email": "am@localheinz.com"}
+  ],
+  "extra": {
+    "composer-normalize": {
+      "indent-size": 4,
+      "indent-style": "foo"
+    }
+  },
+  "require": {
+    "ext-json": "*",
+    "php": "^5.6"
+  }
+}
