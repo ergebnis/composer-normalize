@@ -9,7 +9,7 @@ on: # yamllint disable-line rule:truthy
       - "main"
 
 env:
-  COMPOSER_VERSION: "1.10.17"
+  COMPOSER_VERSION: "2.0.4"
   ERGEBNIS_BOT_NAME: "ergebnis-bot"
   PHP_EXTENSIONS: "mbstring"
   PHP_INI_VALUES: "memory_limit=-1, phar.readonly=0"
@@ -201,28 +201,12 @@ jobs:
           - "7.2"
           - "7.3"
           - "7.4"
-
-        composer-version:
-          - "1"
-          - "2"
+          - "8.0"
 
         dependencies:
           - "lowest"
           - "locked"
           - "highest"
-
-        include:
-          - php-version: "8.0"
-            composer-version: "2"
-            dependencies: "lowest"
-
-          - php-version: "8.0"
-            composer-version: "2"
-            dependencies: "locked"
-
-          - php-version: "8.0"
-            composer-version: "2"
-            dependencies: "highest"
 
     steps:
       - name: "Checkout"
@@ -238,17 +222,6 @@ jobs:
 
       - name: "Set up problem matchers for phpunit/phpunit"
         run: "echo \"::add-matcher::${{ runner.tool_cache }}/phpunit.json\""
-
-      - name: "Install composer:^1"
-        if: "matrix.composer-version == '1'"
-        run: "composer self-update ${{ env.COMPOSER_VERSION }}"
-
-      - name: "Install composer:^2"
-        if: "matrix.composer-version == '2'"
-        run: "composer self-update --snapshot"
-
-      - name: "Show composer version"
-        run: "composer --version"
 
       - name: "Determine composer cache directory"
         uses: "./.github/actions/composer/composer/determine-cache-directory"
@@ -367,9 +340,6 @@ jobs:
         uses: "./.github/actions/composer/composer/install"
         with:
           dependencies: "${{ matrix.dependencies }}"
-
-      - name: "Remove composer/composer"
-        run: "composer remove composer/composer --no-interaction --no-progress"
 
       - name: "Require composer/composer"
         run: "composer require composer/composer:${{ env.COMPOSER_VERSION }} --no-interaction --no-progress"

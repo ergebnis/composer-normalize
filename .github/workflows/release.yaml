@@ -8,7 +8,7 @@ on: # yamllint disable-line rule:truthy
       - "**"
 
 env:
-  COMPOSER_VERSION: "1.10.17"
+  COMPOSER_VERSION: "2.0.4"
   PHP_EXTENSIONS: "mbstring"
   PHP_INI_VALUES: "memory_limit=-1, phar.readonly=0"
 
@@ -58,9 +58,6 @@ jobs:
         uses: "./.github/actions/composer/composer/install"
         with:
           dependencies: "${{ matrix.dependencies }}"
-
-      - name: "Remove composer/composer"
-        run: "composer remove composer/composer --no-interaction --no-progress"
 
       - name: "Require composer/composer"
         run: "composer require composer/composer:${{ env.COMPOSER_VERSION }} --no-interaction --no-progress"
