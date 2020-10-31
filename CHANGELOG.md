@@ -6,11 +6,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`2.9.0...main`][2.9.0...main].
+For a full diff see [`2.9.1...main`][2.9.1...main].
+
+## [`2.9.1`][2.9.1]
+
+For a full diff see [`2.9.0...2.9.1`][2.9.0...2.9.1].
 
 ### Fixed
 
 * Required at least `composer/composer:^1.10.17` and used `composer/composer:1.10.17` for `composer-normalize.phar` ([#596]), by [@localheinz]
+* Dropped support for `composer/composer:^1.0.0` ([#597]), by [@localheinz]
 
 ## [`2.9.0`][2.9.0]
 
@@ -469,6 +474,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [2.8.1]: https://github.com/ergebnis/composer-normalize/releases/tag/2.8.1
 [2.8.2]: https://github.com/ergebnis/composer-normalize/releases/tag/2.8.2
 [2.9.0]: https://github.com/ergebnis/composer-normalize/releases/tag/2.9.0
+[2.9.1]: https://github.com/ergebnis/composer-normalize/releases/tag/2.9.1
 
 [81bc3a8...0.1.0]: https://github.com/ergebnis/composer-normalize/compare/81bc3a8...0.1.0
 [0.1.0...0.2.0]: https://github.com/ergebnis/composer-normalize/compare/0.1.0...0.2.0
@@ -513,7 +519,8 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [2.8.0...2.8.1]: https://github.com/ergebnis/composer-normalize/compare/2.8.0...2.8.1
 [2.8.1...2.8.2]: https://github.com/ergebnis/composer-normalize/compare/2.8.1...2.8.2
 [2.8.2...2.9.0]: https://github.com/ergebnis/composer-normalize/compare/2.8.2...2.9.0
-[2.9.0...main]: https://github.com/ergebnis/composer-normalize/compare/2.9.0...main
+[2.9.0...2.9.1]: https://github.com/ergebnis/composer-normalize/compare/2.9.0...2.9.1
+[2.9.1...main]: https://github.com/ergebnis/composer-normalize/compare/2.9.1...main
 
 [#1]: https://github.com/ergebnis/composer-normalize/pull/1
 [#2]: https://github.com/ergebnis/composer-normalize/pull/2
@@ -580,6 +587,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [#572]: https://github.com/ergebnis/composer-normalize/pull/572
 [#582]: https://github.com/ergebnis/composer-normalize/pull/582
 [#596]: https://github.com/ergebnis/composer-normalize/pull/596
+[#597]: https://github.com/ergebnis/composer-normalize/pull/597
 
 [@core23]: https://github.com/core23
 [@dependabot]: https://github.com/dependabot
