@@ -368,10 +368,6 @@ jobs:
         with:
           dependencies: "${{ matrix.dependencies }}"
 
-      - name: "Install highest dependencies from composer.json"
-        if: "matrix.dependencies == 'highest'"
-        run: "composer update --no-interaction --no-progress --no-suggest"
-
       - name: "Remove composer/composer"
         run: "composer remove composer/composer --no-interaction --no-progress"
 
