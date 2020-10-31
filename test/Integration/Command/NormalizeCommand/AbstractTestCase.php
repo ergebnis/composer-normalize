@@ -11,7 +11,7 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/composer-normalize
  */
 
-namespace Ergebnis\Composer\Normalize\Test\Integration\Command;
+namespace Ergebnis\Composer\Normalize\Test\Integration\Command\NormalizeCommand;
 
 use Composer\Console\Application;
 use Ergebnis\Composer\Normalize\Command\NormalizeCommand;
@@ -212,7 +212,7 @@ abstract class AbstractTestCase extends Framework\TestCase
 
     private static function temporaryDirectory(): string
     {
-        return __DIR__ . '/../../../.build/test';
+        return __DIR__ . '/../../../../.build/test';
     }
 
     private static function normalizeLockFileContents(string $contents): string
