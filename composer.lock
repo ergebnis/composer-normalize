@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9fb39248a3b37ee913be0b6eda651d2e",
+    "content-hash": "dd7971bb2eeff5057f936734f64fc9ed",
     "packages": [
         {
             "name": "ergebnis/json-normalizer",
@@ -480,16 +480,16 @@
         },
         {
             "name": "composer/composer",
-            "version": "1.10.15",
+            "version": "1.10.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "547c9ee73fe26c77af09a0ea16419176b1cdbd12"
+                "reference": "09d42e18394d8594be24e37923031c4b7442a1cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/547c9ee73fe26c77af09a0ea16419176b1cdbd12",
-                "reference": "547c9ee73fe26c77af09a0ea16419176b1cdbd12",
+                "url": "https://api.github.com/repos/composer/composer/zipball/09d42e18394d8594be24e37923031c4b7442a1cb",
+                "reference": "09d42e18394d8594be24e37923031c4b7442a1cb",
                 "shasum": ""
             },
             "require": {
@@ -556,6 +556,11 @@
                 "dependency",
                 "package"
             ],
+            "support": {
+                "irc": "irc://irc.freenode.org/composer",
+                "issues": "https://github.com/composer/composer/issues",
+                "source": "https://github.com/composer/composer/tree/1.10.17"
+            },
             "funding": [
                 {
                     "url": "https://packagist.com",
@@ -570,7 +575,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-10-13T13:59:09+00:00"
+            "time": "2020-10-30T21:31:58+00:00"
         },
         {
             "name": "composer/package-versions-deprecated",
@@ -5476,5 +5481,5 @@
     "platform-overrides": {
         "php": "7.2.33"
     },
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.0.0"
 }
