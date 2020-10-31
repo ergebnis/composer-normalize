@@ -59,6 +59,9 @@ jobs:
         with:
           dependencies: "${{ matrix.dependencies }}"
 
+      - name: "Remove ergebnis/php-cs-fixer-config to avoid dependency conflicts"
+        run: "composer remove ergebnis/php-cs-fixer-config --dev --no-interaction --no-progress"
+
       - name: "Remove composer/composer"
         run: "composer remove composer/composer --no-interaction --no-progress"
 
