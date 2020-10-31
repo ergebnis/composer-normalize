@@ -28,7 +28,7 @@
     "composer/composer": "^1.10.15 || ^2.0.0",
     "composer/package-versions-deprecated": "^1.11.99",
     "ergebnis/license": "^1.1.0",
-    "ergebnis/php-cs-fixer-config": "^2.4.0",
+    "ergebnis/php-cs-fixer-config": "^2.5.1",
     "ergebnis/phpstan-rules": "~0.15.2",
     "ergebnis/test-util": "^1.3.0",
     "jangregor/phpstan-prophecy": "~0.8.1",
