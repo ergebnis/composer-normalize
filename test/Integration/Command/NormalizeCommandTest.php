@@ -68,7 +68,7 @@ final class NormalizeCommandTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider providerCommandInvocation
+     * @dataProvider provideCommandInvocation
      */
     public function testFailsWhenIndentStyleIsUsedWithoutIndentSize(CommandInvocation $commandInvocation): void
     {
@@ -96,7 +96,7 @@ final class NormalizeCommandTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider providerCommandInvocation
+     * @dataProvider provideCommandInvocation
      */
     public function testFailsWhenIndentSizeIsUsedWithoutIndentStyle(CommandInvocation $commandInvocation): void
     {
@@ -124,7 +124,7 @@ final class NormalizeCommandTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider providerCommandInvocation
+     * @dataProvider provideCommandInvocation
      */
     public function testFailsWhenIndentStyleIsInvalid(CommandInvocation $commandInvocation): void
     {
@@ -164,7 +164,7 @@ final class NormalizeCommandTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider providerCommandInvocationAndInvalidIndentSize
+     * @dataProvider provideCommandInvocationAndInvalidIndentSize
      */
     public function testFailsWhenIndentSizeIsInvalid(CommandInvocation $commandInvocation, string $indentSize): void
     {
@@ -204,7 +204,7 @@ final class NormalizeCommandTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider providerCommandInvocation
+     * @dataProvider provideCommandInvocation
      */
     public function testFailsWhenComposerJsonIsPresentButNotValidAccordingToLaxValidation(CommandInvocation $commandInvocation): void
     {
@@ -235,7 +235,7 @@ final class NormalizeCommandTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider providerCommandInvocation
+     * @dataProvider provideCommandInvocation
      */
     public function testFailsWhenComposerJsonIsPresentAndValidAccordingToLaxValidationAndComposerLockIsNotPresentAndRuntimeExceptionIsThrownDuringNormalization(CommandInvocation $commandInvocation): void
     {
@@ -292,7 +292,7 @@ final class NormalizeCommandTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider providerCommandInvocation
+     * @dataProvider provideCommandInvocation
      */
     public function testSucceedsWhenComposerJsonIsPresentAndValidAccordingToLaxValidationAndComposerLockIsNotPresentAndComposerJsonIsAlreadyNormalized(CommandInvocation $commandInvocation): void
     {
@@ -329,7 +329,7 @@ final class NormalizeCommandTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider providerCommandInvocation
+     * @dataProvider provideCommandInvocation
      */
     public function testSucceedsWhenComposerJsonIsPresentAndValidAccordingToLaxValidationAndComposerLockIsNotPresentAndComposerJsonIsNotYetNormalized(CommandInvocation $commandInvocation): void
     {
@@ -370,7 +370,7 @@ final class NormalizeCommandTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider providerCommandInvocation
+     * @dataProvider provideCommandInvocation
      */
     public function testSucceedsWhenComposerJsonIsPresentAndValidAccordingToLaxValidationAndComposerLockIsNotPresentAndComposerJsonIsNotYetNormalizedAndDiffOptionIsUsed(CommandInvocation $commandInvocation): void
     {
@@ -419,7 +419,7 @@ final class NormalizeCommandTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider providerCommandInvocation
+     * @dataProvider provideCommandInvocation
      */
     public function testFailsWhenComposerJsonIsPresentAndValidAccordingToLaxValidationAndComposerLockIsNotPresentAndComposerJsonIsNotYetNormalizedAndDryRunOptionIsUsed(CommandInvocation $commandInvocation): void
     {
@@ -464,7 +464,7 @@ final class NormalizeCommandTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider providerCommandInvocationIndentSizeAndIndentStyle
+     * @dataProvider provideCommandInvocationIndentSizeAndIndentStyle
      */
     public function testSucceedsWhenComposerJsonIsPresentAndValidAccordingToLaxValidationAndComposerLockIsNotPresentAndComposerJsonIsNotYetNormalizedAndIndentSizeAndIndentStyleOptionsAreUsed(
         CommandInvocation $commandInvocation,
@@ -511,7 +511,7 @@ final class NormalizeCommandTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider providerCommandInvocation
+     * @dataProvider provideCommandInvocation
      */
     public function testSucceedsWhenComposerJsonIsPresentAndValidAccordingToLaxValidationAndComposerLockIsNotPresentAndComposerJsonIsNotYetNormalizedAndNoUpdateLockOptionIsUsed(CommandInvocation $commandInvocation): void
     {
@@ -554,7 +554,7 @@ final class NormalizeCommandTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider providerCommandInvocation
+     * @dataProvider provideCommandInvocation
      */
     public function testFailsWhenComposerJsonIsPresentAndValidAccordingToLaxValidationAndComposerLockIsPresentButNotFreshBefore(CommandInvocation $commandInvocation): void
     {
@@ -586,7 +586,7 @@ final class NormalizeCommandTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider providerCommandInvocation
+     * @dataProvider provideCommandInvocation
      */
     public function testSucceedsWhenComposerJsonIsPresentAndValidAccordingToLaxValidationAndComposerLockIsPresentButNotFreshBeforeNoCheckLockOptionIsUsedAndComposerJsonIsAlreadyNormalized(CommandInvocation $commandInvocation): void
     {
@@ -626,7 +626,7 @@ final class NormalizeCommandTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider providerCommandInvocation
+     * @dataProvider provideCommandInvocation
      */
     public function testSucceedsWhenComposerJsonIsPresentAndValidAccordingToLaxValidationAndComposerLockIsPresentButNotFreshBeforeNoCheckLockOptionIsUsedAndComposerJsonIsNotYetNormalized(CommandInvocation $commandInvocation): void
     {
@@ -671,7 +671,7 @@ final class NormalizeCommandTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider providerCommandInvocation
+     * @dataProvider provideCommandInvocation
      */
     public function testSucceedsWhenComposerJsonIsPresentAndValidAccordingToLaxValidationAndComposerLockIsPresentAndFreshBeforeAndComposerJsonIsAlreadyNormalized(CommandInvocation $commandInvocation): void
     {
@@ -709,7 +709,7 @@ final class NormalizeCommandTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider providerCommandInvocation
+     * @dataProvider provideCommandInvocation
      */
     public function testSucceedsWhenComposerJsonIsPresentAndValidAccordingToLaxValidationAndComposerLockIsPresentAndFreshBeforeAndComposerJsonIsNotYetNormalizedAndComposerLockIsFreshAfter(CommandInvocation $commandInvocation): void
     {
@@ -751,7 +751,7 @@ final class NormalizeCommandTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider providerCommandInvocation
+     * @dataProvider provideCommandInvocation
      */
     public function testSucceedsWhenComposerJsonIsPresentAndValidAccordingToLaxValidationAndComposerLockIsPresentAndFreshBeforeAndComposerJsonIsNotYetNormalizedAndComposerLockIsNotFreshAfter(CommandInvocation $commandInvocation): void
     {
@@ -798,7 +798,7 @@ final class NormalizeCommandTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider providerCommandInvocation
+     * @dataProvider provideCommandInvocation
      */
     public function testFailsWhenComposerJsonIsPresentAndValidAccordingToLaxValidationAndComposerLockIsPresentAndFreshBeforeAndComposerJsonIsNotYetNormalizedAndDryRunOptionIsUsed(CommandInvocation $commandInvocation): void
     {
@@ -841,7 +841,7 @@ final class NormalizeCommandTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider providerCommandInvocation
+     * @dataProvider provideCommandInvocation
      */
     public function testSucceedsWhenComposerJsonIsPresentAndValidAccordingToLaxValidationAndComposerLockIsPresentAndFreshBeforeAndComposerJsonIsNotYetNormalizedAndNoUpdateLockOptionIsUsed(CommandInvocation $commandInvocation): void
     {
@@ -888,7 +888,7 @@ final class NormalizeCommandTest extends Framework\TestCase
     /**
      * @return \Generator<array<CommandInvocation>>
      */
-    public function providerCommandInvocation(): \Generator
+    public function provideCommandInvocation(): \Generator
     {
         foreach (self::commandInvocations() as $commandInvocation) {
             yield $commandInvocation->style() => [
@@ -900,7 +900,7 @@ final class NormalizeCommandTest extends Framework\TestCase
     /**
      * @return \Generator<array{0: CommandInvocation, 1: string}>
      */
-    public function providerCommandInvocationAndInvalidIndentSize(): \Generator
+    public function provideCommandInvocationAndInvalidIndentSize(): \Generator
     {
         $faker = self::faker();
 
@@ -933,7 +933,7 @@ final class NormalizeCommandTest extends Framework\TestCase
     /**
      * @return \Generator<array{0: CommandInvocation, 1: int, 2: string}>
      */
-    public function providerCommandInvocationIndentSizeAndIndentStyle(): \Generator
+    public function provideCommandInvocationIndentSizeAndIndentStyle(): \Generator
     {
         /** @var array<int> $indentSizes */
         $indentSizes = [
