@@ -71,25 +71,14 @@ abstract class AbstractTestCase extends Framework\TestCase
 
         $fileSystem->remove(self::temporaryDirectory());
 
-        /** @var string $fixtureDirectory */
-        $fixtureDirectory = \realpath($fixtureDirectory);
-
-        $temporaryFixtureDirectory = \str_replace(
-            self::fixtureDirectory(),
-            self::temporaryDirectory(),
-            $fixtureDirectory
-        );
-
-        $fileSystem->mkdir($fixtureDirectory);
-
         $fileSystem->mirror(
             $fixtureDirectory,
-            $temporaryFixtureDirectory
+            self::temporaryDirectory()
         );
 
         $scenario = Test\Util\Scenario::fromCommandInvocationAndInitialState(
             $commandInvocation,
-            Test\Util\State::fromDirectory(Test\Util\Directory::fromPath($temporaryFixtureDirectory))
+            Test\Util\State::fromDirectory(Test\Util\Directory::fromPath(self::temporaryDirectory()))
         );
 
         if ($commandInvocation->is(Test\Util\CommandInvocation::inCurrentWorkingDirectory())) {
@@ -221,34 +210,9 @@ abstract class AbstractTestCase extends Framework\TestCase
         return new Filesystem\Filesystem();
     }
 
-    /**
-     * @throws \RuntimeException
-     */
-    private static function projectDirectory(): string
-    {
-        $projectDirectory = \realpath(__DIR__ . '/../../..');
-
-        if (!\is_string($projectDirectory)) {
-            throw new \RuntimeException('Failed resolving project directory.');
-        }
-
-        return $projectDirectory;
-    }
-
-    private static function fixtureDirectory(): string
-    {
-        return \sprintf(
-            '%s/test/Fixture',
-            self::projectDirectory()
-        );
-    }
-
     private static function temporaryDirectory(): string
     {
-        return \sprintf(
-            '%s/.build/test',
-            self::projectDirectory()
-        );
+        return __DIR__ . '/../../../.build/test';
     }
 
     private static function normalizeLockFileContents(string $contents): string
