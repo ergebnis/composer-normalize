@@ -372,7 +372,7 @@ jobs:
         run: "composer remove composer/composer --no-interaction --no-progress"
 
       - name: "Require composer/composer"
-        run: "composer require composer/composer:${{ env.COMPOSER_VERSION }} --no-interaction --no-progress --no-suggest"
+        run: "composer require composer/composer:${{ env.COMPOSER_VERSION }} --no-interaction --no-progress"
 
       - name: "Remove git placeholder configuration with jq"
         run: "echo $(cat box.json | jq 'del(.git)') > box.json"
