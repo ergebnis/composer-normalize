@@ -954,18 +954,6 @@ final class NormalizeCommandTest extends Framework\TestCase
         return self::createApplication($normalizeCommand);
     }
 
-    /**
-     * @return CommandInvocation[]
-     */
-    private static function commandInvocations(): array
-    {
-        return [
-            CommandInvocation::inCurrentWorkingDirectory(),
-            CommandInvocation::usingFileArgument(),
-            CommandInvocation::usingWorkingDirectoryOption(),
-        ];
-    }
-
     private static function assertComposerJsonFileExists(State $state): void
     {
         self::assertFileExists($state->composerJsonFile()->path());
