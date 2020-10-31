@@ -278,18 +278,7 @@ final class NormalizeCommand extends Command\BaseCommand
             ));
         }
 
-        try {
-            $indent = Normalizer\Format\Indent::fromSizeAndStyle(
-                (int) $indentSize,
-                $indentStyle
-            );
-        } catch (Normalizer\Exception\InvalidIndentSizeException $exception) {
-            throw new \RuntimeException(\sprintf(
-                'Indent size needs to be an integer greater than %d, but "%s" is not.',
-                $exception->minimumSize(),
-                $exception->size()
-            ));
-        } catch (Normalizer\Exception\InvalidIndentStyleException $exception) {
+        if (!\array_key_exists($indentStyle, Normalizer\Format\Indent::CHARACTERS)) {
             throw new \RuntimeException(\sprintf(
                 'Indent style needs to be one of "%s", but "%s" is not.',
                 \implode('", "', \array_keys(Normalizer\Format\Indent::CHARACTERS)),
@@ -297,7 +286,10 @@ final class NormalizeCommand extends Command\BaseCommand
             ));
         }
 
-        return $indent;
+        return Normalizer\Format\Indent::fromSizeAndStyle(
+            (int) $indentSize,
+            $indentStyle
+        );
     }
 
     private static function showValidationErrors(IO\IOInterface $io, string ...$errors): void
