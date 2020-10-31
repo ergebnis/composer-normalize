@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5c9d637cbbfa6e88bd4f0c667f935223",
+    "content-hash": "9fb39248a3b37ee913be0b6eda651d2e",
     "packages": [
         {
             "name": "ergebnis/json-normalizer",
@@ -2332,16 +2332,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "0.12.50",
+            "version": "0.12.52",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "b8248f9c81265af75d6d969ca3252aaf3e998f3a"
+                "reference": "e96dd5e7ae9aefed663bc7e285ad96792b67eadc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/b8248f9c81265af75d6d969ca3252aaf3e998f3a",
-                "reference": "b8248f9c81265af75d6d969ca3252aaf3e998f3a",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/e96dd5e7ae9aefed663bc7e285ad96792b67eadc",
+                "reference": "e96dd5e7ae9aefed663bc7e285ad96792b67eadc",
                 "shasum": ""
             },
             "require": {
@@ -2384,7 +2384,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-10-16T12:22:23+00:00"
+            "time": "2020-10-25T07:23:44+00:00"
         },
         {
             "name": "phpstan/phpstan-deprecation-rules",
