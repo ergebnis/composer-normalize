@@ -131,6 +131,21 @@ The `NormalizeCommand` provided by the `NormalizePlugin` within this package wil
 * `--no-check-lock`: Do not check if lock file is up to date
 * `--no-update-lock`: Do not update lock file if it exists
 
+As an alternative to specifying the `--indent-size` and `--indent-style` options, you can also use composer [extra](https://getcomposer.org/doc/04-schema.md#extra) to configure these options in `composer.json`:
+
+```json
+{
+  "extra": {
+    "composer-normalize": {
+      "indent-size": 2,
+      "indent-style": "space",
+    }
+  }
+}
+```
+
+:bulb: The configuration provided in composer extra always overrides the configuration provided via command line options.
+
 ### Continuous Integration
 
 If you want to run this in continuous integration services, use the `--dry-run` option.

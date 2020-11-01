@@ -104,8 +104,10 @@ final class NormalizeCommand extends Command\BaseCommand
     {
         $io = $this->getIO();
 
+        $indent = null;
+
         try {
-            $indent = self::indentFrom($input);
+            $indentFromInput = self::indentFromInput($input);
         } catch (\RuntimeException $exception) {
             $io->writeError(\sprintf(
                 '<error>%s</error>',
@@ -113,6 +115,10 @@ final class NormalizeCommand extends Command\BaseCommand
             ));
 
             return 1;
+        }
+
+        if (null !== $indentFromInput) {
+            $indent = $indentFromInput;
         }
 
         $composerFile = $input->getArgument('file');
@@ -125,6 +131,25 @@ final class NormalizeCommand extends Command\BaseCommand
             $io,
             $composerFile
         );
+
+        try {
+            $indentFromExtra = self::indentFromExtra($composer->getPackage()->getExtra());
+        } catch (\RuntimeException $exception) {
+            $io->writeError(\sprintf(
+                '<error>%s</error>',
+                $exception->getMessage()
+            ));
+
+            return 1;
+        }
+
+        if (null !== $indentFromExtra) {
+            $indent = $indentFromExtra;
+        }
+
+        if (null !== $indentFromInput && null !== $indentFromExtra) {
+            $io->write('<warning>Configuration provided via options and composer extra. Using configuration from composer extra.</warning>');
+        }
 
         if (false === $input->getOption('dry-run') && !\is_writable($composerFile)) {
             $io->writeError(\sprintf(
@@ -248,7 +273,7 @@ final class NormalizeCommand extends Command\BaseCommand
     /**
      * @throws \RuntimeException
      */
-    private static function indentFrom(Console\Input\InputInterface $input): ?Normalizer\Format\Indent
+    private static function indentFromInput(Console\Input\InputInterface $input): ?Normalizer\Format\Indent
     {
         /** @var null|string $indentSize */
         $indentSize = $input->getOption('indent-size');
@@ -288,6 +313,92 @@ final class NormalizeCommand extends Command\BaseCommand
 
         return Normalizer\Format\Indent::fromSizeAndStyle(
             (int) $indentSize,
+            $indentStyle
+        );
+    }
+
+    /**
+     * @throws \RuntimeException
+     */
+    private static function indentFromExtra(array $extra): ?Normalizer\Format\Indent
+    {
+        if (!\array_key_exists('composer-normalize', $extra)) {
+            return null;
+        }
+
+        $configuration = $extra['composer-normalize'];
+
+        $requiredKeys = [
+            'indent-size',
+            'indent-style',
+        ];
+
+        if (!\is_array($configuration)) {
+            throw new \RuntimeException(\sprintf(
+                'Configuration in composer extra requires keys "%s" with corresponding values."',
+                \implode('", "', $requiredKeys)
+            ));
+        }
+
+        $missingKeys = \array_diff(
+            $requiredKeys,
+            \array_keys($configuration)
+        );
+
+        if ([] !== $missingKeys) {
+            throw new \RuntimeException(\sprintf(
+                'Configuration in composer extra requires keys "%s" with corresponding values."',
+                \implode('", "', $requiredKeys)
+            ));
+        }
+
+        $extraKeys = \array_diff(
+            \array_keys($configuration),
+            $requiredKeys
+        );
+
+        if ([] !== $extraKeys) {
+            throw new \RuntimeException(\sprintf(
+                'Configuration in composer extra does not allow extra keys "%s"."',
+                \implode('", "', $extraKeys)
+            ));
+        }
+
+        $indentSize = $configuration['indent-size'];
+
+        if (!\is_int($indentSize)) {
+            throw new \RuntimeException(\sprintf(
+                'Indent size needs to be an integer, got %s instead.',
+                \gettype($indentSize)
+            ));
+        }
+
+        if (1 > $indentSize) {
+            throw new \RuntimeException(\sprintf(
+                'Indent size needs to be an integer greater than 0, but %d is not.',
+                $indentSize
+            ));
+        }
+
+        $indentStyle = $configuration['indent-style'];
+
+        if (!\is_string($indentStyle)) {
+            throw new \RuntimeException(\sprintf(
+                'Indent style needs to be a string, got %s instead.',
+                \gettype($indentStyle)
+            ));
+        }
+
+        if (!\array_key_exists($indentStyle, Normalizer\Format\Indent::CHARACTERS)) {
+            throw new \RuntimeException(\sprintf(
+                'Indent style needs to be one of "%s", but "%s" is not.',
+                \implode('", "', \array_keys(Normalizer\Format\Indent::CHARACTERS)),
+                $indentStyle
+            ));
+        }
+
+        return Normalizer\Format\Indent::fromSizeAndStyle(
+            $indentSize,
             $indentStyle
         );
     }
