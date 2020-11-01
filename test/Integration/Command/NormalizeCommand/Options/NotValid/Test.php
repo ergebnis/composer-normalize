@@ -29,7 +29,7 @@ final class Test extends Integration\Command\NormalizeCommand\AbstractTestCase
     /**
      * @dataProvider \Ergebnis\Composer\Normalize\Test\DataProvider\Command\NormalizeCommandProvider::commandInvocation()
      */
-    public function testFailsWhenIndentStyleOPtionIsUsedWithoutIndentSizeOption(Util\CommandInvocation $commandInvocation): void
+    public function testFailsWhenIndentStyleOptionIsUsedWithoutIndentSizeOption(Util\CommandInvocation $commandInvocation): void
     {
         /** @var string $indentStyle */
         $indentStyle = self::faker()->randomElement(\array_keys(Normalizer\Format\Indent::CHARACTERS));
