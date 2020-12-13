@@ -3,15 +3,20 @@ includes:
 
 parameters:
 	checkMissingIterableValueType: false
+
 	ergebnis:
 		classesAllowedToBeExtended:
 			- Composer\Command\BaseCommand
 			- Composer\Console\Application
 			- Ergebnis\Composer\Normalize\Test\Integration\Command\NormalizeCommand\AbstractTestCase
 			- LogicException
+
 	inferPrivatePropertyTypeFromConstructor: true
+
 	level: max
+
 	paths:
 		- src/
 		- test/
+
 	tmpDir: .build/phpstan/

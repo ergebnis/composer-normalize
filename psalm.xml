@@ -10,10 +10,6 @@
     resolveFromConfigFile="true"
     strictBinaryOperands="true"
 >
-    <issueHandlers>
-        <LessSpecificReturnType errorLevel="info" />
-    </issueHandlers>
-
     <plugins>
         <pluginClass class="Psalm\PhpUnitPlugin\Plugin" />
     </plugins>
