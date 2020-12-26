@@ -29,7 +29,7 @@
     "ergebnis/license": "^1.1.0",
     "ergebnis/php-cs-fixer-config": "^2.5.1",
     "ergebnis/phpstan-rules": "~0.15.2",
-    "ergebnis/test-util": "^1.3.0",
+    "ergebnis/test-util": "^1.4.0",
     "phpstan/extension-installer": "^1.0.5",
     "phpstan/phpstan": "~0.12.52",
     "phpstan/phpstan-deprecation-rules": "~0.12.6",
