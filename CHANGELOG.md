@@ -18,7 +18,7 @@ For a full diff see [`2.11.0...2.12.0`][2.11.0...2.12.0].
 
 ### Fixed
 
-* Required `composer/composer:2.0.8` for `composer-normalize.phar` ([#596]), by [@localheinz]
+* Required `composer/composer:2.0.8` for `composer-normalize.phar` ([#640]), by [@localheinz]
 
 ## [`2.11.0`][2.11.0]
 
@@ -624,6 +624,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [#597]: https://github.com/ergebnis/composer-normalize/pull/597
 [#608]: https://github.com/ergebnis/composer-normalize/pull/608
 [#615]: https://github.com/ergebnis/composer-normalize/pull/615
+[#640]: https://github.com/ergebnis/composer-normalize/pull/640
 [#641]: https://github.com/ergebnis/composer-normalize/pull/641
 
 [@core23]: https://github.com/core23
