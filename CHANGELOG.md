@@ -6,7 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`2.12.0...main`][2.12.0...main].
+For a full diff see [`2.12.1...main`][2.12.1...main].
+
+## [`2.12.1`][2.12.1]
+
+For a full diff see [`2.12.0...2.12.1`][2.12.0...2.12.1].
+
+### Fixed
+
+* Show version of plugin instead of version of `Composer\Console\Application` when running as development dependency ([#643]), by [@localheinz]
 
 ## [`2.12.0`][2.12.0]
 
@@ -510,6 +518,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [2.10.0]: https://github.com/ergebnis/composer-normalize/releases/tag/2.10.0
 [2.11.0]: https://github.com/ergebnis/composer-normalize/releases/tag/2.11.0
 [2.12.0]: https://github.com/ergebnis/composer-normalize/releases/tag/2.12.0
+[2.12.1]: https://github.com/ergebnis/composer-normalize/releases/tag/2.12.1
 
 [81bc3a8...0.1.0]: https://github.com/ergebnis/composer-normalize/compare/81bc3a8...0.1.0
 [0.1.0...0.2.0]: https://github.com/ergebnis/composer-normalize/compare/0.1.0...0.2.0
@@ -558,7 +567,8 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [2.9.1...2.10.0]: https://github.com/ergebnis/composer-normalize/compare/2.9.1...2.10.0
 [2.10.0...2.11.0]: https://github.com/ergebnis/composer-normalize/compare/2.10.0...2.11.0
 [2.11.0...2.12.0]: https://github.com/ergebnis/composer-normalize/compare/2.11.0...2.12.0
-[2.12.0...main]: https://github.com/ergebnis/composer-normalize/compare/2.12.0...main
+[2.12.0...2.12.1]: https://github.com/ergebnis/composer-normalize/compare/2.12.0...2.12.1
+[2.12.1...main]: https://github.com/ergebnis/composer-normalize/compare/2.12.1...main
 
 [#1]: https://github.com/ergebnis/composer-normalize/pull/1
 [#2]: https://github.com/ergebnis/composer-normalize/pull/2
@@ -631,6 +641,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [#634]: https://github.com/ergebnis/composer-normalize/pull/634
 [#640]: https://github.com/ergebnis/composer-normalize/pull/640
 [#641]: https://github.com/ergebnis/composer-normalize/pull/641
+[#643]: https://github.com/ergebnis/composer-normalize/pull/643
 
 [@core23]: https://github.com/core23
 [@dependabot]: https://github.com/dependabot

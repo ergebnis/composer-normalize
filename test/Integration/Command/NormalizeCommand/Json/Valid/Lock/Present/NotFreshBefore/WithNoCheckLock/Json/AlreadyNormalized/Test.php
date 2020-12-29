@@ -22,6 +22,8 @@ use Symfony\Component\Console;
  *
  * @covers \Ergebnis\Composer\Normalize\Command\NormalizeCommand
  * @covers \Ergebnis\Composer\Normalize\NormalizePlugin
+ *
+ * @uses \Ergebnis\Composer\Normalize\Version
  */
 final class Test extends Integration\Command\NormalizeCommand\AbstractTestCase
 {
