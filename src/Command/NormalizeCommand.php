@@ -18,6 +18,7 @@ use Composer\Console\Application;
 use Composer\Factory;
 use Composer\IO;
 use Ergebnis\Composer\Normalize\Exception;
+use Ergebnis\Composer\Normalize\Version;
 use Ergebnis\Json\Normalizer;
 use Localheinz\Diff;
 use Symfony\Component\Console;
@@ -107,7 +108,7 @@ final class NormalizeCommand extends Command\BaseCommand
         $io->write([
             \sprintf(
                 'Running %s.',
-                $this->getApplication()->getLongVersion()
+                Version::long()
             ),
             '',
         ]);

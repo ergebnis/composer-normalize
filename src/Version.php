@@ -13,53 +13,38 @@ declare(strict_types=1);
 
 namespace Ergebnis\Composer\Normalize;
 
-use Composer\Console;
-
 /**
  * @internal
  */
-final class Application extends Console\Application
+final class Version
 {
     /**
      * @see https://github.com/box-project/box/blob/master/doc/configuration.md#pretty-git-tag-placeholder-git
      *
      * @var string
      */
-    private $version = '@git@';
+    private static $version = '@git@';
 
-    public function getLongVersion(): string
+    public static function long(): string
     {
+        $name = 'ergebnis/composer-normalize';
         $attribution = 'by <info>Andreas Möller</info> and contributors';
 
-        $version = $this->getVersion();
+        $version = self::$version;
 
-        if ('' === $version) {
+        if ('@' . 'git@' === $version) {
             return \sprintf(
                 '<info>%s</info> %s',
-                $this->getName(),
+                $name,
                 $attribution
             );
         }
 
         return \sprintf(
             '<info>%s</info> %s %s',
-            $this->getName(),
+            $name,
             $version,
             $attribution
         );
-    }
-
-    public function getName(): string
-    {
-        return 'ergebnis/composer-normalize';
-    }
-
-    public function getVersion(): string
-    {
-        if ('@' . 'git@' === $this->version) {
-            return '';
-        }
-
-        return $this->version;
     }
 }

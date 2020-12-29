@@ -13,22 +13,20 @@ declare(strict_types=1);
 
 namespace Ergebnis\Composer\Normalize\Test\Unit;
 
-use Ergebnis\Composer\Normalize\Application;
+use Ergebnis\Composer\Normalize\Version;
 use PHPUnit\Framework;
 
 /**
  * @internal
  *
- * @covers \Ergebnis\Composer\Normalize\Application
+ * @covers \Ergebnis\Composer\Normalize\Version
  */
-final class ApplicationTest extends Framework\TestCase
+final class VersionTest extends Framework\TestCase
 {
-    public function testGetLongVersionReturnsVersion(): void
+    public function testLongReturnsVersion(): void
     {
-        $application = new Application();
-
         $expected = '<info>ergebnis/composer-normalize</info> by <info>Andreas Möller</info> and contributors';
 
-        self::assertSame($expected, $application->getLongVersion());
+        self::assertSame($expected, Version::long());
     }
 }

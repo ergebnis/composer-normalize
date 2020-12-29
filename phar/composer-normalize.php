@@ -11,6 +11,7 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/composer-normalize
  */
 
+use Composer\Console\Application;
 use Composer\Factory;
 use Ergebnis\Composer\Normalize;
 use Ergebnis\Json\Normalizer;
@@ -30,7 +31,7 @@ $command = new Normalize\Command\NormalizeCommand(
     ]))
 );
 
-$application = new Normalize\Application();
+$application = new Application();
 
 $application->add($command);
 
