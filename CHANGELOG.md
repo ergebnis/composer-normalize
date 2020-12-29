@@ -16,6 +16,10 @@ For a full diff see [`2.11.0...2.12.0`][2.11.0...2.12.0].
 
 * Started showing plugin and author name when running `composer normalize` ([#641]), by [@localheinz]
 
+### Changed
+
+* Required `ergebnis/json-normalizer:^1.0.0` which allows recursively sorting config hashes ([#634]), by [@dependabot]
+
 ### Fixed
 
 * Required `composer/composer:2.0.8` for `composer-normalize.phar` ([#640]), by [@localheinz]
@@ -624,6 +628,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [#597]: https://github.com/ergebnis/composer-normalize/pull/597
 [#608]: https://github.com/ergebnis/composer-normalize/pull/608
 [#615]: https://github.com/ergebnis/composer-normalize/pull/615
+[#634]: https://github.com/ergebnis/composer-normalize/pull/634
 [#640]: https://github.com/ergebnis/composer-normalize/pull/640
 [#641]: https://github.com/ergebnis/composer-normalize/pull/641
 
