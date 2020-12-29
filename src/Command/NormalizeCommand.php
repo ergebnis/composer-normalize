@@ -104,6 +104,14 @@ final class NormalizeCommand extends Command\BaseCommand
     {
         $io = $this->getIO();
 
+        $io->write([
+            \sprintf(
+                'Running %s.',
+                $this->getApplication()->getLongVersion()
+            ),
+            '',
+        ]);
+
         $indent = null;
 
         try {

@@ -12,6 +12,10 @@ For a full diff see [`2.12.0...main`][2.12.0...main].
 
 For a full diff see [`2.11.0...2.12.0`][2.11.0...2.12.0].
 
+### Added
+
+* Started showing plugin and author name when running `composer normalize` ([#641]), by [@localheinz]
+
 ### Fixed
 
 * Required `composer/composer:2.0.8` for `composer-normalize.phar` ([#596]), by [@localheinz]
@@ -620,6 +624,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [#597]: https://github.com/ergebnis/composer-normalize/pull/597
 [#608]: https://github.com/ergebnis/composer-normalize/pull/608
 [#615]: https://github.com/ergebnis/composer-normalize/pull/615
+[#641]: https://github.com/ergebnis/composer-normalize/pull/641
 
 [@core23]: https://github.com/core23
 [@dependabot]: https://github.com/dependabot
