@@ -20,12 +20,46 @@ use Composer\Console;
  */
 final class Application extends Console\Application
 {
+    /**
+     * @see https://github.com/box-project/box/blob/master/doc/configuration.md#pretty-git-tag-placeholder-git
+     *
+     * @var string
+     */
+    private $version = '@git@';
+
     public function getLongVersion(): string
     {
+        $attribution = 'by <info>Andreas Möller</info> and contributors';
+
+        $version = $this->getVersion();
+
+        if ('' === $version) {
+            return \sprintf(
+                '<info>%s</info> %s',
+                $this->getName(),
+                $attribution
+            );
+        }
+
         return \sprintf(
-            '%s <info>%s</info> with ergebnis/composer-normalize <info>@git@</info>',
+            '<info>%s</info> %s %s',
             $this->getName(),
-            $this->getVersion()
+            $version,
+            $attribution
         );
+    }
+
+    public function getName(): string
+    {
+        return 'ergebnis/composer-normalize';
+    }
+
+    public function getVersion(): string
+    {
+        if ('@' . 'git@' === $this->version) {
+            return '';
+        }
+
+        return $this->version;
     }
 }

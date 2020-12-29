@@ -25,14 +25,9 @@ final class ApplicationTest extends Framework\TestCase
 {
     public function testGetLongVersionReturnsVersion(): void
     {
-        $composerApplication = new \Composer\Console\Application();
         $application = new Application();
 
-        $expected = \sprintf(
-            '%s <info>%s</info> with ergebnis/composer-normalize <info>@git@</info>',
-            $composerApplication->getName(),
-            $composerApplication->getVersion()
-        );
+        $expected = '<info>ergebnis/composer-normalize</info> by <info>Andreas Möller</info> and contributors';
 
         self::assertSame($expected, $application->getLongVersion());
     }
