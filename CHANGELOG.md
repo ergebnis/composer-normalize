@@ -6,7 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`2.11.0...main`][2.11.0...main].
+For a full diff see [`2.12.0...main`][2.12.0...main].
+
+## [`2.12.0`][2.12.0]
+
+For a full diff see [`2.11.0...2.12.0`][2.11.0...2.12.0].
+
+### Fixed
+
+* Required `composer/composer:2.0.8` for `composer-normalize.phar` ([#596]), by [@localheinz]
 
 ## [`2.11.0`][2.11.0]
 
@@ -493,6 +501,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [2.9.1]: https://github.com/ergebnis/composer-normalize/releases/tag/2.9.1
 [2.10.0]: https://github.com/ergebnis/composer-normalize/releases/tag/2.10.0
 [2.11.0]: https://github.com/ergebnis/composer-normalize/releases/tag/2.11.0
+[2.12.0]: https://github.com/ergebnis/composer-normalize/releases/tag/2.12.0
 
 [81bc3a8...0.1.0]: https://github.com/ergebnis/composer-normalize/compare/81bc3a8...0.1.0
 [0.1.0...0.2.0]: https://github.com/ergebnis/composer-normalize/compare/0.1.0...0.2.0
@@ -540,7 +549,8 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [2.9.0...2.9.1]: https://github.com/ergebnis/composer-normalize/compare/2.9.0...2.9.1
 [2.9.1...2.10.0]: https://github.com/ergebnis/composer-normalize/compare/2.9.1...2.10.0
 [2.10.0...2.11.0]: https://github.com/ergebnis/composer-normalize/compare/2.10.0...2.11.0
-[2.11.0...main]: https://github.com/ergebnis/composer-normalize/compare/2.11.0...main
+[2.11.0...2.12.0]: https://github.com/ergebnis/composer-normalize/compare/2.11.0...2.12.0
+[2.12.0...main]: https://github.com/ergebnis/composer-normalize/compare/2.12.0...main
 
 [#1]: https://github.com/ergebnis/composer-normalize/pull/1
 [#2]: https://github.com/ergebnis/composer-normalize/pull/2
