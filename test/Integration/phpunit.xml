@@ -28,6 +28,7 @@
         </whitelist>
     </filter>
     <php>
+        <env name="COLUMNS" value="200"/>
         <env name="COMPOSER_ALLOW_XDEBUG" value="1"/>
         <ini name="memory_limit" value="-1"/>
     </php>
