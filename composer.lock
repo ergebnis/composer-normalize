@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "936cec1276a906a869bfac7ee86ead1d",
+    "content-hash": "36c09bf747bfac06c436e6a8234ff46f",
     "packages": [
         {
             "name": "ergebnis/json-normalizer",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/json-normalizer.git",
-                "reference": "f318c642a59eea14233db5f36749aab20aeed203"
+                "reference": "f80e5603ab425b49539951b0a684e138be6ee9a7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/json-normalizer/zipball/f318c642a59eea14233db5f36749aab20aeed203",
-                "reference": "f318c642a59eea14233db5f36749aab20aeed203",
+                "url": "https://api.github.com/repos/ergebnis/json-normalizer/zipball/f80e5603ab425b49539951b0a684e138be6ee9a7",
+                "reference": "f80e5603ab425b49539951b0a684e138be6ee9a7",
                 "shasum": ""
             },
             "require": {
@@ -74,7 +74,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-12-29T08:08:15+00:00"
+            "time": "2020-12-30T15:16:58+00:00"
         },
         {
             "name": "ergebnis/json-printer",
