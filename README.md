@@ -222,7 +222,7 @@ sections, the `VersionConstraintNormalizer` will ensure that
 
 ## Examples
 
-### `laravel/laravel`
+### `pestphp/pest`
 
 Running
 
@@ -230,237 +230,105 @@ Running
 $ composer normalize
 ```
 
-against https://github.com/laravel/laravel/blob/v5.6.12/composer.json yields the following diff:
+against https://github.com/pestphp/pest/blob/v0.3.19/composer.json yields the following diff:
 
 ```diff
 diff --git a/composer.json b/composer.json
-index 65bf8b4f..507ab39c 100644
+index 1cfbf1e..204f20f 100644
 --- a/composer.json
 +++ b/composer.json
-@@ -1,9 +1,12 @@
- {
-     "name": "laravel/laravel",
-+    "type": "project",
-     "description": "The Laravel Framework.",
--    "keywords": ["framework", "laravel"],
-+    "keywords": [
-+        "framework",
-+        "laravel"
-+    ],
-     "license": "MIT",
--    "type": "project",
-     "require": {
-         "php": "^7.1.3",
-         "fideloper/proxy": "^4.0",
-@@ -17,43 +20,42 @@
-         "nunomaduro/collision": "^2.0",
-         "phpunit/phpunit": "^7.0"
+@@ -25,6 +25,32 @@
+         "pestphp/pest-plugin-init": "^0.3",
+         "phpunit/phpunit": ">= 9.3.7 <= 9.5.0"
      },
++    "require-dev": {
++        "illuminate/console": "^7.16.1",
++        "illuminate/support": "^7.16.1",
++        "laravel/dusk": "^6.9.1",
++        "mockery/mockery": "^1.4.1",
++        "pestphp/pest-dev-tools": "dev-master"
++    },
 +    "config": {
-+        "optimize-autoloader": true,
 +        "preferred-install": "dist",
 +        "sort-packages": true
 +    },
 +    "extra": {
-+        "laravel": {
-+            "dont-discover": []
-+        }
-+    },
-     "autoload": {
-+        "psr-4": {
-+            "App\\": "app/"
-+        },
-         "classmap": [
-             "database/seeds",
-             "database/factories"
--        ],
--        "psr-4": {
--            "App\\": "app/"
--        }
-+        ]
-     },
-     "autoload-dev": {
-         "psr-4": {
-             "Tests\\": "tests/"
-         }
-     },
--    "extra": {
--        "laravel": {
--            "dont-discover": [
--            ]
--        }
--    },
-+    "minimum-stability": "dev",
-+    "prefer-stable": true,
-     "scripts": {
-+        "post-autoload-dump": [
-+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-+            "@php artisan package:discover"
-+        ],
-         "post-root-package-install": [
-             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
-         ],
-         "post-create-project-cmd": [
-             "@php artisan key:generate"
--        ],
--        "post-autoload-dump": [
--            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
--            "@php artisan package:discover"
-         ]
--    },
--    "config": {
--        "preferred-install": "dist",
--        "sort-packages": true,
--        "optimize-autoloader": true
--    },
--    "minimum-stability": "dev",
--    "prefer-stable": true
-+    }
- }
-```
-
-### `symfony/symfony`
-
-Running
-
-```
-$ composer normalize
-```
-
-against https://github.com/symfony/symfony/blob/v4.1.7/composer.json yields the following diff:
-
-```diff
-diff --git a/composer.json b/composer.json
-index f861cbca31..b36000853a 100644
---- a/composer.json
-+++ b/composer.json
-@@ -2,7 +2,9 @@
-     "name": "symfony/symfony",
-     "type": "library",
-     "description": "The Symfony PHP framework",
--    "keywords": ["framework"],
-+    "keywords": [
-+        "framework"
-+    ],
-     "homepage": "https://symfony.com",
-     "license": "MIT",
-     "authors": [
-@@ -20,7 +22,6 @@
-         "ext-xml": "*",
-         "doctrine/common": "~2.4",
-         "fig/link-util": "^1.0",
--        "twig/twig": "^1.35|^2.4.4",
-         "psr/cache": "~1.0",
-         "psr/container": "^1.0",
-         "psr/link": "^1.0",
-@@ -29,7 +30,8 @@
-         "symfony/polyfill-ctype": "~1.8",
-         "symfony/polyfill-intl-icu": "~1.0",
-         "symfony/polyfill-mbstring": "~1.0",
--        "symfony/polyfill-php72": "~1.5"
-+        "symfony/polyfill-php72": "~1.5",
-+        "twig/twig": "^1.35 || ^2.4.4"
-     },
-     "replace": {
-         "symfony/asset": "self.version",
-@@ -38,9 +40,9 @@
-         "symfony/config": "self.version",
-         "symfony/console": "self.version",
-         "symfony/css-selector": "self.version",
--        "symfony/dependency-injection": "self.version",
-         "symfony/debug": "self.version",
-         "symfony/debug-bundle": "self.version",
-+        "symfony/dependency-injection": "self.version",
-         "symfony/doctrine-bridge": "self.version",
-         "symfony/dom-crawler": "self.version",
-         "symfony/dotenv": "self.version",
-@@ -65,11 +67,11 @@
-         "symfony/proxy-manager-bridge": "self.version",
-         "symfony/routing": "self.version",
-         "symfony/security": "self.version",
-+        "symfony/security-bundle": "self.version",
-         "symfony/security-core": "self.version",
-         "symfony/security-csrf": "self.version",
-         "symfony/security-guard": "self.version",
-         "symfony/security-http": "self.version",
--        "symfony/security-bundle": "self.version",
-         "symfony/serializer": "self.version",
-         "symfony/stopwatch": "self.version",
-         "symfony/templating": "self.version",
-@@ -84,32 +86,37 @@
-         "symfony/workflow": "self.version",
-         "symfony/yaml": "self.version"
-     },
-+    "conflict": {
-+        "phpdocumentor/reflection-docblock": "<3.0 || >=3.2.0,<3.2.2",
-+        "phpdocumentor/type-resolver": "<0.3.0",
-+        "phpunit/phpunit": "<5.4.3"
-+    },
-+    "provide": {
-+        "psr/cache-implementation": "1.0",
-+        "psr/container-implementation": "1.0",
-+        "psr/log-implementation": "1.0",
-+        "psr/simple-cache-implementation": "1.0"
-+    },
-     "require-dev": {
-         "cache/integration-tests": "dev-master",
-         "doctrine/annotations": "~1.0",
-         "doctrine/cache": "~1.6",
-         "doctrine/data-fixtures": "1.0.*",
-         "doctrine/dbal": "~2.4",
--        "doctrine/orm": "~2.4,>=2.4.5",
-         "doctrine/doctrine-bundle": "~1.4",
-+        "doctrine/orm": "~2.4,>=2.4.5",
-+        "egulias/email-validator": "~1.2,>=1.2.8 || ~2.0",
-         "monolog/monolog": "~1.11",
--        "ocramius/proxy-manager": "~0.4|~1.0|~2.0",
-+        "ocramius/proxy-manager": "~0.4 || ~1.0 || ~2.0",
-+        "phpdocumentor/reflection-docblock": "^3.0 || ^4.0",
-         "predis/predis": "~1.0",
--        "egulias/email-validator": "~1.2,>=1.2.8|~2.0",
--        "symfony/phpunit-bridge": "~3.4|~4.0",
--        "symfony/security-acl": "~2.8|~3.0",
--        "phpdocumentor/reflection-docblock": "^3.0|^4.0"
-+        "symfony/phpunit-bridge": "~3.4 || ~4.0",
-+        "symfony/security-acl": "~2.8 || ~3.0"
-     },
--    "conflict": {
--        "phpdocumentor/reflection-docblock": "<3.0||>=3.2.0,<3.2.2",
--        "phpdocumentor/type-resolver": "<0.3.0",
--        "phpunit/phpunit": "<5.4.3"
--    },
--    "provide": {
--        "psr/cache-implementation": "1.0",
--        "psr/container-implementation": "1.0",
--        "psr/log-implementation": "1.0",
--        "psr/simple-cache-implementation": "1.0"
-+    "extra": {
 +        "branch-alias": {
-+            "dev-master": "4.1-dev"
++            "dev-master": "0.3.x-dev"
++        },
++        "laravel": {
++            "providers": [
++                "Pest\\Laravel\\PestServiceProvider"
++            ]
++        },
++        "pest": {
++            "plugins": [
++                "Pest\\Plugins\\Version"
++            ]
 +        }
-     },
++    },
      "autoload": {
          "psr-4": {
-@@ -128,12 +135,9 @@
+             "Pest\\": "src/"
+@@ -42,49 +68,23 @@
+             "tests/Autoload.php"
          ]
      },
-     "autoload-dev": {
--        "files": [ "src/Symfony/Component/VarDumper/Resources/functions/dump.php" ]
-+        "files": [
-+            "src/Symfony/Component/VarDumper/Resources/functions/dump.php"
-+        ]
-     },
--    "minimum-stability": "dev",
+-    "require-dev": {
+-        "illuminate/console": "^7.16.1",
+-        "illuminate/support": "^7.16.1",
+-        "laravel/dusk": "^6.9.1",
+-        "mockery/mockery": "^1.4.1",
+-        "pestphp/pest-dev-tools": "dev-master"
+-    },
+     "minimum-stability": "dev",
+     "prefer-stable": true,
+-    "config": {
+-        "sort-packages": true,
+-        "preferred-install": "dist"
+-    },
+     "bin": [
+         "bin/pest"
+     ],
+     "scripts": {
+         "lint": "php-cs-fixer fix -v",
+-        "test:lint": "php-cs-fixer fix -v --dry-run",
+-        "test:types": "phpstan analyse --ansi --memory-limit=0",
+-        "test:unit": "php bin/pest --colors=always --exclude-group=integration",
+-        "test:integration": "php bin/pest --colors=always --group=integration",
+-        "update:snapshots": "REBUILD_SNAPSHOTS=true php bin/pest --colors=always",
+         "test": [
+             "@test:lint",
+             "@test:types",
+             "@test:unit",
+             "@test:integration"
+-        ]
+-    },
 -    "extra": {
 -        "branch-alias": {
--            "dev-master": "4.1-dev"
+-            "dev-master": "0.3.x-dev"
+-        },
+-        "pest": {
+-            "plugins": [
+-                "Pest\\Plugins\\Version"
+-            ]
+-        },
+-        "laravel": {
+-            "providers": [
+-                "Pest\\Laravel\\PestServiceProvider"
+-            ]
 -        }
--    }
-+    "minimum-stability": "dev"
++        ],
++        "test:integration": "php bin/pest --colors=always --group=integration",
++        "test:lint": "php-cs-fixer fix -v --dry-run",
++        "test:types": "phpstan analyse --ansi --memory-limit=0",
++        "test:unit": "php bin/pest --colors=always --exclude-group=integration",
++        "update:snapshots": "REBUILD_SNAPSHOTS=true php bin/pest --colors=always"
+     }
  }
 ```
 
-### `zendframework/zend-expressive`
+### `phpspec/phpspec`
 
 Running
 
@@ -468,135 +336,212 @@ Running
 $ composer normalize
 ```
 
-against https://github.com/zendframework/zend-expressive/blob/3.2.1/composer.json yields the following diff:
+against https://github.com/phpspec/phpspec/blob/7.0.1/composer.json yields the following diff:
 
 ```diff
 diff --git a/composer.json b/composer.json
-index 478ab18a..773be7fa 100644
+index 90150a37..276a2ecd 100644
 --- a/composer.json
 +++ b/composer.json
-@@ -1,7 +1,6 @@
+@@ -1,72 +1,73 @@
  {
-     "name": "zendframework/zend-expressive",
-     "description": "PSR-15 Middleware Microframework",
--    "license": "BSD-3-Clause",
-     "keywords": [
-         "http",
-         "middleware",
-@@ -14,14 +13,7 @@
-         "zendframework",
-         "zend-expressive"
+-    "name":         "phpspec/phpspec",
+-    "description":  "Specification-oriented BDD framework for PHP 7.1+",
+-    "keywords":     ["BDD", "SpecBDD", "TDD", "spec", "specification", "tests", "testing"],
+-    "homepage":     "http://phpspec.net/",
+-    "type":         "library",
+-    "license":      "MIT",
+-    "authors":      [
++    "name": "phpspec/phpspec",
++    "type": "library",
++    "description": "Specification-oriented BDD framework for PHP 7.1+",
++    "keywords": [
++        "BDD",
++        "SpecBDD",
++        "TDD",
++        "spec",
++        "specification",
++        "tests",
++        "testing"
++    ],
++    "homepage": "http://phpspec.net/",
++    "license": "MIT",
++    "authors": [
+         {
+-            "name":      "Konstantin Kudryashov",
+-            "email":     "ever.zet@gmail.com",
+-            "homepage":  "http://everzet.com"
++            "name": "Konstantin Kudryashov",
++            "email": "ever.zet@gmail.com",
++            "homepage": "http://everzet.com"
+         },
+         {
+-            "name":      "Marcello Duarte",
+-            "homepage":  "http://marcelloduarte.net/"
++            "name": "Marcello Duarte",
++            "homepage": "http://marcelloduarte.net/"
+         },
+         {
+-            "name":      "Ciaran McNulty",
+-            "homepage":  "https://ciaranmcnulty.com/"
++            "name": "Ciaran McNulty",
++            "homepage": "https://ciaranmcnulty.com/"
+         }
      ],
--    "support": {
--        "docs": "https://docs.zendframework.com/zend-expressive/",
--        "issues": "https://github.com/zendframework/zend-expressive/issues",
--        "source": "https://github.com/zendframework/zend-expressive",
--        "rss": "https://github.com/zendframework/zend-expressive/releases.atom",
--        "slack": "https://zendframework-slack.herokuapp.com",
--        "forum": "https://discourse.zendframework.com/c/questions/expressive"
--    },
-+    "license": "BSD-3-Clause",
+-
      "require": {
-         "php": "^7.1",
-         "fig/http-message-util": "^1.1.2",
-         "http",
-         "middleware",
-@@ -14,14 +13,7 @@
-         "zendframework",
-         "zend-expressive"
-     ],
--    "support": {
--        "docs": "https://docs.zendframework.com/zend-expressive/",
--        "issues": "https://github.com/zendframework/zend-expressive/issues",
--        "source": "https://github.com/zendframework/zend-expressive",
--        "rss": "https://github.com/zendframework/zend-expressive/releases.atom",
--        "slack": "https://zendframework-slack.herokuapp.com",
--        "forum": "https://discourse.zendframework.com/c/questions/expressive"
--    },
-+    "license": "BSD-3-Clause",
-     "require": {
-         "php": "^7.1",
-         "fig/http-message-util": "^1.1.2",
-@@ -33,6 +25,10 @@
-         "zendframework/zend-httphandlerrunner": "^1.0.1",
-         "zendframework/zend-stratigility": "^3.0"
-     },
-+    "conflict": {
-+        "container-interop/container-interop": "<1.2.0",
-+        "zendframework/zend-diactoros": "<1.7.1"
+-        "php":                      "^7.3 || 8.0.*",
+-        "phpspec/prophecy":         "^1.9",
+-        "phpspec/php-diff":         "^1.0.0",
+-        "sebastian/exporter":       "^3.0 || ^4.0",
+-        "symfony/console":          "^3.4 || ^4.4 || ^5.0",
++        "php": "^7.3 || 8.0.*",
++        "ext-tokenizer": "*",
++        "doctrine/instantiator": "^1.0.5",
++        "phpspec/php-diff": "^1.0.0",
++        "phpspec/prophecy": "^1.9",
++        "sebastian/exporter": "^3.0 || ^4.0",
++        "symfony/console": "^3.4 || ^4.4 || ^5.0",
+         "symfony/event-dispatcher": "^3.4 || ^4.4 || ^5.0",
+-        "symfony/process":          "^3.4 || ^4.4 || ^5.0",
+-        "symfony/finder":           "^3.4 || ^4.4 || ^5.0",
+-        "symfony/yaml":             "^3.4 || ^4.4 || ^5.0",
+-        "doctrine/instantiator":    "^1.0.5",
+-        "ext-tokenizer":            "*"
++        "symfony/finder": "^3.4 || ^4.4 || ^5.0",
++        "symfony/process": "^3.4 || ^4.4 || ^5.0",
++        "symfony/yaml": "^3.4 || ^4.4 || ^5.0"
 +    },
++    "conflict": {
++        "sebastian/comparator": "<1.2.4"
+     },
+-
      "require-dev": {
-         "filp/whoops": "^1.1.10 || ^2.1.13",
-         "malukenho/docheader": "^0.1.6",
-@@ -47,10 +43,6 @@
-         "zendframework/zend-expressive-zendrouter": "^3.0",
-         "zendframework/zend-servicemanager": "^2.7.8 || ^3.3"
+-        "behat/behat":           "^3.3",
+-        "symfony/filesystem":    "^3.4 || ^4.0 || ^5.0",
+-        "phpunit/phpunit":       "^8.0 || ^9.0"
++        "behat/behat": "^3.3",
++        "phpunit/phpunit": "^8.0 || ^9.0",
++        "symfony/filesystem": "^3.4 || ^4.0 || ^5.0"
      },
--    "conflict": {
--        "container-interop/container-interop": "<1.2.0",
--        "zendframework/zend-diactoros": "<1.7.1"
--    },
+-
      "suggest": {
-         "filp/whoops": "^2.1 to use the Whoops error handler",
-         "psr/http-message-implementation": "Please install a psr/http-message-implementation to consume Expressive; e.g., zendframework/zend-diactoros",
-@@ -60,19 +52,6 @@
-         "zendframework/zend-pimple-config": "^1.0 to use Pimple for dependency injection container",
-         "zendframework/zend-servicemanager": "^3.3 to use zend-servicemanager for dependency injection"
+         "phpspec/nyan-formatters": "Adds Nyan formatters"
      },
--    "autoload": {
--        "files": [
--            "src/constants.php"
--        ],
--        "psr-4": {
--            "Zend\\Expressive\\": "src/"
--        }
--    },
--    "autoload-dev": {
--        "psr-4": {
--            "ZendTest\\Expressive\\": "test/"
--        }
--    },
-     "config": {
-         "sort-packages": true
+-
+-    "conflict": {
+-        "sebastian/comparator" : "<1.2.4"
++    "extra": {
++        "branch-alias": {
++            "dev-main": "7.0.x-dev"
++        }
      },
-@@ -85,6 +64,19 @@
-             "config-provider": "Zend\\Expressive\\ConfigProvider"
+-
+     "autoload": {
+         "psr-0": {
+             "PhpSpec": "src/"
          }
      },
-+    "autoload": {
-+        "psr-4": {
-+            "Zend\\Expressive\\": "src/"
-+        },
-+        "files": [
-+            "src/constants.php"
-+        ]
-+    },
-+    "autoload-dev": {
-+        "psr-4": {
-+            "ZendTest\\Expressive\\": "test/"
-+        }
-+    },
-     "bin": [
-         "bin/expressive-tooling"
+-
+     "autoload-dev": {
+         "psr-0": {
+             "spec\\PhpSpec": "."
+         }
+     },
+-
+-    "bin": ["bin/phpspec"],
+-
+-    "extra": {
+-        "branch-alias": {
+-            "dev-main": "7.0.x-dev"
+-        }
+-    }
+-
++    "bin": [
++        "bin/phpspec"
++    ]
+ }
+```
+
+### `phpunit/phpunit`
+
+Running
+
+```
+$ composer normalize
+```
+
+against https://github.com/phpspec/phpspec/blob/7.0.1/composer.json yields the following diff:
+
+```diff
+diff --git a/composer.json b/composer.json
+index fd6461fc3..23c3a3596 100644
+--- a/composer.json
++++ b/composer.json
+@@ -1,7 +1,7 @@
+ {
+     "name": "phpunit/phpunit",
+-    "description": "The PHP Unit Testing framework.",
+     "type": "library",
++    "description": "The PHP Unit Testing framework.",
+     "keywords": [
+         "phpunit",
+         "xunit",
+@@ -16,10 +16,6 @@
+             "role": "lead"
+         }
      ],
-@@ -96,9 +88,17 @@
-         ],
-         "cs-check": "phpcs",
-         "cs-fix": "phpcbf",
-+        "license-check": "docheader check src/ test/",
-         "phpstan": "phpstan analyze -l max -c phpstan.neon ./src",
-         "test": "phpunit --colors=always",
--        "test-coverage": "phpunit --colors=always --coverage-clover clover.xml",
--        "license-check": "docheader check src/ test/"
-+        "test-coverage": "phpunit --colors=always --coverage-clover clover.xml"
+-    "support": {
+-        "issues": "https://github.com/sebastianbergmann/phpunit/issues"
+-    },
+-    "prefer-stable": true,
+     "require": {
+         "php": ">=7.3",
+         "ext-dom": "*",
+@@ -54,20 +50,22 @@
+         "ext-PDO": "*",
+         "phpspec/prophecy-phpunit": "^2.0.1"
+     },
++    "suggest": {
++        "ext-soap": "*",
++        "ext-xdebug": "*"
 +    },
+     "config": {
++        "optimize-autoloader": true,
+         "platform": {
+             "php": "7.3.0"
+         },
+-        "optimize-autoloader": true,
+         "sort-packages": true
+     },
+-    "suggest": {
+-        "ext-soap": "*",
+-        "ext-xdebug": "*"
++    "extra": {
++        "branch-alias": {
++            "dev-master": "9.5-dev"
++        }
+     },
+-    "bin": [
+-        "phpunit"
+-    ],
+     "autoload": {
+         "classmap": [
+             "src/"
+@@ -86,9 +84,11 @@
+             "tests/_files/NamespaceCoveredFunction.php"
+         ]
+     },
+-    "extra": {
+-        "branch-alias": {
+-            "dev-master": "9.5-dev"
+-        }
++    "prefer-stable": true,
++    "bin": [
++        "phpunit"
++    ],
 +    "support": {
-+        "issues": "https://github.com/zendframework/zend-expressive/issues",
-+        "forum": "https://discourse.zendframework.com/c/questions/expressive",
-+        "source": "https://github.com/zendframework/zend-expressive",
-+        "docs": "https://docs.zendframework.com/zend-expressive/",
-+        "rss": "https://github.com/zendframework/zend-expressive/releases.atom",
-+        "slack": "https://zendframework-slack.herokuapp.com"
++        "issues": "https://github.com/sebastianbergmann/phpunit/issues"
      }
  }
 ```
