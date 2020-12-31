@@ -14,7 +14,7 @@
 
 Provides a [`composer`](https://getcomposer.org) plugin for normalizing [`composer.json`](https://getcomposer.org/doc/04-schema.md).
 
-[![Hmm, kinda cool I guess](https://user-images.githubusercontent.com/605483/103412388-28a39c80-4b75-11eb-806c-470784d9d0f2.png)](https://github.com/laravel/laravel/pull/4856#issuecomment-439705243)
+[![Hmm, kinda cool I guess](https://user-images.githubusercontent.com/605483/103412862-80db9e00-4b77-11eb-812c-13708e056b37.png)](https://github.com/laravel/laravel/pull/4856#issuecomment-439705243)
 
 ## Why
 
