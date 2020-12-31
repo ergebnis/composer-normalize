@@ -117,7 +117,7 @@ The `NormalizeCommand` provided by the `NormalizePlugin` within this package wil
 
 ### Arguments
 
-* `file`: Path to composer.json file (optional, defaults to `composer.json` in working directory)
+* `file`: Path to `composer.json` file (optional, defaults to `composer.json` in working directory)
 
 ### Options
 
