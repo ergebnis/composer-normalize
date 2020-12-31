@@ -14,29 +14,19 @@
 
 Provides a [`composer`](https://getcomposer.org) plugin for normalizing [`composer.json`](https://getcomposer.org/doc/04-schema.md).
 
-## Motivation
+[![Hmm, kinda cool I guess](https://user-images.githubusercontent.com/605483/103412388-28a39c80-4b75-11eb-806c-470784d9d0f2.png)](https://github.com/laravel/laravel/pull/4856#issuecomment-439705243)
 
-If you have been working with `composer` on more than one project, you might
-have noticed that each `composer.json` ends up being structured differently.
+## Why
 
-I certainly have noticed, and rather than
+When it comes to formatting `composer.json`, you have the following options:
 
-* ignoring it
-* manually structuring `composer.json`
-* asking others to structure `composer.json`
+- you can stop caring
+- you can format it manually (and request changes when contributors format it differently)
+- you can use `ergebnis/composer-normalize`
 
-I decided to build something that structures `composer.json` in an automated
-fashion, but without changing the initial intent.
+`ergebnis/composer-normalize` normalizes `composer.json`, so you don't have to.
 
-In my opinion, the advantages of using `ergebnis/composer-normalize` are
-
-* no need to think (or argue) about where to add a new section
-* no need to think (or argue) about proper formatting
-* no need to worry about keeping items in a consistent order where they can't be kept in order by other means
-* can be used in a Continuous Integration environment
-
-:bulb: If you are interested in finding out more before giving it a try, I
-have written a blog post about [Normalizing composer.json](https://localheinz.com/blog/2018/01/15/normalizing-composer.json/).
+:bulb: If you want to find out more, take a look at the [examples](#examples) and read this [blog post](https://localheinz.com/blog/2018/01/15/normalizing-composer.json/).
 
 ## Installation
 
