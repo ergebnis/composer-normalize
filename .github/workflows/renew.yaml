@@ -4,11 +4,9 @@ name: "Renew"
 
 on: # yamllint disable-line rule:truthy
   schedule:
-    - cron: "1 0 1 1 *"
+    - cron: "0 0 1 1 *"
 
 env:
-  ERGEBNIS_BOT_EMAIL: "bot@ergebn.is"
-  ERGEBNIS_BOT_NAME: "ergebnis-bot"
   PHP_EXTENSIONS: "mbstring"
   PHP_INI_VALUES: "memory_limit=-1, phar.readonly=0"
 
@@ -29,6 +27,8 @@ jobs:
     steps:
       - name: "Checkout"
         uses: "actions/checkout@v2.3.4"
+        with:
+          token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
 
       - name: "Install PHP with extensions"
         uses: "shivammathur/setup-php@2.9.0"
@@ -67,19 +67,12 @@ jobs:
           restore-keys: "php-${{ matrix.php-version }}-php-cs-fixer-"
 
       - name: "Run friendsofphp/php-cs-fixer"
-        run: "vendor/bin/php-cs-fixer fix --config=.php_cs --diff --diff-format=udiff --dry-run --verbose"
+        run: "vendor/bin/php-cs-fixer fix --config=.php_cs --diff --diff-format=udiff --verbose"
 
-      - name: "Open pull request updating license year"
-        uses: "gr2m/create-or-update-pull-request-action@v1.3.3"
+      - name: "Commit modified files"
+        uses: "stefanzweifel/git-auto-commit-action@v4.8.0"
         with:
-          author: "${{ env.ERGEBNIS_BOT_NAME }} <${{ env.ERGEBNIS_BOT_EMAIL }}>"
-          branch: "feature/license-year"
-          body: |
-            This PR
-
-            * [x] updates the license year
-          commit-message: "Enhancement: Update license year"
-          path: "."
-          title: "Enhancement: Update license year"
-        env:
-          GITHUB_TOKEN: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
+          commit_author: "ergebnis-bot <bot@ergebn.is>"
+          commit_message: "Enhancement: Update license year"
+          commit_user_email: "bot@ergebn.is"
+          commit_user_name: "ergebnis-bot"
