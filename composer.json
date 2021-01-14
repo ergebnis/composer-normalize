@@ -34,7 +34,7 @@
     "phpstan/phpstan": "~0.12.66",
     "phpstan/phpstan-deprecation-rules": "~0.12.6",
     "phpstan/phpstan-phpunit": "~0.12.17",
-    "phpstan/phpstan-strict-rules": "~0.12.8",
+    "phpstan/phpstan-strict-rules": "~0.12.9",
     "phpunit/phpunit": "^8.5.13",
     "psalm/plugin-phpunit": "~0.12.2",
     "symfony/filesystem": "^5.1.8",
