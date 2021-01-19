@@ -27,7 +27,7 @@
   "require-dev": {
     "composer/composer": "^1.10.19 || ^2.0.8",
     "ergebnis/license": "^1.1.0",
-    "ergebnis/php-cs-fixer-config": "^2.10.0",
+    "ergebnis/php-cs-fixer-config": "^2.11.0",
     "ergebnis/phpstan-rules": "~0.15.3",
     "ergebnis/test-util": "^1.4.0",
     "phpstan/extension-installer": "^1.1.0",
