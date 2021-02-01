@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="3.18.2@19aa905f7c3c7350569999a93c40ae91ae4e1626">
-  <file src="src/Application.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>Application</code>
-    </PropertyNotSetInConstructor>
-  </file>
+<files psalm-version="4.4.1@9fd7a7d885b3a216cff8dec9d8c21a132f275224">
   <file src="src/Command/NormalizeCommand.php">
     <MissingPropertyType occurrences="4">
       <code>$differ</code>
@@ -56,6 +51,12 @@
       <code>$composerFile</code>
       <code>$composerFile</code>
     </PossiblyInvalidArgument>
+    <PossiblyInvalidCast occurrences="4">
+      <code>$composerFile</code>
+      <code>$composerFile</code>
+      <code>$composerFile</code>
+      <code>$composerFile</code>
+    </PossiblyInvalidCast>
   </file>
   <file src="test/Integration/Command/NormalizeCommand/AbstractTestCase.php">
     <MixedArrayAccess occurrences="1">
