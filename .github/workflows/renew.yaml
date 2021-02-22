@@ -70,7 +70,7 @@ jobs:
         run: "vendor/bin/php-cs-fixer fix --config=.php_cs --diff --diff-format=udiff --verbose"
 
       - name: "Commit modified files"
-        uses: "stefanzweifel/git-auto-commit-action@v4.8.0"
+        uses: "stefanzweifel/git-auto-commit-action@v4.9.0"
         with:
           commit_author: "ergebnis-bot <bot@ergebn.is>"
           commit_message: "Enhancement: Update license year"
