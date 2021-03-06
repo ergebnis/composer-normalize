@@ -554,10 +554,6 @@ This package is licensed using the MIT License.
 
 Please have a look at [`LICENSE.md`](LICENSE.md).
 
-## Services
-
-`ergebnis/composer-normalize` is currently in use by [FlintCI](https://flintci.io), see https://flintci.io/docs#composernormalize.
-
 ## Credits
 
 The algorithm for sorting packages in the [`PackageHashNormalizer`](https://github.com/ergebnis/composer-json-normalizer/blob/master/src/PackageHashNormalizer.php) has been adopted from [`Composer\Json\JsonManipulator::sortPackages()`](https://github.com/composer/composer/blob/1.6.2/src/Composer/Json/JsonManipulator.php#L110-L146) (originally licensed under MIT by [Nils Adermann](https://github.com/naderman) and [Jordi Boggiano](https://github.com/seldaek)), which I initially contributed to `composer/composer` with [`composer/composer#3549`](https://github.com/composer/composer/pull/3549) and [`composer/composer#3872`](https://github.com/composer/composer/pull/3872).
