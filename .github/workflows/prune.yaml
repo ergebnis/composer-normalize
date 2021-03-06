@@ -18,7 +18,7 @@ jobs:
 
     steps:
       - name: "Prune issues and pull requests"
-        uses: "actions/stale@v3.0.17"
+        uses: "actions/stale@v3.0.18"
         with:
           days-before-close: "${{ env.DAYS_BEFORE_CLOSE }}"
           days-before-stale: "${{ env.DAYS_BEFORE_STALE }}"
