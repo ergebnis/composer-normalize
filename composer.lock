@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "75d76bca0c5240e40afee2271b48d8ef",
+    "content-hash": "e12cc096e4007ba5c07e339bda2fbefa",
     "packages": [
         {
             "name": "ergebnis/json-normalizer",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/json-normalizer.git",
-                "reference": "6da58f6b555959c07724181744664e732555d0be"
+                "reference": "4a7f064ce34d5a2e382564565cdd433dbc5b9494"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/json-normalizer/zipball/6da58f6b555959c07724181744664e732555d0be",
-                "reference": "6da58f6b555959c07724181744664e732555d0be",
+                "url": "https://api.github.com/repos/ergebnis/json-normalizer/zipball/4a7f064ce34d5a2e382564565cdd433dbc5b9494",
+                "reference": "4a7f064ce34d5a2e382564565cdd433dbc5b9494",
                 "shasum": ""
             },
             "require": {
@@ -34,11 +34,11 @@
                 "infection/infection": "~0.15.3",
                 "jangregor/phpstan-prophecy": "~0.8.1",
                 "phpstan/extension-installer": "^1.1.0",
-                "phpstan/phpstan": "~0.12.60",
+                "phpstan/phpstan": "~0.12.80",
                 "phpstan/phpstan-deprecation-rules": "~0.12.6",
                 "phpstan/phpstan-phpunit": "~0.12.17",
-                "phpstan/phpstan-strict-rules": "~0.12.7",
-                "phpunit/phpunit": "^8.5.13",
+                "phpstan/phpstan-strict-rules": "~0.12.9",
+                "phpunit/phpunit": "^8.5.14",
                 "psalm/plugin-phpunit": "~0.12.2",
                 "vimeo/psalm": "^3.18"
             },
@@ -64,13 +64,17 @@
                 "json",
                 "normalizer"
             ],
+            "support": {
+                "issues": "https://github.com/ergebnis/json-normalizer/issues",
+                "source": "https://github.com/ergebnis/json-normalizer"
+            },
             "funding": [
                 {
                     "url": "https://github.com/localheinz",
                     "type": "github"
                 }
             ],
-            "time": "2020-12-31T09:27:51+00:00"
+            "time": "2021-03-06T13:33:57+00:00"
         },
         {
             "name": "ergebnis/json-printer",
@@ -129,6 +133,10 @@
                 "json",
                 "printer"
             ],
+            "support": {
+                "issues": "https://github.com/ergebnis/json-printer/issues",
+                "source": "https://github.com/ergebnis/json-printer"
+            },
             "funding": [
                 {
                     "url": "https://github.com/localheinz",
@@ -201,6 +209,10 @@
                 "json",
                 "schema"
             ],
+            "support": {
+                "issues": "https://github.com/justinrainbow/json-schema/issues",
+                "source": "https://github.com/justinrainbow/json-schema/tree/5.2.10"
+            },
             "time": "2020-05-27T16:41:55+00:00"
         },
         {
