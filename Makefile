@@ -13,7 +13,7 @@ coding-standards: vendor ## Normalizes composer.json with ergebnis/composer-norm
 	.phive/composer-normalize
 	yamllint -c .yamllint.yaml --strict .
 	mkdir -p .build/php-cs-fixer
-	vendor/bin/php-cs-fixer fix --config=.php_cs --diff --diff-format=udiff --verbose
+	vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php --diff --diff-format=udiff --verbose
 
 .PHONY: dependency-analysis
 dependency-analysis: vendor ## Runs a dependency analysis with maglnet/composer-require-checker
