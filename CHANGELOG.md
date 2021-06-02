@@ -16,6 +16,10 @@ For a full diff see [`2.13.4...2.14.0`][2.13.4...2.14.0].
 
 * Updated `schema.json` ([#744]), by [@ergebnis-bot]
 
+### Fixed
+
+* Updated `composer/composer` ([#750]), by [@localheinz]
+
 ## [`2.13.4`][2.13.4]
 
 For a full diff see [`2.13.3...2.13.4`][2.13.3...2.13.4].
@@ -716,6 +720,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [#707]: https://github.com/ergebnis/composer-normalize/pull/707
 [#743]: https://github.com/ergebnis/composer-normalize/pull/743
 [#744]: https://github.com/ergebnis/composer-normalize/pull/744
+[#750]: https://github.com/ergebnis/composer-normalize/pull/750
 
 [@core23]: https://github.com/core23
 [@dependabot]: https://github.com/dependabot
