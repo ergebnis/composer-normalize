@@ -274,9 +274,10 @@
                 "bin-compat": {
                     "enum": [
                         "auto",
-                        "full"
+                        "full",
+                        "symlink"
                     ],
-                    "description": "The compatibility of the binaries, defaults to \"auto\" (automatically guessed) and can be \"full\" (compatible with both Windows and Unix-based systems)."
+                    "description": "The compatibility of the binaries, defaults to \"auto\" (automatically guessed), can be \"full\" (compatible with both Windows and Unix-based systems) and \"symlink\" (symlink also for WSL)."
                 },
                 "discard-changes": {
                     "type": [
