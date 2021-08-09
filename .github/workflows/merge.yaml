@@ -1,0 +1,94 @@
+# https://docs.github.com/en/actions
+
+name: "Merge"
+
+on: # yamllint disable-line rule:truthy
+  workflow_run:
+    types:
+      - "completed"
+    workflows:
+      - "Integrate"
+
+jobs:
+  merge:
+    name: "Merge"
+
+    runs-on: "ubuntu-latest"
+
+    if: >
+      github.event.workflow_run.event == 'pull_request' &&
+      github.event.workflow_run.conclusion == 'success' &&
+      github.actor == 'dependabot[bot]' && (
+        startsWith(github.event.workflow_run.head_commit.message, 'composer(deps-dev)') ||
+        startsWith(github.event.workflow_run.head_commit.message, 'github-actions(deps)')
+      )
+
+    steps:
+
+      - name: "Request review from @ergebnis-bot"
+        uses: "actions/github-script@v4.0.2"
+        with:
+          github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
+          script: |
+            const pullRequest = context.payload.workflow_run.pull_requests[0]
+            const repository = context.repo
+
+            const reviewers = [
+              "ergebnis-bot",
+            ]
+
+            await github.pulls.requestReviewers({
+              owner: repository.owner,
+              repo: repository.repo,
+              pull_number: pullRequest.number,
+              reviewers: reviewers,
+            })
+
+      - name: "Assign @ergebnis-bot"
+        uses: "actions/github-script@v4.0.2"
+        with:
+          github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
+          script: |
+            const pullRequest = context.payload.workflow_run.pull_requests[0]
+            const repository = context.repo
+
+            const assignees = [
+              "ergebnis-bot",
+            ]
+
+            await github.issues.addAssignees({
+              owner: repository.owner,
+              repo: repository.repo,
+              assignees: assignees,
+              issue_number: pullRequest.number
+            })
+
+      - name: "Approve pull request"
+        uses: "actions/github-script@v4.0.2"
+        with:
+          github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
+          script: |
+            const pullRequest = context.payload.workflow_run.pull_requests[0]
+            const repository = context.repo
+
+            await github.pulls.createReview({
+              event: "APPROVE",
+              owner: repository.owner,
+              repo: repository.repo,
+              pull_number: pullRequest.number,
+            })
+
+      - name: "Merge pull request"
+        uses: "actions/github-script@v4.0.2"
+        with:
+          github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
+          script: |
+            const pullRequest = context.payload.workflow_run.pull_requests[0]
+            const repository = context.repo
+
+            await github.pulls.merge({
+              merge_method: "merge",
+              owner: repository.owner,
+              pull_number: pullRequest.number,
+              repo: repository.repo,
+            })
