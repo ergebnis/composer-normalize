@@ -24,7 +24,6 @@ jobs:
       )
 
     steps:
-
       - name: "Request review from @ergebnis-bot"
         uses: "actions/github-script@v4.0.2"
         with:
