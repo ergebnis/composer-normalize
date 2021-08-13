@@ -133,6 +133,7 @@ final class NormalizeCommand extends Command\BaseCommand
         $composerFile = $input->getArgument('file');
 
         if (null === $composerFile) {
+            /** @var string $composerFile */
             $composerFile = Factory::getComposerFile();
         }
 
