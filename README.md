@@ -125,7 +125,7 @@ As an alternative to specifying the `--indent-size` and `--indent-style` options
   "extra": {
     "composer-normalize": {
       "indent-size": 2,
-      "indent-style": "space",
+      "indent-style": "space"
     }
   }
 }
