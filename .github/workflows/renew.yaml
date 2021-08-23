@@ -31,7 +31,7 @@ jobs:
           token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
 
       - name: "Install PHP with extensions"
-        uses: "shivammathur/setup-php@2.12.0"
+        uses: "shivammathur/setup-php@2.13.0"
         with:
           coverage: "none"
           extensions: "${{ env.PHP_EXTENSIONS }}"
