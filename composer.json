@@ -31,7 +31,7 @@
     "ergebnis/phpstan-rules": "~0.15.3",
     "ergebnis/test-util": "^1.5.0",
     "phpstan/extension-installer": "^1.1.0",
-    "phpstan/phpstan": "~0.12.90",
+    "phpstan/phpstan": "~0.12.96",
     "phpstan/phpstan-deprecation-rules": "~0.12.6",
     "phpstan/phpstan-phpunit": "~0.12.22",
     "phpstan/phpstan-strict-rules": "~0.12.10",
