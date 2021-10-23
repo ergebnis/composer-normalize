@@ -34,7 +34,7 @@ jobs:
             if (matches instanceof Array && branchPrefixLabels.hasOwnProperty(matches[1])) {
               const label = branchPrefixLabels[matches[1]]
 
-              github.issues.addLabels({
+              github.rest.issues.addLabels({
                 issue_number: pullRequest.number,
                 labels: [
                   label
