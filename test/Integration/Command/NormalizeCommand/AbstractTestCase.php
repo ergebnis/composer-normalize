@@ -114,7 +114,6 @@ abstract class AbstractTestCase extends Framework\TestCase
             ));
         }
 
-        /** @var NormalizeCommand $normalizeCommand */
         $normalizeCommand = \array_shift($commands);
 
         return self::createApplication($normalizeCommand);
