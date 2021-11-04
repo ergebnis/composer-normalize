@@ -34,8 +34,8 @@ When it comes to formatting `composer.json`, you have the following options:
 
 Run
 
-```
-$ composer require --dev ergebnis/composer-normalize
+```console
+composer require --dev ergebnis/composer-normalize
 ```
 
 to install `ergebnis/composer-normalize` as a composer plugin.
@@ -46,8 +46,8 @@ Head over to http://github.com/ergebnis/composer-normalize/releases/latest and d
 
 Run
 
-```
-$ chmod +x composer-normalize.phar
+```console
+chmod +x composer-normalize.phar
 ```
 
 to make the downloaded `composer-normalize.phar` executable.
@@ -56,8 +56,8 @@ to make the downloaded `composer-normalize.phar` executable.
 
 Run
 
-```
-$ phive install ergebnis/composer-normalize
+```console
+phive install ergebnis/composer-normalize
 ```
 
 to install `ergebnis/composer-normalize` with [PHIVE](https://phar.io).
@@ -68,8 +68,8 @@ to install `ergebnis/composer-normalize` with [PHIVE](https://phar.io).
 
 Run
 
-```
-$ composer normalize
+```console
+composer normalize
 ```
 
 to normalize `composer.json` in the working directory.
@@ -78,8 +78,8 @@ to normalize `composer.json` in the working directory.
 
 Run
 
-```
-$ ./composer-normalize.phar
+```console
+./composer-normalize.phar
 ```
 
 to normalize `composer.json` in the working directory.
@@ -88,8 +88,8 @@ to normalize `composer.json` in the working directory.
 
 Run
 
-```
-$ ./tools/composer-normalize
+```console
+./tools/composer-normalize
 ```
 
 to normalize `composer.json` in the working directory.
@@ -137,8 +137,8 @@ As an alternative to specifying the `--indent-size` and `--indent-style` options
 
 If you want to run this in continuous integration services, use the `--dry-run` option.
 
-```
-$ composer normalize --dry-run
+```console
+composer normalize --dry-run
 ```
 
 In case `composer.json` is not normalized (or `composer.lock` is not up-to-date), the command will
@@ -216,8 +216,8 @@ sections, the `VersionConstraintNormalizer` will ensure that
 
 Running
 
-```
-$ composer normalize
+```console
+composer normalize
 ```
 
 against https://github.com/pestphp/pest/blob/v0.3.19/composer.json yields the following diff:
@@ -322,8 +322,8 @@ index 1cfbf1e..204f20f 100644
 
 Running
 
-```
-$ composer normalize
+```console
+composer normalize
 ```
 
 against https://github.com/phpspec/phpspec/blob/7.0.1/composer.json yields the following diff:
@@ -457,8 +457,8 @@ index 90150a37..276a2ecd 100644
 
 Running
 
-```
-$ composer normalize
+```console
+composer normalize
 ```
 
 against https://github.com/phpspec/phpspec/blob/7.0.1/composer.json yields the following diff:
