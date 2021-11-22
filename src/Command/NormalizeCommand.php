@@ -101,8 +101,10 @@ final class NormalizeCommand extends Command\BaseCommand
         ]);
     }
 
-    protected function execute(Console\Input\InputInterface $input, Console\Output\OutputInterface $output): int
-    {
+    protected function execute(
+        Console\Input\InputInterface $input,
+        Console\Output\OutputInterface $output
+    ): int {
         $io = $this->getIO();
 
         $io->write([
@@ -157,11 +159,17 @@ final class NormalizeCommand extends Command\BaseCommand
             $indent = $indentFromExtra;
         }
 
-        if (null !== $indentFromInput && null !== $indentFromExtra) {
+        if (
+            null !== $indentFromInput
+            && null !== $indentFromExtra
+        ) {
             $io->write('<warning>Configuration provided via options and composer extra. Using configuration from composer extra.</warning>');
         }
 
-        if (false === $input->getOption('dry-run') && !\is_writable($composerFile)) {
+        if (
+            false === $input->getOption('dry-run')
+            && !\is_writable($composerFile)
+        ) {
             $io->writeError(\sprintf(
                 '<error>%s is not writable.</error>',
                 $composerFile
@@ -172,7 +180,11 @@ final class NormalizeCommand extends Command\BaseCommand
 
         $locker = $composer->getLocker();
 
-        if (false === $input->getOption('no-check-lock') && $locker->isLocked() && !$locker->isFresh()) {
+        if (
+            false === $input->getOption('no-check-lock')
+            && $locker->isLocked()
+            && !$locker->isFresh()
+        ) {
             $io->writeError('<error>The lock file is not up to date with the latest changes in composer.json, it is recommended that you run `composer update --lock`.</error>');
 
             return 1;
@@ -232,7 +244,10 @@ final class NormalizeCommand extends Command\BaseCommand
             return 0;
         }
 
-        if (true === $input->getOption('diff') || true === $input->getOption('dry-run')) {
+        if (
+            true === $input->getOption('diff')
+            || true === $input->getOption('dry-run')
+        ) {
             $io->writeError(\sprintf(
                 '<error>%s is not normalized.</error>',
                 $composerFile
@@ -263,7 +278,10 @@ final class NormalizeCommand extends Command\BaseCommand
             $composerFile
         ));
 
-        if (true === $input->getOption('no-update-lock') || false === $locker->isLocked()) {
+        if (
+            true === $input->getOption('no-update-lock')
+            || false === $locker->isLocked()
+        ) {
             return 0;
         }
 
@@ -291,7 +309,10 @@ final class NormalizeCommand extends Command\BaseCommand
         /** @var null|string $indentStyle */
         $indentStyle = $input->getOption('indent-style');
 
-        if (null === $indentSize && null === $indentStyle) {
+        if (
+            null === $indentSize
+            && null === $indentStyle
+        ) {
             return null;
         }
 
@@ -306,7 +327,10 @@ final class NormalizeCommand extends Command\BaseCommand
             ));
         }
 
-        if ((string) (int) $indentSize !== $indentSize || 1 > $indentSize) {
+        if (
+            (string) (int) $indentSize !== $indentSize
+            || 1 > $indentSize
+        ) {
             throw new \RuntimeException(\sprintf(
                 'Indent size needs to be an integer greater than 0, but "%s" is not.',
                 $indentSize
@@ -413,8 +437,10 @@ final class NormalizeCommand extends Command\BaseCommand
         );
     }
 
-    private static function showValidationErrors(IO\IOInterface $io, string ...$errors): void
-    {
+    private static function showValidationErrors(
+        IO\IOInterface $io,
+        string ...$errors
+    ): void {
         foreach ($errors as $error) {
             $io->writeError(\sprintf(
                 '<error>- %s</error>',
