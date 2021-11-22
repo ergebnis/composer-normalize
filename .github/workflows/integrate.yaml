@@ -334,13 +334,13 @@ jobs:
         run: "echo $(cat box.json | jq 'del(.git)') > box.json"
 
       - name: "Validate configuration for humbug/box"
-        run: "phar/box.phar validate box.json"
+        run: ".phive/box validate box.json"
 
       - name: "Compile composer-normalize.phar with humbug/box"
-        run: "phar/box.phar compile --config=box.json"
+        run: ".phive/box compile --config=box.json"
 
       - name: "Show info about composer-normalize.phar with humbug/box"
-        run: "phar/box.phar info ${{ env.COMPOSER_NORMALIZE_PHAR }}"
+        run: ".phive/box info ${{ env.COMPOSER_NORMALIZE_PHAR }}"
 
       - name: "Run composer-normalize.phar"
         run: "${{ env.COMPOSER_NORMALIZE_PHAR }}"
