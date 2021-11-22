@@ -201,10 +201,6 @@ jobs:
           - "7.4"
           - "8.0"
 
-        composer-version:
-          - "1"
-          - "2"
-
         dependencies:
           - "lowest"
           - "locked"
@@ -221,13 +217,9 @@ jobs:
           extensions: "${{ env.PHP_EXTENSIONS }}"
           ini-values: "${{ env.PHP_INI_VALUES }}"
           php-version: "${{ matrix.php-version }}"
-          tools: "composer:v${{ matrix.composer-version }}"
 
       - name: "Set up problem matchers for phpunit/phpunit"
         run: "echo \"::add-matcher::${{ runner.tool_cache }}/phpunit.json\""
-
-      - name: "Show composer version"
-        run: "composer --version"
 
       - name: "Determine composer cache directory"
         uses: "./.github/actions/composer/composer/determine-cache-directory"
