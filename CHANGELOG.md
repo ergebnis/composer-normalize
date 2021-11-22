@@ -10,6 +10,7 @@ For a full diff see [`2.15.0...main`][2.15.0...main].
 
 ### Changed
 
+* Required `composer/composer:2.1.12` for compiling `composer-normalize.phar` ([#804]), by [@localheinz]
 * Dropped support for `composer/composer:^1.0.0` ([#807]), by [@localheinz]
 
 ## [`2.15.0`][2.15.0]
@@ -736,6 +737,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [#744]: https://github.com/ergebnis/composer-normalize/pull/744
 [#750]: https://github.com/ergebnis/composer-normalize/pull/750
 [#754]: https://github.com/ergebnis/composer-normalize/pull/754
+[#804]: https://github.com/ergebnis/composer-normalize/pull/804
 [#807]: https://github.com/ergebnis/composer-normalize/pull/807
 
 [@core23]: https://github.com/core23
