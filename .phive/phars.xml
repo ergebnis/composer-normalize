@@ -2,5 +2,5 @@
 <phive xmlns="https://phar.io/phive">
     <phar name="composer-normalize" version="^2.15.0" installed="2.15.0" location="./.phive/composer-normalize" copy="true"/>
     <phar name="composer-require-checker" version="^2.1.0" installed="2.1.0" location="./.phive/composer-require-checker" copy="true"/>
-    <phar name="humbug/box" version="3.8.4" installed="3.8.4" location="./.phive/box" copy="true"/>
+    <phar name="humbug/box" version="3.9.1" installed="3.9.1" location="./.phive/box" copy="true"/>
 </phive>
