@@ -17,6 +17,7 @@ use Composer\Command;
 use Composer\Console\Application;
 use Composer\Factory;
 use Composer\IO;
+use Composer\Package;
 use Ergebnis\Composer\Normalize\Exception;
 use Ergebnis\Composer\Normalize\Version;
 use Ergebnis\Json\Normalizer;
@@ -181,6 +182,7 @@ final class NormalizeCommand extends Command\BaseCommand
 
         if (
             false === $input->getOption('no-check-lock')
+            && $locker instanceof Package\Locker
             && $locker->isLocked()
             && !$locker->isFresh()
         ) {
@@ -279,6 +281,7 @@ final class NormalizeCommand extends Command\BaseCommand
 
         if (
             true === $input->getOption('no-update-lock')
+            || !$locker instanceof Package\Locker
             || false === $locker->isLocked()
         ) {
             return 0;

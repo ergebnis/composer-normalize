@@ -22,6 +22,7 @@
     "Composer\\IO\\IOInterface",
     "Composer\\Json\\JsonFile",
     "Composer\\Json\\JsonValidationException",
+    "Composer\\Package\\Locker",
     "Composer\\Plugin\\Capability\\CommandProvider",
     "Composer\\Plugin\\Capable",
     "Composer\\Plugin\\PluginInterface",
