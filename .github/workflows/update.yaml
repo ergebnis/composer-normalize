@@ -21,7 +21,7 @@ jobs:
       - name: "Checkout"
         uses: "actions/checkout@v2.4.0"
 
-      - name: "Install PHP"
+      - name: "Set up PHP"
         uses: "shivammathur/setup-php@2.15.0"
         with:
           coverage: "none"
