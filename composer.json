@@ -31,7 +31,7 @@
     "ergebnis/test-util": "^1.5.0",
     "phpunit/phpunit": "^8.5.21",
     "psalm/plugin-phpunit": "~0.16.1",
-    "symfony/filesystem": "^5.3.4",
+    "symfony/filesystem": "^5.4.0",
     "vimeo/psalm": "^4.13.1"
   },
   "config": {
