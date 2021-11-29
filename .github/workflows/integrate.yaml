@@ -53,7 +53,7 @@ jobs:
         uses: "./.github/actions/composer/composer/determine-cache-directory"
 
       - name: "Cache dependencies installed with composer"
-        uses: "actions/cache@v2.1.6"
+        uses: "actions/cache@v2.1.7"
         with:
           path: "${{ env.COMPOSER_CACHE_DIR }}"
           key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
@@ -71,7 +71,7 @@ jobs:
         run: "mkdir -p .build/php-cs-fixer"
 
       - name: "Cache cache directory for friendsofphp/php-cs-fixer"
-        uses: "actions/cache@v2.1.6"
+        uses: "actions/cache@v2.1.7"
         with:
           path: ".build/php-cs-fixer"
           key: "php-${{ matrix.php-version }}-php-cs-fixer-${{ github.sha }}"
@@ -108,7 +108,7 @@ jobs:
         uses: "./.github/actions/composer/composer/determine-cache-directory"
 
       - name: "Cache dependencies installed with composer"
-        uses: "actions/cache@v2.1.6"
+        uses: "actions/cache@v2.1.7"
         with:
           path: "${{ env.COMPOSER_CACHE_DIR }}"
           key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
@@ -151,7 +151,7 @@ jobs:
         uses: "./.github/actions/composer/composer/determine-cache-directory"
 
       - name: "Cache dependencies installed with composer"
-        uses: "actions/cache@v2.1.6"
+        uses: "actions/cache@v2.1.7"
         with:
           path: "${{ env.COMPOSER_CACHE_DIR }}"
           key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
@@ -206,7 +206,7 @@ jobs:
         uses: "./.github/actions/composer/composer/determine-cache-directory"
 
       - name: "Cache dependencies installed with composer"
-        uses: "actions/cache@v2.1.6"
+        uses: "actions/cache@v2.1.7"
         with:
           path: "${{ env.COMPOSER_CACHE_DIR }}"
           key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
@@ -258,7 +258,7 @@ jobs:
         uses: "./.github/actions/composer/composer/determine-cache-directory"
 
       - name: "Cache dependencies installed with composer"
-        uses: "actions/cache@v2.1.6"
+        uses: "actions/cache@v2.1.7"
         with:
           path: "${{ env.COMPOSER_CACHE_DIR }}"
           key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
@@ -309,7 +309,7 @@ jobs:
         uses: "./.github/actions/composer/composer/determine-cache-directory"
 
       - name: "Cache dependencies installed with composer"
-        uses: "actions/cache@v2.1.6"
+        uses: "actions/cache@v2.1.7"
         with:
           path: "${{ env.COMPOSER_CACHE_DIR }}"
           key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
