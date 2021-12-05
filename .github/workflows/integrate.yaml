@@ -246,7 +246,7 @@ jobs:
       - name: "Set up PHP"
         uses: "shivammathur/setup-php@2.16.0"
         with:
-          coverage: "pcov"
+          coverage: "xdebug"
           extensions: "${{ env.PHP_EXTENSIONS }}"
           ini-values: "${{ env.PHP_INI_VALUES }}"
           php-version: "${{ matrix.php-version }}"
@@ -269,7 +269,7 @@ jobs:
         with:
           dependencies: "${{ matrix.dependencies }}"
 
-      - name: "Collect code coverage with pcov and phpunit/phpunit"
+      - name: "Collect code coverage with Xdebug and phpunit/phpunit"
         run: "vendor/bin/phpunit --configuration=test/Integration/phpunit.xml --coverage-clover=.build/logs/clover.xml"
 
       - name: "Send code coverage report to Codecov.io"
