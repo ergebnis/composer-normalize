@@ -6,7 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`2.16.0...main`][2.16.0...main].
+For a full diff see [`2.17.0...main`][2.17.0...main].
+
+## [`2.17.0`][2.17.0]
+
+For a full diff see [`2.16.0...2.17.0`][2.16.0...2.17.0].
+
+### Changed
+
+- Updated `schema.json` ([#816]), by [@ergebnis-bot]
 
 ## [`2.16.0`][2.16.0]
 
@@ -603,6 +611,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [2.14.0]: https://github.com/ergebnis/composer-normalize/releases/tag/2.14.0
 [2.15.0]: https://github.com/ergebnis/composer-normalize/releases/tag/2.15.0
 [2.16.0]: https://github.com/ergebnis/composer-normalize/releases/tag/2.16.0
+[2.17.0]: https://github.com/ergebnis/composer-normalize/releases/tag/2.17.0
 
 [81bc3a8...0.1.0]: https://github.com/ergebnis/composer-normalize/compare/81bc3a8...0.1.0
 [0.1.0...0.2.0]: https://github.com/ergebnis/composer-normalize/compare/0.1.0...0.2.0
@@ -661,7 +670,8 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [2.13.4...2.14.0]: https://github.com/ergebnis/composer-normalize/compare/2.13.4...2.14.0
 [2.14.0...2.15.0]: https://github.com/ergebnis/composer-normalize/compare/2.14.0...2.15.0
 [2.15.0...2.16.0]: https://github.com/ergebnis/composer-normalize/compare/2.15.0...2.16.0
-[2.16.0...main]: https://github.com/ergebnis/composer-normalize/compare/2.16.0...main
+[2.16.0...2.17.0]: https://github.com/ergebnis/composer-normalize/compare/2.16.0...2.17.0
+[2.17.0...main]: https://github.com/ergebnis/composer-normalize/compare/2.17.0...main
 
 [#1]: https://github.com/ergebnis/composer-normalize/pull/1
 [#2]: https://github.com/ergebnis/composer-normalize/pull/2
@@ -745,6 +755,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [#754]: https://github.com/ergebnis/composer-normalize/pull/754
 [#804]: https://github.com/ergebnis/composer-normalize/pull/804
 [#807]: https://github.com/ergebnis/composer-normalize/pull/807
+[#816]: https://github.com/ergebnis/composer-normalize/pull/816
 
 [@core23]: https://github.com/core23
 [@dependabot]: https://github.com/dependabot
