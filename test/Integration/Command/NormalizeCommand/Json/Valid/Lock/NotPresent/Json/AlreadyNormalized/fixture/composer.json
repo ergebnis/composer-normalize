@@ -1,19 +1,19 @@
 {
+  "license": "MIT",
   "type": "library",
   "keywords": [
     "foo",
     "bar"
   ],
-  "license": "MIT",
   "authors": [
     {
       "name": "Andreas Möller",
       "email": "am@localheinz.com"
     }
   ],
+  "_comment": "This composer.json is valid according to a lax validation, a composer.lock is not present, and composer.json is already normalized.",
   "require": {
     "php": "^5.6",
     "ext-json": "*"
-  },
-  "_comment": "This composer.json is valid according to a lax validation, a composer.lock is not present, and composer.json is already normalized."
+  }
 }
