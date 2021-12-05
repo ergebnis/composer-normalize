@@ -98,25 +98,25 @@ to normalize `composer.json` in the working directory.
 
 The `NormalizeCommand` provided by the `NormalizePlugin` within this package will
 
-* determine whether a `composer.json` exists
-* determine whether a `composer.lock` exists, and if so, whether it is up to date (unless the `--no-check-lock` option is used)
-* use [normalizers](https://github.com/ergebnis/composer-normalize#normalizers) to normalize the content of `composer.json`
-* format the normalized content (either as sniffed, or as specified using the `--indent-size` and `--indent-style` options)
-* write the normalized and formatted content of `composer.json` back to the file
-* update the hash in `composer.lock` if it exists and if an update is necessary
+- determine whether a `composer.json` exists
+- determine whether a `composer.lock` exists, and if so, whether it is up to date (unless the `--no-check-lock` option is used)
+- use [normalizers](https://github.com/ergebnis/composer-normalize#normalizers) to normalize the content of `composer.json`
+- format the normalized content (either as sniffed, or as specified using the `--indent-size` and `--indent-style` options)
+- write the normalized and formatted content of `composer.json` back to the file
+- update the hash in `composer.lock` if it exists and if an update is necessary
 
 ### Arguments
 
-* `file`: Path to `composer.json` file (optional, defaults to `composer.json` in working directory)
+- `file`: Path to `composer.json` file (optional, defaults to `composer.json` in working directory)
 
 ### Options
 
-* `--diff`: Show the results of normalizing
-* `--dry-run`: Show the results of normalizing, but do not modify any files
-* `--indent-size`: Indent size (an integer greater than 0); should be used with the `--indent-style` option
-* `--indent-style`: Indent style (one of "space", "tab"); should be used with the `--indent-size` option
-* `--no-check-lock`: Do not check if lock file is up to date
-* `--no-update-lock`: Do not update lock file if it exists
+- `--diff`: Show the results of normalizing
+- `--dry-run`: Show the results of normalizing, but do not modify any files
+- `--indent-size`: Indent size (an integer greater than 0); should be used with the `--indent-style` option
+- `--indent-style`: Indent style (one of "space", "tab"); should be used with the `--indent-size` option
+- `--no-check-lock`: Do not check if lock file is up to date
+- `--no-update-lock`: Do not update lock file if it exists
 
 As an alternative to specifying the `--indent-size` and `--indent-style` options, you can also use composer [extra](https://getcomposer.org/doc/04-schema.md#extra) to configure these options in `composer.json`:
 
@@ -148,15 +148,15 @@ fail with an exit code of `1` and show a diff.
 
 The `ComposerJsonNormalizer` composes normalizers provided by [`ergebnis/json-normalizer`](https://github.com/ergebnis/json-normalizer):
 
-* [`Ergebnis\Json\Normalizer\ChainNormalizer`](https://github.com/ergebnis/json-normalizer#chainnormalizer)
-* [`Ergebnis\Json\Normalizer\SchemaNormalizer`](https://github.com/ergebnis/json-normalizer#schemanormalizer)
+- [`Ergebnis\Json\Normalizer\ChainNormalizer`](https://github.com/ergebnis/json-normalizer#chainnormalizer)
+- [`Ergebnis\Json\Normalizer\SchemaNormalizer`](https://github.com/ergebnis/json-normalizer#schemanormalizer)
 
 as well as the following normalizers provided by this package:
 
-* [`Ergebnis\Composer\Json\Normalizer\BinNormalizer`](https://github.com/ergebnis/composer-normalize/blob/main/README.md#binnormalizer)
-* [`Ergebnis\Composer\Json\Normalizer\ConfigHashNormalizer`](https://github.com/ergebnis/composer-normalize/blob/main/README.md#confighashnormalizer)
-* [`Ergebnis\Composer\Json\Normalizer\PackageHashNormalizer`](https://github.com/ergebnis/composer-normalize/blob/main/README.md#packagehashnormalizer)
-* [`Ergebnis\Composer\Json\Normalizer\VersionConstraintNormalizer`](https://github.com/ergebnis/composer-normalize/blob/main/README.md#versionconstraintnormalizer)
+- [`Ergebnis\Composer\Json\Normalizer\BinNormalizer`](https://github.com/ergebnis/composer-normalize/blob/main/README.md#binnormalizer)
+- [`Ergebnis\Composer\Json\Normalizer\ConfigHashNormalizer`](https://github.com/ergebnis/composer-normalize/blob/main/README.md#confighashnormalizer)
+- [`Ergebnis\Composer\Json\Normalizer\PackageHashNormalizer`](https://github.com/ergebnis/composer-normalize/blob/main/README.md#packagehashnormalizer)
+- [`Ergebnis\Composer\Json\Normalizer\VersionConstraintNormalizer`](https://github.com/ergebnis/composer-normalize/blob/main/README.md#versionconstraintnormalizer)
 
 ### `BinNormalizer`
 
@@ -168,9 +168,9 @@ If `composer.json` contains an array of scripts in the `bin` section, the `BinNo
 
 If `composer.json` contains any configuration in the
 
-* `config`
-* `extra`
-* `scripts-descriptions`
+- `config`
+- `extra`
+- `scripts-descriptions`
 
 sections, the `ConfigHashNormalizer` will sort the content of these sections by key in ascending order.
 
@@ -180,12 +180,12 @@ sections, the `ConfigHashNormalizer` will sort the content of these sections by 
 
 If `composer.json` contains any configuration in the
 
-* `conflict`
-* `provide`
-* `replace`
-* `require`
-* `require-dev`
-* `suggest`
+- `conflict`
+- `provide`
+- `replace`
+- `require`
+- `require-dev`
+- `suggest`
 
 sections, the `PackageHashNormalizer` will sort the content of these sections.
 
@@ -195,18 +195,18 @@ sections, the `PackageHashNormalizer` will sort the content of these sections.
 
 If `composer.json` contains version constraints in the
 
-* `conflict`
-* `provide`
-* `replace`
-* `require`
-* `require-dev`
+- `conflict`
+- `provide`
+- `replace`
+- `require`
+- `require-dev`
 
 sections, the `VersionConstraintNormalizer` will ensure that
 
-* all constraints are trimmed
-* *and* constraints are separated by a single space (` `) or a comma (`,`)
-* *or* constraints are separated by double-pipe with a single space before and after (` || `)
-* *range* constraints are separated by a single space (` `)
+- all constraints are trimmed
+- *and- constraints are separated by a single space (` `) or a comma (`,`)
+- *or- constraints are separated by double-pipe with a single space before and after (` || `)
+- *range- constraints are separated by a single space (` `)
 
 :bulb: Find out more about version constraints at https://getcomposer.org/doc/articles/versions.md.
 
