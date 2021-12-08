@@ -272,7 +272,7 @@ final class NormalizeCommand extends Command\BaseCommand
             return 1;
         }
 
-        \file_put_contents($composerFile, $formatted);
+        \file_put_contents($composerFile, $formatted->encoded());
 
         $io->write(\sprintf(
             '<info>Successfully normalized %s.</info>',
