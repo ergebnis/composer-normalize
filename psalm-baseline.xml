@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.4.1@9fd7a7d885b3a216cff8dec9d8c21a132f275224">
+<files psalm-version="v4.14.0@14dcbc908ab2625cd7a74258ee6c740cbecc6140">
   <file src="src/Command/NormalizeCommand.php">
     <MissingPropertyType occurrences="4">
       <code>$differ</code>
@@ -7,7 +7,7 @@
       <code>$formatter</code>
       <code>$normalizer</code>
     </MissingPropertyType>
-    <MixedArgument occurrences="10">
+    <MixedArgument occurrences="11">
       <code>$composer-&gt;getPackage()-&gt;getExtra()</code>
       <code>$composerFile</code>
       <code>$composerFile</code>
@@ -18,45 +18,27 @@
       <code>$composerFile</code>
       <code>$composerFile</code>
       <code>$diff</code>
+      <code>$formatted-&gt;encoded()</code>
     </MixedArgument>
-    <MixedAssignment occurrences="6">
+    <MixedAssignment occurrences="5">
       <code>$composer</code>
       <code>$composerFile</code>
       <code>$diff</code>
       <code>$formatted</code>
-      <code>$locker</code>
       <code>$normalized</code>
     </MixedAssignment>
-    <MixedMethodCall occurrences="12">
+    <MixedMethodCall occurrences="10">
       <code>createComposer</code>
       <code>diff</code>
+      <code>encoded</code>
       <code>encoded</code>
       <code>encoded</code>
       <code>format</code>
       <code>getExtra</code>
       <code>getLocker</code>
       <code>getPackage</code>
-      <code>isFresh</code>
-      <code>isLocked</code>
-      <code>isLocked</code>
       <code>normalize</code>
     </MixedMethodCall>
-    <PossiblyInvalidArgument occurrences="8">
-      <code>$composerFile</code>
-      <code>$composerFile</code>
-      <code>$composerFile</code>
-      <code>$composerFile</code>
-      <code>$composerFile</code>
-      <code>$composerFile</code>
-      <code>$composerFile</code>
-      <code>$composerFile</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="4">
-      <code>$composerFile</code>
-      <code>$composerFile</code>
-      <code>$composerFile</code>
-      <code>$composerFile</code>
-    </PossiblyInvalidCast>
   </file>
   <file src="test/Integration/Command/NormalizeCommand/AbstractTestCase.php">
     <MixedArrayAccess occurrences="1">
