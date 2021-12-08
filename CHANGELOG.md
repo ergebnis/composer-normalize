@@ -6,7 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`2.17.0...main`][2.17.0...main].
+For a full diff see [`2.18.0...main`][2.18.0...main].
+
+## [`2.18.0`][2.18.0]
+
+### Changed
+
+- Updated `schema.json` ([#829]), by [@ergebnis-bot]
 
 ## [`2.17.0`][2.17.0]
 
@@ -675,7 +681,8 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [2.14.0...2.15.0]: https://github.com/ergebnis/composer-normalize/compare/2.14.0...2.15.0
 [2.15.0...2.16.0]: https://github.com/ergebnis/composer-normalize/compare/2.15.0...2.16.0
 [2.16.0...2.17.0]: https://github.com/ergebnis/composer-normalize/compare/2.16.0...2.17.0
-[2.17.0...main]: https://github.com/ergebnis/composer-normalize/compare/2.17.0...main
+[2.17.0...2.18.0]: https://github.com/ergebnis/composer-normalize/compare/2.17.0...2.18.0
+[2.18.0...main]: https://github.com/ergebnis/composer-normalize/compare/2.18.0...main
 
 [#1]: https://github.com/ergebnis/composer-normalize/pull/1
 [#2]: https://github.com/ergebnis/composer-normalize/pull/2
@@ -761,6 +768,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [#807]: https://github.com/ergebnis/composer-normalize/pull/807
 [#816]: https://github.com/ergebnis/composer-normalize/pull/816
 [#825]: https://github.com/ergebnis/composer-normalize/pull/825
+[#829]: https://github.com/ergebnis/composer-normalize/pull/829
 
 [@core23]: https://github.com/core23
 [@dependabot]: https://github.com/dependabot
