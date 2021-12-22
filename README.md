@@ -40,6 +40,21 @@ composer require --dev ergebnis/composer-normalize
 
 to install `ergebnis/composer-normalize` as a composer plugin.
 
+Run
+
+```shell
+composer config allow-plugins.ergebnis/composer-normalize true
+```
+
+to allow `ergebnis/composer-normalize` to run as a composer plugin.
+
+:bulb: The `allow-plugins` has been added to `composer/composer` to add an extra layer of security.
+
+For reference, see
+
+- https://github.com/composer/composer/pull/10314
+- https://getcomposer.org/doc/06-config.md#allow-plugins
+
 ### Phar
 
 Head over to http://github.com/ergebnis/composer-normalize/releases/latest and download the latest `composer-normalize.phar`.
