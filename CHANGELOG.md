@@ -6,7 +6,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`2.18.0...main`][2.18.0...main].
+For a full diff see [`2.19.0...main`][2.19.0...main].
+
+## [`2.19.0`][2.19.0]
 
 ### Changed
 
@@ -626,6 +628,8 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [2.15.0]: https://github.com/ergebnis/composer-normalize/releases/tag/2.15.0
 [2.16.0]: https://github.com/ergebnis/composer-normalize/releases/tag/2.16.0
 [2.17.0]: https://github.com/ergebnis/composer-normalize/releases/tag/2.17.0
+[2.18.0]: https://github.com/ergebnis/composer-normalize/releases/tag/2.18.0
+[2.19.0]: https://github.com/ergebnis/composer-normalize/releases/tag/2.19.0
 
 [81bc3a8...0.1.0]: https://github.com/ergebnis/composer-normalize/compare/81bc3a8...0.1.0
 [0.1.0...0.2.0]: https://github.com/ergebnis/composer-normalize/compare/0.1.0...0.2.0
@@ -686,7 +690,8 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [2.15.0...2.16.0]: https://github.com/ergebnis/composer-normalize/compare/2.15.0...2.16.0
 [2.16.0...2.17.0]: https://github.com/ergebnis/composer-normalize/compare/2.16.0...2.17.0
 [2.17.0...2.18.0]: https://github.com/ergebnis/composer-normalize/compare/2.17.0...2.18.0
-[2.18.0...main]: https://github.com/ergebnis/composer-normalize/compare/2.18.0...main
+[2.18.0...2.19.0]: https://github.com/ergebnis/composer-normalize/compare/2.17.0...2.18.0
+[2.19.0...main]: https://github.com/ergebnis/composer-normalize/compare/2.19.0...main
 
 [#1]: https://github.com/ergebnis/composer-normalize/pull/1
 [#2]: https://github.com/ergebnis/composer-normalize/pull/2
