@@ -143,7 +143,7 @@ abstract class AbstractTestCase extends Framework\TestCase
 
     final protected static function assertComposerLockFileNotExists(Test\Util\State $state): void
     {
-        self::assertFileNotExists($state->composerLockFile()->path());
+        self::assertFileDoesNotExist($state->composerLockFile()->path());
     }
 
     final protected static function assertComposerLockFileFresh(Test\Util\State $state): void
