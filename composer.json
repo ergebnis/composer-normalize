@@ -21,7 +21,7 @@
     "source": "https://github.com/ergebnis/composer-normalize"
   },
   "require": {
-    "php": "^7.2 || ^8.0",
+    "php": "^7.3 || ^8.0",
     "composer-plugin-api": "^2.0.0",
     "ergebnis/json-normalizer": "^1.0.3",
     "ergebnis/json-printer": "^3.1.1",
@@ -55,7 +55,7 @@
       "composer/package-versions-deprecated": true
     },
     "platform": {
-      "php": "7.2.33"
+      "php": "7.3.32"
     },
     "preferred-install": "dist",
     "sort-packages": true
