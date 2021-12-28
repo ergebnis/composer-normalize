@@ -38,7 +38,7 @@ final class Test extends Integration\Command\NormalizeCommand\AbstractTestCase
 
         $scenario = self::createScenario(
             $commandInvocation,
-            __DIR__ . '/fixture'
+            __DIR__ . '/fixture',
         );
 
         $application = self::createApplicationWithNormalizeCommandAsProvidedByNormalizePlugin();
@@ -51,7 +51,7 @@ final class Test extends Integration\Command\NormalizeCommand\AbstractTestCase
 
         $exitCode = $application->run(
             $input,
-            $output
+            $output,
         );
 
         self::assertExitCodeSame(1, $exitCode);
@@ -66,7 +66,7 @@ final class Test extends Integration\Command\NormalizeCommand\AbstractTestCase
     {
         $scenario = self::createScenario(
             $commandInvocation,
-            __DIR__ . '/fixture'
+            __DIR__ . '/fixture',
         );
 
         $application = self::createApplicationWithNormalizeCommandAsProvidedByNormalizePlugin();
@@ -79,7 +79,7 @@ final class Test extends Integration\Command\NormalizeCommand\AbstractTestCase
 
         $exitCode = $application->run(
             $input,
-            $output
+            $output,
         );
 
         self::assertExitCodeSame(1, $exitCode);
@@ -98,7 +98,7 @@ final class Test extends Integration\Command\NormalizeCommand\AbstractTestCase
 
         $scenario = self::createScenario(
             $commandInvocation,
-            __DIR__ . '/fixture'
+            __DIR__ . '/fixture',
         );
 
         $application = self::createApplicationWithNormalizeCommandAsProvidedByNormalizePlugin();
@@ -112,14 +112,14 @@ final class Test extends Integration\Command\NormalizeCommand\AbstractTestCase
 
         $exitCode = $application->run(
             $input,
-            $output
+            $output,
         );
 
         self::assertExitCodeSame(1, $exitCode);
 
         $expected = \sprintf(
             'Indent style needs to be one of "space", "tab", but "%s" is not.',
-            $indentStyle
+            $indentStyle,
         );
 
         self::assertStringContainsString($expected, $output->fetch());
@@ -136,7 +136,7 @@ final class Test extends Integration\Command\NormalizeCommand\AbstractTestCase
 
         $scenario = self::createScenario(
             $commandInvocation,
-            __DIR__ . '/fixture'
+            __DIR__ . '/fixture',
         );
 
         $application = self::createApplicationWithNormalizeCommandAsProvidedByNormalizePlugin();
@@ -150,14 +150,14 @@ final class Test extends Integration\Command\NormalizeCommand\AbstractTestCase
 
         $exitCode = $application->run(
             $input,
-            $output
+            $output,
         );
 
         self::assertExitCodeSame(1, $exitCode);
 
         $expected = \sprintf(
             'Indent size needs to be an integer greater than 0, but "%s" is not.',
-            $indentSize
+            $indentSize,
         );
 
         self::assertStringContainsString($expected, $output->fetch());

@@ -53,7 +53,7 @@ final class NormalizeCommandProvider
                 $key = \sprintf(
                     '%s-indent-size-%s',
                     $commandInvocation->style(),
-                    $indentSizeKey
+                    $indentSizeKey,
                 );
 
                 yield $key => [
@@ -82,7 +82,7 @@ final class NormalizeCommandProvider
                         '%s-indent-size-%d-indent-style-%s',
                         $commandInvocation->style(),
                         (string) $indentSize,
-                        $indentStyle
+                        $indentStyle,
                     );
 
                     yield $key => [

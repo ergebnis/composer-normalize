@@ -35,7 +35,7 @@ final class Scenario
     {
         return new self(
             $commandInvocation,
-            $initialState
+            $initialState,
         );
     }
 
@@ -68,7 +68,7 @@ final class Scenario
     {
         return \array_merge(
             $this->consoleParameters(),
-            $parameters
+            $parameters,
         );
     }
 
@@ -85,7 +85,7 @@ final class Scenario
             return \array_merge($parameters, [
                 'file' => \sprintf(
                     '%s/composer.json',
-                    $this->initialState->directory()->path()
+                    $this->initialState->directory()->path(),
                 ),
             ]);
         }
@@ -104,7 +104,7 @@ final class Scenario
         if ($this->commandInvocation->is(CommandInvocation::usingFileArgument())) {
             return \sprintf(
                 '%s/composer.json',
-                $this->initialState->directory()->path()
+                $this->initialState->directory()->path(),
             );
         }
 

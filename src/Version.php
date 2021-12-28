@@ -36,7 +36,7 @@ final class Version
             return \sprintf(
                 '<info>%s</info> %s',
                 $name,
-                $attribution
+                $attribution,
             );
         }
 
@@ -44,7 +44,7 @@ final class Version
             '<info>%s</info> %s %s',
             $name,
             $version,
-            $attribution
+            $attribution,
         );
     }
 }

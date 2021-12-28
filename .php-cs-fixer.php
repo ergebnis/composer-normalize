@@ -18,15 +18,15 @@ $license = License\Type\MIT::markdown(
     __DIR__ . '/LICENSE.md',
     License\Range::since(
         License\Year::fromString('2018'),
-        new \DateTimeZone('UTC')
+        new \DateTimeZone('UTC'),
     ),
     License\Holder::fromString('Andreas Möller'),
-    License\Url::fromString('https://github.com/ergebnis/composer-normalize')
+    License\Url::fromString('https://github.com/ergebnis/composer-normalize'),
 );
 
 $license->save();
 
-$config = PhpCsFixer\Config\Factory::fromRuleSet(new PhpCsFixer\Config\RuleSet\Php71($license->header()));
+$config = PhpCsFixer\Config\Factory::fromRuleSet(new PhpCsFixer\Config\RuleSet\Php73($license->header()));
 
 $config->getFinder()
     ->exclude([

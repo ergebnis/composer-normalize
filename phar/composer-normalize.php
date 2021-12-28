@@ -28,7 +28,7 @@ $command = new Normalize\Command\NormalizeCommand(
     new Diff\Differ(new Diff\Output\StrictUnifiedDiffOutputBuilder([
         'fromFile' => 'original',
         'toFile' => 'normalized',
-    ]))
+    ])),
 );
 
 $application = new Application();
@@ -42,7 +42,7 @@ if (1 === \count($argv) || 'normalize' !== $argv[1]) {
         0,
         [
             'normalize',
-        ]
+        ],
     );
 }
 
