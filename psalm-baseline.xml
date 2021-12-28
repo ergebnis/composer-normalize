@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="v4.14.0@14dcbc908ab2625cd7a74258ee6c740cbecc6140">
+<files psalm-version="4.16.1@aa7e400908833b10c0333861f86cd48c510b60eb">
   <file src="src/Command/NormalizeCommand.php">
     <MissingPropertyType occurrences="4">
       <code>$differ</code>
@@ -47,10 +47,5 @@
     <MixedAssignment occurrences="1">
       <code>$decoded</code>
     </MixedAssignment>
-  </file>
-  <file src="test/Util/File.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>$path</code>
-    </PropertyNotSetInConstructor>
   </file>
 </files>
