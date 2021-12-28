@@ -29,11 +29,7 @@ use Symfony\Component\Filesystem;
 abstract class AbstractTestCase extends Framework\TestCase
 {
     use Test\Util\Helper;
-
-    /**
-     * @var string
-     */
-    private $currentWorkingDirectory;
+    private string $currentWorkingDirectory;
 
     final protected function setUp(): void
     {

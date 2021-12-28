@@ -20,10 +20,8 @@ final class Version
 {
     /**
      * @see https://github.com/box-project/box/blob/master/doc/configuration.md#pretty-git-tag-placeholder-git
-     *
-     * @var string
      */
-    private static $version = '@git@';
+    private static string $version = '@git@';
 
     public static function long(): string
     {

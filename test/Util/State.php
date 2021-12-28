@@ -15,25 +15,10 @@ namespace Ergebnis\Composer\Normalize\Test\Util;
 
 final class State
 {
-    /**
-     * @var Directory
-     */
-    private $directory;
-
-    /**
-     * @var File
-     */
-    private $composerJsonFile;
-
-    /**
-     * @var File
-     */
-    private $composerLockFile;
-
-    /**
-     * @var Directory
-     */
-    private $vendorDirectory;
+    private Directory $directory;
+    private File $composerJsonFile;
+    private File $composerLockFile;
+    private Directory $vendorDirectory;
 
     private function __construct(Directory $directory)
     {
