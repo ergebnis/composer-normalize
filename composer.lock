@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "46f40761f7e5f54bbe00ec90e13d363a",
+    "content-hash": "88789c9fd48b6c8cd71e04853f0640a8",
     "packages": [
         {
             "name": "ergebnis/json-normalizer",
@@ -1316,83 +1316,6 @@
             "time": "2020-05-25T17:44:05+00:00"
         },
         {
-            "name": "ergebnis/classy",
-            "version": "1.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ergebnis/classy.git",
-                "reference": "72840bda3ce8b7bdc9362e8646141eb3c5ca9947"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/classy/zipball/72840bda3ce8b7bdc9362e8646141eb3c5ca9947",
-                "reference": "72840bda3ce8b7bdc9362e8646141eb3c5ca9947",
-                "shasum": ""
-            },
-            "require": {
-                "ext-tokenizer": "*",
-                "php": "^7.2 || ^8.0"
-            },
-            "require-dev": {
-                "ergebnis/composer-normalize": "^2.13.2",
-                "ergebnis/license": "^1.1.0",
-                "ergebnis/php-cs-fixer-config": "^2.13.0",
-                "ergebnis/phpstan-rules": "~0.15.3",
-                "ergebnis/test-util": "^1.0.0",
-                "infection/infection": "~0.15.3",
-                "phpstan/extension-installer": "^1.1.0",
-                "phpstan/phpstan": "~0.12.70",
-                "phpstan/phpstan-deprecation-rules": "~0.12.6",
-                "phpstan/phpstan-strict-rules": "~0.12.9",
-                "phpunit/phpunit": "^8.5.14",
-                "psalm/plugin-phpunit": "~0.15.0",
-                "vimeo/psalm": "^4.4.1",
-                "zendframework/zend-file": "^2.8.3"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-main": "1.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Ergebnis\\Classy\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Andreas Möller",
-                    "email": "am@localheinz.com"
-                }
-            ],
-            "description": "Provides a finder for classy constructs (classes, interfaces, and traits).",
-            "homepage": "https://github.com/ergebnis/classy",
-            "keywords": [
-                "classes",
-                "classy",
-                "constructs",
-                "finder",
-                "interfaces",
-                "traits"
-            ],
-            "support": {
-                "issues": "https://github.com/ergebnis/classy/issues",
-                "source": "https://github.com/ergebnis/classy"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/localheinz",
-                    "type": "github"
-                }
-            ],
-            "time": "2021-02-01T08:25:30+00:00"
-        },
-        {
             "name": "ergebnis/license",
             "version": "1.1.0",
             "source": {
@@ -1530,82 +1453,6 @@
                 }
             ],
             "time": "2021-05-04T14:04:50+00:00"
-        },
-        {
-            "name": "ergebnis/test-util",
-            "version": "1.5.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ergebnis/test-util.git",
-                "reference": "7c85925bca8b2d2985eb7a208f53114dc64c780b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/test-util/zipball/7c85925bca8b2d2985eb7a208f53114dc64c780b",
-                "reference": "7c85925bca8b2d2985eb7a208f53114dc64c780b",
-                "shasum": ""
-            },
-            "require": {
-                "ergebnis/classy": "^1.1.1",
-                "fakerphp/faker": "^1.14.1",
-                "php": "^7.2 || ^8.0"
-            },
-            "require-dev": {
-                "ergebnis/composer-normalize": "^2.13.3",
-                "ergebnis/license": "^1.1.0",
-                "ergebnis/php-cs-fixer-config": "^2.13.0",
-                "ergebnis/phpstan-rules": "~0.15.3",
-                "infection/infection": "~0.15.3",
-                "phpstan/extension-installer": "^1.1.0",
-                "phpstan/phpstan": "~0.12.65",
-                "phpstan/phpstan-deprecation-rules": "~0.12.6",
-                "phpstan/phpstan-phpunit": "~0.12.18",
-                "phpstan/phpstan-strict-rules": "~0.12.9",
-                "phpunit/phpunit": "^8.5.15",
-                "psalm/plugin-phpunit": "~0.15.1",
-                "vimeo/psalm": "^4.7.0"
-            },
-            "type": "library",
-            "extra": {
-                "composer-normalize": {
-                    "indent-size": 2,
-                    "indent-style": "space"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Ergebnis\\Test\\Util\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Andreas Möller",
-                    "email": "am@localheinz.com"
-                }
-            ],
-            "description": "Provides a helper trait and generic data providers for tests.",
-            "homepage": "https://github.com/ergebnis/test-util",
-            "keywords": [
-                "assertion",
-                "faker",
-                "phpunit",
-                "test"
-            ],
-            "support": {
-                "issues": "https://github.com/ergebnis/test-util/issues",
-                "source": "https://github.com/ergebnis/test-util"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/localheinz",
-                    "type": "github"
-                }
-            ],
-            "time": "2021-03-30T15:07:05+00:00"
         },
         {
             "name": "fakerphp/faker",
