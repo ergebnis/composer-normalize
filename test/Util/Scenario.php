@@ -15,15 +15,8 @@ namespace Ergebnis\Composer\Normalize\Test\Util;
 
 final class Scenario
 {
-    /**
-     * @var CommandInvocation
-     */
-    private $commandInvocation;
-
-    /**
-     * @var State
-     */
-    private $initialState;
+    private CommandInvocation $commandInvocation;
+    private State $initialState;
 
     private function __construct(CommandInvocation $commandInvocation, State $initialState)
     {

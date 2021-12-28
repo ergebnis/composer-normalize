@@ -15,20 +15,9 @@ namespace Ergebnis\Composer\Normalize\Test\Util;
 
 final class File
 {
-    /**
-     * @var string
-     */
-    private $path;
-
-    /**
-     * @var bool
-     */
-    private $exists = false;
-
-    /**
-     * @var null|string
-     */
-    private $contents;
+    private string $path;
+    private bool $exists = false;
+    private ?string $contents;
 
     private function __construct()
     {

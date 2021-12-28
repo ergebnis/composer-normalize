@@ -15,10 +15,7 @@ namespace Ergebnis\Composer\Normalize\Test\Util;
 
 final class CommandInvocation
 {
-    /**
-     * @var string
-     */
-    private $style;
+    private string $style;
 
     private function __construct(string $variation)
     {

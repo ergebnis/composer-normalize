@@ -15,15 +15,8 @@ namespace Ergebnis\Composer\Normalize\Test\Util;
 
 final class Directory
 {
-    /**
-     * @var string
-     */
-    private $path;
-
-    /**
-     * @var bool
-     */
-    private $exists;
+    private string $path;
+    private bool $exists;
 
     private function __construct(string $path)
     {
