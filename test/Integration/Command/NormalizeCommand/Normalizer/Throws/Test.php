@@ -39,7 +39,7 @@ final class Test extends Integration\Command\NormalizeCommand\AbstractTestCase
     {
         $scenario = self::createScenario(
             $commandInvocation,
-            __DIR__ . '/fixture'
+            __DIR__ . '/fixture',
         );
 
         $initialState = $scenario->initialState();
@@ -71,7 +71,7 @@ final class Test extends Integration\Command\NormalizeCommand\AbstractTestCase
             new Diff\Differ(new Diff\Output\StrictUnifiedDiffOutputBuilder([
                 'fromFile' => 'original',
                 'toFile' => 'normalized',
-            ]))
+            ])),
         ));
 
         $input = new Console\Input\ArrayInput($scenario->consoleParameters());
@@ -80,7 +80,7 @@ final class Test extends Integration\Command\NormalizeCommand\AbstractTestCase
 
         $exitCode = $application->run(
             $input,
-            $output
+            $output,
         );
 
         self::assertExitCodeSame(1, $exitCode);

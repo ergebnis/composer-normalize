@@ -15,7 +15,7 @@ $schemaFile = __DIR__ . '/../resource/schema.json';
 
 $schema = \json_decode(
     \file_get_contents($schemaFile),
-    false
+    false,
 );
 
 $schema->additionalProperties = true;
@@ -23,5 +23,5 @@ $schema->required = [];
 
 \file_put_contents($schemaFile, \json_encode(
     $schema,
-    \JSON_PRETTY_PRINT | \JSON_PRESERVE_ZERO_FRACTION | \JSON_UNESCAPED_SLASHES
+    \JSON_PRETTY_PRINT | \JSON_PRESERVE_ZERO_FRACTION | \JSON_UNESCAPED_SLASHES,
 ));

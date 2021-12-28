@@ -41,17 +41,17 @@ final class State
 
         $this->composerJsonFile = File::fromPath(\sprintf(
             '%s/composer.json',
-            $directory->path()
+            $directory->path(),
         ));
 
         $this->composerLockFile = File::fromPath(\sprintf(
             '%s/composer.lock',
-            $directory->path()
+            $directory->path(),
         ));
 
         $this->vendorDirectory = Directory::fromPath(\sprintf(
             '%s/vendor',
-            $directory->path()
+            $directory->path(),
         ));
     }
 

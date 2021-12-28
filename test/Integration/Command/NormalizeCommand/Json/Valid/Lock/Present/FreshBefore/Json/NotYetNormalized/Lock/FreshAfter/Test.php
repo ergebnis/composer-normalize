@@ -34,7 +34,7 @@ final class Test extends Integration\Command\NormalizeCommand\AbstractTestCase
     {
         $scenario = self::createScenario(
             $commandInvocation,
-            __DIR__ . '/fixture'
+            __DIR__ . '/fixture',
         );
 
         $initialState = $scenario->initialState();
@@ -51,14 +51,14 @@ final class Test extends Integration\Command\NormalizeCommand\AbstractTestCase
 
         $exitCode = $application->run(
             $input,
-            $output
+            $output,
         );
 
         self::assertExitCodeSame(0, $exitCode);
 
         $expected = \sprintf(
             'Successfully normalized %s.',
-            $scenario->composerJsonFileReference()
+            $scenario->composerJsonFileReference(),
         );
 
         self::assertStringContainsString($expected, $output->fetch());
@@ -76,7 +76,7 @@ final class Test extends Integration\Command\NormalizeCommand\AbstractTestCase
     {
         $scenario = self::createScenario(
             $commandInvocation,
-            __DIR__ . '/fixture'
+            __DIR__ . '/fixture',
         );
 
         $initialState = $scenario->initialState();
@@ -94,7 +94,7 @@ final class Test extends Integration\Command\NormalizeCommand\AbstractTestCase
 
         $exitCode = $application->run(
             $input,
-            $output
+            $output,
         );
 
         self::assertExitCodeSame(1, $exitCode);
@@ -103,7 +103,7 @@ final class Test extends Integration\Command\NormalizeCommand\AbstractTestCase
 
         $expected = \sprintf(
             '%s is not normalized.',
-            $scenario->composerJsonFileReference()
+            $scenario->composerJsonFileReference(),
         );
 
         self::assertStringContainsString($expected, $renderedOutput);

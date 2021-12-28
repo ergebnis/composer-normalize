@@ -68,7 +68,7 @@ final class File
         if (false === $this->exists || null === $this->contents) {
             throw new \BadMethodCallException(\sprintf(
                 'File at "%s" did not exist or was not readable at the time of creation.',
-                $this->path
+                $this->path,
             ));
         }
 
