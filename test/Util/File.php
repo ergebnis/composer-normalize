@@ -16,30 +16,44 @@ namespace Ergebnis\Composer\Normalize\Test\Util;
 final class File
 {
     private string $path;
-    private bool $exists = false;
+    private bool $exists;
     private ?string $contents;
 
-    private function __construct()
-    {
+    private function __construct(
+        string $path,
+        bool $exists,
+        ?string $contents
+    ) {
+        $this->path = $path;
+        $this->exists = $exists;
+        $this->contents = $contents;
     }
 
     public static function fromPath(string $path): self
     {
-        $file = new self();
-
-        $file->path = $path;
-
-        if (\file_exists($path)) {
-            $file->exists = true;
-
-            $contents = \file_get_contents($path);
-
-            if (\is_string($contents)) {
-                $file->contents = $contents;
-            }
+        if (!\file_exists($path)) {
+            return new self(
+                $path,
+                false,
+                null,
+            );
         }
 
-        return $file;
+        $contents = \file_get_contents($path);
+
+        if (!\is_string($contents)) {
+            return new self(
+                $path,
+                true,
+                null,
+            );
+        }
+
+        return new self(
+            $path,
+            true,
+            $contents,
+        );
     }
 
     public function path(): string
