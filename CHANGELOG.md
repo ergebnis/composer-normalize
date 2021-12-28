@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`2.19.0...main`][2.19.0...main].
 
+### Fixed
+
+- Dropped support for PHP 7.2 ([#845]), by [@localheinz]
+
 ## [`2.19.0`][2.19.0]
 
 ### Changed
@@ -779,6 +783,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [#825]: https://github.com/ergebnis/composer-normalize/pull/825
 [#829]: https://github.com/ergebnis/composer-normalize/pull/829
 [#842]: https://github.com/ergebnis/composer-normalize/pull/842
+[#845]: https://github.com/ergebnis/composer-normalize/pull/845
 
 [@core23]: https://github.com/core23
 [@dependabot]: https://github.com/dependabot
