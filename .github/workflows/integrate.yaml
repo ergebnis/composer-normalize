@@ -332,9 +332,6 @@ jobs:
         with:
           dependencies: "${{ matrix.dependencies }}"
 
-      - name: "Run auto-review tests with phpunit/phpunit"
-        run: "vendor/bin/phpunit --configuration=test/AutoReview/phpunit.xml"
-
       - name: "Run unit tests with phpunit/phpunit"
         run: "vendor/bin/phpunit --configuration=test/Unit/phpunit.xml"
 
