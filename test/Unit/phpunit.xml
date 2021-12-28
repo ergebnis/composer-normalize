@@ -22,11 +22,11 @@
     stopOnSkipped="false"
     verbose="true"
 >
-    <filter>
-        <whitelist addUncoveredFilesFromWhitelist="true" processUncoveredFilesFromWhitelist="true">
+    <coverage includeUncoveredFiles="true" processUncoveredFiles="true">
+        <include>
             <directory suffix=".php">../../src/</directory>
-        </whitelist>
-    </filter>
+        </include>
+    </coverage>
     <testsuites>
         <testsuite name="Unit Tests">
             <directory>.</directory>

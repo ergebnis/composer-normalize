@@ -22,11 +22,11 @@
     stopOnSkipped="false"
     verbose="true"
 >
-    <filter>
-        <whitelist addUncoveredFilesFromWhitelist="true" processUncoveredFilesFromWhitelist="true">
+    <coverage includeUncoveredFiles="true" processUncoveredFiles="true">
+        <include>
             <directory suffix=".php">../../src/</directory>
-        </whitelist>
-    </filter>
+        </include>
+    </coverage>
     <php>
         <env name="COLUMNS" value="200"/>
         <env name="COMPOSER_ALLOW_XDEBUG" value="1"/>
