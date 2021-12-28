@@ -30,11 +30,8 @@ use Symfony\Component\Console;
 final class NormalizeCommand extends Command\BaseCommand
 {
     private $factory;
-
     private $normalizer;
-
     private $formatter;
-
     private $differ;
 
     public function __construct(
