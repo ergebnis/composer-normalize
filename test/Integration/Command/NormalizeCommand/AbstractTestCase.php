@@ -17,7 +17,6 @@ use Composer\Console\Application;
 use Ergebnis\Composer\Normalize\Command\NormalizeCommand;
 use Ergebnis\Composer\Normalize\NormalizePlugin;
 use Ergebnis\Composer\Normalize\Test;
-use Ergebnis\Test\Util;
 use PHPUnit\Framework;
 use Symfony\Component\Console;
 use Symfony\Component\Filesystem;
@@ -29,7 +28,7 @@ use Symfony\Component\Filesystem;
  */
 abstract class AbstractTestCase extends Framework\TestCase
 {
-    use Util\Helper;
+    use Test\Util\Helper;
 
     /**
      * @var string

@@ -15,11 +15,10 @@ namespace Ergebnis\Composer\Normalize\Test\DataProvider\Command;
 
 use Ergebnis\Composer\Normalize\Test;
 use Ergebnis\Json\Normalizer\Format;
-use Ergebnis\Test\Util;
 
 final class NormalizeCommandProvider
 {
-    use Util\Helper;
+    use Test\Util\Helper;
 
     /**
      * @return \Generator<string, array{0: Test\Util\CommandInvocation}>
