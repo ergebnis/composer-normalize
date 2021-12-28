@@ -1,15 +1,15 @@
 <phpunit
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation="../../vendor/phpunit/phpunit/phpunit.xsd"
+    xsi:noNamespaceSchemaLocation="../vendor/phpunit/phpunit/phpunit.xsd"
     beStrictAboutChangesToGlobalState="true"
     beStrictAboutCoversAnnotation="true"
     beStrictAboutOutputDuringTests="true"
     beStrictAboutResourceUsageDuringSmallTests="true"
     beStrictAboutTestsThatDoNotTestAnything="true"
     beStrictAboutTodoAnnotatedTests="true"
-    bootstrap="../../vendor/autoload.php"
+    bootstrap="../vendor/autoload.php"
     cacheResult="true"
-    cacheResultFile="../../.build/phpunit/unit.cache"
+    cacheResultFile="../.build/phpunit/cache"
     colors="true"
     columns="max"
     convertErrorsToExceptions="true"
@@ -24,12 +24,20 @@
 >
     <coverage includeUncoveredFiles="true" processUncoveredFiles="true">
         <include>
-            <directory suffix=".php">../../src/</directory>
+            <directory suffix=".php">../src/</directory>
         </include>
     </coverage>
+    <php>
+        <env name="COLUMNS" value="200"/>
+        <env name="COMPOSER_ALLOW_XDEBUG" value="1"/>
+        <ini name="memory_limit" value="-1"/>
+    </php>
     <testsuites>
-        <testsuite name="Unit Tests">
-            <directory>.</directory>
+        <testsuite name="integration">
+            <directory>Integration/</directory>
+        </testsuite>
+        <testsuite name="unit">
+            <directory>Unit/</directory>
         </testsuite>
     </testsuites>
 </phpunit>
