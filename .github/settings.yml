@@ -14,14 +14,11 @@ branches:
         required_approving_review_count: 1
       required_status_checks:
         contexts:
-          - "Code Coverage (7.3, locked)"
-          - "Coding Standards (7.3, locked)"
-          - "Compile Phar (7.3, locked)"
-          - "Dependency Analysis (7.3, locked)"
-          - "Static Code Analysis (7.3, locked)"
-          - "Tests (7.3, highest)"
-          - "Tests (7.3, locked)"
-          - "Tests (7.3, lowest)"
+          - "Code Coverage (7.4, locked)"
+          - "Coding Standards (7.4, locked)"
+          - "Compile Phar (7.4, locked)"
+          - "Dependency Analysis (7.4, locked)"
+          - "Static Code Analysis (7.4, locked)"
           - "Tests (7.4, highest)"
           - "Tests (7.4, locked)"
           - "Tests (7.4, lowest)"

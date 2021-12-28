@@ -6,7 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`2.20.0...main`][2.20.0...main].
+For a full diff see [`2.21.0...main`][2.21.0...main].
+
+## [`2.21.0`][2.21.0]
+
+For a full diff see [`2.20.0...2.21.0`][2.20.0...2.21.0].
+
+### Changed
+
+- Dropped support for PHP 7.3 ([#852]), by [@localheinz]
 
 ## [`2.20.0`][2.20.0]
 
@@ -643,6 +651,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [2.18.0]: https://github.com/ergebnis/composer-normalize/releases/tag/2.18.0
 [2.19.0]: https://github.com/ergebnis/composer-normalize/releases/tag/2.19.0
 [2.20.0]: https://github.com/ergebnis/composer-normalize/releases/tag/2.20.0
+[2.21.0]: https://github.com/ergebnis/composer-normalize/releases/tag/2.21.0
 
 [81bc3a8...0.1.0]: https://github.com/ergebnis/composer-normalize/compare/81bc3a8...0.1.0
 [0.1.0...0.2.0]: https://github.com/ergebnis/composer-normalize/compare/0.1.0...0.2.0
@@ -705,7 +714,8 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [2.17.0...2.18.0]: https://github.com/ergebnis/composer-normalize/compare/2.17.0...2.18.0
 [2.18.0...2.19.0]: https://github.com/ergebnis/composer-normalize/compare/2.18.0...2.19.0
 [2.19.0...2.20.0]: https://github.com/ergebnis/composer-normalize/compare/2.19.0...2.20.0
-[2.20.0...main]: https://github.com/ergebnis/composer-normalize/compare/2.20.0...main
+[2.20.0...2.21.0]: https://github.com/ergebnis/composer-normalize/compare/2.20.0...2.21.0
+[2.21.0...main]: https://github.com/ergebnis/composer-normalize/compare/2.21.0...main
 
 [#1]: https://github.com/ergebnis/composer-normalize/pull/1
 [#2]: https://github.com/ergebnis/composer-normalize/pull/2
@@ -794,6 +804,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [#829]: https://github.com/ergebnis/composer-normalize/pull/829
 [#842]: https://github.com/ergebnis/composer-normalize/pull/842
 [#845]: https://github.com/ergebnis/composer-normalize/pull/845
+[#852]: https://github.com/ergebnis/composer-normalize/pull/852
 
 [@core23]: https://github.com/core23
 [@dependabot]: https://github.com/dependabot
