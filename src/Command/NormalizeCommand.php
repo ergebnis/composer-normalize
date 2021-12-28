@@ -29,10 +29,10 @@ use Symfony\Component\Console;
  */
 final class NormalizeCommand extends Command\BaseCommand
 {
-    private $factory;
-    private $normalizer;
-    private $formatter;
-    private $differ;
+    private Factory $factory;
+    private Normalizer\NormalizerInterface $normalizer;
+    private Normalizer\Format\FormatterInterface $formatter;
+    private Diff\Differ $differ;
 
     public function __construct(
         Factory $factory,

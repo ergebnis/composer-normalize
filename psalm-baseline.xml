@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <files psalm-version="4.16.1@aa7e400908833b10c0333861f86cd48c510b60eb">
   <file src="src/Command/NormalizeCommand.php">
-    <MissingPropertyType occurrences="4">
-      <code>$differ</code>
-      <code>$factory</code>
-      <code>$formatter</code>
-      <code>$normalizer</code>
-    </MissingPropertyType>
-    <MixedArgument occurrences="11">
-      <code>$composer-&gt;getPackage()-&gt;getExtra()</code>
+    <MixedArgument occurrences="9">
       <code>$composerFile</code>
       <code>$composerFile</code>
       <code>$composerFile</code>
@@ -17,28 +10,11 @@
       <code>$composerFile</code>
       <code>$composerFile</code>
       <code>$composerFile</code>
-      <code>$diff</code>
-      <code>$formatted-&gt;encoded()</code>
+      <code>$composerFile</code>
     </MixedArgument>
-    <MixedAssignment occurrences="5">
-      <code>$composer</code>
+    <MixedAssignment occurrences="1">
       <code>$composerFile</code>
-      <code>$diff</code>
-      <code>$formatted</code>
-      <code>$normalized</code>
     </MixedAssignment>
-    <MixedMethodCall occurrences="10">
-      <code>createComposer</code>
-      <code>diff</code>
-      <code>encoded</code>
-      <code>encoded</code>
-      <code>encoded</code>
-      <code>format</code>
-      <code>getExtra</code>
-      <code>getLocker</code>
-      <code>getPackage</code>
-      <code>normalize</code>
-    </MixedMethodCall>
   </file>
   <file src="test/Integration/Command/NormalizeCommand/AbstractTestCase.php">
     <MixedArrayAccess occurrences="1">
