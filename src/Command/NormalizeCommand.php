@@ -222,7 +222,7 @@ final class NormalizeCommand extends Command\BaseCommand
             return 1;
         }
 
-        $format = $json->format();
+        $format = Normalizer\Format\Format::fromJson($json);
 
         if (null !== $indent) {
             $format = $format->withIndent($indent);
