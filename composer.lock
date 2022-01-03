@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "94ca59ec670e125d62710a7170ae431f",
+    "content-hash": "4cd44b7db8c63b34c2f3df35dd5d6686",
     "packages": [
         {
             "name": "ergebnis/json-normalizer",
@@ -1378,38 +1378,32 @@
         },
         {
             "name": "ergebnis/license",
-            "version": "1.1.0",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/license.git",
-                "reference": "7b3022e34d650cffa907c123946ec2332a0c8780"
+                "reference": "c46cf24ca122c7c38508b2692ad307c703e0239b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/license/zipball/7b3022e34d650cffa907c123946ec2332a0c8780",
-                "reference": "7b3022e34d650cffa907c123946ec2332a0c8780",
+                "url": "https://api.github.com/repos/ergebnis/license/zipball/c46cf24ca122c7c38508b2692ad307c703e0239b",
+                "reference": "c46cf24ca122c7c38508b2692ad307c703e0239b",
                 "shasum": ""
             },
             "require": {
                 "ext-filter": "*",
-                "php": "^7.2 || ^8.0"
+                "php": "^7.4 || ^8.0"
             },
             "require-dev": {
-                "ergebnis/composer-normalize": "^2.7.1",
-                "ergebnis/php-cs-fixer-config": "^2.2.1",
-                "ergebnis/phpstan-rules": "~0.15.2",
-                "ergebnis/test-util": "^1.1.0",
-                "infection/infection": "~0.15.3",
-                "jangregor/phpstan-prophecy": "~0.8.0",
-                "phpstan/extension-installer": "^1.0.4",
-                "phpstan/phpstan": "~0.12.40",
-                "phpstan/phpstan-deprecation-rules": "~0.12.5",
-                "phpstan/phpstan-phpunit": "~0.12.16",
-                "phpstan/phpstan-strict-rules": "~0.12.4",
-                "phpunit/phpunit": "^8.5.8",
-                "psalm/plugin-phpunit": "~0.11.0",
-                "symfony/filesystem": "^4.4.11",
-                "vimeo/psalm": "^3.14.2"
+                "ergebnis/composer-normalize": "^2.22.0",
+                "ergebnis/data-provider": "^1.0.0",
+                "ergebnis/php-cs-fixer-config": "^3.4.0",
+                "fakerphp/faker": "^1.17.0",
+                "infection/infection": "~0.25.5",
+                "phpunit/phpunit": "^9.5.11",
+                "psalm/plugin-phpunit": "~0.16.1",
+                "symfony/filesystem": "^5.4.0",
+                "vimeo/psalm": "^4.17.0"
             },
             "type": "library",
             "autoload": {
@@ -1442,7 +1436,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-08-30T11:41:26+00:00"
+            "time": "2022-01-03T16:47:19+00:00"
         },
         {
             "name": "ergebnis/php-cs-fixer-config",

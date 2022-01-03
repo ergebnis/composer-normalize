@@ -30,7 +30,7 @@
   },
   "require-dev": {
     "composer/composer": "^2.2.1",
-    "ergebnis/license": "^1.1.0",
+    "ergebnis/license": "^1.2.0",
     "ergebnis/php-cs-fixer-config": "^3.4.0",
     "fakerphp/faker": "^1.17.0",
     "phpunit/phpunit": "^9.5.11",
