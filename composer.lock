@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7e4c50203499acfe1fd8dd484c0af58f",
+    "content-hash": "4537ae71e5e752a21c74bd8e2c24494d",
     "packages": [
         {
             "name": "ergebnis/json-normalizer",
-            "version": "2.0.0",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/json-normalizer.git",
-                "reference": "37fd2798ee04574f3a5e029f929f4571da1ad223"
+                "reference": "2039eb11131a243b9204bf51219baa08935e6b1d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/json-normalizer/zipball/37fd2798ee04574f3a5e029f929f4571da1ad223",
-                "reference": "37fd2798ee04574f3a5e029f929f4571da1ad223",
+                "url": "https://api.github.com/repos/ergebnis/json-normalizer/zipball/2039eb11131a243b9204bf51219baa08935e6b1d",
+                "reference": "2039eb11131a243b9204bf51219baa08935e6b1d",
                 "shasum": ""
             },
             "require": {
@@ -29,13 +29,13 @@
             },
             "require-dev": {
                 "ergebnis/data-provider": "^1.0.0",
-                "ergebnis/license": "^1.1.0",
+                "ergebnis/license": "^1.2.0",
                 "ergebnis/php-cs-fixer-config": "^3.4.0",
                 "fakerphp/faker": "^1.17.0",
                 "infection/infection": "~0.25.5",
                 "phpunit/phpunit": "^9.5.11",
                 "psalm/plugin-phpunit": "~0.16.1",
-                "vimeo/psalm": "^4.16.1"
+                "vimeo/psalm": "^4.17.0"
             },
             "type": "library",
             "autoload": {
@@ -69,7 +69,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-12-29T12:42:56+00:00"
+            "time": "2022-01-04T11:19:55+00:00"
         },
         {
             "name": "ergebnis/json-printer",
