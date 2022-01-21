@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`2.23.0...main`][2.23.0...main].
 
+### Fixed
+
+- Required `composer/composer:2.2.5` for compiling `composer-normalize.phar` ([#871]), by [@localheinz]
+
 ## [`2.23.0`][2.23.0]
 
 For a full diff see [`2.22.0...2.23.0`][2.22.0...2.23.0].
@@ -832,6 +836,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [#858]: https://github.com/ergebnis/composer-normalize/pull/858
 [#863]: https://github.com/ergebnis/composer-normalize/pull/863
 [#864]: https://github.com/ergebnis/composer-normalize/pull/864
+[#871]: https://github.com/ergebnis/composer-normalize/pull/871
 
 [@core23]: https://github.com/core23
 [@dependabot]: https://github.com/dependabot

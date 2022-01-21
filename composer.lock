@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "275be17a6c28a320759b6b7244ab3896",
+    "content-hash": "a26612ebb7671755b69e88316a049b73",
     "packages": [
         {
             "name": "ergebnis/json-normalizer",
@@ -581,16 +581,16 @@
         },
         {
             "name": "composer/composer",
-            "version": "2.2.3",
+            "version": "2.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "3c92ba5cdc7d48b7db2dcd197e6fa0e8fa6d9f4a"
+                "reference": "22c41ef275c7bb64fa28fb2c0871a39666832cb9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/3c92ba5cdc7d48b7db2dcd197e6fa0e8fa6d9f4a",
-                "reference": "3c92ba5cdc7d48b7db2dcd197e6fa0e8fa6d9f4a",
+                "url": "https://api.github.com/repos/composer/composer/zipball/22c41ef275c7bb64fa28fb2c0871a39666832cb9",
+                "reference": "22c41ef275c7bb64fa28fb2c0871a39666832cb9",
                 "shasum": ""
             },
             "require": {
@@ -660,7 +660,7 @@
             "support": {
                 "irc": "ircs://irc.libera.chat:6697/composer",
                 "issues": "https://github.com/composer/composer/issues",
-                "source": "https://github.com/composer/composer/tree/2.2.3"
+                "source": "https://github.com/composer/composer/tree/2.2.5"
             },
             "funding": [
                 {
@@ -676,7 +676,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-12-31T11:18:53+00:00"
+            "time": "2022-01-21T16:25:52+00:00"
         },
         {
             "name": "composer/metadata-minifier",
@@ -5837,5 +5837,5 @@
     "platform-overrides": {
         "php": "7.4.26"
     },
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.2.0"
 }
