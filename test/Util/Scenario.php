@@ -66,12 +66,16 @@ final class Scenario
     }
 
     /**
-     * @return array<string, string>
+     * @return array<string, bool|string>
      */
     public function consoleParameters(): array
     {
         $parameters = [
             'command' => 'normalize',
+            /**
+             * @see https://github.com/composer/composer/blob/2.2.3/src/Composer/Plugin/PluginManager.php#L702-L744
+             */
+            '--no-interaction' => true,
         ];
 
         if ($this->commandInvocation->is(CommandInvocation::usingFileArgument())) {
