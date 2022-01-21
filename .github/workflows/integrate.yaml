@@ -9,7 +9,7 @@ on: # yamllint disable-line rule:truthy
       - "main"
 
 env:
-  COMPOSER_VERSION: "2.2.3"
+  COMPOSER_VERSION: "2.2.5"
   PHP_EXTENSIONS: "mbstring"
   PHP_INI_VALUES: "memory_limit=-1, phar.readonly=0"
 
