@@ -9,5 +9,10 @@
   "require": {
     "ext-json": "*",
     "php": "^5.6"
+  },
+  "config": {
+    "allow-plugins": {
+      "ergebnis/composer-normalize": true
+    }
   }
 }
