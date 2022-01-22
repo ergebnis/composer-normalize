@@ -8,11 +8,6 @@ on: # yamllint disable-line rule:truthy
     branches:
       - "main"
 
-env:
-  COMPOSER_VERSION: "2.2.5"
-  PHP_EXTENSIONS: "mbstring"
-  PHP_INI_VALUES: "memory_limit=-1, phar.readonly=0"
-
 jobs:
   code-coverage:
     name: "Code Coverage"
@@ -35,15 +30,17 @@ jobs:
         uses: "shivammathur/setup-php@2.16.0"
         with:
           coverage: "xdebug"
-          extensions: "${{ env.PHP_EXTENSIONS }}"
-          ini-values: "${{ env.PHP_INI_VALUES }}"
+          extensions: "none, ctype, dom, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter"
           php-version: "${{ matrix.php-version }}"
+
+      - name: "Set up problem matchers for PHP"
+        run: "echo \"::add-matcher::${{ runner.tool_cache }}/php.json\""
 
       - name: "Set up problem matchers for phpunit/phpunit"
         run: "echo \"::add-matcher::${{ runner.tool_cache }}/phpunit.json\""
 
       - name: "Determine composer cache directory"
-        uses: "./.github/actions/composer/composer/determine-cache-directory"
+        uses: "ergebnis/.github/actions/composer/determine-cache-directory@1.2.1"
 
       - name: "Cache dependencies installed with composer"
         uses: "actions/cache@v2.1.7"
@@ -53,11 +50,13 @@ jobs:
           restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
 
       - name: "Install ${{ matrix.dependencies }} dependencies with composer"
-        uses: "./.github/actions/composer/composer/install"
+        uses: "ergebnis/.github/actions/composer/install@1.2.1"
         with:
           dependencies: "${{ matrix.dependencies }}"
 
       - name: "Collect code coverage with Xdebug and phpunit/phpunit"
+        env:
+          XDEBUG_MODE: "coverage"
         run: "vendor/bin/phpunit --configuration=test/phpunit.xml --coverage-clover=.build/logs/clover.xml"
 
       - name: "Send code coverage report to Codecov.io"
@@ -93,15 +92,17 @@ jobs:
         uses: "shivammathur/setup-php@2.16.0"
         with:
           coverage: "none"
-          extensions: "${{ env.PHP_EXTENSIONS }}"
-          ini-values: "${{ env.PHP_INI_VALUES }}"
+          extensions: "none, ctype, dom, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter"
           php-version: "${{ matrix.php-version }}"
 
+      - name: "Set up problem matchers for PHP"
+        run: "echo \"::add-matcher::${{ runner.tool_cache }}/php.json\""
+
       - name: "Validate composer.json and composer.lock"
-        run: "composer validate --strict"
+        run: "composer validate --ansi --strict"
 
       - name: "Determine composer cache directory"
-        uses: "./.github/actions/composer/composer/determine-cache-directory"
+        uses: "ergebnis/.github/actions/composer/determine-cache-directory@1.2.1"
 
       - name: "Cache dependencies installed with composer"
         uses: "actions/cache@v2.1.7"
@@ -111,7 +112,7 @@ jobs:
           restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
 
       - name: "Install ${{ matrix.dependencies }} dependencies with composer"
-        uses: "./.github/actions/composer/composer/install"
+        uses: "ergebnis/.github/actions/composer/install@1.2.1"
         with:
           dependencies: "${{ matrix.dependencies }}"
 
@@ -146,6 +147,7 @@ jobs:
 
     env:
       COMPOSER_NORMALIZE_PHAR: ".build/phar/composer-normalize.phar"
+      COMPOSER_VERSION: "2.2.5"
 
     steps:
       - name: "Checkout"
@@ -155,12 +157,15 @@ jobs:
         uses: "shivammathur/setup-php@2.16.0"
         with:
           coverage: "none"
-          extensions: "${{ env.PHP_EXTENSIONS }}"
-          ini-values: "${{ env.PHP_INI_VALUES }}"
+          extensions: "none, ctype, dom, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter"
+          ini-values: "memory_limit=-1, phar.readonly=0"
           php-version: "${{ matrix.php-version }}"
 
+      - name: "Set up problem matchers for PHP"
+        run: "echo \"::add-matcher::${{ runner.tool_cache }}/php.json\""
+
       - name: "Determine composer cache directory"
-        uses: "./.github/actions/composer/composer/determine-cache-directory"
+        uses: "ergebnis/.github/actions/composer/determine-cache-directory@1.2.1"
 
       - name: "Cache dependencies installed with composer"
         uses: "actions/cache@v2.1.7"
@@ -170,7 +175,7 @@ jobs:
           restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
 
       - name: "Install ${{ matrix.dependencies }} dependencies with composer"
-        uses: "./.github/actions/composer/composer/install"
+        uses: "ergebnis/.github/actions/composer/install@1.2.1"
         with:
           dependencies: "${{ matrix.dependencies }}"
 
@@ -216,11 +221,14 @@ jobs:
         uses: "shivammathur/setup-php@2.16.0"
         with:
           coverage: "none"
-          extensions: "${{ env.PHP_EXTENSIONS }}"
+          extensions: "none, ctype, dom, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter"
           php-version: "${{ matrix.php-version }}"
 
+      - name: "Set up problem matchers for PHP"
+        run: "echo \"::add-matcher::${{ runner.tool_cache }}/php.json\""
+
       - name: "Determine composer cache directory"
-        uses: "./.github/actions/composer/composer/determine-cache-directory"
+        uses: "ergebnis/.github/actions/composer/determine-cache-directory@1.2.1"
 
       - name: "Cache dependencies installed with composer"
         uses: "actions/cache@v2.1.7"
@@ -230,7 +238,7 @@ jobs:
           restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
 
       - name: "Install ${{ matrix.dependencies }} dependencies with composer"
-        uses: "./.github/actions/composer/composer/install"
+        uses: "ergebnis/.github/actions/composer/install@1.2.1"
         with:
           dependencies: "${{ matrix.dependencies }}"
 
@@ -258,12 +266,14 @@ jobs:
         uses: "shivammathur/setup-php@2.16.0"
         with:
           coverage: "none"
-          extensions: "${{ env.PHP_EXTENSIONS }}"
-          ini-values: "${{ env.PHP_INI_VALUES }}"
+          extensions: "none, ctype, curl, dom, json, mbstring, pcntl, phar, posix, simplexml, tokenizer, xml, xmlwriter"
           php-version: "${{ matrix.php-version }}"
 
+      - name: "Set up problem matchers for PHP"
+        run: "echo \"::add-matcher::${{ runner.tool_cache }}/php.json\""
+
       - name: "Determine composer cache directory"
-        uses: "./.github/actions/composer/composer/determine-cache-directory"
+        uses: "ergebnis/.github/actions/composer/determine-cache-directory@1.2.1"
 
       - name: "Cache dependencies installed with composer"
         uses: "actions/cache@v2.1.7"
@@ -273,7 +283,7 @@ jobs:
           restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
 
       - name: "Install ${{ matrix.dependencies }} dependencies with composer"
-        uses: "./.github/actions/composer/composer/install"
+        uses: "ergebnis/.github/actions/composer/install@1.2.1"
         with:
           dependencies: "${{ matrix.dependencies }}"
 
@@ -281,7 +291,7 @@ jobs:
         run: "mkdir -p .build/psalm"
 
       - name: "Run vimeo/psalm"
-        run: "vendor/bin/psalm --config=psalm.xml --diff --shepherd --show-info=false --stats --threads=4"
+        run: "vendor/bin/psalm --config=psalm.xml --shepherd --show-info=false --stats --threads=4"
 
   tests:
     name: "Tests"
@@ -308,15 +318,17 @@ jobs:
         uses: "shivammathur/setup-php@2.16.0"
         with:
           coverage: "none"
-          extensions: "${{ env.PHP_EXTENSIONS }}"
-          ini-values: "${{ env.PHP_INI_VALUES }}"
+          extensions: "none, ctype, dom, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter"
           php-version: "${{ matrix.php-version }}"
+
+      - name: "Set up problem matchers for PHP"
+        run: "echo \"::add-matcher::${{ runner.tool_cache }}/php.json\""
 
       - name: "Set up problem matchers for phpunit/phpunit"
         run: "echo \"::add-matcher::${{ runner.tool_cache }}/phpunit.json\""
 
       - name: "Determine composer cache directory"
-        uses: "./.github/actions/composer/composer/determine-cache-directory"
+        uses: "ergebnis/.github/actions/composer/determine-cache-directory@1.2.1"
 
       - name: "Cache dependencies installed with composer"
         uses: "actions/cache@v2.1.7"
@@ -326,7 +338,7 @@ jobs:
           restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
 
       - name: "Install ${{ matrix.dependencies }} dependencies with composer"
-        uses: "./.github/actions/composer/composer/install"
+        uses: "ergebnis/.github/actions/composer/install@1.2.1"
         with:
           dependencies: "${{ matrix.dependencies }}"
 

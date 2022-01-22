@@ -6,10 +6,6 @@ on: # yamllint disable-line rule:truthy
   schedule:
     - cron: "0 0 1 1 *"
 
-env:
-  PHP_EXTENSIONS: "mbstring"
-  PHP_INI_VALUES: "memory_limit=-1, phar.readonly=0"
-
 jobs:
   license:
     name: "License"
@@ -34,15 +30,17 @@ jobs:
         uses: "shivammathur/setup-php@2.16.0"
         with:
           coverage: "none"
-          extensions: "${{ env.PHP_EXTENSIONS }}"
-          ini-values: "${{ env.PHP_INI_VALUES }}"
+          extensions: "none, ctype, dom, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter"
           php-version: "${{ matrix.php-version }}"
 
+      - name: "Set up problem matchers for PHP"
+        run: "echo \"::add-matcher::${{ runner.tool_cache }}/php.json\""
+
       - name: "Validate composer.json and composer.lock"
-        run: "composer validate --strict"
+        run: "composer validate --ansi --strict"
 
       - name: "Determine composer cache directory"
-        uses: "./.github/actions/composer/composer/determine-cache-directory"
+        uses: "ergebnis/.github/actions/composer/determine-cache-directory@1.2.1"
 
       - name: "Cache dependencies installed with composer"
         uses: "actions/cache@v2.1.7"
@@ -52,7 +50,7 @@ jobs:
           restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
 
       - name: "Install ${{ matrix.dependencies }} dependencies with composer"
-        uses: "./.github/actions/composer/composer/install"
+        uses: "ergebnis/.github/actions/composer/install@1.2.1"
         with:
           dependencies: "${{ matrix.dependencies }}"
 
