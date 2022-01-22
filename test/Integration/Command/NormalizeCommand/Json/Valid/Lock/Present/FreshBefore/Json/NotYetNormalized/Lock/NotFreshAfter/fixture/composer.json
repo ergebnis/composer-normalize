@@ -16,7 +16,8 @@
   "_comment": "This composer.json is valid according to a lax validation, a composer.lock is present and fresh before invoking the command, composer.json is not yet normalized, and composer.lock is not fresh after invoking the command.",
   "config": {
     "allow-plugins": {
-      "ergebnis/composer-normalize": true
+      "ergebnis/composer-normalize": true,
+      "ergebnis/*": false
     }
   }
 }

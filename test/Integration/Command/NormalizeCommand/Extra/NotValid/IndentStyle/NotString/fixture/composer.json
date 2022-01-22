@@ -20,7 +20,8 @@
   },
   "config": {
     "allow-plugins": {
-      "ergebnis/composer-normalize": true
+      "ergebnis/composer-normalize": true,
+      "ergebnis/*": false
     }
   }
 }
