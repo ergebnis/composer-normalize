@@ -32,7 +32,7 @@
     "composer/composer": "^2.2.5",
     "ergebnis/license": "^1.2.0",
     "ergebnis/php-cs-fixer-config": "^3.4.0",
-    "fakerphp/faker": "^1.17.0",
+    "fakerphp/faker": "^1.18.0",
     "phpunit/phpunit": "^9.5.13",
     "psalm/plugin-phpunit": "~0.16.1",
     "symfony/filesystem": "^5.4.0",
