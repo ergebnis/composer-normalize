@@ -35,7 +35,7 @@
     "fakerphp/faker": "^1.18.0",
     "phpunit/phpunit": "^9.5.13",
     "psalm/plugin-phpunit": "~0.16.1",
-    "symfony/filesystem": "^5.4.0",
+    "symfony/filesystem": "^5.4.3",
     "vimeo/psalm": "^4.18.1"
   },
   "minimum-stability": "dev",
