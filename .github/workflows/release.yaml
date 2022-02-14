@@ -88,7 +88,7 @@ jobs:
         run: "echo \"RELEASE_TAG=${GITHUB_REF#refs/tags/}\" >> $GITHUB_ENV"
 
       - name: "Create release"
-        uses: "actions/github-script@v5"
+        uses: "actions/github-script@v6"
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
           script: |
@@ -107,7 +107,7 @@ jobs:
             }
 
       - name: "Upload release assets"
-        uses: "actions/github-script@v5"
+        uses: "actions/github-script@v6"
         env:
           FOO: "${{ env.GITHUB_WORKSPACE }}"
         with:
