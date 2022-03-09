@@ -28,6 +28,11 @@ final class Version
         $name = 'ergebnis/composer-normalize';
         $attribution = 'by <info>Andreas Möller</info> and contributors';
 
+        /**
+         * @see https://en.wikipedia.org/wiki/National_colours_of_Ukraine
+         */
+        $extra = '<fg=#0057b8>#StandWith</><fg=#ffd700>Ukraine</>';
+
         $version = self::$version;
 
         if ('@' . 'git@' === $version) {
@@ -39,10 +44,11 @@ final class Version
         }
 
         return \sprintf(
-            '<info>%s</info> %s %s',
+            '<info>%s</info> %s %s %s',
             $name,
             $version,
             $attribution,
+            $extra,
         );
     }
 }
