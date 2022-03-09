@@ -108,8 +108,6 @@ jobs:
 
       - name: "Upload release assets"
         uses: "actions/github-script@v6"
-        env:
-          FOO: "${{ env.GITHUB_WORKSPACE }}"
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
           script: |
