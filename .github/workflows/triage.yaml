@@ -15,40 +15,6 @@ jobs:
 
     steps:
       - name: "Add labels based on branch name"
-        uses: "actions/github-script@v6.0.0"
+        uses: "ergebnis/.github/actions/github/pull-request/add-label-based-on-branch-name@1.4.0"
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
-          script: |
-            const branchPrefixLabels = {
-              feature: "enhancement",
-              fix: "bug",
-            };
-
-            const pullRequest = context.payload.pull_request;
-
-            const branchName = pullRequest.head.ref;
-
-            const matches = branchName.match(new RegExp('^([^/]+)\/'));
-
-            if (!matches instanceof Array) {
-              return;
-            }
-
-            if (!branchPrefixLabels.hasOwnProperty(matches[1])) {
-              return;
-            }
-
-            const label = branchPrefixLabels[matches[1]];
-
-            try {
-              await github.rest.issues.addLabels({
-                issue_number: pullRequest.number,
-                labels: [
-                  label,
-                ],
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-              });
-            } catch (error) {
-              core.setFailed(error.message);
-            }
