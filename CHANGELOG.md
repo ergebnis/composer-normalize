@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`2.24.1...main`][2.24.1...main].
 
+### Changed
+
+- Updated `schema.json` ([#912]), by [@ergebnis-bot]
+
 ## [`2.24.1`][2.24.1]
 
 For a full diff see [`2.24.0...2.24.1`][2.24.0...2.24.1].
@@ -869,6 +873,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [#899]: https://github.com/ergebnis/composer-normalize/pull/899
 [#904]: https://github.com/ergebnis/composer-normalize/pull/904
 [#905]: https://github.com/ergebnis/composer-normalize/pull/905
+[#912]: https://github.com/ergebnis/composer-normalize/pull/912
 
 [@core23]: https://github.com/core23
 [@dependabot]: https://github.com/dependabot
