@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Ergebnis\Composer\Normalize\Command;
 
 use Composer\Command;
+use Composer\Composer;
 use Composer\Console\Application;
 use Composer\Factory;
 use Composer\IO;
@@ -132,7 +133,7 @@ final class NormalizeCommand extends Command\BaseCommand
 
         $composerFile = $input->getArgument('file');
 
-        if (null === $composerFile) {
+        if (!\is_string($composerFile)) {
             $composerFile = Factory::getComposerFile();
         }
 
@@ -140,6 +141,10 @@ final class NormalizeCommand extends Command\BaseCommand
             $io,
             $composerFile,
         );
+
+        if (!$composer instanceof Composer) {
+            throw Exception\ShouldNotHappen::create();
+        }
 
         try {
             $indentFromExtra = self::indentFromExtra($composer->getPackage()->getExtra());

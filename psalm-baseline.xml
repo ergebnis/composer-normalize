@@ -1,20 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.16.1@aa7e400908833b10c0333861f86cd48c510b60eb">
+<files psalm-version="4.22.0@fc2c6ab4d5fa5d644d8617089f012f3bb84b8703">
   <file src="src/Command/NormalizeCommand.php">
-    <MixedArgument occurrences="9">
-      <code>$composerFile</code>
-      <code>$composerFile</code>
-      <code>$composerFile</code>
-      <code>$composerFile</code>
-      <code>$composerFile</code>
-      <code>$composerFile</code>
-      <code>$composerFile</code>
-      <code>$composerFile</code>
-      <code>$composerFile</code>
-    </MixedArgument>
     <MixedAssignment occurrences="1">
       <code>$composerFile</code>
     </MixedAssignment>
+    <RedundantCondition occurrences="1"/>
+    <TypeDoesNotContainType occurrences="1"/>
   </file>
   <file src="test/Integration/Command/NormalizeCommand/AbstractTestCase.php">
     <MixedArrayAccess occurrences="1">
