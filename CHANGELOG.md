@@ -792,7 +792,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [2.24.0...2.24.1]: https://github.com/ergebnis/composer-normalize/compare/2.24.0...2.24.1
 [2.24.1...2.25.0]: https://github.com/ergebnis/composer-normalize/compare/2.24.1...2.25.0
 [2.25.0...2.25.1]: https://github.com/ergebnis/composer-normalize/compare/2.25.0...2.25.1
-[2.25.0...main]: https://github.com/ergebnis/composer-normalize/compare/2.25.0...main
+[2.25.1...main]: https://github.com/ergebnis/composer-normalize/compare/2.25.1...main
 
 [#1]: https://github.com/ergebnis/composer-normalize/pull/1
 [#2]: https://github.com/ergebnis/composer-normalize/pull/2
