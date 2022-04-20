@@ -12,6 +12,10 @@ For a full diff see [`2.25.1...main`][2.25.1...main].
 
 - Updated `schema.json` ([#916]), by [@ergebnis-bot]
 
+### Fixed
+
+- Updated `justinrainbow/json-schema` ([#920]), by [@dependabot]
+
 ## [`2.25.1`][2.25.1]
 
 For a full diff see [`2.25.0...2.25.1`][2.25.0....2.25.1].
