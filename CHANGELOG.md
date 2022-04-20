@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`2.25.1...main`][2.25.1...main].
 
+### Changed
+
+- Updated `schema.json` ([#916]), by [@ergebnis-bot]
+
 ## [`2.25.1`][2.25.1]
 
 For a full diff see [`2.25.0...2.25.1`][2.25.0....2.25.1].
