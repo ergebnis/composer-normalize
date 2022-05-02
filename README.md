@@ -410,7 +410,7 @@ Running
 composer normalize
 ```
 
-against https://github.com/phpspec/phpspec/blob/7.0.1/composer.json yields the following diff:
+against https://github.com/sebastianbergmann/phpunit/blob/9.5.0/composer.json yields the following diff:
 
 ```diff
 diff --git a/composer.json b/composer.json
