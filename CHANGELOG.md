@@ -10,7 +10,7 @@ For a full diff see [`2.26.0...main`][2.26.0...main].
 
 ## [`2.26.0`][2.26.0]
 
-For a full diff see [`2.25.2...2.26.0`][2.25.2....2.26.0].
+For a full diff see [`2.25.2...2.26.0`][2.25.2...2.26.0].
 
 ### Changed
 
@@ -18,7 +18,7 @@ For a full diff see [`2.25.2...2.26.0`][2.25.2....2.26.0].
 
 ## [`2.25.2`][2.25.2]
 
-For a full diff see [`2.25.1...2.25.2`][2.25.1....2.25.2].
+For a full diff see [`2.25.1...2.25.2`][2.25.1...2.25.2].
 
 ### Changed
 
@@ -31,7 +31,7 @@ For a full diff see [`2.25.1...2.25.2`][2.25.1....2.25.2].
 
 ## [`2.25.1`][2.25.1]
 
-For a full diff see [`2.25.0...2.25.1`][2.25.0....2.25.1].
+For a full diff see [`2.25.0...2.25.1`][2.25.0...2.25.1].
 
 ### Changed
 
@@ -912,6 +912,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [#864]: https://github.com/ergebnis/composer-normalize/pull/864
 [#871]: https://github.com/ergebnis/composer-normalize/pull/871
 [#875]: https://github.com/ergebnis/composer-normalize/pull/875
+[#877]: https://github.com/ergebnis/composer-normalize/pull/877
 [#899]: https://github.com/ergebnis/composer-normalize/pull/899
 [#904]: https://github.com/ergebnis/composer-normalize/pull/904
 [#905]: https://github.com/ergebnis/composer-normalize/pull/905
