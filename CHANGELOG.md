@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`2.28.0...main`][2.27.0...main].
+For a full diff see [`2.28.0...main`][2.28.0...main].
 
 ## [`2.28.0`][2.28.0]
 
@@ -14,9 +14,7 @@ For a full diff see [`2.27.0...2.28.0`][2.27.0...2.28.0].
 
 ### Changed
 
-- Updated `schema.json` ([#933), by [@ergebnis-bot]
-
-For a full diff see [`2.27.0...main`][2.27.0...main].
+- Updated `schema.json` ([#933]), by [@ergebnis-bot]
 
 ## [`2.27.0`][2.27.0]
 
