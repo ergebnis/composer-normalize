@@ -34,7 +34,7 @@
     "ergebnis/php-cs-fixer-config": "^4.4.0",
     "fakerphp/faker": "^1.19.0",
     "phpunit/phpunit": "^9.5.21",
-    "psalm/plugin-phpunit": "~0.16.1",
+    "psalm/plugin-phpunit": "~0.17.0",
     "symfony/filesystem": "^5.4.9",
     "vimeo/psalm": "^4.23.0"
   },
