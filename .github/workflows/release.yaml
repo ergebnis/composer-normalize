@@ -40,7 +40,7 @@ jobs:
           php-version: "${{ matrix.php-version }}"
 
       - name: "Determine composer cache directory"
-        uses: "ergebnis/.github/actions/composer/determine-cache-directory@1.5.0"
+        uses: "ergebnis/.github/actions/composer/determine-cache-directory@1.5.1"
 
       - name: "Cache dependencies installed with composer"
         uses: "actions/cache@v3"
@@ -50,7 +50,7 @@ jobs:
           restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
 
       - name: "Install ${{ matrix.dependencies }} dependencies with composer"
-        uses: "ergebnis/.github/actions/composer/install@1.5.0"
+        uses: "ergebnis/.github/actions/composer/install@1.5.1"
         with:
           dependencies: "${{ matrix.dependencies }}"
 
@@ -88,7 +88,7 @@ jobs:
         run: "echo \"RELEASE_TAG=${GITHUB_REF#refs/tags/}\" >> $GITHUB_ENV"
 
       - name: "Create release"
-        uses: "ergebnis/.github/actions/github/release/create@1.5.0"
+        uses: "ergebnis/.github/actions/github/release/create@1.5.1"
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
 
