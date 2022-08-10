@@ -23,7 +23,7 @@
   "require": {
     "php": "^7.4 || ^8.0",
     "composer-plugin-api": "^2.0.0",
-    "ergebnis/json-normalizer": "~2.1.0",
+    "ergebnis/json-normalizer": "~2.2.0",
     "ergebnis/json-printer": "^3.2.0",
     "justinrainbow/json-schema": "^5.2.12",
     "localheinz/diff": "^1.1.1"
