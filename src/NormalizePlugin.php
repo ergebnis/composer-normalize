@@ -57,7 +57,7 @@ final class NormalizePlugin implements Plugin\Capability\CommandProvider, Plugin
                     'file://%s',
                     \realpath(__DIR__ . '/../resource/schema.json'),
                 )),
-                new Normalizer\Format\Formatter(new Printer\Printer()),
+                new Normalizer\Format\DefaultFormatter(new Printer\Printer()),
                 new Diff\Differ(new Diff\Output\StrictUnifiedDiffOutputBuilder([
                     'fromFile' => 'original',
                     'toFile' => 'normalized',

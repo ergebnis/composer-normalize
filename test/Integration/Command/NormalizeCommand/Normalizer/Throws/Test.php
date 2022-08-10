@@ -51,7 +51,7 @@ final class Test extends Integration\Command\NormalizeCommand\AbstractTestCase
 
         $application = self::createApplication(new NormalizeCommand(
             new Factory(),
-            new class($exceptionMessage) implements Normalizer\NormalizerInterface {
+            new class($exceptionMessage) implements Normalizer\Normalizer {
                 private string $exceptionMessage;
 
                 public function __construct(string $exceptionMessage)
@@ -64,7 +64,7 @@ final class Test extends Integration\Command\NormalizeCommand\AbstractTestCase
                     throw new \RuntimeException($this->exceptionMessage);
                 }
             },
-            new Normalizer\Format\Formatter(new Printer\Printer()),
+            new Normalizer\Format\DefaultFormatter(new Printer\Printer()),
             new Diff\Differ(new Diff\Output\StrictUnifiedDiffOutputBuilder([
                 'fromFile' => 'original',
                 'toFile' => 'normalized',
