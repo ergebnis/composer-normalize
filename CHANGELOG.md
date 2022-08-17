@@ -982,6 +982,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [#938]: https://github.com/ergebnis/composer-normalize/pull/938
 [#941]: https://github.com/ergebnis/composer-normalize/pull/941
 [#942]: https://github.com/ergebnis/composer-normalize/pull/942
+[#959]: https://github.com/ergebnis/composer-normalize/pull/959
 
 [@core23]: https://github.com/core23
 [@dependabot]: https://github.com/dependabot
