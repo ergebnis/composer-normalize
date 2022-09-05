@@ -33,7 +33,7 @@
     "ergebnis/license": "^1.2.0",
     "ergebnis/php-cs-fixer-config": "^4.7.0",
     "fakerphp/faker": "^1.20.0",
-    "phpunit/phpunit": "^9.5.23",
+    "phpunit/phpunit": "^9.5.24",
     "psalm/plugin-phpunit": "~0.17.0",
     "symfony/filesystem": "^5.4.12",
     "vimeo/psalm": "^4.27.0"
