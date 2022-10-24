@@ -24,7 +24,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 $command = new Normalize\Command\NormalizeCommand(
     new Factory(),
     new Normalizer\Vendor\Composer\ComposerJsonNormalizer(__DIR__ . '/../resource/schema.json'),
-    new Normalizer\Format\Formatter(new Printer\Printer()),
+    new Normalizer\Format\DefaultFormatter(new Printer\Printer()),
     new Diff\Differ(new Diff\Output\StrictUnifiedDiffOutputBuilder([
         'fromFile' => 'original',
         'toFile' => 'normalized',
