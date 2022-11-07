@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0b06b826f3544a99b3925e725363b69b",
+    "content-hash": "4b234e518c7a7db174e510e5dfbe43c8",
     "packages": [
         {
             "name": "ergebnis/json-normalizer",
@@ -1443,31 +1443,31 @@
         },
         {
             "name": "ergebnis/php-cs-fixer-config",
-            "version": "4.9.0",
+            "version": "4.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/php-cs-fixer-config.git",
-                "reference": "e7ddb24d93dcef2ec7a98ef093901150d52fecd8"
+                "reference": "4badc10de51dc114b24f6c79ac3fae47a6c08c3e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/php-cs-fixer-config/zipball/e7ddb24d93dcef2ec7a98ef093901150d52fecd8",
-                "reference": "e7ddb24d93dcef2ec7a98ef093901150d52fecd8",
+                "url": "https://api.github.com/repos/ergebnis/php-cs-fixer-config/zipball/4badc10de51dc114b24f6c79ac3fae47a6c08c3e",
+                "reference": "4badc10de51dc114b24f6c79ac3fae47a6c08c3e",
                 "shasum": ""
             },
             "require": {
                 "ext-filter": "*",
-                "friendsofphp/php-cs-fixer": "~3.11.0",
+                "friendsofphp/php-cs-fixer": "~3.13.0",
                 "php": "^7.4 || ^8.0"
             },
             "require-dev": {
                 "ergebnis/composer-normalize": "^2.28.3",
-                "ergebnis/license": "^1.2.0",
+                "ergebnis/license": "^2.0.0",
                 "fakerphp/faker": "^1.20.0",
-                "phpunit/phpunit": "^9.5.25",
+                "phpunit/phpunit": "^9.5.26",
                 "psalm/plugin-phpunit": "~0.17.0",
                 "symfony/filesystem": "^4.4.0 || ^5.0.0",
-                "vimeo/psalm": "^4.27"
+                "vimeo/psalm": "^4.29"
             },
             "type": "library",
             "extra": {
@@ -1497,7 +1497,7 @@
                 "issues": "https://github.com/ergebnis/php-cs-fixer-config/issues",
                 "source": "https://github.com/ergebnis/php-cs-fixer-config"
             },
-            "time": "2022-09-29T13:13:05+00:00"
+            "time": "2022-11-01T09:06:11+00:00"
         },
         {
             "name": "fakerphp/faker",
@@ -1669,16 +1669,16 @@
         },
         {
             "name": "friendsofphp/php-cs-fixer",
-            "version": "v3.11.0",
+            "version": "v3.13.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/FriendsOfPHP/PHP-CS-Fixer.git",
-                "reference": "7dcdea3f2f5f473464e835be9be55283ff8cfdc3"
+                "url": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer.git",
+                "reference": "a6232229a8309e8811dc751c28b91cb34b2943e1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/7dcdea3f2f5f473464e835be9be55283ff8cfdc3",
-                "reference": "7dcdea3f2f5f473464e835be9be55283ff8cfdc3",
+                "url": "https://api.github.com/repos/PHP-CS-Fixer/PHP-CS-Fixer/zipball/a6232229a8309e8811dc751c28b91cb34b2943e1",
+                "reference": "a6232229a8309e8811dc751c28b91cb34b2943e1",
                 "shasum": ""
             },
             "require": {
@@ -1702,7 +1702,7 @@
             },
             "require-dev": {
                 "justinrainbow/json-schema": "^5.2",
-                "keradus/cli-executor": "^1.5",
+                "keradus/cli-executor": "^2.0",
                 "mikey179/vfsstream": "^1.6.10",
                 "php-coveralls/php-coveralls": "^2.5.2",
                 "php-cs-fixer/accessible-object": "^1.1",
@@ -1711,8 +1711,8 @@
                 "phpspec/prophecy": "^1.15",
                 "phpspec/prophecy-phpunit": "^2.0",
                 "phpunit/phpunit": "^9.5",
-                "phpunitgoodpractices/polyfill": "^1.5",
-                "phpunitgoodpractices/traits": "^1.9.1",
+                "phpunitgoodpractices/polyfill": "^1.6",
+                "phpunitgoodpractices/traits": "^1.9.2",
                 "symfony/phpunit-bridge": "^6.0",
                 "symfony/yaml": "^5.4 || ^6.0"
             },
@@ -1745,8 +1745,8 @@
             ],
             "description": "A tool to automatically fix PHP code style",
             "support": {
-                "issues": "https://github.com/FriendsOfPHP/PHP-CS-Fixer/issues",
-                "source": "https://github.com/FriendsOfPHP/PHP-CS-Fixer/tree/v3.11.0"
+                "issues": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/issues",
+                "source": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/tree/v3.13.0"
             },
             "funding": [
                 {
@@ -1754,7 +1754,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-09-01T18:24:51+00:00"
+            "time": "2022-10-31T19:28:50+00:00"
         },
         {
             "name": "myclabs/deep-copy",
