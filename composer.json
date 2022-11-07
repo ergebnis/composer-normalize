@@ -36,7 +36,7 @@
     "phpunit/phpunit": "^9.5.26",
     "psalm/plugin-phpunit": "~0.17.0",
     "symfony/filesystem": "^5.4.13",
-    "vimeo/psalm": "^4.29.0"
+    "vimeo/psalm": "^4.30.0"
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
