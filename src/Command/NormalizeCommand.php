@@ -22,6 +22,7 @@ use Composer\Package;
 use Ergebnis\Composer\Normalize\Exception;
 use Ergebnis\Composer\Normalize\Version;
 use Ergebnis\Json\Normalizer;
+use Ergebnis\Json\Normalizer\Format\JsonEncodeOptions;
 use Localheinz\Diff;
 use Symfony\Component\Console;
 
@@ -228,6 +229,10 @@ final class NormalizeCommand extends Command\BaseCommand
         }
 
         $format = Normalizer\Format\Format::fromJson($json);
+
+        // Apply opinionated formatting rules to composer.json files.
+        $format = $format->withHasFinalNewLine(true);
+        $format = $format->withJsonEncodeOptions(JsonEncodeOptions::fromInt(\JSON_UNESCAPED_SLASHES | \JSON_UNESCAPED_UNICODE));
 
         if (null !== $indent) {
             $format = $format->withIndent($indent);
