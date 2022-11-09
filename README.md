@@ -148,6 +148,23 @@ As an alternative to specifying the `--indent-size` and `--indent-style` options
 
 :bulb: The configuration provided in composer extra always overrides the configuration provided via command line options.
 
+#### Sorting of additional keys
+
+By default, this plug-in will sort all keys unless their order is important according to the Composer specification. This means that `repositories.*` and the children of `scripts.*.*` will remain in the order initially specified, but all other keys will be sorted. If you would like additional keys to remain unsorted, you may specify their paths in the `preserve-order` configuration option as follows:
+
+```json
+{
+  "extra": {
+    "composer-normalize": {
+      "preserve-order": [
+        "extra.installer-paths",
+        "extra.patches.*"
+      ]
+    }
+  }
+}
+```
+
 ### Continuous Integration
 
 If you want to run this in continuous integration services, use the `--dry-run` option.

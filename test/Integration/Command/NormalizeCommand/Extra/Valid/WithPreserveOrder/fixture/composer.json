@@ -1,0 +1,34 @@
+{
+  "type": "library",
+  "_comment": "This composer.json is valid according to a lax validation, a composer.lock is not present, and composer.json is not yet normalized.",
+  "keywords": ["foo", "bar"],
+  "license": "MIT",
+  "authors": [
+    {"name": "Andreas Möller", "email": "am@localheinz.com"}
+  ],
+  "extra": {
+    "composer-normalize": {
+      "preserve-order": [
+        "authors"
+      ]
+    }
+  },
+  "require": {
+    "ext-json": "*",
+    "php": "^5.6"
+  },
+  "config": {
+    "allow-plugins": {
+      "ergebnis/composer-normalize": true,
+      "ergebnis/*": false
+    }
+  },
+  "scripts": {
+    "auto-scripts": {
+      "cache:clear": "symfony-cmd",
+      "doctrine:migrations:migrate -v": "symfony-cmd",
+      "bazinga:js-translation:dump assets --merge-domains --format=json": "symfony-cmd",
+      "assets:install %PUBLIC_DIR%": "symfony-cmd"
+    }
+  }
+}
