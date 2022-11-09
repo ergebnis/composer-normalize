@@ -33,7 +33,6 @@ final class NormalizeCommand extends Command\BaseCommand
     private const NEVER_SORT_PATHS = [
         'scripts.*',
     ];
-
     private Factory $factory;
     private Normalizer\NormalizerInterface $normalizer;
     private Normalizer\Format\FormatterInterface $formatter;
@@ -531,18 +530,20 @@ final class NormalizeCommand extends Command\BaseCommand
         $originalDecoded = (array) $original->decoded();
         $pathsToPreserve = self::NEVER_SORT_PATHS;
 
-        if (count($originalDecoded) !== count($normalizedDecoded)) {
+        if (\count($originalDecoded) !== \count($normalizedDecoded)) {
             // This is a workaround for a bug where $json->decoded() returns an empty object.
             $originalDecoded = (array) Normalizer\Json::fromEncoded($original->encoded())->decoded();
         }
 
         if (isset($originalDecoded['extra'])) {
             $extra = (array) $originalDecoded['extra'];
+
             if (isset($extra['composer-normalize'])) {
                 $config = (array) $extra['composer-normalize'];
+
                 if (isset($config['preserve-order'])) {
                     $userPaths = (array) $config['preserve-order'];
-                    $pathsToPreserve = array_merge($pathsToPreserve, $userPaths);
+                    $pathsToPreserve = \array_merge($pathsToPreserve, $userPaths);
                 }
             }
         }
@@ -551,31 +552,31 @@ final class NormalizeCommand extends Command\BaseCommand
             $normalizedDecoded = self::restoreSpecificKeyOrder($normalizedDecoded, $originalDecoded, (string) $pathToPreserve);
         }
 
-        return Normalizer\Json::fromEncoded(json_encode($normalizedDecoded));
+        return Normalizer\Json::fromEncoded(\json_encode($normalizedDecoded));
     }
 
     private static function restoreSpecificKeyOrder(array $normalized, array $original, string $path): array
     {
-        if (strpos($path, '.') === false) {
+        if (\mb_strpos($path, '.') === false) {
             // found a leaf
-            if (array_key_exists($path, $normalized)) {
+            if (\array_key_exists($path, $normalized)) {
                 $normalized[$path] = $original[$path];
-            } elseif (strpos($path, '*') !== false) {
-                foreach (array_keys($normalized) as $key) {
-                    if (fnmatch($path, (string) $key)) {
+            } elseif (\mb_strpos($path, '*') !== false) {
+                foreach (\array_keys($normalized) as $key) {
+                    if (\fnmatch($path, (string) $key)) {
                         $normalized[$key] = $original[$key];
                     }
                 }
             }
         } else {
             // found a branch
-            [$prefix, $suffix] = explode('.', $path, 2);
+            [$prefix, $suffix] = \explode('.', $path, 2);
 
-            if (array_key_exists($prefix, $normalized)) {
+            if (\array_key_exists($prefix, $normalized)) {
                 $normalized[$prefix] = self::restoreSpecificKeyOrder((array) $normalized[$prefix], (array) $original[$prefix], $suffix);
-            } elseif (strpos($prefix, '*') !== false) {
-                foreach (array_keys($normalized) as $key) {
-                    if (fnmatch($prefix, (string) $key)) {
+            } elseif (\mb_strpos($prefix, '*') !== false) {
+                foreach (\array_keys($normalized) as $key) {
+                    if (\fnmatch($prefix, (string) $key)) {
                         $normalized[$key] = self::restoreSpecificKeyOrder((array) $normalized[$key], (array) $original[$key], $suffix);
                     }
                 }
