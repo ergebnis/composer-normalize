@@ -549,7 +549,7 @@ final class NormalizeCommand extends Command\BaseCommand
         }
 
         foreach ($pathsToPreserve as $pathToPreserve) {
-            assert(is_string($pathToPreserve));
+            \assert(\is_string($pathToPreserve));
             $normalizedDecoded = self::restoreSpecificKeyOrder($normalizedDecoded, $originalDecoded, $pathToPreserve);
         }
 
@@ -561,12 +561,12 @@ final class NormalizeCommand extends Command\BaseCommand
         if (\mb_strpos($path, '.') === false) {
             // found a leaf
             if (\array_key_exists($path, $normalized)) {
-                /** @var object|array|string|int|float|bool|null $original[$path] */
+                /** @var null|array|bool|float|int|object|string $original[$path] */
                 $normalized[$path] = $original[$path];
             } elseif (\mb_strpos($path, '*') !== false) {
                 foreach (\array_keys($normalized) as $key) {
                     if (\fnmatch($path, (string) $key)) {
-                        /** @var object|array|string|int|float|bool|null $original[$key] */
+                        /** @var null|array|bool|float|int|object|string $original[$key] */
                         $normalized[$key] = $original[$key];
                     }
                 }
