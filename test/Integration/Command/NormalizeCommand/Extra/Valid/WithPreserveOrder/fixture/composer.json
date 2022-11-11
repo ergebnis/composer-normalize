@@ -7,9 +7,15 @@
     {"name": "Andreas Möller", "email": "am@localheinz.com"}
   ],
   "extra": {
+    "other": {
+      "sort-this": [ "last", "first" ],
+      "keep-unsorted": [ "one", "two", "three", "four"]
+    },
     "composer-normalize": {
       "preserve-order": [
-        "authors"
+        "this.path.does.*.not.*.exist.no-match-with-keys",
+        "require",
+        "extra.*.keep-unsorted"
       ]
     }
   },

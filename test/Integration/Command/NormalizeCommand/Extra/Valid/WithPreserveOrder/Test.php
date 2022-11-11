@@ -70,5 +70,20 @@ final class Test extends Integration\Command\NormalizeCommand\AbstractTestCase
 
         self::assertComposerJsonFileModified($initialState, $currentState);
         self::assertComposerLockFileNotExists($currentState);
+
+        $decoded = (array) \json_decode($currentState->composerJsonFile()->contents(), true, 32, \JSON_THROW_ON_ERROR);
+        $require = (array) $decoded['require'];
+        self::assertSame(['ext-json', 'php'], \array_keys($require));
+        $extra = (array) $decoded['extra'];
+        self::assertSame(['composer-normalize', 'other'], \array_keys($extra));
+        $other = (array) $extra['other'];
+        self::assertSame(['keep-unsorted', 'sort-this'], \array_keys($other));
+        $keepUnsorted = (array) $other['keep-unsorted'];
+        self::assertSame(['one', 'two', 'three', 'four'], $keepUnsorted);
+
+        // FIXME: when ergebnis/json-normalizer has been upgraded to ^3.0, the following test can be uncommented / should work.
+        // @see https://github.com/ergebnis/composer-normalize/pull/956
+        // $sortThis = (array) $other['sort-this'];
+        // self::assertSame(['first', 'last'], $sortThis);
     }
 }
