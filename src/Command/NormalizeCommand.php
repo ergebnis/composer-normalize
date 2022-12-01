@@ -284,7 +284,7 @@ final class NormalizeCommand extends Command\BaseCommand
 
         if (
             true === $input->getOption('no-update-lock')
-            || false === $locker->isLocked()
+            || !$locker->isLocked()
         ) {
             return 0;
         }
