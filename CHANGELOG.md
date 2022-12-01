@@ -11,6 +11,7 @@ For a full diff see [`2.28.3...main`][2.28.3...main].
 ### Changed
 
 - Updated `schema.json` ([#959]), by [@ergebnis-bot]
+- Dropped support for PHP 7.4 ([#998]), by [@localheinz]
 
 ## [`2.28.3`][2.28.3]
 
@@ -983,6 +984,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [#941]: https://github.com/ergebnis/composer-normalize/pull/941
 [#942]: https://github.com/ergebnis/composer-normalize/pull/942
 [#959]: https://github.com/ergebnis/composer-normalize/pull/959
+[#998]: https://github.com/ergebnis/composer-normalize/pull/998
 
 [@core23]: https://github.com/core23
 [@dependabot]: https://github.com/dependabot
