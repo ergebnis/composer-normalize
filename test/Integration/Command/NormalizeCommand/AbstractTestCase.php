@@ -53,7 +53,7 @@ abstract class AbstractTestCase extends Framework\TestCase
 
     final protected static function createScenario(
         Test\Util\CommandInvocation $commandInvocation,
-        string $fixtureDirectory
+        string $fixtureDirectory,
     ): Test\Util\Scenario {
         if (!\is_dir($fixtureDirectory)) {
             throw new \InvalidArgumentException(\sprintf(
@@ -121,7 +121,7 @@ abstract class AbstractTestCase extends Framework\TestCase
 
     final protected static function assertComposerJsonFileModified(
         Test\Util\State $expected,
-        Test\Util\State $actual
+        Test\Util\State $actual,
     ): void {
         self::assertComposerJsonFileExists($actual);
 

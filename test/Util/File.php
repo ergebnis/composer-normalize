@@ -22,7 +22,7 @@ final class File
     private function __construct(
         string $path,
         bool $exists,
-        ?string $contents
+        ?string $contents,
     ) {
         $this->path = $path;
         $this->exists = $exists;

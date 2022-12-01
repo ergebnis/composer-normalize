@@ -39,7 +39,7 @@ final class NormalizeCommand extends Command\BaseCommand
         Factory $factory,
         Normalizer\NormalizerInterface $normalizer,
         Normalizer\Format\FormatterInterface $formatter,
-        Diff\Differ $differ
+        Diff\Differ $differ,
     ) {
         parent::__construct('normalize');
 
@@ -102,7 +102,7 @@ final class NormalizeCommand extends Command\BaseCommand
 
     protected function execute(
         Console\Input\InputInterface $input,
-        Console\Output\OutputInterface $output
+        Console\Output\OutputInterface $output,
     ): int {
         $io = $this->getIO();
 
@@ -446,7 +446,7 @@ final class NormalizeCommand extends Command\BaseCommand
 
     private static function showValidationErrors(
         IO\IOInterface $io,
-        string ...$errors
+        string ...$errors,
     ): void {
         foreach ($errors as $error) {
             $io->writeError(\sprintf(
@@ -499,7 +499,7 @@ final class NormalizeCommand extends Command\BaseCommand
     private static function updateLockerInWorkingDirectory(
         Console\Application $application,
         Console\Output\OutputInterface $output,
-        string $workingDirectory
+        string $workingDirectory,
     ): int {
         return $application->run(
             new Console\Input\ArrayInput([
