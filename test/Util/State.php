@@ -17,7 +17,6 @@ final class State
 {
     private File $composerJsonFile;
     private File $composerLockFile;
-    private Directory $vendorDirectory;
 
     private function __construct(private Directory $directory)
     {
@@ -28,11 +27,6 @@ final class State
 
         $this->composerLockFile = File::fromPath(\sprintf(
             '%s/composer.lock',
-            $directory->path(),
-        ));
-
-        $this->vendorDirectory = Directory::fromPath(\sprintf(
-            '%s/vendor',
             $directory->path(),
         ));
     }
@@ -55,10 +49,5 @@ final class State
     public function composerLockFile(): File
     {
         return $this->composerLockFile;
-    }
-
-    public function vendorDirectory(): Directory
-    {
-        return $this->vendorDirectory;
     }
 }
