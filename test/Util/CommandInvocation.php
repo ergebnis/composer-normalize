@@ -17,9 +17,9 @@ final class CommandInvocation
 {
     private string $style;
 
-    private function __construct(string $variation)
+    private function __construct(string $style)
     {
-        $this->style = $variation;
+        $this->style = $style;
     }
 
     public static function inCurrentWorkingDirectory(): self
