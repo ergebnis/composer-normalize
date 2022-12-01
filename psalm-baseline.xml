@@ -4,7 +4,6 @@
     <MixedAssignment occurrences="1">
       <code>$composerFile</code>
     </MixedAssignment>
-    <TypeDoesNotContainType occurrences="1"/>
   </file>
   <file src="test/Integration/Command/NormalizeCommand/AbstractTestCase.php">
     <MixedArrayAccess occurrences="1">
