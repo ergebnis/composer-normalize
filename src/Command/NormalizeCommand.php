@@ -184,7 +184,6 @@ final class NormalizeCommand extends Command\BaseCommand
 
         if (
             false === $input->getOption('no-check-lock')
-            && $locker instanceof Package\Locker
             && $locker->isLocked()
             && !$locker->isFresh()
         ) {
