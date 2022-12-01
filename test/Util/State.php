@@ -15,15 +15,12 @@ namespace Ergebnis\Composer\Normalize\Test\Util;
 
 final class State
 {
-    private Directory $directory;
     private File $composerJsonFile;
     private File $composerLockFile;
     private Directory $vendorDirectory;
 
-    private function __construct(Directory $directory)
+    private function __construct(private Directory $directory)
     {
-        $this->directory = $directory;
-
         $this->composerJsonFile = File::fromPath(\sprintf(
             '%s/composer.json',
             $directory->path(),

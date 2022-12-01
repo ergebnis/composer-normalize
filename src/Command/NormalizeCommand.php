@@ -29,23 +29,13 @@ use Symfony\Component\Console;
  */
 final class NormalizeCommand extends Command\BaseCommand
 {
-    private Factory $factory;
-    private Normalizer\NormalizerInterface $normalizer;
-    private Normalizer\Format\FormatterInterface $formatter;
-    private Diff\Differ $differ;
-
     public function __construct(
-        Factory $factory,
-        Normalizer\NormalizerInterface $normalizer,
-        Normalizer\Format\FormatterInterface $formatter,
-        Diff\Differ $differ,
+        private Factory $factory,
+        private Normalizer\NormalizerInterface $normalizer,
+        private Normalizer\Format\FormatterInterface $formatter,
+        private Diff\Differ $differ,
     ) {
         parent::__construct('normalize');
-
-        $this->factory = $factory;
-        $this->normalizer = $normalizer;
-        $this->formatter = $formatter;
-        $this->differ = $differ;
     }
 
     protected function configure(): void

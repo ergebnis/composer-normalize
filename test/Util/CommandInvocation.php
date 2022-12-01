@@ -15,11 +15,8 @@ namespace Ergebnis\Composer\Normalize\Test\Util;
 
 final class CommandInvocation
 {
-    private string $style;
-
-    private function __construct(string $style)
+    private function __construct(private string $style)
     {
-        $this->style = $style;
     }
 
     public static function inCurrentWorkingDirectory(): self

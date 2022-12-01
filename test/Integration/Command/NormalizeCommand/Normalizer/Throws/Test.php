@@ -52,11 +52,8 @@ final class Test extends Integration\Command\NormalizeCommand\AbstractTestCase
         $application = self::createApplication(new NormalizeCommand(
             new Factory(),
             new class($exceptionMessage) implements Normalizer\NormalizerInterface {
-                private string $exceptionMessage;
-
-                public function __construct(string $exceptionMessage)
+                public function __construct(private string $exceptionMessage)
                 {
-                    $this->exceptionMessage = $exceptionMessage;
                 }
 
                 public function normalize(Normalizer\Json $json): Normalizer\Json
