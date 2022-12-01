@@ -168,8 +168,10 @@ abstract class AbstractTestCase extends Framework\TestCase
         ));
     }
 
-    final protected static function assertComposerLockFileModified(Test\Util\State $expected, Test\Util\State $actual): void
-    {
+    final protected static function assertComposerLockFileModified(
+        Test\Util\State $expected,
+        Test\Util\State $actual,
+    ): void {
         self::assertComposerLockFileExists($actual);
 
         self::assertJsonStringNotEqualsJsonString(
@@ -179,8 +181,10 @@ abstract class AbstractTestCase extends Framework\TestCase
         );
     }
 
-    final protected static function assertComposerLockFileNotModified(Test\Util\State $expected, Test\Util\State $actual): void
-    {
+    final protected static function assertComposerLockFileNotModified(
+        Test\Util\State $expected,
+        Test\Util\State $actual,
+    ): void {
         self::assertComposerLockFileExists($actual);
 
         self::assertJsonStringEqualsJsonString(
@@ -190,8 +194,10 @@ abstract class AbstractTestCase extends Framework\TestCase
         );
     }
 
-    final protected static function assertExitCodeSame(int $expected, int $actual): void
-    {
+    final protected static function assertExitCodeSame(
+        int $expected,
+        int $actual,
+    ): void {
         self::assertSame($expected, $actual, \sprintf(
             'Failed asserting that exit code %d is identical to %d.',
             $actual,
