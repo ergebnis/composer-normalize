@@ -129,8 +129,10 @@ final class Test extends Integration\Command\NormalizeCommand\AbstractTestCase
     /**
      * @dataProvider \Ergebnis\Composer\Normalize\Test\DataProvider\Command\NormalizeCommandProvider::commandInvocationAndInvalidIndentSize
      */
-    public function testFailsWhenIndentSizeOptionIsInvalid(Util\CommandInvocation $commandInvocation, string $indentSize): void
-    {
+    public function testFailsWhenIndentSizeOptionIsInvalid(
+        Util\CommandInvocation $commandInvocation,
+        string $indentSize,
+    ): void {
         /** @var string $indentStyle */
         $indentStyle = self::faker()->randomElement(\array_keys(Normalizer\Format\Indent::CHARACTERS));
 

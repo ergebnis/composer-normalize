@@ -15,18 +15,11 @@ namespace Ergebnis\Composer\Normalize\Test\Util;
 
 final class File
 {
-    private string $path;
-    private bool $exists;
-    private ?string $contents;
-
     private function __construct(
-        string $path,
-        bool $exists,
-        ?string $contents
+        private string $path,
+        private bool $exists,
+        private ?string $contents,
     ) {
-        $this->path = $path;
-        $this->exists = $exists;
-        $this->contents = $contents;
     }
 
     public static function fromPath(string $path): self

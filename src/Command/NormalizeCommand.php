@@ -18,7 +18,6 @@ use Composer\Composer;
 use Composer\Console\Application;
 use Composer\Factory;
 use Composer\IO;
-use Composer\Package;
 use Ergebnis\Composer\Normalize\Exception;
 use Ergebnis\Composer\Normalize\Version;
 use Ergebnis\Json\Normalizer;
@@ -31,23 +30,13 @@ use Symfony\Component\Console;
  */
 final class NormalizeCommand extends Command\BaseCommand
 {
-    private Factory $factory;
-    private Normalizer\NormalizerInterface $normalizer;
-    private Normalizer\Format\FormatterInterface $formatter;
-    private Diff\Differ $differ;
-
     public function __construct(
-        Factory $factory,
-        Normalizer\NormalizerInterface $normalizer,
-        Normalizer\Format\FormatterInterface $formatter,
-        Diff\Differ $differ
+        private Factory $factory,
+        private Normalizer\NormalizerInterface $normalizer,
+        private Normalizer\Format\FormatterInterface $formatter,
+        private Diff\Differ $differ,
     ) {
         parent::__construct('normalize');
-
-        $this->factory = $factory;
-        $this->normalizer = $normalizer;
-        $this->formatter = $formatter;
-        $this->differ = $differ;
     }
 
     protected function configure(): void
@@ -103,7 +92,7 @@ final class NormalizeCommand extends Command\BaseCommand
 
     protected function execute(
         Console\Input\InputInterface $input,
-        Console\Output\OutputInterface $output
+        Console\Output\OutputInterface $output,
     ): int {
         $io = $this->getIO();
 
@@ -185,7 +174,6 @@ final class NormalizeCommand extends Command\BaseCommand
 
         if (
             false === $input->getOption('no-check-lock')
-            && $locker instanceof Package\Locker
             && $locker->isLocked()
             && !$locker->isFresh()
         ) {
@@ -291,8 +279,7 @@ final class NormalizeCommand extends Command\BaseCommand
 
         if (
             true === $input->getOption('no-update-lock')
-            || !$locker instanceof Package\Locker
-            || false === $locker->isLocked()
+            || !$locker->isLocked()
         ) {
             return 0;
         }
@@ -451,7 +438,7 @@ final class NormalizeCommand extends Command\BaseCommand
 
     private static function showValidationErrors(
         IO\IOInterface $io,
-        string ...$errors
+        string ...$errors,
     ): void {
         foreach ($errors as $error) {
             $io->writeError(\sprintf(
@@ -504,7 +491,7 @@ final class NormalizeCommand extends Command\BaseCommand
     private static function updateLockerInWorkingDirectory(
         Console\Application $application,
         Console\Output\OutputInterface $output,
-        string $workingDirectory
+        string $workingDirectory,
     ): int {
         return $application->run(
             new Console\Input\ArrayInput([
