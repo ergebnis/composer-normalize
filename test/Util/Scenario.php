@@ -15,17 +15,16 @@ namespace Ergebnis\Composer\Normalize\Test\Util;
 
 final class Scenario
 {
-    private CommandInvocation $commandInvocation;
-    private State $initialState;
-
-    private function __construct(CommandInvocation $commandInvocation, State $initialState)
-    {
-        $this->commandInvocation = $commandInvocation;
-        $this->initialState = $initialState;
+    private function __construct(
+        private CommandInvocation $commandInvocation,
+        private State $initialState,
+    ) {
     }
 
-    public static function fromCommandInvocationAndInitialState(CommandInvocation $commandInvocation, State $initialState): self
-    {
+    public static function fromCommandInvocationAndInitialState(
+        CommandInvocation $commandInvocation,
+        State $initialState,
+    ): self {
         return new self(
             $commandInvocation,
             $initialState,
