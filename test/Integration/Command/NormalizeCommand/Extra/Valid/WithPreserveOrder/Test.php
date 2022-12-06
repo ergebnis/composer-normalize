@@ -33,7 +33,7 @@ final class Test extends Integration\Command\NormalizeCommand\AbstractTestCase
     public function testSucceeds(
         Util\CommandInvocation $commandInvocation,
         int $indentSize,
-        string $indentStyle
+        string $indentStyle,
     ): void {
         $scenario = self::createScenario(
             $commandInvocation,
