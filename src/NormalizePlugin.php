@@ -21,7 +21,10 @@ use Ergebnis\Json\Normalizer;
 use Ergebnis\Json\Printer;
 use Localheinz\Diff;
 
-final class NormalizePlugin implements Plugin\Capability\CommandProvider, Plugin\Capable, Plugin\PluginInterface
+final class NormalizePlugin implements
+    Plugin\Capability\CommandProvider,
+    Plugin\Capable,
+    Plugin\PluginInterface
 {
     public function activate(
         Composer $composer,
