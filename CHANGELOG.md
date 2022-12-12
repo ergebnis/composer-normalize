@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`2.28.3...main`][2.29.0...main].
 
+### Changed
+
+- Started injecting `Printer\Printer` instead of `Formatter\Formatter` into `NormalizeCommand` ([#1008]), by [@ergebnis-bot]
+
 ## [`2.29.0`][2.29.0]
 
 For a full diff see [`2.28.3...2.29.0`][2.28.3...2.29.0].
@@ -993,6 +997,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [#959]: https://github.com/ergebnis/composer-normalize/pull/959
 [#998]: https://github.com/ergebnis/composer-normalize/pull/998
 [#1004]: https://github.com/ergebnis/composer-normalize/pull/1004
+[#1008]: https://github.com/ergebnis/composer-normalize/pull/1008
 
 [@core23]: https://github.com/core23
 [@dependabot]: https://github.com/dependabot

@@ -60,7 +60,7 @@ final class NormalizePlugin implements
                     'file://%s',
                     \realpath(__DIR__ . '/../resource/schema.json'),
                 )),
-                new Normalizer\Format\Formatter(new Printer\Printer()),
+                new Printer\Printer(),
                 new Diff\Differ(new Diff\Output\StrictUnifiedDiffOutputBuilder([
                     'fromFile' => 'original',
                     'toFile' => 'normalized',
