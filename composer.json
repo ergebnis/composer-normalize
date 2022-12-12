@@ -21,7 +21,7 @@
     "source": "https://github.com/ergebnis/composer-normalize"
   },
   "require": {
-    "php": "^8.0",
+    "php": "~8.0.0 || ~8.1.0 || ~8.2.0",
     "ext-json": "*",
     "composer-plugin-api": "^2.0.0",
     "ergebnis/json-normalizer": "~2.1.0",
