@@ -61,7 +61,7 @@ final class Test extends Integration\Command\NormalizeCommand\AbstractTestCase
                     throw new \RuntimeException($this->exceptionMessage);
                 }
             },
-            new Normalizer\Format\Formatter(new Printer\Printer()),
+            new Printer\Printer(),
             new Diff\Differ(new Diff\Output\StrictUnifiedDiffOutputBuilder([
                 'fromFile' => 'original',
                 'toFile' => 'normalized',
