@@ -34,8 +34,10 @@
     "ergebnis/license": "^2.1.0",
     "ergebnis/php-cs-fixer-config": "^5.1.1",
     "fakerphp/faker": "^1.21.0",
+    "infection/infection": "~0.26.6",
     "phpunit/phpunit": "^9.5.27",
     "psalm/plugin-phpunit": "~0.18.4",
+    "rector/rector": "~0.15.2",
     "symfony/filesystem": "^6.0.13",
     "vimeo/psalm": "^5.4.0"
   },
@@ -53,7 +55,8 @@
   },
   "config": {
     "allow-plugins": {
-      "composer/package-versions-deprecated": true
+      "composer/package-versions-deprecated": true,
+      "infection/extension-installer": true
     },
     "platform": {
       "php": "8.0.25"

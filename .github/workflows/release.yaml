@@ -30,7 +30,7 @@ jobs:
 
     steps:
       - name: "Checkout"
-        uses: "actions/checkout@v3"
+        uses: "actions/checkout@v3.2.0"
 
       - name: "Set up PHP"
         uses: "shivammathur/setup-php@2.23.0"
@@ -43,7 +43,7 @@ jobs:
         uses: "ergebnis/.github/actions/composer/determine-cache-directory@1.7.0"
 
       - name: "Cache dependencies installed with composer"
-        uses: "actions/cache@v3"
+        uses: "actions/cache@v3.2.2"
         with:
           path: "${{ env.COMPOSER_CACHE_DIR }}"
           key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
@@ -55,16 +55,16 @@ jobs:
           dependencies: "${{ matrix.dependencies }}"
 
       - name: "Require composer/composer"
-        run: "composer require composer/composer:${{ env.COMPOSER_VERSION }} --no-interaction --no-progress"
+        run: "composer require composer/composer:${{ env.COMPOSER_VERSION }} --ansi --no-interaction --no-progress"
 
       - name: "Validate configuration for humbug/box"
-        run: ".phive/box validate box.json"
+        run: ".phive/box validate box.json --ansi"
 
       - name: "Compile composer-normalize.phar with humbug/box"
-        run: ".phive/box compile --config=box.json"
+        run: ".phive/box compile --ansi --config=box.json"
 
       - name: "Show info about composer-normalize.phar with humbug/box"
-        run: ".phive/box info ${{ env.COMPOSER_NORMALIZE_PHAR }}"
+        run: ".phive/box info ${{ env.COMPOSER_NORMALIZE_PHAR }} --ansi"
 
       - name: "Run composer-normalize.phar"
         run: "${{ env.COMPOSER_NORMALIZE_PHAR }}"

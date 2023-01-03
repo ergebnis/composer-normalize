@@ -5,12 +5,12 @@ We are using [GitHub Actions](https://github.com/features/actions) as a continuo
 For details, take a look at the following workflow configuration files:
 
 - [`workflows/integrate.yaml`](workflows/integrate.yaml)
-- [`workflows/prune.yaml`](workflows/prune.yaml)
 - [`workflows/merge.yaml`](workflows/merge.yaml)
+- [`workflows/prune.yaml`](workflows/prune.yaml)
 - [`workflows/release.yaml`](workflows/release.yaml)
 - [`workflows/renew.yaml`](workflows/renew.yaml)
-- [`workflows/update.yaml`](workflows/update.yaml)
 - [`workflows/triage.yaml`](workflows/triage.yaml)
+- [`workflows/update.yaml`](workflows/update.yaml)
 
 ## Coding Standards
 
@@ -48,6 +48,30 @@ make dependency-analysis
 
 to run a dependency analysis.
 
+## Refactoring
+
+We are using [`rector/rector`](https://github.com/rectorphp/rector) to automatically refactor code.
+
+Run
+
+```sh
+make refactoring
+```
+
+to automatically refactor code.
+
+## Security Analysis
+
+We are using [`composer`](https://github.com/composer/composer) to run a security analysis.
+
+Run
+
+```sh
+make security-analysis
+```
+
+to run a security analysis.
+
 ## Static Code Analysis
 
 We are using [`vimeo/psalm`](https://github.com/vimeo/psalm) to statically analyze the code.
@@ -83,6 +107,18 @@ make tests
 ```
 
 to run all the tests.
+
+## Mutation Tests
+
+We are using [`infection/infection`](https://github.com/infection/infection) to ensure a minimum quality of the tests.
+
+Enable `Xdebug` and run
+
+```sh
+make mutation-tests
+```
+
+to run mutation tests.
 
 ## Extra lazy?
 
