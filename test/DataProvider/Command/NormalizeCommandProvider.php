@@ -43,7 +43,7 @@ final class NormalizeCommandProvider
 
         /** @var array<string> $indentSizes */
         $indentSizes = [
-            'string-arbitrary' => $faker->sentence,
+            'string-arbitrary' => $faker->sentence(),
             'integer-zero-casted-to-string' => (string) 0,
             'integer-less-than-zero-casted-to-string' => (string) (-1 * $numberGreaterThanZero),
         ];

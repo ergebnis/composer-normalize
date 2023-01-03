@@ -47,7 +47,7 @@ final class Test extends Integration\Command\NormalizeCommand\AbstractTestCase
         self::assertComposerJsonFileExists($initialState);
         self::assertComposerLockFileNotExists($initialState);
 
-        $exceptionMessage = self::faker()->sentence;
+        $exceptionMessage = self::faker()->sentence();
 
         $application = self::createApplication(new NormalizeCommand(
             new Factory(),

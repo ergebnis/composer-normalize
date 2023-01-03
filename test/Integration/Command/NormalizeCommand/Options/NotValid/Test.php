@@ -94,7 +94,7 @@ final class Test extends Integration\Command\NormalizeCommand\AbstractTestCase
     {
         $faker = self::faker();
 
-        $indentStyle = $faker->sentence;
+        $indentStyle = $faker->sentence();
 
         $scenario = self::createScenario(
             $commandInvocation,
