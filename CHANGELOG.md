@@ -11,6 +11,7 @@ For a full diff see [`2.28.3...main`][2.29.0...main].
 ### Changed
 
 - Started injecting `Printer\Printer` instead of `Formatter\Formatter` into `NormalizeCommand` ([#1008]), by [@ergebnis-bot]
+- Required `composer/composer:2.5.1` for compiling `composer-normalize.phar` ([#1004]), by [@localheinz]
 
 ## [`2.29.0`][2.29.0]
 

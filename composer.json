@@ -30,7 +30,7 @@
     "localheinz/diff": "^1.1.1"
   },
   "require-dev": {
-    "composer/composer": "^2.4.4",
+    "composer/composer": "^2.5.1",
     "ergebnis/license": "^2.1.0",
     "ergebnis/php-cs-fixer-config": "^5.1.1",
     "fakerphp/faker": "^1.21.0",
