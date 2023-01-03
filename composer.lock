@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e1e40f9b2d0f06088f691696f35dda69",
+    "content-hash": "c189edd83151698e5a6c5318ab965da4",
     "packages": [
         {
             "name": "ergebnis/json-normalizer",
@@ -1560,29 +1560,31 @@
         },
         {
             "name": "ergebnis/php-cs-fixer-config",
-            "version": "5.1.0",
+            "version": "5.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/php-cs-fixer-config.git",
-                "reference": "e5a5e5e01b078868282614bbd4a85a38d8dceba0"
+                "reference": "ccf3fab3d73411e29eac84e0a1ad090228d47d30"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/php-cs-fixer-config/zipball/e5a5e5e01b078868282614bbd4a85a38d8dceba0",
-                "reference": "e5a5e5e01b078868282614bbd4a85a38d8dceba0",
+                "url": "https://api.github.com/repos/ergebnis/php-cs-fixer-config/zipball/ccf3fab3d73411e29eac84e0a1ad090228d47d30",
+                "reference": "ccf3fab3d73411e29eac84e0a1ad090228d47d30",
                 "shasum": ""
             },
             "require": {
                 "ext-filter": "*",
-                "friendsofphp/php-cs-fixer": "~3.13.1",
+                "friendsofphp/php-cs-fixer": "~3.13.2",
                 "php": "~8.0.0 || ~8.1.0 || ~8.2.0"
             },
             "require-dev": {
                 "ergebnis/composer-normalize": "^2.29.0",
                 "ergebnis/license": "^2.1.0",
                 "fakerphp/faker": "^1.21.0",
+                "infection/infection": "~0.26.6",
                 "phpunit/phpunit": "^9.5.27",
                 "psalm/plugin-phpunit": "~0.18.4",
+                "rector/rector": "~0.15.2",
                 "symfony/filesystem": "^5.0.0 || ^6.0.0",
                 "symfony/process": "^5.0.0 || ^6.0.0",
                 "vimeo/psalm": "^5.4.0"
@@ -1615,7 +1617,7 @@
                 "issues": "https://github.com/ergebnis/php-cs-fixer-config/issues",
                 "source": "https://github.com/ergebnis/php-cs-fixer-config"
             },
-            "time": "2023-01-02T11:33:24+00:00"
+            "time": "2023-01-03T08:57:39+00:00"
         },
         {
             "name": "fakerphp/faker",
@@ -1849,16 +1851,16 @@
         },
         {
             "name": "friendsofphp/php-cs-fixer",
-            "version": "v3.13.1",
+            "version": "v3.13.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer.git",
-                "reference": "78d2251dd86b49c609a0fd37c20dcf0a00aea5a7"
+                "reference": "3952f08a81bd3b1b15e11c3de0b6bf037faa8496"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHP-CS-Fixer/PHP-CS-Fixer/zipball/78d2251dd86b49c609a0fd37c20dcf0a00aea5a7",
-                "reference": "78d2251dd86b49c609a0fd37c20dcf0a00aea5a7",
+                "url": "https://api.github.com/repos/PHP-CS-Fixer/PHP-CS-Fixer/zipball/3952f08a81bd3b1b15e11c3de0b6bf037faa8496",
+                "reference": "3952f08a81bd3b1b15e11c3de0b6bf037faa8496",
                 "shasum": ""
             },
             "require": {
@@ -1926,7 +1928,7 @@
             "description": "A tool to automatically fix PHP code style",
             "support": {
                 "issues": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/issues",
-                "source": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/tree/v3.13.1"
+                "source": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/tree/v3.13.2"
             },
             "funding": [
                 {
@@ -1934,7 +1936,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-12-18T00:47:22+00:00"
+            "time": "2023-01-02T23:53:50+00:00"
         },
         {
             "name": "myclabs/deep-copy",
