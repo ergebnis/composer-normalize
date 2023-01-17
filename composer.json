@@ -30,14 +30,16 @@
     "localheinz/diff": "^1.1.1"
   },
   "require-dev": {
-    "composer/composer": "^2.4.4",
+    "composer/composer": "^2.5.1",
     "ergebnis/license": "^2.1.0",
-    "ergebnis/php-cs-fixer-config": "^5.0.0",
-    "fakerphp/faker": "^1.20.0",
+    "ergebnis/php-cs-fixer-config": "^5.2.0",
+    "fakerphp/faker": "^1.21.0",
+    "infection/infection": "~0.26.6",
     "phpunit/phpunit": "^9.5.27",
     "psalm/plugin-phpunit": "~0.18.4",
+    "rector/rector": "~0.15.7",
     "symfony/filesystem": "^6.0.13",
-    "vimeo/psalm": "^5.2.0"
+    "vimeo/psalm": "^5.4.0"
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
@@ -53,7 +55,8 @@
   },
   "config": {
     "allow-plugins": {
-      "composer/package-versions-deprecated": true
+      "composer/package-versions-deprecated": true,
+      "infection/extension-installer": true
     },
     "platform": {
       "php": "8.0.25"

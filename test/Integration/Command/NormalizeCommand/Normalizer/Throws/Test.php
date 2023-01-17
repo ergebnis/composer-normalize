@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2018-2022 Andreas Möller
+ * Copyright (c) 2018-2023 Andreas Möller
  *
  * For the full copyright and license information, please view
  * the LICENSE.md file that was distributed with this source code.
@@ -47,7 +47,7 @@ final class Test extends Integration\Command\NormalizeCommand\AbstractTestCase
         self::assertComposerJsonFileExists($initialState);
         self::assertComposerLockFileNotExists($initialState);
 
-        $exceptionMessage = self::faker()->sentence;
+        $exceptionMessage = self::faker()->sentence();
 
         $application = self::createApplication(new NormalizeCommand(
             new Factory(),
