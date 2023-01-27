@@ -24,47 +24,47 @@ jobs:
     env:
       COMPOSER_NORMALIZE_PHAR: ".build/phar/composer-normalize.phar"
       COMPOSER_NORMALIZE_PHAR_SIGNATURE: ".build/phar/composer-normalize.phar.asc"
-      COMPOSER_VERSION: "2.4.4"
+      COMPOSER_VERSION: "2.5.1"
       GPG_KEYS: ".build/phar/keys.asc"
       GPG_KEYS_ENCRYPTED: "phar/keys.asc.gpg"
 
     steps:
       - name: "Checkout"
-        uses: "actions/checkout@v3"
+        uses: "actions/checkout@v3.3.0"
 
       - name: "Set up PHP"
-        uses: "shivammathur/setup-php@2.22.0"
+        uses: "shivammathur/setup-php@2.23.0"
         with:
           coverage: "none"
           extensions: "none, ctype, dom, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter"
           php-version: "${{ matrix.php-version }}"
 
       - name: "Determine composer cache directory"
-        uses: "ergebnis/.github/actions/composer/determine-cache-directory@1.7.0"
+        uses: "ergebnis/.github/actions/composer/determine-cache-directory@1.8.0"
 
       - name: "Cache dependencies installed with composer"
-        uses: "actions/cache@v3"
+        uses: "actions/cache@v3.2.3"
         with:
           path: "${{ env.COMPOSER_CACHE_DIR }}"
           key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
           restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
 
       - name: "Install ${{ matrix.dependencies }} dependencies with composer"
-        uses: "ergebnis/.github/actions/composer/install@1.7.0"
+        uses: "ergebnis/.github/actions/composer/install@1.8.0"
         with:
           dependencies: "${{ matrix.dependencies }}"
 
       - name: "Require composer/composer"
-        run: "composer require composer/composer:${{ env.COMPOSER_VERSION }} --no-interaction --no-progress"
+        run: "composer require composer/composer:${{ env.COMPOSER_VERSION }} --ansi --no-interaction --no-progress"
 
       - name: "Validate configuration for humbug/box"
-        run: ".phive/box validate box.json"
+        run: ".phive/box validate box.json --ansi"
 
       - name: "Compile composer-normalize.phar with humbug/box"
-        run: ".phive/box compile --config=box.json"
+        run: ".phive/box compile --ansi --config=box.json"
 
       - name: "Show info about composer-normalize.phar with humbug/box"
-        run: ".phive/box info ${{ env.COMPOSER_NORMALIZE_PHAR }}"
+        run: ".phive/box info ${{ env.COMPOSER_NORMALIZE_PHAR }} --ansi"
 
       - name: "Run composer-normalize.phar"
         run: "${{ env.COMPOSER_NORMALIZE_PHAR }}"
@@ -88,12 +88,12 @@ jobs:
         run: "echo \"RELEASE_TAG=${GITHUB_REF#refs/tags/}\" >> $GITHUB_ENV"
 
       - name: "Create release"
-        uses: "ergebnis/.github/actions/github/release/create@1.7.0"
+        uses: "ergebnis/.github/actions/github/release/create@1.8.0"
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
 
       - name: "Upload release assets"
-        uses: "actions/github-script@v6.3.3"
+        uses: "actions/github-script@v6.4.0"
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
           script: |

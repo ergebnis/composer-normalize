@@ -9,17 +9,13 @@ updates:
     directory: "/"
     ignore:
       - dependency-name: "composer/composer"
-        versions:
-          - ">= 0"
       - dependency-name: "composer-plugin-api"
-        versions:
-          - ">= 0"
     labels:
       - "dependency"
     open-pull-requests-limit: 10
     package-ecosystem: "composer"
     schedule:
-      interval: "weekly"
+      interval: "daily"
     versioning-strategy: "increase"
 
   - commit-message:
@@ -31,4 +27,4 @@ updates:
     open-pull-requests-limit: 10
     package-ecosystem: "github-actions"
     schedule:
-      interval: "weekly"
+      interval: "daily"

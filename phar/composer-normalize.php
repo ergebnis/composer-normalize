@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2018-2022 Andreas Möller
+ * Copyright (c) 2018-2023 Andreas Möller
  *
  * For the full copyright and license information, please view
  * the LICENSE.md file that was distributed with this source code.
@@ -24,7 +24,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 $command = new Normalize\Command\NormalizeCommand(
     new Factory(),
     new Normalizer\Vendor\Composer\ComposerJsonNormalizer(__DIR__ . '/../resource/schema.json'),
-    new Normalizer\Format\Formatter(new Printer\Printer()),
+    new Printer\Printer(),
     new Diff\Differ(new Diff\Output\StrictUnifiedDiffOutputBuilder([
         'fromFile' => 'original',
         'toFile' => 'normalized',

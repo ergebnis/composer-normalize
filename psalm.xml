@@ -17,6 +17,7 @@
     <projectFiles>
         <directory name="src/" />
         <directory name="test/" />
+        <file name="rector.php" />
         <ignoreFiles>
             <directory name="vendor/" />
         </ignoreFiles>

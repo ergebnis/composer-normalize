@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2018-2022 Andreas Möller
+ * Copyright (c) 2018-2023 Andreas Möller
  *
  * For the full copyright and license information, please view
  * the LICENSE.md file that was distributed with this source code.
@@ -21,7 +21,10 @@ use Ergebnis\Json\Normalizer;
 use Ergebnis\Json\Printer;
 use Localheinz\Diff;
 
-final class NormalizePlugin implements Plugin\Capability\CommandProvider, Plugin\Capable, Plugin\PluginInterface
+final class NormalizePlugin implements
+    Plugin\Capability\CommandProvider,
+    Plugin\Capable,
+    Plugin\PluginInterface
 {
     public function activate(
         Composer $composer,
@@ -57,7 +60,7 @@ final class NormalizePlugin implements Plugin\Capability\CommandProvider, Plugin
                     'file://%s',
                     \realpath(__DIR__ . '/../resource/schema.json'),
                 )),
-                new Normalizer\Format\Formatter(new Printer\Printer()),
+                new Printer\Printer(),
                 new Diff\Differ(new Diff\Output\StrictUnifiedDiffOutputBuilder([
                     'fromFile' => 'original',
                     'toFile' => 'normalized',

@@ -520,10 +520,6 @@ This package is licensed using the MIT License.
 
 Please have a look at [`LICENSE.md`](LICENSE.md).
 
-## Credits
+## Curious what I am up to?
 
-The algorithm for sorting packages in the [`PackageHashNormalizer`](https://github.com/ergebnis/composer-json-normalizer/blob/master/src/PackageHashNormalizer.php) has been adopted from [`Composer\Json\JsonManipulator::sortPackages()`](https://github.com/composer/composer/blob/1.6.2/src/Composer/Json/JsonManipulator.php#L110-L146) (originally licensed under MIT by [Nils Adermann](https://github.com/naderman) and [Jordi Boggiano](https://github.com/seldaek)), which I initially contributed to `composer/composer` with [`composer/composer#3549`](https://github.com/composer/composer/pull/3549) and [`composer/composer#3872`](https://github.com/composer/composer/pull/3872).
-
-## Curious what I am building?
-
-:mailbox_with_mail: [Subscribe to my list](https://localheinz.com/projects/), and I will occasionally send you an email to let you know what I am working on.
+Follow me on [Twitter](https://twitter.com/localheinz)!

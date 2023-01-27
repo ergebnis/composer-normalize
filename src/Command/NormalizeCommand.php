@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Copyright (c) 2018-2022 Andreas Möller
+ * Copyright (c) 2018-2023 Andreas Möller
  *
  * For the full copyright and license information, please view
  * the LICENSE.md file that was distributed with this source code.
@@ -21,6 +21,7 @@ use Composer\IO;
 use Ergebnis\Composer\Normalize\Exception;
 use Ergebnis\Composer\Normalize\Version;
 use Ergebnis\Json\Normalizer;
+use Ergebnis\Json\Printer;
 use Localheinz\Diff;
 use Symfony\Component\Console;
 
@@ -36,7 +37,7 @@ final class NormalizeCommand extends Command\BaseCommand
     public function __construct(
         private Factory $factory,
         private Normalizer\NormalizerInterface $normalizer,
-        private Normalizer\Format\FormatterInterface $formatter,
+        private Printer\PrinterInterface $printer,
         private Diff\Differ $differ,
     ) {
         parent::__construct('normalize');
@@ -190,8 +191,45 @@ final class NormalizeCommand extends Command\BaseCommand
 
         $json = Normalizer\Json::fromEncoded($encoded);
 
+        $format = Normalizer\Format\Format::fromJson($json);
+
+        if (null !== $indent) {
+            $format = $format->withIndent($indent);
+        }
+
+        $normalizer = new Normalizer\ChainNormalizer(
+            $this->normalizer,
+            new class($this->printer, $format) implements Normalizer\NormalizerInterface {
+                public function __construct(
+                    private Printer\PrinterInterface $printer,
+                    private Normalizer\Format\Format $format,
+                ) {
+                }
+
+                public function normalize(Normalizer\Json $json): Normalizer\Json
+                {
+                    $encoded = \json_encode(
+                        $json->decoded(),
+                        $this->format->jsonEncodeOptions()->toInt(),
+                    );
+
+                    $printed = $this->printer->print(
+                        $encoded,
+                        $this->format->indent()->toString(),
+                        $this->format->newLine()->toString(),
+                    );
+
+                    if (!$this->format->hasFinalNewLine()) {
+                        return Normalizer\Json::fromEncoded($printed);
+                    }
+
+                    return Normalizer\Json::fromEncoded($printed . $this->format->newLine()->toString());
+                }
+            },
+        );
+
         try {
-            $normalized = $this->normalizer->normalize($json);
+            $normalized = $normalizer->normalize($json);
         } catch (Normalizer\Exception\OriginalInvalidAccordingToSchemaException $exception) {
             $io->writeError('<error>Original composer.json does not match the expected JSON schema:</error>');
 
@@ -221,18 +259,7 @@ final class NormalizeCommand extends Command\BaseCommand
 
         $normalized = self::restoreSortOrderForSpecificKeys($normalized, $json);
 
-        $format = Normalizer\Format\Format::fromJson($json);
-
-        if (null !== $indent) {
-            $format = $format->withIndent($indent);
-        }
-
-        $formatted = $this->formatter->format(
-            $normalized,
-            $format,
-        );
-
-        if ($json->encoded() === $formatted->encoded()) {
+        if ($json->encoded() === $normalized->encoded()) {
             $io->write(\sprintf(
                 '<info>%s is already normalized.</info>',
                 $composerFile,
@@ -252,7 +279,7 @@ final class NormalizeCommand extends Command\BaseCommand
 
             $diff = $this->differ->diff(
                 $json->encoded(),
-                $formatted->encoded(),
+                $normalized->encoded(),
             );
 
             $io->write([
@@ -270,7 +297,7 @@ final class NormalizeCommand extends Command\BaseCommand
 
         \file_put_contents(
             $composerFile,
-            $formatted->encoded(),
+            $normalized->encoded(),
         );
 
         $io->write(\sprintf(
