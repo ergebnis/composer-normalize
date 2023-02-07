@@ -205,9 +205,9 @@ final class NormalizeCommand extends Command\BaseCommand
                 ) {
                 }
 
-                public function normalize(Normalizer\Json $normalized): Normalizer\Json
+                public function normalize(Normalizer\Json $json): Normalizer\Json
                 {
-                    $normalizedDecoded = (array) $normalized->decoded();
+                    $normalizedDecoded = (array) $json->decoded();
                     $originalDecoded = (array) $this->originalJson->decoded();
                     $pathsToPreserve = self::NEVER_SORT_PATHS;
 
@@ -254,7 +254,12 @@ final class NormalizeCommand extends Command\BaseCommand
                         }
                     } else {
                         // found a branch
-                        [$prefix, $suffix] = \explode('.', $path, 2);
+                        if (strpos($path, '.') === false) {
+                            $prefix = $path;
+                            $suffix = '';
+                        } else {
+                            [$prefix, $suffix] = \explode('.', $path, 2);
+                        }
 
                         if (\array_key_exists($prefix, $normalized)) {
                             $normalized[$prefix] = self::restoreSpecificKeyOrder((array) $normalized[$prefix], (array) $original[$prefix], $suffix);
