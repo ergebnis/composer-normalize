@@ -43,7 +43,7 @@ jobs:
         uses: "ergebnis/.github/actions/composer/determine-cache-directory@1.8.0"
 
       - name: "Cache dependencies installed with composer"
-        uses: "actions/cache@v3.2.4"
+        uses: "actions/cache@v3.2.5"
         with:
           path: "${{ env.COMPOSER_CACHE_DIR }}"
           key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
