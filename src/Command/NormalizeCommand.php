@@ -254,7 +254,7 @@ final class NormalizeCommand extends Command\BaseCommand
                         }
                     } else {
                         // found a branch
-                        if (strpos($path, '.') === false) {
+                        if (!\str_contains($path, '.')) {
                             $prefix = $path;
                             $suffix = '';
                         } else {
