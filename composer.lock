@@ -4,38 +4,39 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3b1612ee318ead4ea1ea5843bed8377a",
+    "content-hash": "38273c232d76effe6d7d4c973ede435e",
     "packages": [
         {
             "name": "ergebnis/json-normalizer",
-            "version": "2.1.0",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/json-normalizer.git",
-                "reference": "2039eb11131a243b9204bf51219baa08935e6b1d"
+                "reference": "07b693b974c0ee6a9f0e7ed76151e33992967c24"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/json-normalizer/zipball/2039eb11131a243b9204bf51219baa08935e6b1d",
-                "reference": "2039eb11131a243b9204bf51219baa08935e6b1d",
+                "url": "https://api.github.com/repos/ergebnis/json-normalizer/zipball/07b693b974c0ee6a9f0e7ed76151e33992967c24",
+                "reference": "07b693b974c0ee6a9f0e7ed76151e33992967c24",
                 "shasum": ""
             },
             "require": {
+                "ergebnis/json-pointer": "^3.1.0",
                 "ergebnis/json-printer": "^3.2.0",
-                "ergebnis/json-schema-validator": "^2.0.0",
+                "ergebnis/json-schema-validator": "^3.1.0",
                 "ext-json": "*",
-                "justinrainbow/json-schema": "^5.2.11",
+                "justinrainbow/json-schema": "^5.2.12",
                 "php": "^7.4 || ^8.0"
             },
             "require-dev": {
-                "ergebnis/data-provider": "^1.0.0",
+                "ergebnis/data-provider": "^1.2.0",
                 "ergebnis/license": "^1.2.0",
-                "ergebnis/php-cs-fixer-config": "^3.4.0",
-                "fakerphp/faker": "^1.17.0",
-                "infection/infection": "~0.25.5",
-                "phpunit/phpunit": "^9.5.11",
-                "psalm/plugin-phpunit": "~0.16.1",
-                "vimeo/psalm": "^4.17.0"
+                "ergebnis/php-cs-fixer-config": "^4.6.0",
+                "fakerphp/faker": "^1.20.0",
+                "infection/infection": "~0.26.6",
+                "phpunit/phpunit": "^9.5.21",
+                "psalm/plugin-phpunit": "~0.17.0",
+                "vimeo/psalm": "^4.26"
             },
             "type": "library",
             "autoload": {
@@ -63,13 +64,70 @@
                 "issues": "https://github.com/ergebnis/json-normalizer/issues",
                 "source": "https://github.com/ergebnis/json-normalizer"
             },
-            "funding": [
+            "time": "2022-08-10T07:08:29+00:00"
+        },
+        {
+            "name": "ergebnis/json-pointer",
+            "version": "3.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ergebnis/json-pointer.git",
+                "reference": "861516ff5afa1aa8905fdf3361315909523a1bf8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ergebnis/json-pointer/zipball/861516ff5afa1aa8905fdf3361315909523a1bf8",
+                "reference": "861516ff5afa1aa8905fdf3361315909523a1bf8",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "ergebnis/composer-normalize": "^2.28.3",
+                "ergebnis/data-provider": "^1.2.0",
+                "ergebnis/license": "^2.1.0",
+                "ergebnis/php-cs-fixer-config": "^5.0.0",
+                "fakerphp/faker": "^1.20.0",
+                "infection/infection": "~0.26.16",
+                "phpunit/phpunit": "^9.5.26",
+                "psalm/plugin-phpunit": "~0.18.3",
+                "vimeo/psalm": "^4.30"
+            },
+            "type": "library",
+            "extra": {
+                "composer-normalize": {
+                    "indent-size": 2,
+                    "indent-style": "space"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Ergebnis\\Json\\Pointer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
                 {
-                    "url": "https://github.com/localheinz",
-                    "type": "github"
+                    "name": "Andreas Möller",
+                    "email": "am@localheinz.com"
                 }
             ],
-            "time": "2022-01-04T11:19:55+00:00"
+            "description": "Provides JSON pointer as a value object.",
+            "homepage": "https://github.com/ergebnis/json-pointer",
+            "keywords": [
+                "RFC6901",
+                "json",
+                "pointer"
+            ],
+            "support": {
+                "issues": "https://github.com/ergebnis/json-pointer/issues",
+                "source": "https://github.com/ergebnis/json-pointer"
+            },
+            "time": "2022-11-28T17:03:31+00:00"
         },
         {
             "name": "ergebnis/json-printer",
@@ -130,33 +188,34 @@
         },
         {
             "name": "ergebnis/json-schema-validator",
-            "version": "2.0.0",
+            "version": "3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/json-schema-validator.git",
-                "reference": "dacd8a47c1cc2c426ec71e952da3609ebe901fac"
+                "reference": "dba66b66ff9ec6fa94003eb420b0d08a5d48069e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/json-schema-validator/zipball/dacd8a47c1cc2c426ec71e952da3609ebe901fac",
-                "reference": "dacd8a47c1cc2c426ec71e952da3609ebe901fac",
+                "url": "https://api.github.com/repos/ergebnis/json-schema-validator/zipball/dba66b66ff9ec6fa94003eb420b0d08a5d48069e",
+                "reference": "dba66b66ff9ec6fa94003eb420b0d08a5d48069e",
                 "shasum": ""
             },
             "require": {
+                "ergebnis/json-pointer": "^3.1.0",
                 "ext-json": "*",
-                "justinrainbow/json-schema": "^5.2.10",
-                "php": "^7.4 || ^8.0"
+                "justinrainbow/json-schema": "^5.2.12",
+                "php": "^8.0"
             },
             "require-dev": {
-                "ergebnis/composer-normalize": "^2.18.0",
-                "ergebnis/data-provider": "^1.0.0",
-                "ergebnis/license": "^1.1.0",
-                "ergebnis/php-cs-fixer-config": "~3.4.0",
-                "fakerphp/faker": "^1.17.0",
-                "infection/infection": "~0.25.3",
-                "phpunit/phpunit": "~9.5.10",
-                "psalm/plugin-phpunit": "~0.16.1",
-                "vimeo/psalm": "^4.15.0"
+                "ergebnis/composer-normalize": "^2.21.0",
+                "ergebnis/data-provider": "^1.2.0",
+                "ergebnis/license": "^2.1.0",
+                "ergebnis/php-cs-fixer-config": "~4.11.0",
+                "fakerphp/faker": "^1.20.0",
+                "infection/infection": "~0.26.16",
+                "phpunit/phpunit": "~9.5.26",
+                "psalm/plugin-phpunit": "~0.18.3",
+                "vimeo/psalm": "^4.30"
             },
             "type": "library",
             "extra": {
@@ -191,13 +250,7 @@
                 "issues": "https://github.com/ergebnis/json-schema-validator/issues",
                 "source": "https://github.com/ergebnis/json-schema-validator"
             },
-            "funding": [
-                {
-                    "url": "https://github.com/localheinz",
-                    "type": "github"
-                }
-            ],
-            "time": "2021-12-13T16:54:56+00:00"
+            "time": "2022-11-28T11:23:54+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
