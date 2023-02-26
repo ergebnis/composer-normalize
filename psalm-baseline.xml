@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.4.0@62db5d4f6a7ae0a20f7cc5a4952d730272fc0863">
+<files psalm-version="5.7.7@e028ba46ba0d7f9a78bc3201c251e137383e145f">
   <file src="src/Command/NormalizeCommand.php">
-    <MixedAssignment occurrences="1">
+    <MixedAssignment>
       <code>$composerFile</code>
     </MixedAssignment>
   </file>
   <file src="test/Integration/Command/NormalizeCommand/AbstractTestCase.php">
-    <MixedArrayAccess occurrences="1">
+    <MixedArrayAccess>
       <code>$decoded['plugin-api-version']</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="1">
+    <MixedAssignment>
       <code>$decoded</code>
     </MixedAssignment>
   </file>
