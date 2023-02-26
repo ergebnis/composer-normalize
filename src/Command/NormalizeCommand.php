@@ -20,6 +20,7 @@ use Composer\Factory;
 use Composer\IO;
 use Ergebnis\Composer\Normalize\Exception;
 use Ergebnis\Composer\Normalize\Version;
+use Ergebnis\Json\Json;
 use Ergebnis\Json\Normalizer;
 use Ergebnis\Json\Printer;
 use Localheinz\Diff;
@@ -32,7 +33,7 @@ final class NormalizeCommand extends Command\BaseCommand
 {
     public function __construct(
         private Factory $factory,
-        private Normalizer\NormalizerInterface $normalizer,
+        private Normalizer\Normalizer $normalizer,
         private Printer\PrinterInterface $printer,
         private Diff\Differ $differ,
     ) {
@@ -185,7 +186,7 @@ final class NormalizeCommand extends Command\BaseCommand
         /** @var string $encoded */
         $encoded = \file_get_contents($composerFile);
 
-        $json = Normalizer\Json::fromEncoded($encoded);
+        $json = Json::fromString($encoded);
 
         $format = Normalizer\Format\Format::fromJson($json);
 
@@ -195,14 +196,14 @@ final class NormalizeCommand extends Command\BaseCommand
 
         $normalizer = new Normalizer\ChainNormalizer(
             $this->normalizer,
-            new class($this->printer, $format) implements Normalizer\NormalizerInterface {
+            new class($this->printer, $format) implements Normalizer\Normalizer {
                 public function __construct(
                     private Printer\PrinterInterface $printer,
                     private Normalizer\Format\Format $format,
                 ) {
                 }
 
-                public function normalize(Normalizer\Json $json): Normalizer\Json
+                public function normalize(Json $json): Json
                 {
                     $encoded = \json_encode(
                         $json->decoded(),
@@ -216,17 +217,17 @@ final class NormalizeCommand extends Command\BaseCommand
                     );
 
                     if (!$this->format->hasFinalNewLine()) {
-                        return Normalizer\Json::fromEncoded($printed);
+                        return Json::fromString($printed);
                     }
 
-                    return Normalizer\Json::fromEncoded($printed . $this->format->newLine()->toString());
+                    return Json::fromString($printed . $this->format->newLine()->toString());
                 }
             },
         );
 
         try {
             $normalized = $normalizer->normalize($json);
-        } catch (Normalizer\Exception\OriginalInvalidAccordingToSchemaException $exception) {
+        } catch (Normalizer\Exception\OriginalInvalidAccordingToSchema $exception) {
             $io->writeError('<error>Original composer.json does not match the expected JSON schema:</error>');
 
             self::showValidationErrors(
@@ -235,7 +236,7 @@ final class NormalizeCommand extends Command\BaseCommand
             );
 
             return 1;
-        } catch (Normalizer\Exception\NormalizedInvalidAccordingToSchemaException $exception) {
+        } catch (Normalizer\Exception\NormalizedInvalidAccordingToSchema $exception) {
             $io->writeError('<error>Normalized composer.json does not match the expected JSON schema:</error>');
 
             self::showValidationErrors(
