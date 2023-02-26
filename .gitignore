@@ -1,6 +1,8 @@
 /.build/
 /.notes/
+/.phive/
 /phar/resource/
 /phar/src/
 /phar/vendor/
 /vendor/
+!/.phive/phars.xml

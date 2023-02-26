@@ -1,7 +1,7 @@
 # composer-normalize
 
 [![Integrate](https://github.com/ergebnis/composer-normalize/workflows/Integrate/badge.svg)](https://github.com/ergebnis/composer-normalize/actions)
-[![Prune](https://github.com/ergebnis/composer-normalize/workflows/Prune/badge.svg)](https://github.com/ergebnis/composer-normalize/actions)
+[![Merge](https://github.com/ergebnis/composer-normalize/workflows/Merge/badge.svg)](https://github.com/ergebnis/composer-normalize/actions)
 [![Release](https://github.com/ergebnis/composer-normalize/workflows/Release/badge.svg)](https://github.com/ergebnis/composer-normalize/actions)
 [![Renew](https://github.com/ergebnis/composer-normalize/workflows/Renew/badge.svg)](https://github.com/ergebnis/composer-normalize/actions)
 [![Update](https://github.com/ergebnis/composer-normalize/workflows/Update/badge.svg)](https://github.com/ergebnis/composer-normalize/actions)
@@ -11,6 +11,7 @@
 
 [![Latest Stable Version](https://poser.pugx.org/ergebnis/composer-normalize/v/stable)](https://packagist.org/packages/ergebnis/composer-normalize)
 [![Total Downloads](https://poser.pugx.org/ergebnis/composer-normalize/downloads)](https://packagist.org/packages/ergebnis/composer-normalize)
+[![Monthly Downloads](http://poser.pugx.org/ergebnis/composer-normalize/d/monthly)](https://packagist.org/packages/ergebnis/composer-normalize)
 
 Provides a [`composer`](https://getcomposer.org) plugin for normalizing [`composer.json`](https://getcomposer.org/doc/04-schema.md).
 
@@ -34,7 +35,7 @@ When it comes to formatting `composer.json`, you have the following options:
 
 Run
 
-```console
+```sh
 composer require --dev ergebnis/composer-normalize
 ```
 
@@ -61,7 +62,7 @@ Head over to http://github.com/ergebnis/composer-normalize/releases/latest and d
 
 Run
 
-```console
+```sh
 chmod +x composer-normalize.phar
 ```
 
@@ -71,7 +72,7 @@ to make the downloaded `composer-normalize.phar` executable.
 
 Run
 
-```console
+```sh
 phive install ergebnis/composer-normalize
 ```
 
@@ -83,7 +84,7 @@ to install `ergebnis/composer-normalize` with [PHIVE](https://phar.io).
 
 Run
 
-```console
+```sh
 composer normalize
 ```
 
@@ -93,7 +94,7 @@ to normalize `composer.json` in the working directory.
 
 Run
 
-```console
+```sh
 ./composer-normalize.phar
 ```
 
@@ -103,7 +104,7 @@ to normalize `composer.json` in the working directory.
 
 Run
 
-```console
+```sh
 ./tools/composer-normalize
 ```
 
@@ -152,7 +153,7 @@ As an alternative to specifying the `--indent-size` and `--indent-style` options
 
 If you want to run this in continuous integration services, use the `--dry-run` option.
 
-```console
+```sh
 composer normalize --dry-run
 ```
 
@@ -165,7 +166,7 @@ fail with an exit code of `1` and show a diff.
 
 Running
 
-```console
+```sh
 composer normalize
 ```
 
@@ -271,7 +272,7 @@ index 1cfbf1e..204f20f 100644
 
 Running
 
-```console
+```sh
 composer normalize
 ```
 
@@ -406,7 +407,7 @@ index 90150a37..276a2ecd 100644
 
 Running
 
-```console
+```sh
 composer normalize
 ```
 
@@ -505,4 +506,4 @@ Please have a look at [`LICENSE.md`](LICENSE.md).
 
 ## Curious what I am up to?
 
-Follow me on [Twitter](https://twitter.com/localheinz)!
+Follow me on [Twitter](https://twitter.com/intent/follow?screen_name=localheinz)!

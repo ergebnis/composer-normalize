@@ -68,10 +68,6 @@ labels:
     color: "ee0701"
     description: ""
 
-  - name: "stale"
-    color: "eeeeee"
-    description: ""
-
 # https://docs.github.com/en/rest/reference/repos#update-a-repository
 
 repository:

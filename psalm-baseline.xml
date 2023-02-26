@@ -13,4 +13,19 @@
       <code>$decoded</code>
     </MixedAssignment>
   </file>
+  <file src="test/Util/Directory.php">
+    <PossiblyUnusedMethod>
+      <code>exists</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/Util/File.php">
+    <PossiblyUnusedMethod>
+      <code>exists</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="test/Util/Scenario.php">
+    <PossiblyUnusedMethod>
+      <code>commandInvocation</code>
+    </PossiblyUnusedMethod>
+  </file>
 </files>
