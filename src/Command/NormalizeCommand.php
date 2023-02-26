@@ -20,6 +20,7 @@ use Composer\Factory;
 use Composer\IO;
 use Ergebnis\Composer\Normalize\Exception;
 use Ergebnis\Composer\Normalize\Version;
+use Ergebnis\Json\Json;
 use Ergebnis\Json\Normalizer;
 use Ergebnis\Json\Printer;
 use Localheinz\Diff;
@@ -185,7 +186,7 @@ final class NormalizeCommand extends Command\BaseCommand
         /** @var string $encoded */
         $encoded = \file_get_contents($composerFile);
 
-        $json = Normalizer\Json::fromEncoded($encoded);
+        $json = Json::fromString($encoded);
 
         $format = Normalizer\Format\Format::fromJson($json);
 
@@ -202,7 +203,7 @@ final class NormalizeCommand extends Command\BaseCommand
                 ) {
                 }
 
-                public function normalize(Normalizer\Json $json): Normalizer\Json
+                public function normalize(Json $json): Json
                 {
                     $encoded = \json_encode(
                         $json->decoded(),
@@ -216,10 +217,10 @@ final class NormalizeCommand extends Command\BaseCommand
                     );
 
                     if (!$this->format->hasFinalNewLine()) {
-                        return Normalizer\Json::fromEncoded($printed);
+                        return Json::fromString($printed);
                     }
 
-                    return Normalizer\Json::fromEncoded($printed . $this->format->newLine()->toString());
+                    return Json::fromString($printed . $this->format->newLine()->toString());
                 }
             },
         );

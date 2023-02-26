@@ -17,6 +17,7 @@ use Composer\Factory;
 use Ergebnis\Composer\Normalize\Command\NormalizeCommand;
 use Ergebnis\Composer\Normalize\Test\Integration;
 use Ergebnis\Composer\Normalize\Test\Util;
+use Ergebnis\Json\Json;
 use Ergebnis\Json\Normalizer;
 use Ergebnis\Json\Printer;
 use Localheinz\Diff;
@@ -56,7 +57,7 @@ final class Test extends Integration\Command\NormalizeCommand\AbstractTestCase
                 {
                 }
 
-                public function normalize(Normalizer\Json $json): Normalizer\Json
+                public function normalize(Json $json): Json
                 {
                     throw new \RuntimeException($this->exceptionMessage);
                 }
