@@ -32,7 +32,7 @@ final class NormalizeCommand extends Command\BaseCommand
 {
     public function __construct(
         private Factory $factory,
-        private Normalizer\NormalizerInterface $normalizer,
+        private Normalizer\Normalizer $normalizer,
         private Printer\PrinterInterface $printer,
         private Diff\Differ $differ,
     ) {
@@ -195,7 +195,7 @@ final class NormalizeCommand extends Command\BaseCommand
 
         $normalizer = new Normalizer\ChainNormalizer(
             $this->normalizer,
-            new class($this->printer, $format) implements Normalizer\NormalizerInterface {
+            new class($this->printer, $format) implements Normalizer\Normalizer {
                 public function __construct(
                     private Printer\PrinterInterface $printer,
                     private Normalizer\Format\Format $format,

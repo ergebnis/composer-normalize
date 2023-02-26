@@ -51,7 +51,7 @@ final class Test extends Integration\Command\NormalizeCommand\AbstractTestCase
 
         $application = self::createApplication(new NormalizeCommand(
             new Factory(),
-            new class($exceptionMessage) implements Normalizer\NormalizerInterface {
+            new class($exceptionMessage) implements Normalizer\Normalizer {
                 public function __construct(private string $exceptionMessage)
                 {
                 }
