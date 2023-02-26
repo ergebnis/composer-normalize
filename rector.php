@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 use Rector\Config;
 use Rector\Core;
+use Rector\PHPUnit;
 
 return static function (Config\RectorConfig $rectorConfig): void {
     $rectorConfig->cacheDirectory(__DIR__ . '/.build/rector/');
@@ -25,4 +26,8 @@ return static function (Config\RectorConfig $rectorConfig): void {
     ]);
 
     $rectorConfig->phpVersion(Core\ValueObject\PhpVersion::PHP_80);
+
+    $rectorConfig->sets([
+        PHPUnit\Set\PHPUnitSetList::PHPUNIT_90,
+    ]);
 };
