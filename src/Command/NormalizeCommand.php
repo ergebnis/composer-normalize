@@ -227,7 +227,7 @@ final class NormalizeCommand extends Command\BaseCommand
 
         try {
             $normalized = $normalizer->normalize($json);
-        } catch (Normalizer\Exception\OriginalInvalidAccordingToSchemaException $exception) {
+        } catch (Normalizer\Exception\OriginalInvalidAccordingToSchema $exception) {
             $io->writeError('<error>Original composer.json does not match the expected JSON schema:</error>');
 
             self::showValidationErrors(
@@ -236,7 +236,7 @@ final class NormalizeCommand extends Command\BaseCommand
             );
 
             return 1;
-        } catch (Normalizer\Exception\NormalizedInvalidAccordingToSchemaException $exception) {
+        } catch (Normalizer\Exception\NormalizedInvalidAccordingToSchema $exception) {
             $io->writeError('<error>Normalized composer.json does not match the expected JSON schema:</error>');
 
             self::showValidationErrors(
