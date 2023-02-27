@@ -55,12 +55,12 @@
     }
   },
   "config": {
-    "platform": {
-      "php": "8.0.25"
-    },
     "allow-plugins": {
       "composer/package-versions-deprecated": true,
       "infection/extension-installer": true
+    },
+    "platform": {
+      "php": "8.0.25"
     },
     "preferred-install": "dist",
     "sort-packages": true
