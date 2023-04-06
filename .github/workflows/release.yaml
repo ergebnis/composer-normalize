@@ -99,7 +99,7 @@ jobs:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
 
       - name: "Upload release assets"
-        uses: "actions/github-script@v6.4.0"
+        uses: "actions/github-script@v6.4.1"
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
           script: |
