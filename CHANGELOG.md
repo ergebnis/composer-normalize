@@ -12,6 +12,7 @@ For a full diff see [`2.30.2...main`][2.30.2...main].
 
 - Updated `schema.json` ([#1070]), by [@ergebnis-bot]
 - Required `ergebnis/json-normalizer:^4.1.0` ([#1095]), by [@dependabot]
+- Started passing through `--no-ansi` option to `UpdateCommand` ([#827]), by [@localheinz]
 
 ### Fixed
 
@@ -1006,6 +1007,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [#807]: https://github.com/ergebnis/composer-normalize/pull/807
 [#816]: https://github.com/ergebnis/composer-normalize/pull/816
 [#825]: https://github.com/ergebnis/composer-normalize/pull/825
+[#827]: https://github.com/ergebnis/composer-normalize/pull/827
 [#829]: https://github.com/ergebnis/composer-normalize/pull/829
 [#842]: https://github.com/ergebnis/composer-normalize/pull/842
 [#845]: https://github.com/ergebnis/composer-normalize/pull/845

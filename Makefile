@@ -37,6 +37,7 @@ phar: phive vendor ## Builds a phar with humbug/box
 	.phive/box info .build/phar/composer-normalize.phar
 	.build/phar/composer-normalize.phar
 	.build/phar/composer-normalize.phar --dry-run composer.json
+	.build/phar/composer-normalize.phar --dry-run --no-ansi composer.json
 
 .PHONY: phive
 phive: .phive ## Installs dependencies with phive

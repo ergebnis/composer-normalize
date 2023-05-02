@@ -213,7 +213,7 @@ jobs:
         run: "${{ env.COMPOSER_NORMALIZE_PHAR }} --ansi"
 
       - name: "Run composer-normalize.phar with argument and options"
-        run: "${{ env.COMPOSER_NORMALIZE_PHAR }} --ansi --dry-run composer.json"
+        run: "${{ env.COMPOSER_NORMALIZE_PHAR }} --dry-run --no-ansi composer.json"
 
   dependency-analysis:
     name: "Dependency Analysis"
