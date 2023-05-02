@@ -18,7 +18,8 @@
   "homepage": "https://github.com/ergebnis/composer-normalize",
   "support": {
     "issues": "https://github.com/ergebnis/composer-normalize/issues",
-    "source": "https://github.com/ergebnis/composer-normalize"
+    "source": "https://github.com/ergebnis/composer-normalize",
+    "security": "https://github.com/ergebnis/composer-normalize/blob/main/.github/SECURITY.md"
   },
   "require": {
     "php": "~8.0.0 || ~8.1.0 || ~8.2.0",
