@@ -80,6 +80,7 @@ repository:
   description: ":musical_note: Provides a composer plugin for normalizing composer.json."
   enable_automated_security_fixes: true
   enable_vulnerability_alerts: true
+  has_discussions: false
   has_downloads: true
   has_issues: true
   has_pages: false
