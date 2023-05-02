@@ -71,6 +71,7 @@
     "composer-normalize": {
       "indent-size": 2,
       "indent-style": "space"
-    }
+    },
+    "plugin-optional": true
   }
 }
