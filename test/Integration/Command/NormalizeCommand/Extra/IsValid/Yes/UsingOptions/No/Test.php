@@ -53,14 +53,13 @@ final class Test extends Integration\Command\NormalizeCommand\AbstractTestCase
             $output,
         );
 
-        self::assertExitCodeSame(0, $exitCode);
-
         $expected = \sprintf(
             'Successfully normalized %s.',
             $scenario->composerJsonFileReference(),
         );
 
         self::assertStringContainsString($expected, $output->fetch());
+        self::assertExitCodeSame(0, $exitCode);
 
         $currentState = $scenario->currentState();
 

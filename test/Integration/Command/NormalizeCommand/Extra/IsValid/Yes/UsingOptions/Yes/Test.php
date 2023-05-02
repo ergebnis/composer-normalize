@@ -59,8 +59,6 @@ final class Test extends Integration\Command\NormalizeCommand\AbstractTestCase
             $output,
         );
 
-        self::assertExitCodeSame(0, $exitCode);
-
         $display = $output->fetch();
 
         self::assertStringContainsString('Configuration provided via options and composer extra. Using configuration from composer extra.', $display);
@@ -71,6 +69,7 @@ final class Test extends Integration\Command\NormalizeCommand\AbstractTestCase
         );
 
         self::assertStringContainsString($expected, $display);
+        self::assertExitCodeSame(0, $exitCode);
 
         $currentState = $scenario->currentState();
 

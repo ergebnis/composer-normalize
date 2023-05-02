@@ -78,8 +78,8 @@ final class Test extends Integration\Command\NormalizeCommand\AbstractTestCase
             $output,
         );
 
-        self::assertExitCodeSame(1, $exitCode);
         self::assertStringContainsString($exceptionMessage, $output->fetch());
+        self::assertExitCodeSame(1, $exitCode);
         self::assertEquals($initialState, $scenario->currentState());
     }
 }

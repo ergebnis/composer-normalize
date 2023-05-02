@@ -48,8 +48,8 @@ final class Test extends Integration\Command\NormalizeCommand\AbstractTestCase
             $output,
         );
 
-        self::assertExitCodeSame(1, $exitCode);
         self::assertStringContainsString('Indent size needs to be an integer greater than 0, but 0 is not.', $output->fetch());
+        self::assertExitCodeSame(1, $exitCode);
         self::assertEquals($scenario->initialState(), $scenario->currentState());
     }
 }

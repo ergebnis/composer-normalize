@@ -54,8 +54,8 @@ final class Test extends Integration\Command\NormalizeCommand\AbstractTestCase
             $output,
         );
 
-        self::assertExitCodeSame(1, $exitCode);
         self::assertStringContainsString('The lock file is not up to date with the latest changes in composer.json, it is recommended that you run `composer update --lock`.', $output->fetch());
+        self::assertExitCodeSame(1, $exitCode);
         self::assertEquals($initialState, $scenario->currentState());
     }
 }

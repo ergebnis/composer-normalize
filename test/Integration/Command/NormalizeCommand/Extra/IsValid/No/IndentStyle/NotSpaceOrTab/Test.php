@@ -48,8 +48,8 @@ final class Test extends Integration\Command\NormalizeCommand\AbstractTestCase
             $output,
         );
 
-        self::assertExitCodeSame(1, $exitCode);
         self::assertStringContainsString('Indent style needs to be one of "space", "tab", but "foo" is not.', $output->fetch());
+        self::assertExitCodeSame(1, $exitCode);
         self::assertEquals($scenario->initialState(), $scenario->currentState());
     }
 }

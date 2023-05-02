@@ -48,8 +48,8 @@ final class Test extends Integration\Command\NormalizeCommand\AbstractTestCase
             $output,
         );
 
-        self::assertExitCodeSame(1, $exitCode);
         self::assertStringContainsString('Indent style needs to be a string, got array instead.', $output->fetch());
+        self::assertExitCodeSame(1, $exitCode);
         self::assertEquals($scenario->initialState(), $scenario->currentState());
     }
 }

@@ -48,8 +48,8 @@ final class Test extends Integration\Command\NormalizeCommand\AbstractTestCase
             $output,
         );
 
-        self::assertExitCodeSame(1, $exitCode);
         self::assertStringContainsString('Configuration in composer extra requires keys "indent-size", "indent-style" with corresponding values.', $output->fetch());
+        self::assertExitCodeSame(1, $exitCode);
         self::assertEquals($scenario->initialState(), $scenario->currentState());
     }
 }

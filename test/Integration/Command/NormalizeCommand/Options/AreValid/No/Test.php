@@ -54,8 +54,8 @@ final class Test extends Integration\Command\NormalizeCommand\AbstractTestCase
             $output,
         );
 
-        self::assertExitCodeSame(1, $exitCode);
         self::assertStringContainsString('When using the indent-style option, an indent size needs to be specified using the indent-size option.', $output->fetch());
+        self::assertExitCodeSame(1, $exitCode);
         self::assertEquals($scenario->initialState(), $scenario->currentState());
     }
 
@@ -82,8 +82,8 @@ final class Test extends Integration\Command\NormalizeCommand\AbstractTestCase
             $output,
         );
 
-        self::assertExitCodeSame(1, $exitCode);
         self::assertStringContainsString('When using the indent-size option, an indent style (one of "space", "tab") needs to be specified using the indent-style option.', $output->fetch());
+        self::assertExitCodeSame(1, $exitCode);
         self::assertEquals($scenario->initialState(), $scenario->currentState());
     }
 
@@ -115,14 +115,13 @@ final class Test extends Integration\Command\NormalizeCommand\AbstractTestCase
             $output,
         );
 
-        self::assertExitCodeSame(1, $exitCode);
-
         $expected = \sprintf(
             'Indent style needs to be one of "space", "tab", but "%s" is not.',
             $indentStyle,
         );
 
         self::assertStringContainsString($expected, $output->fetch());
+        self::assertExitCodeSame(1, $exitCode);
         self::assertEquals($scenario->initialState(), $scenario->currentState());
     }
 
@@ -155,14 +154,13 @@ final class Test extends Integration\Command\NormalizeCommand\AbstractTestCase
             $output,
         );
 
-        self::assertExitCodeSame(1, $exitCode);
-
         $expected = \sprintf(
             'Indent size needs to be an integer greater than 0, but "%s" is not.',
             $indentSize,
         );
 
         self::assertStringContainsString($expected, $output->fetch());
+        self::assertExitCodeSame(1, $exitCode);
         self::assertEquals($scenario->initialState(), $scenario->currentState());
     }
 }

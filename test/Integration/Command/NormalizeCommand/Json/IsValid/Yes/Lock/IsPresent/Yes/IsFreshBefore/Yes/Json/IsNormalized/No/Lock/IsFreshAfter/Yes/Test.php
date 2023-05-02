@@ -54,14 +54,13 @@ final class Test extends Integration\Command\NormalizeCommand\AbstractTestCase
             $output,
         );
 
-        self::assertExitCodeSame(0, $exitCode);
-
         $expected = \sprintf(
             'Successfully normalized %s.',
             $scenario->composerJsonFileReference(),
         );
 
         self::assertStringContainsString($expected, $output->fetch());
+        self::assertExitCodeSame(0, $exitCode);
 
         $currentState = $scenario->currentState();
 
@@ -97,8 +96,6 @@ final class Test extends Integration\Command\NormalizeCommand\AbstractTestCase
             $output,
         );
 
-        self::assertExitCodeSame(1, $exitCode);
-
         $renderedOutput = $output->fetch();
 
         $expected = \sprintf(
@@ -109,6 +106,7 @@ final class Test extends Integration\Command\NormalizeCommand\AbstractTestCase
         self::assertStringContainsString($expected, $renderedOutput);
         self::assertStringContainsString('---------- begin diff ----------', $renderedOutput);
         self::assertStringContainsString('----------- end diff -----------', $renderedOutput);
+        self::assertExitCodeSame(1, $exitCode);
         self::assertEquals($initialState, $scenario->currentState());
     }
 }

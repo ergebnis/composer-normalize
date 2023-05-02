@@ -53,8 +53,8 @@ final class Test extends Integration\Command\NormalizeCommand\AbstractTestCase
             $output,
         );
 
-        self::assertExitCodeSame(1, $exitCode);
         self::assertStringContainsString('does not match the expected JSON schema', $output->fetch());
+        self::assertExitCodeSame(1, $exitCode);
         self::assertEquals($initialState, $scenario->currentState());
     }
 }
