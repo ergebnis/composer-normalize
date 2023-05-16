@@ -35,7 +35,7 @@
     "composer/composer": "^2.5.5",
     "ergebnis/license": "^2.1.0",
     "ergebnis/php-cs-fixer-config": "^5.5.2",
-    "fakerphp/faker": "^1.21.0",
+    "fakerphp/faker": "^1.22.0",
     "infection/infection": "~0.26.19",
     "phpunit/phpunit": "^9.6.8",
     "psalm/plugin-phpunit": "~0.18.4",
