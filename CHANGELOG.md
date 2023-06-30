@@ -12,6 +12,10 @@ For a full diff see [`2.31.0...main`][2.31.0...main].
 
 - Dropped support for PHP 8.0 ([#1118]), by [@localheinz]
 
+### Fixed
+
+- Required `composer/composer:2.5.8` for compiling `composer-normalize.phar` ([#1125]), by [@localheinz]
+
 ## [`2.31.0`][2.31.0]
 
 For a full diff see [`2.30.2...2.31.0`][2.30.2...2.31.0].
@@ -1055,6 +1059,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [#1094]: https://github.com/ergebnis/composer-normalize/pull/1094
 [#1095]: https://github.com/ergebnis/composer-normalize/pull/1095
 [#1118]: https://github.com/ergebnis/composer-normalize/pull/1118
+[#1125]: https://github.com/ergebnis/composer-normalize/pull/1125
 
 [@core23]: https://github.com/core23
 [@dependabot]: https://github.com/dependabot
