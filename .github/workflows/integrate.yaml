@@ -159,7 +159,7 @@ jobs:
 
     env:
       COMPOSER_NORMALIZE_PHAR: ".build/phar/composer-normalize.phar"
-      COMPOSER_VERSION: "2.5.5"
+      COMPOSER_VERSION: "2.5.8"
 
     steps:
       - name: "Checkout"
