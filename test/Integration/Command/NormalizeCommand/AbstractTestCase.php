@@ -14,18 +14,14 @@ declare(strict_types=1);
 namespace Ergebnis\Composer\Normalize\Test\Integration\Command\NormalizeCommand;
 
 use Composer\Console\Application;
-use Ergebnis\Composer\Normalize\Command\NormalizeCommand;
+use Ergebnis\Composer\Normalize\Command;
 use Ergebnis\Composer\Normalize\NormalizePlugin;
 use Ergebnis\Composer\Normalize\Test;
 use PHPUnit\Framework;
 use Symfony\Component\Console;
 use Symfony\Component\Filesystem;
 
-/**
- * @internal
- *
- * @coversNothing
- */
+#[Framework\Attributes\CoversNothing]
 abstract class AbstractTestCase extends Framework\TestCase
 {
     use Test\Util\Helper;
@@ -83,7 +79,7 @@ abstract class AbstractTestCase extends Framework\TestCase
         return $scenario;
     }
 
-    final protected static function createApplication(NormalizeCommand $command): Application
+    final protected static function createApplication(Command\NormalizeCommand $command): Application
     {
         $application = new Application();
 
@@ -98,14 +94,14 @@ abstract class AbstractTestCase extends Framework\TestCase
         $plugin = new NormalizePlugin();
 
         $commands = \array_filter($plugin->getCommands(), static function ($command): bool {
-            return $command instanceof NormalizeCommand;
+            return $command instanceof Command\NormalizeCommand;
         });
 
         if (0 === \count($commands)) {
             throw new \RuntimeException(\sprintf(
                 'Expected "%s" to provide an instance of "%s" as command.',
                 NormalizePlugin::class,
-                NormalizeCommand::class,
+                Command\NormalizeCommand::class,
             ));
         }
 

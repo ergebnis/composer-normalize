@@ -13,24 +13,20 @@ declare(strict_types=1);
 
 namespace Ergebnis\Composer\Normalize\Test\Integration\Command\NormalizeCommand\Extra\IsValid\No\IndentSize\Missing;
 
-use Ergebnis\Composer\Normalize\Test\Integration;
-use Ergebnis\Composer\Normalize\Test\Util;
+use Ergebnis\Composer\Normalize\Command;
+use Ergebnis\Composer\Normalize\NormalizePlugin;
+use Ergebnis\Composer\Normalize\Test;
+use Ergebnis\Composer\Normalize\Version;
+use PHPUnit\Framework;
 use Symfony\Component\Console;
 
-/**
- * @internal
- *
- * @covers \Ergebnis\Composer\Normalize\Command\NormalizeCommand
- * @covers \Ergebnis\Composer\Normalize\NormalizePlugin
- *
- * @uses \Ergebnis\Composer\Normalize\Version
- */
-final class Test extends Integration\Command\NormalizeCommand\AbstractTestCase
+#[Framework\Attributes\CoversClass(Command\NormalizeCommand::class)]
+#[Framework\Attributes\CoversClass(NormalizePlugin::class)]
+#[Framework\Attributes\UsesClass(Version::class)]
+final class CommandInvocationTest extends Test\Integration\Command\NormalizeCommand\AbstractTestCase
 {
-    /**
-     * @dataProvider \Ergebnis\Composer\Normalize\Test\DataProvider\Command\NormalizeCommandProvider::commandInvocation()
-     */
-    public function testFails(Util\CommandInvocation $commandInvocation): void
+    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\Command\NormalizeCommandProvider::class, 'commandInvocation')]
+    public function testFails(Test\Util\CommandInvocation $commandInvocation): void
     {
         $scenario = self::createScenario(
             $commandInvocation,

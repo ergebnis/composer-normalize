@@ -16,8 +16,8 @@ namespace Ergebnis\Composer\Normalize\Test\Util;
 final class Scenario
 {
     private function __construct(
-        private CommandInvocation $commandInvocation,
-        private State $initialState,
+        private readonly CommandInvocation $commandInvocation,
+        private readonly State $initialState,
     ) {
     }
 

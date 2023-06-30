@@ -11,13 +11,23 @@
     cacheResult="true"
     colors="true"
     columns="max"
+    displayDetailsOnIncompleteTests="true"
+    displayDetailsOnSkippedTests="true"
+    displayDetailsOnTestsThatTriggerDeprecations="true"
+    displayDetailsOnTestsThatTriggerErrors="true"
+    displayDetailsOnTestsThatTriggerNotices="true"
+    displayDetailsOnTestsThatTriggerWarnings="true"
     executionOrder="random"
+    requireCoverageMetadata="true"
     stopOnError="false"
     stopOnFailure="false"
     stopOnIncomplete="false"
     stopOnSkipped="false"
 >
     <coverage includeUncoveredFiles="true"/>
+    <extensions>
+        <bootstrap class="Ergebnis\PHPUnit\SlowTestDetector\Extension"/>
+    </extensions>
     <php>
         <env name="COLUMNS" value="200"/>
         <env name="COMPOSER_ALLOW_XDEBUG" value="1"/>
