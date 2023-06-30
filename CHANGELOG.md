@@ -14,6 +14,8 @@ For a full diff see [`2.31.0...main`][2.31.0...main].
 
 ## [`2.31.0`][2.31.0]
 
+For a full diff see [`2.30.2...2.31.0`][2.30.2...2.31.0].
+
 ### Changed
 
 - Updated `schema.json` ([#1070]), by [@ergebnis-bot]
