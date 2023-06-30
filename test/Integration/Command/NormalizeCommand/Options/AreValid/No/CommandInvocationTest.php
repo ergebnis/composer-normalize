@@ -13,25 +13,21 @@ declare(strict_types=1);
 
 namespace Ergebnis\Composer\Normalize\Test\Integration\Command\NormalizeCommand\Options\AreValid\No;
 
-use Ergebnis\Composer\Normalize\Test\Integration;
-use Ergebnis\Composer\Normalize\Test\Util;
+use Ergebnis\Composer\Normalize\Command;
+use Ergebnis\Composer\Normalize\NormalizePlugin;
+use Ergebnis\Composer\Normalize\Test;
+use Ergebnis\Composer\Normalize\Version;
 use Ergebnis\Json\Normalizer;
+use PHPUnit\Framework;
 use Symfony\Component\Console;
 
-/**
- * @internal
- *
- * @covers \Ergebnis\Composer\Normalize\Command\NormalizeCommand
- * @covers \Ergebnis\Composer\Normalize\NormalizePlugin
- *
- * @uses \Ergebnis\Composer\Normalize\Version
- */
-final class Test extends Integration\Command\NormalizeCommand\AbstractTestCase
+#[Framework\Attributes\CoversClass(Command\NormalizeCommand::class)]
+#[Framework\Attributes\CoversClass(NormalizePlugin::class)]
+#[Framework\Attributes\UsesClass(Version::class)]
+final class CommandInvocationTest extends Test\Integration\Command\NormalizeCommand\AbstractTestCase
 {
-    /**
-     * @dataProvider \Ergebnis\Composer\Normalize\Test\DataProvider\Command\NormalizeCommandProvider::commandInvocation()
-     */
-    public function testFailsWhenIndentStyleOptionIsUsedWithoutIndentSizeOption(Util\CommandInvocation $commandInvocation): void
+    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\Command\NormalizeCommandProvider::class, 'commandInvocation')]
+    public function testFailsWhenIndentStyleOptionIsUsedWithoutIndentSizeOption(Test\Util\CommandInvocation $commandInvocation): void
     {
         /** @var string $indentStyle */
         $indentStyle = self::faker()->randomElement(\array_keys(Normalizer\Format\Indent::CHARACTERS));
@@ -59,10 +55,8 @@ final class Test extends Integration\Command\NormalizeCommand\AbstractTestCase
         self::assertEquals($scenario->initialState(), $scenario->currentState());
     }
 
-    /**
-     * @dataProvider \Ergebnis\Composer\Normalize\Test\DataProvider\Command\NormalizeCommandProvider::commandInvocation()
-     */
-    public function testFailsWhenIndentSizeOptionIsUsedWithoutIndentStyleOption(Util\CommandInvocation $commandInvocation): void
+    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\Command\NormalizeCommandProvider::class, 'commandInvocation')]
+    public function testFailsWhenIndentSizeOptionIsUsedWithoutIndentStyleOption(Test\Util\CommandInvocation $commandInvocation): void
     {
         $scenario = self::createScenario(
             $commandInvocation,
@@ -87,10 +81,8 @@ final class Test extends Integration\Command\NormalizeCommand\AbstractTestCase
         self::assertEquals($scenario->initialState(), $scenario->currentState());
     }
 
-    /**
-     * @dataProvider \Ergebnis\Composer\Normalize\Test\DataProvider\Command\NormalizeCommandProvider::commandInvocation()
-     */
-    public function testFailsWhenIndentStyleOptionIsInvalid(Util\CommandInvocation $commandInvocation): void
+    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\Command\NormalizeCommandProvider::class, 'commandInvocation')]
+    public function testFailsWhenIndentStyleOptionIsInvalid(Test\Util\CommandInvocation $commandInvocation): void
     {
         $faker = self::faker();
 
@@ -125,11 +117,9 @@ final class Test extends Integration\Command\NormalizeCommand\AbstractTestCase
         self::assertEquals($scenario->initialState(), $scenario->currentState());
     }
 
-    /**
-     * @dataProvider \Ergebnis\Composer\Normalize\Test\DataProvider\Command\NormalizeCommandProvider::commandInvocationAndInvalidIndentSize
-     */
+    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\Command\NormalizeCommandProvider::class, 'commandInvocationAndInvalidIndentSize')]
     public function testFailsWhenIndentSizeOptionIsInvalid(
-        Util\CommandInvocation $commandInvocation,
+        Test\Util\CommandInvocation $commandInvocation,
         string $indentSize,
     ): void {
         /** @var string $indentStyle */

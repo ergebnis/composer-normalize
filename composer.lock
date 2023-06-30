@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "11f02ca7d950a1cb0ef866f3352caa6c",
+    "content-hash": "2f352e42efc75960186ce44b1d75ac61",
     "packages": [
         {
             "name": "ergebnis/json",
@@ -1768,6 +1768,74 @@
                 "source": "https://github.com/ergebnis/php-cs-fixer-config"
             },
             "time": "2023-06-28T09:15:01+00:00"
+        },
+        {
+            "name": "ergebnis/phpunit-slow-test-detector",
+            "version": "2.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ergebnis/phpunit-slow-test-detector.git",
+                "reference": "ea03f0fb94a8ba8b2428d5dbbdcda3aa2f6b529a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ergebnis/phpunit-slow-test-detector/zipball/ea03f0fb94a8ba8b2428d5dbbdcda3aa2f6b529a",
+                "reference": "ea03f0fb94a8ba8b2428d5dbbdcda3aa2f6b529a",
+                "shasum": ""
+            },
+            "require": {
+                "php": "~8.1.0 || ~8.2.0",
+                "phpunit/phpunit": "^10.1.3"
+            },
+            "require-dev": {
+                "ergebnis/composer-normalize": "^2.31.0",
+                "ergebnis/data-provider": "^1.3.0",
+                "ergebnis/license": "^2.1.0",
+                "ergebnis/php-cs-fixer-config": "^5.7.0",
+                "fakerphp/faker": "^1.22.0",
+                "psalm/plugin-phpunit": "~0.18.4",
+                "rector/rector": "~0.16.0",
+                "vimeo/psalm": "^5.12.0"
+            },
+            "suggest": {
+                "phpunit/phpunit": "^10.0.1"
+            },
+            "type": "library",
+            "extra": {
+                "composer-normalize": {
+                    "indent-size": 2,
+                    "indent-style": "space"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Ergebnis\\PHPUnit\\SlowTestDetector\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Möller",
+                    "email": "am@localheinz.com"
+                }
+            ],
+            "description": "Provides facilities for detecting slow tests in phpunit/phpunit.",
+            "homepage": "https://github.com/ergebnis/phpunit-slow-test-detector",
+            "keywords": [
+                "detector",
+                "extension",
+                "phpunit",
+                "slow",
+                "test"
+            ],
+            "support": {
+                "issues": "https://github.com/ergebnis/phpunit-slow-test-detector/issues",
+                "source": "https://github.com/ergebnis/phpunit-slow-test-detector"
+            },
+            "time": "2023-05-30T17:23:26+00:00"
         },
         {
             "name": "fakerphp/faker",

@@ -16,9 +16,9 @@ namespace Ergebnis\Composer\Normalize\Test\Util;
 final class File
 {
     private function __construct(
-        private string $path,
-        private bool $exists,
-        private ?string $contents,
+        private readonly string $path,
+        private readonly bool $exists,
+        private readonly ?string $contents,
     ) {
     }
 

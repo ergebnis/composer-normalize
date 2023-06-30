@@ -34,11 +34,10 @@ $config->getFinder()
     ->exclude([
         '.build/',
         '.github/',
-        '.notes/',
+        '.note/',
     ])
     ->ignoreDotFiles(false)
-    ->in(__DIR__)
-    ->name('.php-cs-fixer.php');
+    ->in(__DIR__);
 
 $config->setCacheFile(__DIR__ . '/.build/php-cs-fixer/.php-cs-fixer.cache');
 
