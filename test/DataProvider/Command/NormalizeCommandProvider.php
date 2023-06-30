@@ -23,7 +23,7 @@ final class NormalizeCommandProvider
     /**
      * @return \Generator<string, array{0: Test\Util\CommandInvocation}>
      */
-    public function commandInvocation(): \Generator
+    public static function commandInvocation(): \Generator
     {
         foreach (self::commandInvocations() as $commandInvocation) {
             yield $commandInvocation->style() => [
@@ -35,7 +35,7 @@ final class NormalizeCommandProvider
     /**
      * @return \Generator<string, array{0: Test\Util\CommandInvocation, 1: string}>
      */
-    public function commandInvocationAndInvalidIndentSize(): \Generator
+    public static function commandInvocationAndInvalidIndentSize(): \Generator
     {
         $faker = self::faker();
 
@@ -67,7 +67,7 @@ final class NormalizeCommandProvider
     /**
      * @return \Generator<string, array{0: Test\Util\CommandInvocation, 1: int, 2: string}>
      */
-    public function commandInvocationIndentSizeAndIndentStyle(): \Generator
+    public static function commandInvocationIndentSizeAndIndentStyle(): \Generator
     {
         /** @var array<int> $indentSizes */
         $indentSizes = [
