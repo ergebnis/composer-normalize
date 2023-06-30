@@ -36,7 +36,7 @@
     "ergebnis/license": "^2.1.0",
     "ergebnis/php-cs-fixer-config": "^5.9.2",
     "fakerphp/faker": "^1.23.0",
-    "infection/infection": "~0.26.19",
+    "infection/infection": "~0.27.0",
     "phpunit/phpunit": "^9.6.9",
     "psalm/plugin-phpunit": "~0.18.4",
     "rector/rector": "~0.17.2",
