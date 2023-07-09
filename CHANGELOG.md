@@ -6,7 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`2.32.0...main`][2.32.0...main].
+For a full diff see [`2.33.0...main`][2.33.0...main].
+
+## [`2.33.0`][2.33.0]
+
+For a full diff see [`2.32.0...2.33.0`][2.32.0...2.33.0].
+
+### Changed
+
+- Required `ergebnis/json-normalizer:^4.2.0` ([#1127]), by [@dependabot]
 
 ## [`2.32.0`][2.32.0]
 
@@ -15,8 +23,6 @@ For a full diff see [`2.31.0...2.32.0`][2.31.0...2.32.0].
 ### Changed
 
 - Dropped support for PHP 8.0 ([#1118]), by [@localheinz]
-- Required `ergebnis/json-normalizer:^4.2.0` ([#1127]), by [@dependabot]
-
 
 ### Fixed
 
@@ -943,7 +949,8 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [2.30.1...2.30.2]: https://github.com/ergebnis/composer-normalize/compare/2.30.1...2.30.2
 [2.30.2...2.31.0]: https://github.com/ergebnis/composer-normalize/compare/2.30.2...2.31.0
 [2.31.0...2.32.0]: https://github.com/ergebnis/composer-normalize/compare/2.31.0...2.32.0
-[2.32.0...main]: https://github.com/ergebnis/composer-normalize/compare/2.32.0...main
+[2.32.0...2.33.0]: https://github.com/ergebnis/composer-normalize/compare/2.32.0...2.33.0
+[2.33.0...main]: https://github.com/ergebnis/composer-normalize/compare/2.33.0...main
 
 [#1]: https://github.com/ergebnis/composer-normalize/pull/1
 [#2]: https://github.com/ergebnis/composer-normalize/pull/2
