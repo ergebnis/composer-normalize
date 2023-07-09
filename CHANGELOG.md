@@ -15,6 +15,8 @@ For a full diff see [`2.31.0...2.32.0`][2.31.0...2.32.0].
 ### Changed
 
 - Dropped support for PHP 8.0 ([#1118]), by [@localheinz]
+- Required `ergebnis/json-normalizer:^4.2.0` ([#1127]), by [@dependabot]
+
 
 ### Fixed
 
@@ -1066,6 +1068,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [#1095]: https://github.com/ergebnis/composer-normalize/pull/1095
 [#1118]: https://github.com/ergebnis/composer-normalize/pull/1118
 [#1125]: https://github.com/ergebnis/composer-normalize/pull/1125
+[#1127]: https://github.com/ergebnis/composer-normalize/pull/1127
 
 [@core23]: https://github.com/core23
 [@dependabot]: https://github.com/dependabot
