@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`2.34.0...main`][2.34.0...main].
 
+### Changed
+
+- Started passing through `--no-plugins` and `--no-scripts` options ([#1141]), by [@mxr576]
+
 ## [`2.34.0`][2.34.0]
 
 For a full diff see [`2.33.0...2.34.0`][2.33.0...2.34.0].
@@ -1088,10 +1092,12 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [#1125]: https://github.com/ergebnis/composer-normalize/pull/1125
 [#1127]: https://github.com/ergebnis/composer-normalize/pull/1127
 [#1136]: https://github.com/ergebnis/composer-normalize/pull/1136
+[#1141]: https://github.com/ergebnis/composer-normalize/pull/1141
 
 [@core23]: https://github.com/core23
 [@dependabot]: https://github.com/dependabot
 [@ergebnis-bot]: https://github.com/ergebnis-bot
+[@mxr576]: https://github.com/mxr576
 [@ergebnis]: https://github.com/ergebnis
 [@localheinz]: https://github.com/localheinz
 [@svenluijten]: https://github.com/svenluijten
