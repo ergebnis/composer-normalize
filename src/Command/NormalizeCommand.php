@@ -523,8 +523,8 @@ final class NormalizeCommand extends Command\BaseCommand
             '--ignore-platform-reqs' => true,
             '--lock' => true,
             '--no-autoloader' => true,
-            '--no-plugins' => true,
-            '--no-scripts' => true,
+            '--no-plugins' => $input->getOption('no-plugins'),
+            '--no-scripts' => $input->getOption('no-scripts'),
             '--working-dir' => $workingDirectory,
         ];
 
