@@ -11,6 +11,7 @@ For a full diff see [`2.35.0...main`][2.35.0...main].
 ### Changed
 
 - Updated `schema.json` ([#1155]), by [@ergebnis-bot]
+- Required `composer/composer:2.6.1` for compiling `composer-normalize.phar` ([#1158]), by [@localheinz]
 
 ## [`2.35.0`][2.35.0]
 
@@ -1104,6 +1105,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [#1136]: https://github.com/ergebnis/composer-normalize/pull/1136
 [#1141]: https://github.com/ergebnis/composer-normalize/pull/1141
 [#1155]: https://github.com/ergebnis/composer-normalize/pull/1155
+[#1158]: https://github.com/ergebnis/composer-normalize/pull/1158
 
 [@core23]: https://github.com/core23
 [@dependabot]: https://github.com/dependabot
