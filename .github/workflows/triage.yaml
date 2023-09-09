@@ -13,6 +13,8 @@ jobs:
 
     runs-on: "ubuntu-latest"
 
+    timeout-minutes: 5
+
     steps:
       - name: "Add labels based on branch name"
         uses: "ergebnis/.github/actions/github/pull-request/add-label-based-on-branch-name@1.8.0"

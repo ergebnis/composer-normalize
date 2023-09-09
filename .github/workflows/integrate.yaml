@@ -14,6 +14,8 @@ jobs:
 
     runs-on: "ubuntu-latest"
 
+    timeout-minutes: 5
+
     strategy:
       matrix:
         php-version:
@@ -72,6 +74,8 @@ jobs:
     name: "Coding Standards"
 
     runs-on: "ubuntu-latest"
+
+    timeout-minutes: 5
 
     strategy:
       matrix:
@@ -149,6 +153,8 @@ jobs:
 
     runs-on: "ubuntu-latest"
 
+    timeout-minutes: 5
+
     strategy:
       matrix:
         php-version:
@@ -223,6 +229,8 @@ jobs:
 
     runs-on: "ubuntu-latest"
 
+    timeout-minutes: 5
+
     strategy:
       matrix:
         php-version:
@@ -270,12 +278,14 @@ jobs:
           trust-gpg-keys: "0xC00543248C87FB13,0x033E5F8D801A2F8D,0x2DF45277AEF09A2F"
 
       - name: "Run maglnet/composer-require-checker"
-        run: ".phive/composer-require-checker check --config-file=$(pwd)/composer-require-checker.json"
+        run: ".phive/composer-require-checker check --ansi --config-file=$(pwd)/composer-require-checker.json"
 
   mutation-tests:
     name: "Mutation Tests"
 
     runs-on: "ubuntu-latest"
+
+    timeout-minutes: 5
 
     strategy:
       matrix:
@@ -326,6 +336,8 @@ jobs:
     name: "Refactoring"
 
     runs-on: "ubuntu-latest"
+
+    timeout-minutes: 5
 
     strategy:
       matrix:
@@ -387,6 +399,8 @@ jobs:
 
     runs-on: "ubuntu-latest"
 
+    timeout-minutes: 5
+
     strategy:
       matrix:
         php-version:
@@ -434,6 +448,8 @@ jobs:
     name: "Static Code Analysis"
 
     runs-on: "ubuntu-latest"
+
+    timeout-minutes: 5
 
     strategy:
       matrix:
@@ -485,6 +501,8 @@ jobs:
     name: "Tests"
 
     runs-on: "ubuntu-latest"
+
+    timeout-minutes: 5
 
     strategy:
       matrix:
