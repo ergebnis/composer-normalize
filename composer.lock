@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "972461b853828534f1f1ec207e375fc3",
+    "content-hash": "29c1956bad1799a5eb68d24f2c1bfda3",
     "packages": [
         {
             "name": "ergebnis/json",
@@ -1502,32 +1502,34 @@
         },
         {
             "name": "ergebnis/license",
-            "version": "2.1.0",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/license.git",
-                "reference": "7a2c4a89ebf284eab2867cd660f54d50fd049368"
+                "reference": "a2d16677fa146d8eda69b160a6ab8f95c8a90246"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/license/zipball/7a2c4a89ebf284eab2867cd660f54d50fd049368",
-                "reference": "7a2c4a89ebf284eab2867cd660f54d50fd049368",
+                "url": "https://api.github.com/repos/ergebnis/license/zipball/a2d16677fa146d8eda69b160a6ab8f95c8a90246",
+                "reference": "a2d16677fa146d8eda69b160a6ab8f95c8a90246",
                 "shasum": ""
             },
             "require": {
                 "ext-filter": "*",
-                "php": "^8.0"
+                "php": "~8.1.0 || ~8.2.0"
             },
             "require-dev": {
-                "ergebnis/composer-normalize": "^2.28.3",
-                "ergebnis/data-provider": "^1.2.0",
-                "ergebnis/php-cs-fixer-config": "^4.11.0",
-                "fakerphp/faker": "^1.20.0",
-                "infection/infection": "~0.26.6",
-                "phpunit/phpunit": "^9.5.26",
-                "psalm/plugin-phpunit": "~0.18.3",
-                "symfony/filesystem": "^6.0.13",
-                "vimeo/psalm": "^4.29.0"
+                "ergebnis/composer-normalize": "^2.36.0",
+                "ergebnis/data-provider": "^3.0.0",
+                "ergebnis/php-cs-fixer-config": "^5.15.1",
+                "ergebnis/phpunit-slow-test-detector": "^2.3.0",
+                "fakerphp/faker": "^1.23.0",
+                "infection/infection": "~0.27.0",
+                "phpunit/phpunit": "^10.3.4",
+                "psalm/plugin-phpunit": "~0.18.4",
+                "rector/rector": "~0.18.3",
+                "symfony/filesystem": "^6.3.1",
+                "vimeo/psalm": "^5.15.0"
             },
             "type": "library",
             "autoload": {
@@ -1554,7 +1556,7 @@
                 "issues": "https://github.com/ergebnis/license/issues",
                 "source": "https://github.com/ergebnis/license"
             },
-            "time": "2022-11-28T10:46:05+00:00"
+            "time": "2023-09-13T15:31:46+00:00"
         },
         {
             "name": "ergebnis/php-cs-fixer-config",
