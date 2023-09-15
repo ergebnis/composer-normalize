@@ -419,6 +419,14 @@
                                     }
                                 }
                             ]
+                        },
+                        "abandoned": {
+                            "enum": [
+                                "ignore",
+                                "report",
+                                "fail"
+                            ],
+                            "description": "Whether abandoned packages should be ignored, reported as problems or cause an audit failure."
                         }
                     }
                 },
