@@ -61,6 +61,9 @@
       "composer/package-versions-deprecated": true,
       "infection/extension-installer": true
     },
+    "audit": {
+      "abandoned": "report"
+    },
     "platform": {
       "php": "8.1.20"
     },
