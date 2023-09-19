@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d2dd6bb1bb992b8484dff7e9ec5c47ea",
+    "content-hash": "8e2086f403cd04f8fd675bb355716e9f",
     "packages": [
         {
             "name": "ergebnis/json",
@@ -1560,21 +1560,23 @@
         },
         {
             "name": "ergebnis/php-cs-fixer-config",
-            "version": "6.0.0",
+            "version": "6.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/php-cs-fixer-config.git",
-                "reference": "36408450f5c17d35fafc815ff55d60b8fd520644"
+                "reference": "752489bb7fca9006b63555d34c59e3de75446813"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/php-cs-fixer-config/zipball/36408450f5c17d35fafc815ff55d60b8fd520644",
-                "reference": "36408450f5c17d35fafc815ff55d60b8fd520644",
+                "url": "https://api.github.com/repos/ergebnis/php-cs-fixer-config/zipball/752489bb7fca9006b63555d34c59e3de75446813",
+                "reference": "752489bb7fca9006b63555d34c59e3de75446813",
                 "shasum": ""
             },
             "require": {
+                "erickskrauch/php-cs-fixer-custom-fixers": "~1.2.0",
                 "ext-filter": "*",
                 "friendsofphp/php-cs-fixer": "~3.27.0",
+                "kubawerlos/php-cs-fixer-custom-fixers": "~3.16.2",
                 "php": "~8.1.0 || ~8.2.0"
             },
             "require-dev": {
@@ -1612,13 +1614,13 @@
                     "email": "am@localheinz.com"
                 }
             ],
-            "description": "Provides a configuration factory and rule sets for friendsofphp/php-cs-fixer.",
+            "description": "Provides a configuration factory and rule set factories for friendsofphp/php-cs-fixer.",
             "homepage": "https://github.com/ergebnis/php-cs-fixer-config",
             "support": {
                 "issues": "https://github.com/ergebnis/php-cs-fixer-config/issues",
                 "source": "https://github.com/ergebnis/php-cs-fixer-config"
             },
-            "time": "2023-09-18T14:28:24+00:00"
+            "time": "2023-09-19T10:50:00+00:00"
         },
         {
             "name": "ergebnis/phpunit-slow-test-detector",
@@ -1687,6 +1689,68 @@
                 "source": "https://github.com/ergebnis/phpunit-slow-test-detector"
             },
             "time": "2023-05-30T17:23:26+00:00"
+        },
+        {
+            "name": "erickskrauch/php-cs-fixer-custom-fixers",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/erickskrauch/php-cs-fixer-custom-fixers.git",
+                "reference": "a0bef8d27904731cbd5e60ffd05fd9ce2d6850b2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/erickskrauch/php-cs-fixer-custom-fixers/zipball/a0bef8d27904731cbd5e60ffd05fd9ce2d6850b2",
+                "reference": "a0bef8d27904731cbd5e60ffd05fd9ce2d6850b2",
+                "shasum": ""
+            },
+            "require": {
+                "friendsofphp/php-cs-fixer": "^3",
+                "php": "^7.4 || ^8.0"
+            },
+            "require-dev": {
+                "ely/php-code-style": "^1",
+                "ergebnis/composer-normalize": "^2.28",
+                "php-cs-fixer/phpunit-constraint-isidenticalstring": "^1.2",
+                "phpspec/prophecy": "^1.15",
+                "phpspec/prophecy-phpunit": "^2.0",
+                "phpunit/phpunit": "^9.5",
+                "phpunitgoodpractices/polyfill": "^1.5",
+                "phpunitgoodpractices/traits": "^1.9.1",
+                "symfony/phpunit-bridge": "^6.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ErickSkrauch\\PhpCsFixer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "ErickSkrauch",
+                    "email": "erickskrauch@ely.by"
+                }
+            ],
+            "description": "A set of custom fixers for PHP-CS-Fixer",
+            "homepage": "https://github.com/erickskrauch/php-cs-fixer-custom-fixers",
+            "keywords": [
+                "Code style",
+                "php-cs-fixer"
+            ],
+            "support": {
+                "issues": "https://github.com/erickskrauch/php-cs-fixer-custom-fixers/issues",
+                "source": "https://github.com/erickskrauch/php-cs-fixer-custom-fixers/tree/1.2.0"
+            },
+            "time": "2023-07-20T02:51:18+00:00"
         },
         {
             "name": "fakerphp/faker",
@@ -2321,6 +2385,52 @@
                 }
             ],
             "time": "2023-09-16T16:39:29+00:00"
+        },
+        {
+            "name": "kubawerlos/php-cs-fixer-custom-fixers",
+            "version": "v3.16.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kubawerlos/php-cs-fixer-custom-fixers.git",
+                "reference": "d3f2590069d06ba49ad24cac03f802e8ad0aaeba"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kubawerlos/php-cs-fixer-custom-fixers/zipball/d3f2590069d06ba49ad24cac03f802e8ad0aaeba",
+                "reference": "d3f2590069d06ba49ad24cac03f802e8ad0aaeba",
+                "shasum": ""
+            },
+            "require": {
+                "ext-filter": "*",
+                "ext-tokenizer": "*",
+                "friendsofphp/php-cs-fixer": "^3.22",
+                "php": "^7.4 || ^8.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.6.4 || ^10.0.14"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PhpCsFixerCustomFixers\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kuba Werłos",
+                    "email": "werlos@gmail.com"
+                }
+            ],
+            "description": "A set of custom fixers for PHP CS Fixer",
+            "support": {
+                "issues": "https://github.com/kubawerlos/php-cs-fixer-custom-fixers/issues",
+                "source": "https://github.com/kubawerlos/php-cs-fixer-custom-fixers/tree/v3.16.2"
+            },
+            "time": "2023-08-06T13:50:15+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -6735,5 +6845,5 @@
     "platform-overrides": {
         "php": "8.1.20"
     },
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.3.0"
 }
