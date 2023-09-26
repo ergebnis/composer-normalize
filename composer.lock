@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "71e8a7e37fb0aea1c6f739406a0ea081",
+    "content-hash": "9a6f629cf78a0c77a11a7927dc09bd62",
     "packages": [
         {
             "name": "ergebnis/json",
@@ -1560,22 +1560,22 @@
         },
         {
             "name": "ergebnis/php-cs-fixer-config",
-            "version": "6.2.0",
+            "version": "6.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/php-cs-fixer-config.git",
-                "reference": "752489bb7fca9006b63555d34c59e3de75446813"
+                "reference": "7fce65ccd7443c1dde1a39450944bdcaf6788e8d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/php-cs-fixer-config/zipball/752489bb7fca9006b63555d34c59e3de75446813",
-                "reference": "752489bb7fca9006b63555d34c59e3de75446813",
+                "url": "https://api.github.com/repos/ergebnis/php-cs-fixer-config/zipball/7fce65ccd7443c1dde1a39450944bdcaf6788e8d",
+                "reference": "7fce65ccd7443c1dde1a39450944bdcaf6788e8d",
                 "shasum": ""
             },
             "require": {
                 "erickskrauch/php-cs-fixer-custom-fixers": "~1.2.0",
                 "ext-filter": "*",
-                "friendsofphp/php-cs-fixer": "~3.27.0",
+                "friendsofphp/php-cs-fixer": "~3.29.0",
                 "kubawerlos/php-cs-fixer-custom-fixers": "~3.16.2",
                 "php": "~8.1.0 || ~8.2.0"
             },
@@ -1585,9 +1585,9 @@
                 "ergebnis/license": "^2.2.0",
                 "ergebnis/phpunit-slow-test-detector": "^2.3.0",
                 "fakerphp/faker": "^1.23.0",
-                "phpunit/phpunit": "^10.3.4",
+                "phpunit/phpunit": "^10.3.5",
                 "psalm/plugin-phpunit": "~0.18.4",
-                "rector/rector": "~0.18.3",
+                "rector/rector": "~0.18.4",
                 "symfony/filesystem": "^5.0.0 || ^6.0.0",
                 "symfony/process": "^5.0.0 || ^6.0.0",
                 "vimeo/psalm": "^5.15.0"
@@ -1611,16 +1611,18 @@
             "authors": [
                 {
                     "name": "Andreas Möller",
-                    "email": "am@localheinz.com"
+                    "email": "am@localheinz.com",
+                    "homepage": "https://localheinz.com"
                 }
             ],
             "description": "Provides a configuration factory and rule set factories for friendsofphp/php-cs-fixer.",
             "homepage": "https://github.com/ergebnis/php-cs-fixer-config",
             "support": {
                 "issues": "https://github.com/ergebnis/php-cs-fixer-config/issues",
+                "security": "https://github.com/ergebnis/php-cs-fixer-config/blob/main/.github/SECURITY.md",
                 "source": "https://github.com/ergebnis/php-cs-fixer-config"
             },
-            "time": "2023-09-19T10:50:00+00:00"
+            "time": "2023-09-26T13:52:15+00:00"
         },
         {
             "name": "ergebnis/phpunit-slow-test-detector",
@@ -1984,16 +1986,16 @@
         },
         {
             "name": "friendsofphp/php-cs-fixer",
-            "version": "v3.27.0",
+            "version": "v3.29.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer.git",
-                "reference": "e73ccaae1208f017bb7860986eebb3da48bd25d6"
+                "reference": "a55c488e8bfdd9b315880095cd02fa0e49e884d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHP-CS-Fixer/PHP-CS-Fixer/zipball/e73ccaae1208f017bb7860986eebb3da48bd25d6",
-                "reference": "e73ccaae1208f017bb7860986eebb3da48bd25d6",
+                "url": "https://api.github.com/repos/PHP-CS-Fixer/PHP-CS-Fixer/zipball/a55c488e8bfdd9b315880095cd02fa0e49e884d8",
+                "reference": "a55c488e8bfdd9b315880095cd02fa0e49e884d8",
                 "shasum": ""
             },
             "require": {
@@ -2067,7 +2069,7 @@
             ],
             "support": {
                 "issues": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/issues",
-                "source": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/tree/v3.27.0"
+                "source": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/tree/v3.29.0"
             },
             "funding": [
                 {
@@ -2075,7 +2077,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-09-17T14:37:54+00:00"
+            "time": "2023-09-26T13:02:53+00:00"
         },
         {
             "name": "infection/abstract-testframework-adapter",
