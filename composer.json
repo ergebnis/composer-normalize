@@ -29,7 +29,7 @@
     "ergebnis/json": "^1.0.1",
     "ergebnis/json-normalizer": "^4.2.0",
     "ergebnis/json-printer": "^3.3.0",
-    "justinrainbow/json-schema": "^5.2.12",
+    "justinrainbow/json-schema": "^5.2.13",
     "localheinz/diff": "^1.1.1"
   },
   "require-dev": {
