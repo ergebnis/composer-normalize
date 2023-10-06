@@ -523,15 +523,19 @@ final class NormalizeCommand extends Command\BaseCommand
             '--ignore-platform-reqs' => true,
             '--lock' => true,
             '--no-autoloader' => true,
-            '--no-plugins' => $input->getOption('no-plugins'),
-            '--no-scripts' => $input->getOption('no-scripts'),
             '--working-dir' => $workingDirectory,
         ];
 
         if ($input->hasParameterOption('--no-ansi')) {
-            $parameters = \array_merge($parameters, [
-                '--no-ansi' => true,
-            ]);
+            $parameters[] = '--no-ansi';
+        }
+
+        if ($input->hasParameterOption('--no-plugins')) {
+            $parameters[] = '--no-plugins';
+        }
+
+        if ($input->hasParameterOption('--no-scripts')) {
+            $parameters[] = '--no-scripts';
         }
 
         return $application->run(
