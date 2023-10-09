@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9da37a0239b9f589e07af094c3c83eaa",
+    "content-hash": "e3a23cc3ec654a2d826728bb591c3058",
     "packages": [
         {
             "name": "ergebnis/json",
@@ -1455,16 +1455,16 @@
         },
         {
             "name": "doctrine/deprecations",
-            "version": "v1.1.1",
+            "version": "1.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/deprecations.git",
-                "reference": "612a3ee5ab0d5dd97b7cf3874a6efe24325efac3"
+                "reference": "4f2d4f2836e7ec4e7a8625e75c6aa916004db931"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/deprecations/zipball/612a3ee5ab0d5dd97b7cf3874a6efe24325efac3",
-                "reference": "612a3ee5ab0d5dd97b7cf3874a6efe24325efac3",
+                "url": "https://api.github.com/repos/doctrine/deprecations/zipball/4f2d4f2836e7ec4e7a8625e75c6aa916004db931",
+                "reference": "4f2d4f2836e7ec4e7a8625e75c6aa916004db931",
                 "shasum": ""
             },
             "require": {
@@ -1496,9 +1496,9 @@
             "homepage": "https://www.doctrine-project.org/",
             "support": {
                 "issues": "https://github.com/doctrine/deprecations/issues",
-                "source": "https://github.com/doctrine/deprecations/tree/v1.1.1"
+                "source": "https://github.com/doctrine/deprecations/tree/1.1.2"
             },
-            "time": "2023-06-03T09:27:29+00:00"
+            "time": "2023-09-27T20:04:15+00:00"
         },
         {
             "name": "ergebnis/license",
@@ -1560,22 +1560,22 @@
         },
         {
             "name": "ergebnis/php-cs-fixer-config",
-            "version": "6.3.0",
+            "version": "6.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/php-cs-fixer-config.git",
-                "reference": "7fce65ccd7443c1dde1a39450944bdcaf6788e8d"
+                "reference": "7ff9c068452d7d7d30d2cea4d2c0535202285199"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/php-cs-fixer-config/zipball/7fce65ccd7443c1dde1a39450944bdcaf6788e8d",
-                "reference": "7fce65ccd7443c1dde1a39450944bdcaf6788e8d",
+                "url": "https://api.github.com/repos/ergebnis/php-cs-fixer-config/zipball/7ff9c068452d7d7d30d2cea4d2c0535202285199",
+                "reference": "7ff9c068452d7d7d30d2cea4d2c0535202285199",
                 "shasum": ""
             },
             "require": {
                 "erickskrauch/php-cs-fixer-custom-fixers": "~1.2.0",
                 "ext-filter": "*",
-                "friendsofphp/php-cs-fixer": "~3.29.0",
+                "friendsofphp/php-cs-fixer": "~3.33.0",
                 "kubawerlos/php-cs-fixer-custom-fixers": "~3.16.2",
                 "php": "~8.1.0 || ~8.2.0"
             },
@@ -1588,8 +1588,8 @@
                 "phpunit/phpunit": "^10.3.5",
                 "psalm/plugin-phpunit": "~0.18.4",
                 "rector/rector": "~0.18.4",
-                "symfony/filesystem": "^5.0.0 || ^6.0.0",
-                "symfony/process": "^5.0.0 || ^6.0.0",
+                "symfony/filesystem": "^6.3.1",
+                "symfony/process": "^6.3.4",
                 "vimeo/psalm": "^5.15.0"
             },
             "type": "library",
@@ -1622,7 +1622,7 @@
                 "security": "https://github.com/ergebnis/php-cs-fixer-config/blob/main/.github/SECURITY.md",
                 "source": "https://github.com/ergebnis/php-cs-fixer-config"
             },
-            "time": "2023-09-26T13:52:15+00:00"
+            "time": "2023-09-29T15:24:26+00:00"
         },
         {
             "name": "ergebnis/phpunit-slow-test-detector",
@@ -1986,16 +1986,16 @@
         },
         {
             "name": "friendsofphp/php-cs-fixer",
-            "version": "v3.29.0",
+            "version": "v3.33.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer.git",
-                "reference": "a55c488e8bfdd9b315880095cd02fa0e49e884d8"
+                "reference": "cecdeaa19767a4ab69c45c02f900e16c3300bf3b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHP-CS-Fixer/PHP-CS-Fixer/zipball/a55c488e8bfdd9b315880095cd02fa0e49e884d8",
-                "reference": "a55c488e8bfdd9b315880095cd02fa0e49e884d8",
+                "url": "https://api.github.com/repos/PHP-CS-Fixer/PHP-CS-Fixer/zipball/cecdeaa19767a4ab69c45c02f900e16c3300bf3b",
+                "reference": "cecdeaa19767a4ab69c45c02f900e16c3300bf3b",
                 "shasum": ""
             },
             "require": {
@@ -2015,6 +2015,9 @@
                 "symfony/polyfill-php81": "^1.27",
                 "symfony/process": "^5.4 || ^6.0",
                 "symfony/stopwatch": "^5.4 || ^6.0"
+            },
+            "conflict": {
+                "stevebauman/unfinalize": "*"
             },
             "require-dev": {
                 "facile-it/paraunit": "^1.3 || ^2.0",
@@ -2069,7 +2072,7 @@
             ],
             "support": {
                 "issues": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/issues",
-                "source": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/tree/v3.29.0"
+                "source": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/tree/v3.33.0"
             },
             "funding": [
                 {
@@ -2077,7 +2080,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-09-26T13:02:53+00:00"
+            "time": "2023-09-29T15:10:48+00:00"
         },
         {
             "name": "infection/abstract-testframework-adapter",
