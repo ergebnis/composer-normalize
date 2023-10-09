@@ -33,7 +33,7 @@
     "localheinz/diff": "^1.1.1"
   },
   "require-dev": {
-    "composer/composer": "^2.6.3",
+    "composer/composer": "^2.6.5",
     "ergebnis/license": "^2.2.0",
     "ergebnis/php-cs-fixer-config": "~6.6.0",
     "ergebnis/phpunit-slow-test-detector": "^2.3.0",
