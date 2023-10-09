@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ccb41ff389be3d103c895b25c93ad9c9",
+    "content-hash": "dd33eb716b7dcce3d4d146f952f60c69",
     "packages": [
         {
             "name": "ergebnis/json",
@@ -2261,16 +2261,16 @@
         },
         {
             "name": "infection/infection",
-            "version": "0.27.3",
+            "version": "0.27.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/infection/infection.git",
-                "reference": "3fe68ec001d6abd7f9494f4dfadeb61848d2c9d0"
+                "reference": "2789fdd689689b0c85f2c0ae9db50c8d2b39fb92"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/infection/infection/zipball/3fe68ec001d6abd7f9494f4dfadeb61848d2c9d0",
-                "reference": "3fe68ec001d6abd7f9494f4dfadeb61848d2c9d0",
+                "url": "https://api.github.com/repos/infection/infection/zipball/2789fdd689689b0c85f2c0ae9db50c8d2b39fb92",
+                "reference": "2789fdd689689b0c85f2c0ae9db50c8d2b39fb92",
                 "shasum": ""
             },
             "require": {
@@ -2377,7 +2377,7 @@
             ],
             "support": {
                 "issues": "https://github.com/infection/infection/issues",
-                "source": "https://github.com/infection/infection/tree/0.27.3"
+                "source": "https://github.com/infection/infection/tree/0.27.4"
             },
             "funding": [
                 {
@@ -2389,7 +2389,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2023-09-28T07:13:56+00:00"
+            "time": "2023-10-09T12:03:22+00:00"
         },
         {
             "name": "kubawerlos/php-cs-fixer-custom-fixers",
@@ -3896,16 +3896,16 @@
         },
         {
             "name": "sanmai/pipeline",
-            "version": "v6.8.1",
+            "version": "v6.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sanmai/pipeline.git",
-                "reference": "2e88e466dd49f20c10a15330b3953d4d49c326e3"
+                "reference": "c48f45c22c3ce4140d071f7658fb151df1cc08ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sanmai/pipeline/zipball/2e88e466dd49f20c10a15330b3953d4d49c326e3",
-                "reference": "2e88e466dd49f20c10a15330b3953d4d49c326e3",
+                "url": "https://api.github.com/repos/sanmai/pipeline/zipball/c48f45c22c3ce4140d071f7658fb151df1cc08ea",
+                "reference": "c48f45c22c3ce4140d071f7658fb151df1cc08ea",
                 "shasum": ""
             },
             "require": {
@@ -3949,7 +3949,7 @@
             "description": "General-purpose collections pipeline",
             "support": {
                 "issues": "https://github.com/sanmai/pipeline/issues",
-                "source": "https://github.com/sanmai/pipeline/tree/v6.8.1"
+                "source": "https://github.com/sanmai/pipeline/tree/v6.9"
             },
             "funding": [
                 {
@@ -3957,7 +3957,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-06-15T09:14:47+00:00"
+            "time": "2023-10-08T11:56:54+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -5488,16 +5488,16 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v6.3.3",
+            "version": "v6.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "9915db259f67d21eefee768c1abcf1cc61b1fc9e"
+                "reference": "a1b31d88c0e998168ca7792f222cbecee47428c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/9915db259f67d21eefee768c1abcf1cc61b1fc9e",
-                "reference": "9915db259f67d21eefee768c1abcf1cc61b1fc9e",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/a1b31d88c0e998168ca7792f222cbecee47428c4",
+                "reference": "a1b31d88c0e998168ca7792f222cbecee47428c4",
                 "shasum": ""
             },
             "require": {
@@ -5532,7 +5532,7 @@
             "description": "Finds files and directories via an intuitive fluent interface",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/finder/tree/v6.3.3"
+                "source": "https://github.com/symfony/finder/tree/v6.3.5"
             },
             "funding": [
                 {
@@ -5548,7 +5548,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-07-31T08:31:44+00:00"
+            "time": "2023-09-26T12:56:25+00:00"
         },
         {
             "name": "symfony/options-resolver",
@@ -6395,16 +6395,16 @@
         },
         {
             "name": "symfony/string",
-            "version": "v6.3.2",
+            "version": "v6.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/string.git",
-                "reference": "53d1a83225002635bca3482fcbf963001313fb68"
+                "reference": "13d76d0fb049051ed12a04bef4f9de8715bea339"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/string/zipball/53d1a83225002635bca3482fcbf963001313fb68",
-                "reference": "53d1a83225002635bca3482fcbf963001313fb68",
+                "url": "https://api.github.com/repos/symfony/string/zipball/13d76d0fb049051ed12a04bef4f9de8715bea339",
+                "reference": "13d76d0fb049051ed12a04bef4f9de8715bea339",
                 "shasum": ""
             },
             "require": {
@@ -6461,7 +6461,7 @@
                 "utf8"
             ],
             "support": {
-                "source": "https://github.com/symfony/string/tree/v6.3.2"
+                "source": "https://github.com/symfony/string/tree/v6.3.5"
             },
             "funding": [
                 {
@@ -6477,7 +6477,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-07-05T08:41:27+00:00"
+            "time": "2023-09-18T10:38:32+00:00"
         },
         {
             "name": "thecodingmachine/safe",
@@ -6850,5 +6850,5 @@
     "platform-overrides": {
         "php": "8.1.20"
     },
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.3.0"
 }
