@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`2.37.0...main`][2.37.0...main].
 
+### Changed
+
+- Added support for PHP 8.3  ([#1189]), by [@localheinz]
+
 ### Fixed
 
 - Adjusted `Command\NormalizeCommand` to respect `--no-ansi`, `--no-plugins`, `--no-scripts` options ([#1184]), by [@mxr576]
@@ -1134,6 +1138,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [#1170]: https://github.com/ergebnis/composer-normalize/pull/1170
 [#1171]: https://github.com/ergebnis/composer-normalize/pull/1171
 [#1188]: https://github.com/ergebnis/composer-normalize/pull/1188
+[#1189]: https://github.com/ergebnis/composer-normalize/pull/1189
 
 [@core23]: https://github.com/core23
 [@dependabot]: https://github.com/dependabot
