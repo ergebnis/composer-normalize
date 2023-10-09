@@ -10,6 +10,7 @@ For a full diff see [`2.37.0...main`][2.37.0...main].
 
 ### Fixed
 
+- Adjusted `Command\NormalizeCommand` to respect `--no-ansi`, `--no-plugins`, `--no-scripts` options ([#1184]), by [@mxr576]
 - Updated `composer/composer` ([#1188]), by [@localheinz]
 
 ## [`2.37.0`][2.37.0]
