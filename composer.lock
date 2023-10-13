@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "787dd6e839ddc1e736952676c2bef0fa",
+    "content-hash": "40129936c4ac0643484d4d3c0e6810b3",
     "packages": [
         {
             "name": "ergebnis/json",
@@ -1644,31 +1644,31 @@
         },
         {
             "name": "ergebnis/phpunit-slow-test-detector",
-            "version": "2.3.0",
+            "version": "2.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/phpunit-slow-test-detector.git",
-                "reference": "ea03f0fb94a8ba8b2428d5dbbdcda3aa2f6b529a"
+                "reference": "59b2297fdcfe2578fed146c1257675687cd2045a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/phpunit-slow-test-detector/zipball/ea03f0fb94a8ba8b2428d5dbbdcda3aa2f6b529a",
-                "reference": "ea03f0fb94a8ba8b2428d5dbbdcda3aa2f6b529a",
+                "url": "https://api.github.com/repos/ergebnis/phpunit-slow-test-detector/zipball/59b2297fdcfe2578fed146c1257675687cd2045a",
+                "reference": "59b2297fdcfe2578fed146c1257675687cd2045a",
                 "shasum": ""
             },
             "require": {
-                "php": "~8.1.0 || ~8.2.0",
+                "php": "~8.1.0 || ~8.2.0 || ~8.3.0",
                 "phpunit/phpunit": "^10.1.3"
             },
             "require-dev": {
-                "ergebnis/composer-normalize": "^2.31.0",
-                "ergebnis/data-provider": "^1.3.0",
-                "ergebnis/license": "^2.1.0",
-                "ergebnis/php-cs-fixer-config": "^5.7.0",
-                "fakerphp/faker": "^1.22.0",
+                "ergebnis/composer-normalize": "^2.39.0",
+                "ergebnis/data-provider": "^3.0.0",
+                "ergebnis/license": "^2.2.0",
+                "ergebnis/php-cs-fixer-config": "^6.7.0",
+                "fakerphp/faker": "^1.23.0",
                 "psalm/plugin-phpunit": "~0.18.4",
-                "rector/rector": "~0.16.0",
-                "vimeo/psalm": "^5.12.0"
+                "rector/rector": "~0.18.5",
+                "vimeo/psalm": "^5.15.0"
             },
             "suggest": {
                 "phpunit/phpunit": "^10.0.1"
@@ -1692,7 +1692,8 @@
             "authors": [
                 {
                     "name": "Andreas Möller",
-                    "email": "am@localheinz.com"
+                    "email": "am@localheinz.com",
+                    "homepage": "https://localheinz.com"
                 }
             ],
             "description": "Provides facilities for detecting slow tests in phpunit/phpunit.",
@@ -1706,9 +1707,10 @@
             ],
             "support": {
                 "issues": "https://github.com/ergebnis/phpunit-slow-test-detector/issues",
+                "security": "https://github.com/ergebnis/phpunit-slow-test-detector/blob/main/.github/SECURITY.md",
                 "source": "https://github.com/ergebnis/phpunit-slow-test-detector"
             },
-            "time": "2023-05-30T17:23:26+00:00"
+            "time": "2023-10-13T08:41:07+00:00"
         },
         {
             "name": "erickskrauch/php-cs-fixer-custom-fixers",
