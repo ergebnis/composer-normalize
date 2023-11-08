@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a8f7b259814f69ac37f63b8d5f5fd4d3",
+    "content-hash": "0c9f16f61b91f392f2262e2e60c4a363",
     "packages": [
         {
             "name": "ergebnis/json",
@@ -2276,16 +2276,16 @@
         },
         {
             "name": "infection/infection",
-            "version": "0.27.7",
+            "version": "0.27.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/infection/infection.git",
-                "reference": "e5bf714c1e6b45b881f3c8990b0cb82f1b232625"
+                "reference": "673ce762abf3355fcdc186ca17eb89edf86993bf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/infection/infection/zipball/e5bf714c1e6b45b881f3c8990b0cb82f1b232625",
-                "reference": "e5bf714c1e6b45b881f3c8990b0cb82f1b232625",
+                "url": "https://api.github.com/repos/infection/infection/zipball/673ce762abf3355fcdc186ca17eb89edf86993bf",
+                "reference": "673ce762abf3355fcdc186ca17eb89edf86993bf",
                 "shasum": ""
             },
             "require": {
@@ -2392,7 +2392,7 @@
             ],
             "support": {
                 "issues": "https://github.com/infection/infection/issues",
-                "source": "https://github.com/infection/infection/tree/0.27.7"
+                "source": "https://github.com/infection/infection/tree/0.27.8"
             },
             "funding": [
                 {
@@ -2404,7 +2404,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2023-11-02T11:38:21+00:00"
+            "time": "2023-11-08T14:29:03+00:00"
         },
         {
             "name": "kubawerlos/php-cs-fixer-custom-fixers",
