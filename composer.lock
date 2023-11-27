@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "14da3007ec3ab88147271db2a5c81adf",
+    "content-hash": "1c0c518182601701662e02a3fa9ed59a",
     "packages": [
         {
             "name": "ergebnis/json",
@@ -1519,34 +1519,34 @@
         },
         {
             "name": "ergebnis/license",
-            "version": "2.2.0",
+            "version": "2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/license.git",
-                "reference": "a2d16677fa146d8eda69b160a6ab8f95c8a90246"
+                "reference": "896ebf196a4def609e17899ab04b13e5cbca4415"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/license/zipball/a2d16677fa146d8eda69b160a6ab8f95c8a90246",
-                "reference": "a2d16677fa146d8eda69b160a6ab8f95c8a90246",
+                "url": "https://api.github.com/repos/ergebnis/license/zipball/896ebf196a4def609e17899ab04b13e5cbca4415",
+                "reference": "896ebf196a4def609e17899ab04b13e5cbca4415",
                 "shasum": ""
             },
             "require": {
                 "ext-filter": "*",
-                "php": "~8.1.0 || ~8.2.0"
+                "php": "~8.1.0 || ~8.2.0 || ~8.3.0"
             },
             "require-dev": {
-                "ergebnis/composer-normalize": "^2.36.0",
-                "ergebnis/data-provider": "^3.0.0",
-                "ergebnis/php-cs-fixer-config": "^5.15.1",
-                "ergebnis/phpunit-slow-test-detector": "^2.3.0",
+                "ergebnis/composer-normalize": "^2.39.0",
+                "ergebnis/data-provider": "^3.1.0",
+                "ergebnis/php-cs-fixer-config": "~6.12.0",
+                "ergebnis/phpunit-slow-test-detector": "^2.4.0",
                 "fakerphp/faker": "^1.23.0",
-                "infection/infection": "~0.27.0",
-                "phpunit/phpunit": "^10.3.4",
+                "infection/infection": "~0.27.8",
+                "phpunit/phpunit": "^10.4.2",
                 "psalm/plugin-phpunit": "~0.18.4",
-                "rector/rector": "~0.18.3",
+                "rector/rector": "~0.18.11",
                 "symfony/filesystem": "^6.3.1",
-                "vimeo/psalm": "^5.15.0"
+                "vimeo/psalm": "^5.16.0"
             },
             "type": "library",
             "autoload": {
@@ -1561,7 +1561,8 @@
             "authors": [
                 {
                     "name": "Andreas Möller",
-                    "email": "am@localheinz.com"
+                    "email": "am@localheinz.com",
+                    "homepage": "https://localheinz.com"
                 }
             ],
             "description": "Provides an abstraction of an open-source license.",
@@ -1571,9 +1572,10 @@
             ],
             "support": {
                 "issues": "https://github.com/ergebnis/license/issues",
+                "security": "https://github.com/ergebnis/license/blob/main/.github/SECURITY.md",
                 "source": "https://github.com/ergebnis/license"
             },
-            "time": "2023-09-13T15:31:46+00:00"
+            "time": "2023-11-27T16:14:21+00:00"
         },
         {
             "name": "ergebnis/php-cs-fixer-config",
