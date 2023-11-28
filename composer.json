@@ -65,9 +65,6 @@
     "audit": {
       "abandoned": "report"
     },
-    "platform": {
-      "php": "8.1.20"
-    },
     "preferred-install": "dist",
     "sort-packages": true
   },
