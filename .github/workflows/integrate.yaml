@@ -505,6 +505,7 @@ jobs:
     timeout-minutes: 5
 
     strategy:
+      fail-fast: false
       matrix:
         php-version:
           - "8.1"
