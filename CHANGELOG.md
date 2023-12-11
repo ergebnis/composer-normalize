@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`2.40.0...main`][2.40.0...main].
 
+### Fixed
+
+- Updated `composer/composer` ([#1237]), by [@localheinz]
+
 ## [`2.40.0`][2.40.0]
 
 For a full diff see [`2.39.0...2.40.0`][2.39.0...2.40.0].
@@ -1176,6 +1180,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [#1195]: https://github.com/ergebnis/composer-normalize/pull/1195
 [#1204]: https://github.com/ergebnis/composer-normalize/pull/1204
 [#1234]: https://github.com/ergebnis/composer-normalize/pull/1234
+[#1237]: https://github.com/ergebnis/composer-normalize/pull/1237
 
 [@core23]: https://github.com/core23
 [@dependabot]: https://github.com/dependabot
