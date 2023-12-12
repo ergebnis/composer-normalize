@@ -14,6 +14,7 @@ branches:
         required_approving_review_count: 1
       required_status_checks:
         checks:
+          - context: "Backward-Compatibility Analysis (8.1, locked)"
           - context: "Code Coverage (8.1, locked)"
           - context: "Coding Standards (8.1, locked)"
           - context: "Compile Phar (8.1, locked)"

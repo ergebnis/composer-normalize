@@ -13,7 +13,7 @@
 [![Total Downloads](https://poser.pugx.org/ergebnis/composer-normalize/downloads)](https://packagist.org/packages/ergebnis/composer-normalize)
 [![Monthly Downloads](http://poser.pugx.org/ergebnis/composer-normalize/d/monthly)](https://packagist.org/packages/ergebnis/composer-normalize)
 
-This package provides a [`composer`](https://getcomposer.org) plugin for normalizing [`composer.json`](https://getcomposer.org/doc/04-schema.md).
+This project provides a [`composer`](https://getcomposer.org) plugin for normalizing [`composer.json`](https://getcomposer.org/doc/04-schema.md).
 
 [![Hmm, kinda cool I guess](https://user-images.githubusercontent.com/605483/150120621-1eb65e19-b924-481c-a9e5-e762f1f3cfc9.png)](https://github.com/laravel/laravel/pull/4856#issuecomment-439705243)
 
@@ -488,35 +488,35 @@ index fd6461fc3..23c3a3596 100644
 
 ## Changelog
 
-The maintainers of this package record notable changes to this project in a [changelog](CHANGELOG.md).
+The maintainers of this project record notable changes to this project in a [changelog](CHANGELOG.md).
 
 ## Contributing
 
-The maintainers of this package suggest following the [contribution guide](.github/CONTRIBUTING.md).
+The maintainers of this project suggest following the [contribution guide](.github/CONTRIBUTING.md).
 
 ## Code of Conduct
 
-The maintainers of this package ask contributors to follow the [code of conduct](https://github.com/ergebnis/.github/blob/main/CODE_OF_CONDUCT.md).
+The maintainers of this project ask contributors to follow the [code of conduct](https://github.com/ergebnis/.github/blob/main/CODE_OF_CONDUCT.md).
 
 ## General Support Policy
 
-The maintainers of this package provide limited support.
+The maintainers of this project provide limited support.
 
-You can support the maintenance of this package by [sponsoring @localheinz](https://github.com/sponsors/localheinz) or [requesting an invoice for services related to this package](mailto:am@localheinz.com?subject=ergebnis/composer-normalize:%20Requesting%20invoice%20for%20services).
+You can support the maintenance of this project by [sponsoring @localheinz](https://github.com/sponsors/localheinz) or [requesting an invoice for services related to this project](mailto:am@localheinz.com?subject=ergebnis/composer-normalize:%20Requesting%20invoice%20for%20services).
 
 ## PHP Version Support Policy
 
-This package supports PHP versions with [active support](https://www.php.net/supported-versions.php).
+This project supports PHP versions with [active and security support](https://www.php.net/supported-versions.php).
 
-The maintainers of this package add support for a PHP version following its initial release and drop support for a PHP version when it has reached its end of active support.
+The maintainers of this project add support for a PHP version following its initial release and drop support for a PHP version when it has reached the end of security support.
 
 ## Security Policy
 
-This package has a [security policy](.github/SECURITY.md).
+This project has a [security policy](.github/SECURITY.md).
 
 ## License
 
-This package uses the [MIT license](LICENSE.md).
+This project uses the [MIT license](LICENSE.md).
 
 ## Social
 

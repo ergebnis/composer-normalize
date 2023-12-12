@@ -9,6 +9,61 @@ on: # yamllint disable-line rule:truthy
       - "main"
 
 jobs:
+  backward-compatibility-analysis:
+    name: "Backward-Compatibility Analysis"
+
+    runs-on: "ubuntu-latest"
+
+    timeout-minutes: 5
+
+    strategy:
+      matrix:
+        php-version:
+          - "8.1"
+
+        dependencies:
+          - "locked"
+
+    steps:
+      - name: "Checkout"
+        uses: "actions/checkout@v4.1.1"
+        with:
+          fetch-depth: 0
+
+      - name: "Set up PHP"
+        uses: "shivammathur/setup-php@2.28.0"
+        with:
+          coverage: "none"
+          extensions: "none, bcmath, ctype, curl, dom, intl, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter"
+          php-version: "${{ matrix.php-version }}"
+
+      - name: "Set up problem matchers for PHP"
+        run: "echo \"::add-matcher::${{ runner.tool_cache }}/php.json\""
+
+      - name: "Set up problem matchers for phpunit/phpunit"
+        run: "echo \"::add-matcher::${{ runner.tool_cache }}/phpunit.json\""
+
+      - name: "Validate composer.json and composer.lock"
+        run: "composer validate --ansi --strict"
+
+      - name: "Determine composer cache directory"
+        uses: "ergebnis/.github/actions/composer/determine-cache-directory@1.8.0"
+
+      - name: "Cache dependencies installed with composer"
+        uses: "actions/cache@v3.3.2"
+        with:
+          path: "${{ env.COMPOSER_CACHE_DIR }}"
+          key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
+          restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
+
+      - name: "Install ${{ matrix.dependencies }} dependencies with composer"
+        uses: "ergebnis/.github/actions/composer/install@1.8.0"
+        with:
+          dependencies: "${{ matrix.dependencies }}"
+
+      - name: "Run backward-compatibility analysis with roave/backward-compatibility-check"
+        run: "vendor/bin/roave-backward-compatibility-check --ansi --format=github-actions --install-development-dependencies"
+
   code-coverage:
     name: "Code Coverage"
 
@@ -32,7 +87,7 @@ jobs:
         uses: "shivammathur/setup-php@2.28.0"
         with:
           coverage: "xdebug"
-          extensions: "none, ctype, curl, dom, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter"
+          extensions: "none, bcmath, ctype, curl, dom, intl, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter"
           php-version: "${{ matrix.php-version }}"
 
       - name: "Set up problem matchers for PHP"
@@ -100,7 +155,7 @@ jobs:
         uses: "shivammathur/setup-php@2.28.0"
         with:
           coverage: "none"
-          extensions: "none, ctype, curl, dom, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter"
+          extensions: "none, bcmath, ctype, curl, dom, intl, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter"
           php-version: "${{ matrix.php-version }}"
           tools: "phive"
 
@@ -175,7 +230,7 @@ jobs:
         uses: "shivammathur/setup-php@2.28.0"
         with:
           coverage: "none"
-          extensions: "none, ctype, dom, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter"
+          extensions: "none, bcmath, ctype, dom, intl, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter"
           ini-values: "memory_limit=-1, phar.readonly=0"
           php-version: "${{ matrix.php-version }}"
           tools: "phive"
@@ -247,7 +302,7 @@ jobs:
         uses: "shivammathur/setup-php@2.28.0"
         with:
           coverage: "none"
-          extensions: "none, ctype, curl, dom, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter"
+          extensions: "none, bcmath, ctype, curl, dom, intl, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter"
           php-version: "${{ matrix.php-version }}"
           tools: "phive"
 
@@ -278,7 +333,7 @@ jobs:
           trust-gpg-keys: "0xC00543248C87FB13,0x033E5F8D801A2F8D,0x2DF45277AEF09A2F"
 
       - name: "Run maglnet/composer-require-checker"
-        run: ".phive/composer-require-checker check --ansi --config-file=$(pwd)/composer-require-checker.json"
+        run: ".phive/composer-require-checker check --ansi --config-file=$(pwd)/composer-require-checker.json --verbose"
 
   mutation-tests:
     name: "Mutation Tests"
@@ -303,7 +358,7 @@ jobs:
         uses: "shivammathur/setup-php@2.28.0"
         with:
           coverage: "xdebug"
-          extensions: "none, ctype, curl, dom, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter"
+          extensions: "none, bcmath, ctype, curl, dom, intl, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter"
           php-version: "${{ matrix.php-version }}"
 
       - name: "Set up problem matchers for PHP"
@@ -355,7 +410,7 @@ jobs:
         uses: "shivammathur/setup-php@2.28.0"
         with:
           coverage: "none"
-          extensions: "none, ctype, curl, dom, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter"
+          extensions: "none, bcmath, ctype, curl, dom, intl, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter"
           php-version: "${{ matrix.php-version }}"
 
       - name: "Set up problem matchers for PHP"
@@ -417,7 +472,7 @@ jobs:
         uses: "shivammathur/setup-php@2.28.0"
         with:
           coverage: "none"
-          extensions: "none, ctype, curl, dom, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter"
+          extensions: "none, bcmath, ctype, curl, dom, intl, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter"
           php-version: "${{ matrix.php-version }}"
 
       - name: "Set up problem matchers for PHP"
@@ -467,7 +522,7 @@ jobs:
         uses: "shivammathur/setup-php@2.28.0"
         with:
           coverage: "none"
-          extensions: "none, ctype, curl, dom, json, mbstring, opcache, pcntl, phar, posix, simplexml, tokenizer, xml, xmlwriter"
+          extensions: "none, bcmath, ctype, curl, dom, intl, json, mbstring, opcache, pcntl, phar, posix, simplexml, tokenizer, xml, xmlwriter"
           php-version: "${{ matrix.php-version }}"
 
       - name: "Set up problem matchers for PHP"
@@ -525,7 +580,7 @@ jobs:
         uses: "shivammathur/setup-php@2.28.0"
         with:
           coverage: "none"
-          extensions: "none, ctype, curl, dom, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter"
+          extensions: "none, bcmath, ctype, curl, dom, intl, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter"
           php-version: "${{ matrix.php-version }}"
 
       - name: "Set up problem matchers for PHP"
@@ -546,6 +601,10 @@ jobs:
           path: "${{ env.COMPOSER_CACHE_DIR }}"
           key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
           restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
+
+      - name: "Remove platform configuration with composer"
+        if: "matrix.dependencies != 'locked'"
+        run: "composer config platform.php --ansi --unset"
 
       - name: "Install ${{ matrix.dependencies }} dependencies with composer"
         uses: "ergebnis/.github/actions/composer/install@1.8.0"
