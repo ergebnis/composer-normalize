@@ -32,7 +32,7 @@ jobs:
         uses: "shivammathur/setup-php@2.28.0"
         with:
           coverage: "none"
-          extensions: "none, ctype, curl, dom, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter"
+          extensions: "none, bcmath, ctype, curl, dom, intl, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter"
           php-version: "${{ matrix.php-version }}"
 
       - name: "Set up problem matchers for PHP"

@@ -3,13 +3,14 @@
 version: 2
 
 updates:
-  - commit-message:
+  - allow:
+      - dependency-type: "development"
+    commit-message:
       include: "scope"
       prefix: "composer"
     directory: "/"
     ignore:
       - dependency-name: "composer/composer"
-      - dependency-name: "composer-plugin-api"
     labels:
       - "dependency"
     open-pull-requests-limit: 10

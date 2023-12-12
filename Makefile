@@ -3,6 +3,10 @@ COMPOSER_VERSION:=2.6.6
 .PHONY: it
 it: refactoring coding-standards security-analysis static-code-analysis tests ## Runs the refactoring, coding-standards, security-analysis, static-code-analysis, and tests targets
 
+.PHONY: backward-compatibility-analysis
+backward-compatibility-analysis: vendor ## Runs a backward-compatibility analysis with roave/backward-compatibility-check
+	vendor/bin/roave-backward-compatibility-check --install-development-dependencies
+
 .PHONY: code-coverage
 code-coverage: vendor ## Collects coverage from running unit and integration tests with phpunit/phpunit
 	mkdir -p .build/phpunit
@@ -17,7 +21,7 @@ coding-standards: phive vendor ## Lints YAML files with yamllint, normalizes com
 
 .PHONY: dependency-analysis
 dependency-analysis: phive vendor ## Runs a dependency analysis with maglnet/composer-require-checker
-	.phive/composer-require-checker check --config-file=$(shell pwd)/composer-require-checker.json
+	.phive/composer-require-checker check --config-file=$(shell pwd)/composer-require-checker.json --verbose
 
 .PHONY: help
 help: ## Displays this list of targets with descriptions
