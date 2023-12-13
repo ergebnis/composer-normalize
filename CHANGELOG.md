@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`2.40.0...main`][2.40.0...main].
 
+### Changed
+
+- Required `ergebnis/json-normalizer:^4.4.0` ([#1241]), by [@dependabot]
+
 ### Fixed
 
 - Updated `composer/composer` ([#1237]), by [@localheinz]
@@ -1181,6 +1185,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [#1204]: https://github.com/ergebnis/composer-normalize/pull/1204
 [#1234]: https://github.com/ergebnis/composer-normalize/pull/1234
 [#1237]: https://github.com/ergebnis/composer-normalize/pull/1237
+[#1241]: https://github.com/ergebnis/composer-normalize/pull/1241
 
 [@core23]: https://github.com/core23
 [@dependabot]: https://github.com/dependabot
