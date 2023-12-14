@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "86ce1417f45e5b911db7c5e722a6d21c",
+    "content-hash": "937604e9d24b94226277696f82ec5f46",
     "packages": [
         {
             "name": "ergebnis/json",
@@ -73,16 +73,16 @@
         },
         {
             "name": "ergebnis/json-normalizer",
-            "version": "4.4.0",
+            "version": "4.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/json-normalizer.git",
-                "reference": "67fd0d513e5c79456b42ef5654ff29b5d4ce8256"
+                "reference": "d28f36af9763ee6bc4e2a2390c0348963df7881b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/json-normalizer/zipball/67fd0d513e5c79456b42ef5654ff29b5d4ce8256",
-                "reference": "67fd0d513e5c79456b42ef5654ff29b5d4ce8256",
+                "url": "https://api.github.com/repos/ergebnis/json-normalizer/zipball/d28f36af9763ee6bc4e2a2390c0348963df7881b",
+                "reference": "d28f36af9763ee6bc4e2a2390c0348963df7881b",
                 "shasum": ""
             },
             "require": {
@@ -102,7 +102,7 @@
                 "ergebnis/phpunit-slow-test-detector": "^2.7.0",
                 "fakerphp/faker": "^1.23.0",
                 "infection/infection": "~0.27.9",
-                "phpunit/phpunit": "^10.5.2",
+                "phpunit/phpunit": "^10.5.3",
                 "psalm/plugin-phpunit": "~0.18.4",
                 "rector/rector": "~0.18.12",
                 "roave/backward-compatibility-check": "^8.4.0",
@@ -141,7 +141,7 @@
                 "security": "https://github.com/ergebnis/json-normalizer/blob/main/.github/SECURITY.md",
                 "source": "https://github.com/ergebnis/json-normalizer"
             },
-            "time": "2023-12-13T09:35:38+00:00"
+            "time": "2023-12-14T09:30:24+00:00"
         },
         {
             "name": "ergebnis/json-pointer",
