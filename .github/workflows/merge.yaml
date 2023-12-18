@@ -27,23 +27,23 @@ jobs:
 
     steps:
       - name: "Request review from @ergebnis-bot"
-        uses: "ergebnis/.github/actions/github/pull-request/request-review@1.8.0"
+        uses: "ergebnis/.github/actions/github/pull-request/request-review@1.9.0"
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
           reviewer: "ergebnis-bot"
 
       - name: "Assign @ergebnis-bot"
-        uses: "ergebnis/.github/actions/github/pull-request/add-assignee@1.8.0"
+        uses: "ergebnis/.github/actions/github/pull-request/add-assignee@1.9.0"
         with:
           assignee: "ergebnis-bot"
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
 
       - name: "Approve pull request"
-        uses: "ergebnis/.github/actions/github/pull-request/approve@1.8.0"
+        uses: "ergebnis/.github/actions/github/pull-request/approve@1.9.0"
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
 
       - name: "Merge pull request"
-        uses: "ergebnis/.github/actions/github/pull-request/merge@1.8.0"
+        uses: "ergebnis/.github/actions/github/pull-request/merge@1.9.0"
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
