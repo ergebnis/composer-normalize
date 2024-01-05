@@ -78,7 +78,7 @@ repository:
   archived: false
   default_branch: "main"
   delete_branch_on_merge: true
-  description: ":musical_note: Provides a composer plugin for normalizing composer.json."
+  description: "🎵 Provides a composer plugin for normalizing composer.json."
   enable_automated_security_fixes: true
   enable_vulnerability_alerts: true
   has_discussions: false

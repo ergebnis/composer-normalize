@@ -9,14 +9,12 @@ backward-compatibility-analysis: vendor ## Runs a backward-compatibility analysi
 
 .PHONY: code-coverage
 code-coverage: vendor ## Collects coverage from running unit and integration tests with phpunit/phpunit
-	mkdir -p .build/phpunit
 	vendor/bin/phpunit --configuration=test/phpunit.xml --coverage-text
 
 .PHONY: coding-standards
 coding-standards: phive vendor ## Lints YAML files with yamllint, normalizes composer.json with ergebnis/composer-normalize, and fixes code style issues with friendsofphp/php-cs-fixer
 	yamllint -c .yamllint.yaml --strict .
 	.phive/composer-normalize
-	mkdir -p .build/php-cs-fixer/
 	vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php --diff --verbose
 
 .PHONY: dependency-analysis
@@ -29,7 +27,6 @@ help: ## Displays this list of targets with descriptions
 
 .PHONY: mutation-tests
 mutation-tests: vendor ## Runs mutation tests with infection/infection
-	mkdir -p .build/infection/
 	vendor/bin/infection --configuration=infection.json
 
 .PHONY: phar
@@ -45,12 +42,10 @@ phar: phive vendor ## Builds a phar with humbug/box
 
 .PHONY: phive
 phive: .phive ## Installs dependencies with phive
-	mkdir -p .build/phive/
 	PHIVE_HOME=.build/phive phive install --trust-gpg-keys 0xC00543248C87FB13,0x033E5F8D801A2F8D,0x2DF45277AEF09A2F
 
 .PHONY: refactoring
 refactoring: vendor ## Runs automated refactoring with rector/rector
-	mkdir -p .build/rector/
 	vendor/bin/rector process --config=rector.php
 
 .PHONY: schema
@@ -64,19 +59,16 @@ security-analysis: vendor ## Runs a security analysis with composer
 
 .PHONY: static-code-analysis
 static-code-analysis: vendor ## Runs a static code analysis with vimeo/psalm
-	mkdir -p .build/psalm/
 	vendor/bin/psalm --config=psalm.xml --clear-cache
 	vendor/bin/psalm --config=psalm.xml --show-info=false --stats --threads=4
 
 .PHONY: static-code-analysis-baseline
 static-code-analysis-baseline: vendor ## Generates a baseline for static code analysis with vimeo/psalm
-	mkdir -p .build/psalm/
 	vendor/bin/psalm --config=psalm.xml --clear-cache
 	vendor/bin/psalm --config=psalm.xml --set-baseline=psalm-baseline.xml
 
 .PHONY: tests
 tests: vendor ## Runs unit and integration tests with phpunit/phpunit
-	mkdir -p .build/phpunit/
 	vendor/bin/phpunit --configuration=test/phpunit.xml --testsuite=unit
 	vendor/bin/phpunit --configuration=test/phpunit.xml --testsuite=integration
 
