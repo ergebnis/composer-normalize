@@ -41,7 +41,7 @@ final class NormalizeCommandProvider
 
         $numberGreaterThanZero = $faker->numberBetween(1);
 
-        /** @var list<string> $indentSizes */
+        /** @var array<string, string> $indentSizes */
         $indentSizes = [
             'string-arbitrary' => $faker->sentence(),
             'integer-zero-casted-to-string' => (string) 0,
