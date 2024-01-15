@@ -29,7 +29,7 @@ jobs:
           token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
 
       - name: "Set up PHP"
-        uses: "shivammathur/setup-php@2.28.0"
+        uses: "shivammathur/setup-php@2.29.0"
         with:
           coverage: "none"
           extensions: "none, bcmath, ctype, curl, dom, intl, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter"
