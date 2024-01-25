@@ -117,7 +117,7 @@ jobs:
         run: "vendor/bin/phpunit --colors=always --configuration=test/phpunit.xml --coverage-clover=.build/phpunit/logs/clover.xml"
 
       - name: "Send code coverage report to codecov.io"
-        uses: "codecov/codecov-action@v3.1.4"
+        uses: "codecov/codecov-action@v3.1.5"
         with:
           files: ".build/phpunit/logs/clover.xml"
           token: "${{ secrets.CODECOV_TOKEN }}"
