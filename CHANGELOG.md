@@ -18,7 +18,7 @@ For a full diff see [`2.41.1...main`][2.41.1...main].
 
 ## [`2.41.1`][2.41.1]
 
-For a full diff see [`2.41.0...2.41.1`][2.40.0...2.41.1].
+For a full diff see [`2.41.0...2.41.1`][2.41.0...2.41.1].
 
 ### Fixed
 
@@ -975,6 +975,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [2.39.0]: https://github.com/ergebnis/composer-normalize/releases/tag/2.39.0
 [2.40.0]: https://github.com/ergebnis/composer-normalize/releases/tag/2.40.0
 [2.41.0]: https://github.com/ergebnis/composer-normalize/releases/tag/2.41.0
+[2.41.1]: https://github.com/ergebnis/composer-normalize/releases/tag/2.41.1
 
 [81bc3a8...0.1.0]: https://github.com/ergebnis/composer-normalize/compare/81bc3a8...0.1.0
 [0.1.0...0.2.0]: https://github.com/ergebnis/composer-normalize/compare/0.1.0...0.2.0
@@ -1051,7 +1052,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [2.27.0...2.28.0]: https://github.com/ergebnis/composer-normalize/compare/2.27.0...2.28.0
 [2.28.0...2.28.1]: https://github.com/ergebnis/composer-normalize/compare/2.28.0...2.28.1
 [2.28.1...2.28.2]: https://github.com/ergebnis/composer-normalize/compare/2.28.1...2.28.2
-[2.28.2...2.28.4]: https://github.com/ergebnis/composer-normalize/compare/2.28.2...2.28.3
+[2.28.2...2.28.3]: https://github.com/ergebnis/composer-normalize/compare/2.28.2...2.38.3
 [2.28.3...2.29.0]: https://github.com/ergebnis/composer-normalize/compare/2.28.3...2.29.0
 [2.29.0...2.30.0]: https://github.com/ergebnis/composer-normalize/compare/2.29.0...2.30.0
 [2.30.0...2.30.1]: https://github.com/ergebnis/composer-normalize/compare/2.30.0...2.30.1
