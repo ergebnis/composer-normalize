@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phive xmlns="https://phar.io/phive">
-  <phar name="composer-normalize" version="^2.28.3" installed="2.28.3" location="./.phive/composer-normalize" copy="false"/>
+  <phar name="composer-normalize" version="^2.42.0" installed="2.42.0" location="./.phive/composer-normalize" copy="false"/>
   <phar name="composer-require-checker" version="^3.8.0" installed="3.8.0" location="./.phive/composer-require-checker" copy="false"/>
   <phar name="humbug/box" version="^3.16.0" installed="3.16.0" location="./.phive/box" copy="false"/>
 </phive>
