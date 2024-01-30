@@ -50,8 +50,11 @@ final class CommandInvocationTest extends Test\Integration\Command\NormalizeComm
         $application = self::createApplication(new Command\NormalizeCommand(
             new Factory(),
             new class($exceptionMessage) implements Normalizer\Normalizer {
-                public function __construct(private string $exceptionMessage)
+                private string $exceptionMessage;
+
+                public function __construct(string $exceptionMessage)
                 {
+                    $this->exceptionMessage = $exceptionMessage;
                 }
 
                 public function normalize(Json $json): Json

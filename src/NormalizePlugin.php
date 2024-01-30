@@ -28,19 +28,19 @@ final class NormalizePlugin implements
 {
     public function activate(
         Composer $composer,
-        IO\IOInterface $io,
+        IO\IOInterface $io
     ): void {
     }
 
     public function deactivate(
         Composer $composer,
-        IO\IOInterface $io,
+        IO\IOInterface $io
     ): void {
     }
 
     public function uninstall(
         Composer $composer,
-        IO\IOInterface $io,
+        IO\IOInterface $io
     ): void {
     }
 

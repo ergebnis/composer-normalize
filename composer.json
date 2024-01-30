@@ -23,7 +23,7 @@
     "security": "https://github.com/ergebnis/composer-normalize/blob/main/.github/SECURITY.md"
   },
   "require": {
-    "php": "~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0",
+    "php": "~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0",
     "ext-json": "*",
     "composer-plugin-api": "^2.0.0",
     "ergebnis/json": "^1.2.0",
@@ -38,11 +38,11 @@
     "ergebnis/php-cs-fixer-config": "^6.20.0",
     "ergebnis/phpunit-slow-test-detector": "^2.9.0",
     "fakerphp/faker": "^1.23.1",
-    "infection/infection": "~0.26.19",
+    "infection/infection": "~0.26.6",
     "phpunit/phpunit": "^9.6.16",
     "psalm/plugin-phpunit": "~0.18.4",
     "rector/rector": "~0.19.2",
-    "symfony/filesystem": "^6.0.19",
+    "symfony/filesystem": "^5.4.25",
     "vimeo/psalm": "^5.20.0"
   },
   "minimum-stability": "dev",
@@ -66,7 +66,7 @@
       "abandoned": "report"
     },
     "platform": {
-      "php": "8.0.30"
+      "php": "7.4.33"
     },
     "preferred-install": "dist",
     "sort-packages": true

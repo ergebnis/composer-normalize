@@ -127,7 +127,7 @@ final class CommandInvocationTest extends Test\Integration\Command\NormalizeComm
      */
     public function testFailsWhenIndentSizeOptionIsInvalid(
         Test\Util\CommandInvocation $commandInvocation,
-        string $indentSize,
+        string $indentSize
     ): void {
         /** @var string $indentStyle */
         $indentStyle = self::faker()->randomElement(\array_keys(Normalizer\Format\Indent::CHARACTERS));

@@ -30,7 +30,7 @@ final class CommandInvocationTest extends Test\Integration\Command\NormalizeComm
     public function testSucceeds(
         Test\Util\CommandInvocation $commandInvocation,
         int $indentSize,
-        string $indentStyle,
+        string $indentStyle
     ): void {
         $scenario = self::createScenario(
             $commandInvocation,
