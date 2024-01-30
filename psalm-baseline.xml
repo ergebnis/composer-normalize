@@ -5,16 +5,9 @@
       <code>$composerFile</code>
     </MixedAssignment>
   </file>
-  <file src="test/DataProvider/Command/NormalizeCommandProvider.php">
-    <PossiblyUnusedMethod>
-      <code>commandInvocation</code>
-      <code>commandInvocationAndInvalidIndentSize</code>
-      <code>commandInvocationIndentSizeAndIndentStyle</code>
-    </PossiblyUnusedMethod>
-  </file>
   <file src="test/Integration/Command/NormalizeCommand/AbstractTestCase.php">
     <MixedArrayAccess>
-      <code><![CDATA[$decoded['plugin-api-version']]]></code>
+      <code>$decoded['plugin-api-version']</code>
     </MixedArrayAccess>
     <MixedAssignment>
       <code>$decoded</code>

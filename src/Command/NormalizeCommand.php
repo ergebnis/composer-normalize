@@ -32,10 +32,10 @@ use Symfony\Component\Console;
 final class NormalizeCommand extends Command\BaseCommand
 {
     public function __construct(
-        private readonly Factory $factory,
-        private readonly Normalizer\Normalizer $normalizer,
-        private readonly Printer\PrinterInterface $printer,
-        private readonly Diff\Differ $differ,
+        private Factory $factory,
+        private Normalizer\Normalizer $normalizer,
+        private Printer\PrinterInterface $printer,
+        private Diff\Differ $differ,
     ) {
         parent::__construct('normalize');
     }
@@ -198,8 +198,8 @@ final class NormalizeCommand extends Command\BaseCommand
             $this->normalizer,
             new class($this->printer, $format) implements Normalizer\Normalizer {
                 public function __construct(
-                    private readonly Printer\PrinterInterface $printer,
-                    private readonly Normalizer\Format\Format $format,
+                    private Printer\PrinterInterface $printer,
+                    private Normalizer\Format\Format $format,
                 ) {
                 }
 

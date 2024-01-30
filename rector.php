@@ -12,7 +12,6 @@ declare(strict_types=1);
  */
 
 use Rector\Config;
-use Rector\Php81;
 use Rector\PHPUnit;
 use Rector\ValueObject;
 
@@ -26,13 +25,9 @@ return static function (Config\RectorConfig $rectorConfig): void {
         __DIR__ . '/test/',
     ]);
 
-    $rectorConfig->phpVersion(ValueObject\PhpVersion::PHP_81);
-
-    $rectorConfig->rules([
-        Php81\Rector\Property\ReadOnlyPropertyRector::class,
-    ]);
+    $rectorConfig->phpVersion(ValueObject\PhpVersion::PHP_80);
 
     $rectorConfig->sets([
-        PHPUnit\Set\PHPUnitSetList::PHPUNIT_100,
+        PHPUnit\Set\PHPUnitSetList::PHPUNIT_90,
     ]);
 };

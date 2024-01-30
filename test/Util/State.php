@@ -16,9 +16,9 @@ namespace Ergebnis\Composer\Normalize\Test\Util;
 final class State
 {
     private function __construct(
-        private readonly Directory $directory,
-        private readonly File $composerJsonFile,
-        private readonly File $composerLockFile,
+        private Directory $directory,
+        private File $composerJsonFile,
+        private File $composerLockFile,
     ) {
     }
 
