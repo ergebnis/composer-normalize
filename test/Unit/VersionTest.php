@@ -16,7 +16,9 @@ namespace Ergebnis\Composer\Normalize\Test\Unit;
 use Ergebnis\Composer\Normalize\Version;
 use PHPUnit\Framework;
 
-#[Framework\Attributes\CoversClass(Version::class)]
+/**
+ * @covers \Ergebnis\Composer\Normalize\Version
+ */
 final class VersionTest extends Framework\TestCase
 {
     public function testLongReturnsVersion(): void

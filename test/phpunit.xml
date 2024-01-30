@@ -1,43 +1,39 @@
-<?xml version="1.0"?>
 <phpunit
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="../vendor/phpunit/phpunit/phpunit.xsd"
     beStrictAboutChangesToGlobalState="true"
-    beStrictAboutCoverageMetadata="true"
+    beStrictAboutCoversAnnotation="true"
     beStrictAboutOutputDuringTests="true"
+    beStrictAboutResourceUsageDuringSmallTests="true"
     beStrictAboutTestsThatDoNotTestAnything="true"
+    beStrictAboutTodoAnnotatedTests="true"
     bootstrap="../vendor/autoload.php"
-    cacheDirectory="../.build/phpunit/cache/"
-    cacheResult="true"
     colors="true"
     columns="max"
-    displayDetailsOnIncompleteTests="true"
-    displayDetailsOnSkippedTests="true"
-    displayDetailsOnTestsThatTriggerDeprecations="true"
-    displayDetailsOnTestsThatTriggerErrors="true"
-    displayDetailsOnTestsThatTriggerNotices="true"
-    displayDetailsOnTestsThatTriggerWarnings="true"
-    executionOrder="random"
-    requireCoverageMetadata="true"
+    cacheResult="true"
+    cacheResultFile="../.build/phpunit/cache"
+    convertErrorsToExceptions="true"
+    convertNoticesToExceptions="true"
+    convertWarningsToExceptions="true"
     stopOnError="false"
     stopOnFailure="false"
     stopOnIncomplete="false"
     stopOnSkipped="false"
+    verbose="true"
 >
-    <coverage includeUncoveredFiles="true"/>
+    <coverage>
+        <include>
+            <directory suffix=".php">../src/</directory>
+        </include>
+    </coverage>
     <extensions>
-        <bootstrap class="Ergebnis\PHPUnit\SlowTestDetector\Extension"/>
+        <extension class="Ergebnis\PHPUnit\SlowTestDetector\Extension"/>
     </extensions>
     <php>
         <env name="COLUMNS" value="200"/>
         <env name="COMPOSER_ALLOW_XDEBUG" value="1"/>
         <ini name="memory_limit" value="-1"/>
     </php>
-    <source>
-        <include>
-            <directory suffix=".php">../src/</directory>
-        </include>
-    </source>
     <testsuites>
         <testsuite name="integration">
             <directory>Integration/</directory>

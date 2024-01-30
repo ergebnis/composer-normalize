@@ -15,7 +15,7 @@ namespace Ergebnis\Composer\Normalize\Test\Util;
 
 final class CommandInvocation
 {
-    private function __construct(private readonly string $style)
+    private function __construct(private string $style)
     {
     }
 

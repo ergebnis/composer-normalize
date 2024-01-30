@@ -23,7 +23,7 @@
     "security": "https://github.com/ergebnis/composer-normalize/blob/main/.github/SECURITY.md"
   },
   "require": {
-    "php": "~8.1.0 || ~8.2.0 || ~8.3.0",
+    "php": "~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0",
     "ext-json": "*",
     "composer-plugin-api": "^2.0.0",
     "ergebnis/json": "^1.2.0",
@@ -35,15 +35,14 @@
   "require-dev": {
     "composer/composer": "^2.6.6",
     "ergebnis/license": "^2.4.0",
-    "ergebnis/php-cs-fixer-config": "~6.20.0",
+    "ergebnis/php-cs-fixer-config": "^6.20.0",
     "ergebnis/phpunit-slow-test-detector": "^2.9.0",
     "fakerphp/faker": "^1.23.1",
-    "infection/infection": "~0.27.9",
-    "phpunit/phpunit": "^10.5.9",
+    "infection/infection": "~0.26.19",
+    "phpunit/phpunit": "^9.6.16",
     "psalm/plugin-phpunit": "~0.18.4",
-    "rector/rector": "~0.19.5",
-    "roave/backward-compatibility-check": "^8.6.0",
-    "symfony/filesystem": "^6.4.0",
+    "rector/rector": "~0.19.2",
+    "symfony/filesystem": "^6.0.19",
     "vimeo/psalm": "^5.20.0"
   },
   "minimum-stability": "dev",
@@ -67,7 +66,7 @@
       "abandoned": "report"
     },
     "platform": {
-      "php": "8.1.26"
+      "php": "8.0.30"
     },
     "preferred-install": "dist",
     "sort-packages": true

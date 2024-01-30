@@ -21,7 +21,9 @@ use PHPUnit\Framework;
 use Symfony\Component\Console;
 use Symfony\Component\Filesystem;
 
-#[Framework\Attributes\CoversNothing()]
+/**
+ * @coversNothing
+ */
 abstract class AbstractTestCase extends Framework\TestCase
 {
     use Test\Util\Helper;

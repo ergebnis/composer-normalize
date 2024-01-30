@@ -15,9 +15,9 @@ namespace Ergebnis\Composer\Normalize\Test\Util;
 
 final class Directory
 {
-    private readonly bool $exists;
+    private bool $exists;
 
-    private function __construct(private readonly string $path)
+    private function __construct(private string $path)
     {
         $this->exists = \file_exists($path) && \is_dir($path);
     }

@@ -18,7 +18,7 @@ jobs:
     strategy:
       matrix:
         php-version:
-          - "8.1"
+          - "8.0"
 
         dependencies:
           - "locked"
@@ -38,7 +38,7 @@ jobs:
         uses: "shivammathur/setup-php@2.29.0"
         with:
           coverage: "none"
-          extensions: "none, bcmath, ctype, dom, intl, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter"
+          extensions: "none, ctype, dom, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter"
           php-version: "${{ matrix.php-version }}"
           tools: "phive"
 
