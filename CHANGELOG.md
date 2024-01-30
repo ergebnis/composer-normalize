@@ -11,6 +11,7 @@ For a full diff see [`2.41.1...main`][2.41.1...main].
 ### Changed
 
 - Required `ergebnis/json:^1.2.0` ([#1273]), by [@dependabot]
+- Required `ergebnis/json-printer:^3.5.0` ([#1275]), by [@dependabot]
 
 ## [`2.41.1`][2.41.1]
 
@@ -1207,6 +1208,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [#1241]: https://github.com/ergebnis/composer-normalize/pull/1241
 [#1243]: https://github.com/ergebnis/composer-normalize/pull/1243
 [#1273]: https://github.com/ergebnis/composer-normalize/pull/1273
+[#1275]: https://github.com/ergebnis/composer-normalize/pull/1275
 
 [@core23]: https://github.com/core23
 [@dependabot]: https://github.com/dependabot
