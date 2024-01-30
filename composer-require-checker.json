@@ -1,5 +1,6 @@
 {
   "symbol-whitelist": [
+    "array",
     "Composer\\Command\\BaseCommand",
     "Composer\\Composer",
     "Composer\\Console\\Application",
@@ -11,11 +12,19 @@
     "Composer\\Plugin\\Capability\\CommandProvider",
     "Composer\\Plugin\\Capable",
     "Composer\\Plugin\\PluginInterface",
+    "false",
+    "int",
+    "null",
+    "parent",
+    "self",
+    "string",
     "Symfony\\Component\\Console\\Application",
     "Symfony\\Component\\Console\\Input\\ArrayInput",
     "Symfony\\Component\\Console\\Input\\InputArgument",
     "Symfony\\Component\\Console\\Input\\InputInterface",
     "Symfony\\Component\\Console\\Input\\InputOption",
-    "Symfony\\Component\\Console\\Output\\OutputInterface"
+    "Symfony\\Component\\Console\\Output\\OutputInterface",
+    "true",
+    "void"
   ]
 }

@@ -15,10 +15,12 @@ namespace Ergebnis\Composer\Normalize\Test\Util;
 
 final class Directory
 {
+    private string $path;
     private bool $exists;
 
-    private function __construct(private string $path)
+    private function __construct(string $path)
     {
+        $this->path = $path;
         $this->exists = \file_exists($path) && \is_dir($path);
     }
 

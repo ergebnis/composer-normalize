@@ -51,7 +51,7 @@ abstract class AbstractTestCase extends Framework\TestCase
 
     final protected static function createScenario(
         Test\Util\CommandInvocation $commandInvocation,
-        string $fixtureDirectory,
+        string $fixtureDirectory
     ): Test\Util\Scenario {
         if (!\is_dir($fixtureDirectory)) {
             throw new \InvalidArgumentException(\sprintf(
@@ -119,7 +119,7 @@ abstract class AbstractTestCase extends Framework\TestCase
 
     final protected static function assertComposerJsonFileModified(
         Test\Util\State $expected,
-        Test\Util\State $actual,
+        Test\Util\State $actual
     ): void {
         self::assertComposerJsonFileExists($actual);
 
@@ -168,7 +168,7 @@ abstract class AbstractTestCase extends Framework\TestCase
 
     final protected static function assertComposerLockFileModified(
         Test\Util\State $expected,
-        Test\Util\State $actual,
+        Test\Util\State $actual
     ): void {
         self::assertComposerLockFileExists($actual);
 
@@ -181,7 +181,7 @@ abstract class AbstractTestCase extends Framework\TestCase
 
     final protected static function assertComposerLockFileNotModified(
         Test\Util\State $expected,
-        Test\Util\State $actual,
+        Test\Util\State $actual
     ): void {
         self::assertComposerLockFileExists($actual);
 
@@ -194,7 +194,7 @@ abstract class AbstractTestCase extends Framework\TestCase
 
     final protected static function assertExitCodeSame(
         int $expected,
-        int $actual,
+        int $actual
     ): void {
         self::assertSame($expected, $actual, \sprintf(
             'Failed asserting that exit code %d is identical to %d.',

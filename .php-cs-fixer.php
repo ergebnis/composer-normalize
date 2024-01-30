@@ -26,7 +26,7 @@ $license = License\Type\MIT::markdown(
 
 $license->save();
 
-$ruleSet = PhpCsFixer\Config\RuleSet\Php80::create()
+$ruleSet = PhpCsFixer\Config\RuleSet\Php74::create()
     ->withHeader($license->header())
     ->withRules(PhpCsFixer\Config\Rules::fromArray([
         'no_useless_concat_operator' => false,
