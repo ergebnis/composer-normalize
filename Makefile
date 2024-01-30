@@ -15,7 +15,7 @@ code-coverage: vendor ## Collects coverage from running unit and integration tes
 coding-standards: phive vendor ## Lints YAML files with yamllint, normalizes composer.json with ergebnis/composer-normalize, and fixes code style issues with friendsofphp/php-cs-fixer
 	yamllint -c .yamllint.yaml --strict .
 	.phive/composer-normalize
-	vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php --diff --verbose
+	vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php --diff --show-progress=dots --verbose
 
 .PHONY: dependency-analysis
 dependency-analysis: phive vendor ## Runs a dependency analysis with maglnet/composer-require-checker
