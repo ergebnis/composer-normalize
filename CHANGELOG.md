@@ -12,7 +12,7 @@ For a full diff see [`2.41.1...main`][2.41.1...main].
 
 - Required `ergebnis/json:^1.2.0` ([#1273]), by [@dependabot]
 - Required `ergebnis/json-printer:^3.5.0` ([#1275]), by [@dependabot]
-- Required `ergebnis/json-normalizer:^4.5.0` ([#1277]), by [@dependabot]
+- Required `ergebnis/json-normalizer:^4.5.0` ([#1277]), by [@localheinz]
 
 ## [`2.41.1`][2.41.1]
 
