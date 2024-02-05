@@ -36,7 +36,7 @@
     "composer/composer": "^2.6.6",
     "ergebnis/license": "^2.4.0",
     "ergebnis/php-cs-fixer-config": "^6.21.0",
-    "ergebnis/phpunit-slow-test-detector": "^2.9.0",
+    "ergebnis/phpunit-slow-test-detector": "^2.10.0",
     "fakerphp/faker": "^1.23.1",
     "infection/infection": "~0.26.6",
     "phpunit/phpunit": "^9.6.16",
