@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f44390b27c95780a311d7de31361b4d5",
+    "content-hash": "8b65564ff52d1b76993ac7d015ae0a6e",
     "packages": [
         {
             "name": "ergebnis/json",
@@ -1622,31 +1622,31 @@
         },
         {
             "name": "ergebnis/phpunit-slow-test-detector",
-            "version": "2.9.0",
+            "version": "2.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/phpunit-slow-test-detector.git",
-                "reference": "0a3cae476e6472840d9a09191998fe07906ba0bd"
+                "reference": "2f671af5c1589b38d5f0c7289681bf49a65b86a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/phpunit-slow-test-detector/zipball/0a3cae476e6472840d9a09191998fe07906ba0bd",
-                "reference": "0a3cae476e6472840d9a09191998fe07906ba0bd",
+                "url": "https://api.github.com/repos/ergebnis/phpunit-slow-test-detector/zipball/2f671af5c1589b38d5f0c7289681bf49a65b86a3",
+                "reference": "2f671af5c1589b38d5f0c7289681bf49a65b86a3",
                 "shasum": ""
             },
             "require": {
                 "php": "~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0",
-                "phpunit/phpunit": "^7.5.0 || ^8.5.19 || ^9.0.0 || ^10.0.0"
+                "phpunit/phpunit": "^7.5.0 || ^8.5.19 || ^9.0.0 || ^10.0.0 || ^11.0.0"
             },
             "require-dev": {
-                "ergebnis/composer-normalize": "^2.28.3",
+                "ergebnis/composer-normalize": "^2.42.0",
                 "ergebnis/data-provider": "^3.2.0",
                 "ergebnis/license": "^2.4.0",
-                "ergebnis/php-cs-fixer-config": "^6.14.0",
-                "fakerphp/faker": "^1.23.0",
+                "ergebnis/php-cs-fixer-config": "^6.21.0",
+                "fakerphp/faker": "^1.23.1",
                 "psalm/plugin-phpunit": "~0.18.4",
-                "rector/rector": "~0.18.13",
-                "vimeo/psalm": "^5.18.0"
+                "rector/rector": "~0.19.8",
+                "vimeo/psalm": "^5.21.1"
             },
             "type": "library",
             "extra": {
@@ -1685,7 +1685,7 @@
                 "security": "https://github.com/ergebnis/phpunit-slow-test-detector/blob/main/.github/SECURITY.md",
                 "source": "https://github.com/ergebnis/phpunit-slow-test-detector"
             },
-            "time": "2023-12-23T16:16:07+00:00"
+            "time": "2024-02-05T16:21:43+00:00"
         },
         {
             "name": "erickskrauch/php-cs-fixer-custom-fixers",
