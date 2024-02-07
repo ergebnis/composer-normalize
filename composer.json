@@ -41,7 +41,7 @@
     "infection/infection": "~0.26.6",
     "phpunit/phpunit": "^9.6.16",
     "psalm/plugin-phpunit": "~0.18.4",
-    "rector/rector": "~1.0.0",
+    "rector/rector": "^1.0.0",
     "symfony/filesystem": "^5.4.35",
     "vimeo/psalm": "^5.21.1"
   },
