@@ -26,7 +26,7 @@ jobs:
     env:
       COMPOSER_NORMALIZE_PHAR: ".build/phar/composer-normalize.phar"
       COMPOSER_NORMALIZE_PHAR_SIGNATURE: ".build/phar/composer-normalize.phar.asc"
-      COMPOSER_VERSION: "2.6.6"
+      COMPOSER_VERSION: "2.7.0"
       GPG_KEYS: ".build/phar/keys.asc"
       GPG_KEYS_ENCRYPTED: "phar/keys.asc.gpg"
 
