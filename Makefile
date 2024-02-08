@@ -1,4 +1,4 @@
-COMPOSER_VERSION:=2.6.6
+COMPOSER_VERSION:=2.7.0
 
 .PHONY: it
 it: refactoring coding-standards security-analysis static-code-analysis tests ## Runs the refactoring, coding-standards, security-analysis, static-code-analysis, and tests targets
