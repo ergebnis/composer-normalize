@@ -39,7 +39,7 @@
     "ergebnis/phpunit-slow-test-detector": "^2.10.0",
     "fakerphp/faker": "^1.23.1",
     "infection/infection": "~0.26.6",
-    "phpunit/phpunit": "^9.6.16",
+    "phpunit/phpunit": "^9.6.17",
     "psalm/plugin-phpunit": "~0.18.4",
     "rector/rector": "^1.0.1",
     "symfony/filesystem": "^5.4.35",
