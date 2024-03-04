@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0a50a0dab52d6fa87c640b4d3b28fc61",
+    "content-hash": "c95e0f418d96d5369fb68ce09bc35e98",
     "packages": [
         {
             "name": "ergebnis/json",
@@ -2991,16 +2991,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.10.58",
+            "version": "1.10.59",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "a23518379ec4defd9e47cbf81019526861623ec2"
+                "reference": "e607609388d3a6d418a50a49f7940e8086798281"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/a23518379ec4defd9e47cbf81019526861623ec2",
-                "reference": "a23518379ec4defd9e47cbf81019526861623ec2",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/e607609388d3a6d418a50a49f7940e8086798281",
+                "reference": "e607609388d3a6d418a50a49f7940e8086798281",
                 "shasum": ""
             },
             "require": {
@@ -3049,7 +3049,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-02-12T20:02:57+00:00"
+            "time": "2024-02-20T13:59:13+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -3756,16 +3756,16 @@
         },
         {
             "name": "rector/rector",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "258b775511e62a7188f8ce114d44acaf244d9a7d"
+                "reference": "7596fa6da06c6a20c012efe6bb3d9188a9113b11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/258b775511e62a7188f8ce114d44acaf244d9a7d",
-                "reference": "258b775511e62a7188f8ce114d44acaf244d9a7d",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/7596fa6da06c6a20c012efe6bb3d9188a9113b11",
+                "reference": "7596fa6da06c6a20c012efe6bb3d9188a9113b11",
                 "shasum": ""
             },
             "require": {
@@ -3800,7 +3800,7 @@
             ],
             "support": {
                 "issues": "https://github.com/rectorphp/rector/issues",
-                "source": "https://github.com/rectorphp/rector/tree/1.0.1"
+                "source": "https://github.com/rectorphp/rector/tree/1.0.2"
             },
             "funding": [
                 {
@@ -3808,7 +3808,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-02-16T07:53:23+00:00"
+            "time": "2024-03-03T12:32:31+00:00"
         },
         {
             "name": "sanmai/later",
