@@ -40,7 +40,7 @@
     "fakerphp/faker": "^1.23.1",
     "infection/infection": "~0.26.6",
     "phpunit/phpunit": "^9.6.17",
-    "psalm/plugin-phpunit": "~0.18.4",
+    "psalm/plugin-phpunit": "~0.19.0",
     "rector/rector": "^1.0.3",
     "symfony/filesystem": "^5.4.35",
     "vimeo/psalm": "^5.23.1"
