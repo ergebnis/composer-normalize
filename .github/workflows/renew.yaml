@@ -45,7 +45,7 @@ jobs:
         uses: "ergebnis/.github/actions/composer/determine-cache-directory@1.9.0"
 
       - name: "Cache dependencies installed with composer"
-        uses: "actions/cache@v4.0.1"
+        uses: "actions/cache@v4.0.2"
         with:
           path: "${{ env.COMPOSER_CACHE_DIR }}"
           key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
@@ -57,7 +57,7 @@ jobs:
           dependencies: "${{ matrix.dependencies }}"
 
       - name: "Cache cache directory for friendsofphp/php-cs-fixer"
-        uses: "actions/cache@v4.0.1"
+        uses: "actions/cache@v4.0.2"
         with:
           path: ".build/php-cs-fixer"
           key: "php-${{ matrix.php-version }}-php-cs-fixer-${{ github.ref_name }}"
