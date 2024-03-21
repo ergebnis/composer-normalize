@@ -35,7 +35,7 @@
   "require-dev": {
     "composer/composer": "^2.7.0",
     "ergebnis/license": "^2.4.0",
-    "ergebnis/php-cs-fixer-config": "^6.25.0",
+    "ergebnis/php-cs-fixer-config": "^6.25.1",
     "ergebnis/phpunit-slow-test-detector": "^2.10.0",
     "fakerphp/faker": "^1.23.1",
     "infection/infection": "~0.26.6",
