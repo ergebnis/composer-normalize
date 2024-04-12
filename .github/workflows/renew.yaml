@@ -69,7 +69,7 @@ jobs:
         run: "vendor/bin/php-cs-fixer fix --ansi --config=.php-cs-fixer.php --diff --show-progress=dots --verbose"
 
       - name: "Commit modified files"
-        uses: "stefanzweifel/git-auto-commit-action@v5.0.0"
+        uses: "stefanzweifel/git-auto-commit-action@v5.0.1"
         with:
           commit_author: "ergebnis-bot <bot@ergebn.is>"
           commit_message: "Enhancement: Update license year"
