@@ -134,7 +134,7 @@ jobs:
             }
 
       - name: "Post to twitter.com about release"
-        uses: "Eomm/why-don-t-you-tweet@v1.1.0"
+        uses: "Eomm/why-don-t-you-tweet@v2.0.0"
         env:
           TWITTER_ACCESS_TOKEN: "${{ secrets.ERGEBNIS_TWITTER_ACCESS_TOKEN }}"
           TWITTER_ACCESS_TOKEN_SECRET: "${{ secrets.ERGEBNIS_TWITTER_ACCESS_TOKEN_SECRET }}"
