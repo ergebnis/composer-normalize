@@ -42,7 +42,7 @@ jobs:
         run: "composer validate --ansi --strict"
 
       - name: "Determine composer cache directory"
-        uses: "ergebnis/.github/actions/composer/determine-cache-directory@1.9.1"
+        uses: "ergebnis/.github/actions/composer/determine-cache-directory@1.9.2"
 
       - name: "Cache dependencies installed with composer"
         uses: "actions/cache@v4.0.2"
@@ -52,7 +52,7 @@ jobs:
           restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
 
       - name: "Install ${{ matrix.dependencies }} dependencies with composer"
-        uses: "ergebnis/.github/actions/composer/install@1.9.1"
+        uses: "ergebnis/.github/actions/composer/install@1.9.2"
         with:
           dependencies: "${{ matrix.dependencies }}"
 
