@@ -18,7 +18,7 @@ For a full diff see [`2.42.0...main`][2.42.0...main].
 
 ## [`2.42.0`][2.42.0]
 
-For a full diff see [`2.41.1...2.42.0`][2.40.0...2.42.0].
+For a full diff see [`2.41.1...2.42.0`][2.41.1...2.42.0].
 
 ### Changed
 
