@@ -4,13 +4,13 @@
 
 The following versions of `ergebnis/composer-normalize` have active support:
 
-- `^2.42.0`
+- `^2.43.0`
 
 ## Unsupported Versions
 
 The following versions of `ergebnis/composer-normalize` have reached their end of life:
 
-- `<2.42.0`
+- `<2.43.0`
 
 ## Reporting a Vulnerability
 
