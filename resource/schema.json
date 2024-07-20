@@ -1,6 +1,6 @@
 {
     "$schema": "https://json-schema.org/draft-04/schema#",
-    "title": "Package",
+    "title": "Composer Package",
     "type": "object",
     "properties": {
         "name": {
@@ -365,6 +365,12 @@
                     "example": false,
                     "default": true
                 },
+                "support-nts": {
+                    "type": "boolean",
+                    "description": "Does this package support non-Thread Safe mode",
+                    "example": false,
+                    "default": true
+                },
                 "configure-options": {
                     "type": "array",
                     "description": "These configure options make up the flags that can be passed to ./configure when installing the extension.",
@@ -379,6 +385,12 @@
                                 "description": "The name of the flag, this would typically be prefixed with `--`, for example, the value 'the-flag' would be passed as `./configure --the-flag`.",
                                 "example": "without-xdebug-compression",
                                 "pattern": "^[a-zA-Z0-9][a-zA-Z0-9-_]*$"
+                            },
+                            "needs-value": {
+                                "type": "boolean",
+                                "description": "If this is set to true, the flag needs a value (e.g. --with-somelib=<path>), otherwise it is a flag without a value (e.g. --enable-some-feature).",
+                                "example": false,
+                                "default": false
                             },
                             "description": {
                                 "type": "string",
@@ -775,6 +787,19 @@
                         "string"
                     ],
                     "description": "Defaults to \"php-only\" which checks only the PHP version. Setting to true will also check the presence of required PHP extensions. If set to false, Composer will not create and require a platform_check.php file as part of the autoloader bootstrap."
+                },
+                "bump-after-update": {
+                    "type": [
+                        "string",
+                        "boolean"
+                    ],
+                    "description": "Defaults to false and can be any of true, false, \"dev\"` or \"no-dev\"`. If set to true, Composer will run the bump command after running the update command. If set to \"dev\" or \"no-dev\" then only the corresponding dependencies will be bumped."
+                },
+                "allow-missing-requirements": {
+                    "type": [
+                        "boolean"
+                    ],
+                    "description": "Defaults to false. If set to true, Composer will allow install when lock file is not up to date with the latest changes in composer.json."
                 }
             }
         },
