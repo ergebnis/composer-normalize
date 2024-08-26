@@ -21,9 +21,9 @@ This project provides a [`composer`](https://getcomposer.org) plugin for normali
 
 When it comes to formatting `composer.json`, you have the following options:
 
-- you can stop caring
 - you can format it manually (and request changes when contributors format it differently)
-- you can use `ergebnis/composer-normalize`
+- you can stop caring
+- or you can use `ergebnis/composer-normalize`
 
 `ergebnis/composer-normalize` normalizes `composer.json`, so you don't have to.
 
