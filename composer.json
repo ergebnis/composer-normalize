@@ -23,7 +23,7 @@
     "security": "https://github.com/ergebnis/composer-normalize/blob/main/.github/SECURITY.md"
   },
   "require": {
-    "php": "~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0",
+    "php": "~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0",
     "ext-json": "*",
     "composer-plugin-api": "^2.0.0",
     "ergebnis/json": "^1.2.0",
