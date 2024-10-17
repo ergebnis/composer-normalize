@@ -4,6 +4,7 @@
   "license": "MIT",
   "type": "composer-plugin",
   "keywords": [
+    "dev",
     "composer",
     "normalizer",
     "normalize",
