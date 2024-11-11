@@ -37,7 +37,7 @@
     "ergebnis/license": "^2.5.0",
     "ergebnis/php-cs-fixer-config": "^6.37.0",
     "ergebnis/phpunit-slow-test-detector": "^2.16.1",
-    "fakerphp/faker": "^1.23.1",
+    "fakerphp/faker": "^1.24.0",
     "infection/infection": "~0.26.6",
     "phpunit/phpunit": "^9.6.20",
     "psalm/plugin-phpunit": "~0.19.0",
