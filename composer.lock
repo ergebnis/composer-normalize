@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e4535b56a82e0a724513094a92b89659",
+    "content-hash": "6f43b36a601b05efcdff6abed3bfb81c",
     "packages": [
         {
             "name": "ergebnis/json",
@@ -1703,16 +1703,16 @@
         },
         {
             "name": "ergebnis/phpunit-slow-test-detector",
-            "version": "2.16.1",
+            "version": "2.17.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/phpunit-slow-test-detector.git",
-                "reference": "30d46c03d98433e1afb8fa899399ca3db144898b"
+                "reference": "671ea2ba0669917f7e98b54e4188e1c1ebf6e29d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/phpunit-slow-test-detector/zipball/30d46c03d98433e1afb8fa899399ca3db144898b",
-                "reference": "30d46c03d98433e1afb8fa899399ca3db144898b",
+                "url": "https://api.github.com/repos/ergebnis/phpunit-slow-test-detector/zipball/671ea2ba0669917f7e98b54e4188e1c1ebf6e29d",
+                "reference": "671ea2ba0669917f7e98b54e4188e1c1ebf6e29d",
                 "shasum": ""
             },
             "require": {
@@ -1721,16 +1721,22 @@
             },
             "require-dev": {
                 "ergebnis/composer-normalize": "^2.44.0",
-                "ergebnis/license": "^2.5.0",
-                "ergebnis/php-cs-fixer-config": "^6.37.0",
+                "ergebnis/license": "^2.6.0",
+                "ergebnis/php-cs-fixer-config": "^6.38.0",
                 "fakerphp/faker": "~1.20.0",
-                "psalm/plugin-phpunit": "~0.19.0",
+                "phpstan/extension-installer": "^1.4.3",
+                "phpstan/phpstan": "^1.12.11",
+                "phpstan/phpstan-deprecation-rules": "^1.2.1",
+                "phpstan/phpstan-phpunit": "^1.4.1",
+                "phpstan/phpstan-strict-rules": "^1.6.1",
                 "psr/container": "~1.0.0",
-                "rector/rector": "^1.2.8",
-                "vimeo/psalm": "^5.26.1"
+                "rector/rector": "^1.2.10"
             },
             "type": "library",
             "extra": {
+                "branch-alias": {
+                    "dev-main": "2.16-dev"
+                },
                 "composer-normalize": {
                     "indent-size": 2,
                     "indent-style": "space"
@@ -1766,7 +1772,7 @@
                 "security": "https://github.com/ergebnis/phpunit-slow-test-detector/blob/main/.github/SECURITY.md",
                 "source": "https://github.com/ergebnis/phpunit-slow-test-detector"
             },
-            "time": "2024-10-25T11:56:32+00:00"
+            "time": "2024-11-25T08:54:52+00:00"
         },
         {
             "name": "erickskrauch/php-cs-fixer-custom-fixers",
@@ -2561,16 +2567,16 @@
         },
         {
             "name": "myclabs/deep-copy",
-            "version": "1.12.0",
+            "version": "1.12.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "3a6b9a42cd8f8771bd4295d13e1423fa7f3d942c"
+                "reference": "123267b2c49fbf30d78a7b2d333f6be754b94845"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/3a6b9a42cd8f8771bd4295d13e1423fa7f3d942c",
-                "reference": "3a6b9a42cd8f8771bd4295d13e1423fa7f3d942c",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/123267b2c49fbf30d78a7b2d333f6be754b94845",
+                "reference": "123267b2c49fbf30d78a7b2d333f6be754b94845",
                 "shasum": ""
             },
             "require": {
@@ -2609,7 +2615,7 @@
             ],
             "support": {
                 "issues": "https://github.com/myclabs/DeepCopy/issues",
-                "source": "https://github.com/myclabs/DeepCopy/tree/1.12.0"
+                "source": "https://github.com/myclabs/DeepCopy/tree/1.12.1"
             },
             "funding": [
                 {
@@ -2617,7 +2623,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-06-12T14:39:25+00:00"
+            "time": "2024-11-08T17:47:46+00:00"
         },
         {
             "name": "netresearch/jsonmapper",
