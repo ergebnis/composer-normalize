@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8f8eb7f2ee65bbcf91a6a0cb95d9e55e",
+    "content-hash": "0763179b3e6ad0b23467a49ff2d29828",
     "packages": [
         {
             "name": "ergebnis/json",
@@ -158,35 +158,42 @@
         },
         {
             "name": "ergebnis/json-pointer",
-            "version": "3.4.0",
+            "version": "3.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/json-pointer.git",
-                "reference": "b654757d873050622c2166f55ab25d04685261c5"
+                "reference": "4fc85d8edb74466d282119d8d9541ec7cffc0798"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/json-pointer/zipball/b654757d873050622c2166f55ab25d04685261c5",
-                "reference": "b654757d873050622c2166f55ab25d04685261c5",
+                "url": "https://api.github.com/repos/ergebnis/json-pointer/zipball/4fc85d8edb74466d282119d8d9541ec7cffc0798",
+                "reference": "4fc85d8edb74466d282119d8d9541ec7cffc0798",
                 "shasum": ""
             },
             "require": {
-                "php": "~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0"
+                "php": "~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0"
             },
             "require-dev": {
+                "ergebnis/composer-normalize": "^2.43.0",
                 "ergebnis/data-provider": "^3.2.0",
                 "ergebnis/license": "^2.4.0",
-                "ergebnis/php-cs-fixer-config": "^6.20.0",
-                "ergebnis/phpunit-slow-test-detector": "^2.9.0",
+                "ergebnis/php-cs-fixer-config": "^6.32.0",
+                "ergebnis/phpunit-slow-test-detector": "^2.15.0",
                 "fakerphp/faker": "^1.23.1",
                 "infection/infection": "~0.26.6",
-                "phpunit/phpunit": "^9.6.16",
-                "psalm/plugin-phpunit": "~0.18.4",
-                "rector/rector": "~0.19.2",
-                "vimeo/psalm": "^5.20.0"
+                "phpstan/extension-installer": "^1.4.3",
+                "phpstan/phpstan": "^1.12.10",
+                "phpstan/phpstan-deprecation-rules": "^1.2.1",
+                "phpstan/phpstan-phpunit": "^1.4.0",
+                "phpstan/phpstan-strict-rules": "^1.6.1",
+                "phpunit/phpunit": "^9.6.19",
+                "rector/rector": "^1.2.10"
             },
             "type": "library",
             "extra": {
+                "branch-alias": {
+                    "dev-main": "3.6-dev"
+                },
                 "composer-normalize": {
                     "indent-size": 2,
                     "indent-style": "space"
@@ -220,7 +227,7 @@
                 "security": "https://github.com/ergebnis/json-pointer/blob/main/.github/SECURITY.md",
                 "source": "https://github.com/ergebnis/json-pointer"
             },
-            "time": "2024-01-29T16:37:15+00:00"
+            "time": "2024-11-17T12:37:06+00:00"
         },
         {
             "name": "ergebnis/json-printer",
@@ -289,39 +296,46 @@
         },
         {
             "name": "ergebnis/json-schema-validator",
-            "version": "4.2.0",
+            "version": "4.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/json-schema-validator.git",
-                "reference": "10ed514fdc3f9b71f8a92c567afea21a2f6fa1ef"
+                "reference": "85f90c81f718aebba1d738800af83eeb447dc7ec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/json-schema-validator/zipball/10ed514fdc3f9b71f8a92c567afea21a2f6fa1ef",
-                "reference": "10ed514fdc3f9b71f8a92c567afea21a2f6fa1ef",
+                "url": "https://api.github.com/repos/ergebnis/json-schema-validator/zipball/85f90c81f718aebba1d738800af83eeb447dc7ec",
+                "reference": "85f90c81f718aebba1d738800af83eeb447dc7ec",
                 "shasum": ""
             },
             "require": {
                 "ergebnis/json": "^1.2.0",
                 "ergebnis/json-pointer": "^3.4.0",
                 "ext-json": "*",
-                "justinrainbow/json-schema": "^5.2.12",
-                "php": "~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0"
+                "justinrainbow/json-schema": "^5.2.12 || ^6.0.0",
+                "php": "~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0"
             },
             "require-dev": {
-                "ergebnis/data-provider": "^3.2.0",
-                "ergebnis/license": "^2.4.0",
-                "ergebnis/php-cs-fixer-config": "^6.20.0",
-                "ergebnis/phpunit-slow-test-detector": "^2.9.0",
-                "fakerphp/faker": "^1.23.1",
+                "ergebnis/composer-normalize": "^2.44.0",
+                "ergebnis/data-provider": "^3.3.0",
+                "ergebnis/license": "^2.5.0",
+                "ergebnis/php-cs-fixer-config": "^6.37.0",
+                "ergebnis/phpunit-slow-test-detector": "^2.16.1",
+                "fakerphp/faker": "^1.24.0",
                 "infection/infection": "~0.26.6",
-                "phpunit/phpunit": "^9.6.16",
-                "psalm/plugin-phpunit": "~0.18.4",
-                "rector/rector": "~0.19.2",
-                "vimeo/psalm": "^5.20.0"
+                "phpstan/extension-installer": "^1.4.3",
+                "phpstan/phpstan": "^1.12.10",
+                "phpstan/phpstan-deprecation-rules": "^1.2.1",
+                "phpstan/phpstan-phpunit": "^1.4.0",
+                "phpstan/phpstan-strict-rules": "^1.6.1",
+                "phpunit/phpunit": "^9.6.20",
+                "rector/rector": "^1.2.10"
             },
             "type": "library",
             "extra": {
+                "branch-alias": {
+                    "dev-main": "4.4-dev"
+                },
                 "composer-normalize": {
                     "indent-size": 2,
                     "indent-style": "space"
@@ -355,24 +369,24 @@
                 "security": "https://github.com/ergebnis/json-schema-validator/blob/main/.github/SECURITY.md",
                 "source": "https://github.com/ergebnis/json-schema-validator"
             },
-            "time": "2024-01-29T16:50:15+00:00"
+            "time": "2024-11-18T06:32:28+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
-            "version": "v5.2.13",
+            "version": "5.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jsonrainbow/json-schema.git",
-                "reference": "fbbe7e5d79f618997bc3332a6f49246036c45793"
+                "reference": "feb2ca6dd1cebdaf1ed60a4c8de2e53ce11c4fd8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jsonrainbow/json-schema/zipball/fbbe7e5d79f618997bc3332a6f49246036c45793",
-                "reference": "fbbe7e5d79f618997bc3332a6f49246036c45793",
+                "url": "https://api.github.com/repos/jsonrainbow/json-schema/zipball/feb2ca6dd1cebdaf1ed60a4c8de2e53ce11c4fd8",
+                "reference": "feb2ca6dd1cebdaf1ed60a4c8de2e53ce11c4fd8",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3"
+                "php": ">=7.1"
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "~2.2.20||~2.15.1",
@@ -383,11 +397,6 @@
                 "bin/validate-json"
             ],
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "5.0.x-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "JsonSchema\\": "src/JsonSchema/"
@@ -423,9 +432,9 @@
             ],
             "support": {
                 "issues": "https://github.com/jsonrainbow/json-schema/issues",
-                "source": "https://github.com/jsonrainbow/json-schema/tree/v5.2.13"
+                "source": "https://github.com/jsonrainbow/json-schema/tree/5.3.0"
             },
-            "time": "2023-09-26T02:20:38+00:00"
+            "time": "2024-07-06T21:00:26+00:00"
         },
         {
             "name": "localheinz/diff",
@@ -859,48 +868,48 @@
         },
         {
             "name": "composer/composer",
-            "version": "2.7.7",
+            "version": "2.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "291942978f39435cf904d33739f98d7d4eca7b23"
+                "reference": "d5e75c21ceeb6829918a75ed63b56c576b4a6261"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/291942978f39435cf904d33739f98d7d4eca7b23",
-                "reference": "291942978f39435cf904d33739f98d7d4eca7b23",
+                "url": "https://api.github.com/repos/composer/composer/zipball/d5e75c21ceeb6829918a75ed63b56c576b4a6261",
+                "reference": "d5e75c21ceeb6829918a75ed63b56c576b4a6261",
                 "shasum": ""
             },
             "require": {
-                "composer/ca-bundle": "^1.0",
+                "composer/ca-bundle": "^1.5",
                 "composer/class-map-generator": "^1.3.3",
                 "composer/metadata-minifier": "^1.0",
-                "composer/pcre": "^2.1 || ^3.1",
+                "composer/pcre": "^2.2 || ^3.2",
                 "composer/semver": "^3.3",
                 "composer/spdx-licenses": "^1.5.7",
                 "composer/xdebug-handler": "^2.0.2 || ^3.0.3",
-                "justinrainbow/json-schema": "^5.2.11",
+                "justinrainbow/json-schema": "^5.3",
                 "php": "^7.2.5 || ^8.0",
                 "psr/log": "^1.0 || ^2.0 || ^3.0",
-                "react/promise": "^2.8 || ^3",
+                "react/promise": "^3.2",
                 "seld/jsonlint": "^1.4",
                 "seld/phar-utils": "^1.2",
                 "seld/signal-handler": "^2.0",
-                "symfony/console": "^5.4.11 || ^6.0.11 || ^7",
-                "symfony/filesystem": "^5.4 || ^6.0 || ^7",
-                "symfony/finder": "^5.4 || ^6.0 || ^7",
+                "symfony/console": "^5.4.35 || ^6.3.12 || ^7.0.3",
+                "symfony/filesystem": "^5.4.35 || ^6.3.12 || ^7.0.3",
+                "symfony/finder": "^5.4.35 || ^6.3.12 || ^7.0.3",
                 "symfony/polyfill-php73": "^1.24",
                 "symfony/polyfill-php80": "^1.24",
                 "symfony/polyfill-php81": "^1.24",
-                "symfony/process": "^5.4 || ^6.0 || ^7"
+                "symfony/process": "^5.4.35 || ^6.3.12 || ^7.0.3"
             },
             "require-dev": {
-                "phpstan/phpstan": "^1.11.0",
+                "phpstan/phpstan": "^1.11.8",
                 "phpstan/phpstan-deprecation-rules": "^1.2.0",
                 "phpstan/phpstan-phpunit": "^1.4.0",
                 "phpstan/phpstan-strict-rules": "^1.6.0",
                 "phpstan/phpstan-symfony": "^1.4.0",
-                "symfony/phpunit-bridge": "^6.4.1 || ^7.0.1"
+                "symfony/phpunit-bridge": "^6.4.3 || ^7.0.1"
             },
             "suggest": {
                 "ext-openssl": "Enabling the openssl extension allows you to access https URLs for repositories and packages",
@@ -912,13 +921,13 @@
             ],
             "type": "library",
             "extra": {
-                "branch-alias": {
-                    "dev-main": "2.7-dev"
-                },
                 "phpstan": {
                     "includes": [
                         "phpstan/rules.neon"
                     ]
+                },
+                "branch-alias": {
+                    "dev-main": "2.8-dev"
                 }
             },
             "autoload": {
@@ -953,7 +962,7 @@
                 "irc": "ircs://irc.libera.chat:6697/composer",
                 "issues": "https://github.com/composer/composer/issues",
                 "security": "https://github.com/composer/composer/security/policy",
-                "source": "https://github.com/composer/composer/tree/2.7.7"
+                "source": "https://github.com/composer/composer/tree/2.8.0"
             },
             "funding": [
                 {
@@ -969,7 +978,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-06-10T20:11:12+00:00"
+            "time": "2024-10-02T14:40:29+00:00"
         },
         {
             "name": "composer/metadata-minifier",

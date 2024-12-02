@@ -11,6 +11,7 @@ For a full diff see [`2.44.0...main`][2.44.0...main].
 ### Changed
 
 - Updated `schema.json` ([#1405]), by [@ergebnis-bot]
+- Allowed installation of `justinrainbow/json-schema:^6.0.0` ([#1410]), by [@tacman]
 
 ## [`2.44.0`][2.44.0]
 
@@ -1256,6 +1257,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [#1363]: https://github.com/ergebnis/composer-normalize/pull/1363
 [#1381]: https://github.com/ergebnis/composer-normalize/pull/1381
 [#1405]: https://github.com/ergebnis/composer-normalize/pull/1405
+[#1410]: https://github.com/ergebnis/composer-normalize/pull/1410
 
 [@core23]: https://github.com/core23
 [@dependabot]: https://github.com/dependabot
@@ -1264,4 +1266,5 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [@ergebnis]: https://github.com/ergebnis
 [@localheinz]: https://github.com/localheinz
 [@svenluijten]: https://github.com/svenluijten
+[@tacman]: https://github.com/tacman
 [@TravisCarden]: https://github.com/TravisCarden
