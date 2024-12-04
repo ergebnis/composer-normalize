@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`2.44.0...main`][2.44.0...main].
 
+### Added
+
+- Added support for PHP 8.4 ([#1377]), by [@ruudk]
+
 ### Changed
 
 - Updated `schema.json` ([#1405]), by [@ergebnis-bot]
@@ -1256,6 +1260,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [#1312]: https://github.com/ergebnis/composer-normalize/pull/1312
 [#1349]: https://github.com/ergebnis/composer-normalize/pull/1349
 [#1363]: https://github.com/ergebnis/composer-normalize/pull/1363
+[#1377]: https://github.com/ergebnis/composer-normalize/pull/1377
 [#1381]: https://github.com/ergebnis/composer-normalize/pull/1381
 [#1405]: https://github.com/ergebnis/composer-normalize/pull/1405
 [#1410]: https://github.com/ergebnis/composer-normalize/pull/1410
@@ -1267,6 +1272,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [@ergebnis]: https://github.com/ergebnis
 [@localheinz]: https://github.com/localheinz
 [@mxr576]: https://github.com/mxr576
+[@ruudk]: https://github.com/ruudk
 [@svenluijten]: https://github.com/svenluijten
 [@tacman]: https://github.com/tacman
 [@TravisCarden]: https://github.com/TravisCarden
