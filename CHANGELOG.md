@@ -1262,9 +1262,9 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [@core23]: https://github.com/core23
 [@dependabot]: https://github.com/dependabot
 [@ergebnis-bot]: https://github.com/ergebnis-bot
-[@mxr576]: https://github.com/mxr576
 [@ergebnis]: https://github.com/ergebnis
 [@localheinz]: https://github.com/localheinz
+[@mxr576]: https://github.com/mxr576
 [@svenluijten]: https://github.com/svenluijten
 [@tacman]: https://github.com/tacman
 [@TravisCarden]: https://github.com/TravisCarden
