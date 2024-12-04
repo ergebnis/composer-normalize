@@ -57,6 +57,9 @@ jobs:
         with:
           dependencies: "${{ matrix.dependencies }}"
 
+      - name: "Remove incompatible dependencies with composer"
+        run: "composer remove phpstan/extension-installer --ansi --dev --no-interaction --no-progress"
+
       - name: "Require composer/composer"
         run: "composer require composer/composer:${{ env.COMPOSER_VERSION }} --ansi --no-interaction --no-progress"
 
@@ -72,7 +75,7 @@ jobs:
         run: ".phive/box compile --ansi --config=box.json"
 
       - name: "Show info about composer-normalize.phar with humbug/box"
-        run: ".phive/box info ${{ env.COMPOSER_NORMALIZE_PHAR }} --ansi"
+        run: ".phive/box info ${{ env.COMPOSER_NORMALIZE_PHAR }} --ansi --list"
 
       - name: "Run composer-normalize.phar"
         run: "${{ env.COMPOSER_NORMALIZE_PHAR }}"

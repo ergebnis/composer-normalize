@@ -1,0 +1,17 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Method Ergebnis\\\\Composer\\\\Normalize\\\\Command\\\\NormalizeCommand\\:\\:indentFromExtra\\(\\) has parameter \\$extra with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Command/NormalizeCommand.php
+
+		-
+			message: "#^Parameter \\#1 \\$json of method Ergebnis\\\\Json\\\\Printer\\\\PrinterInterface\\:\\:print\\(\\) expects string, string\\|false given\\.$#"
+			count: 1
+			path: src/Command/NormalizeCommand.php
+
+		-
+			message: "#^Cannot access offset 'plugin\\-api\\-version' on mixed\\.$#"
+			count: 1
+			path: test/Integration/Command/NormalizeCommand/AbstractTestCase.php
+

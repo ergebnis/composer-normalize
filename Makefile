@@ -4,7 +4,7 @@ COMPOSER_VERSION:=2.8.3
 it: refactoring coding-standards security-analysis static-code-analysis tests ## Runs the refactoring, coding-standards, security-analysis, static-code-analysis, and tests targets
 
 .PHONY: code-coverage
-code-coverage: vendor ## Collects coverage from running unit and integration tests with phpunit/phpunit
+code-coverage: vendor ## Collects code coverage from running unit and integration tests with phpunit/phpunit
 	vendor/bin/phpunit --configuration=test/phpunit.xml --coverage-text
 
 .PHONY: coding-standards
@@ -28,10 +28,11 @@ mutation-tests: vendor ## Runs mutation tests with infection/infection
 .PHONY: phar
 phar: phive vendor ## Builds a phar with humbug/box
 	.phive/box validate box.json
+	composer remove phpstan/extension-installer --dev --no-interaction
 	composer require composer/composer:${COMPOSER_VERSION}  --no-interaction --no-progress --update-with-dependencies
 	.phive/box compile --config=box.json
 	git checkout HEAD -- composer.json composer.lock
-	.phive/box info .build/phar/composer-normalize.phar
+	.phive/box info .build/phar/composer-normalize.phar --list
 	.build/phar/composer-normalize.phar
 	.build/phar/composer-normalize.phar --dry-run composer.json
 	.build/phar/composer-normalize.phar --dry-run --no-ansi composer.json
@@ -54,14 +55,14 @@ security-analysis: vendor ## Runs a security analysis with composer
 	composer audit
 
 .PHONY: static-code-analysis
-static-code-analysis: vendor ## Runs a static code analysis with vimeo/psalm
-	vendor/bin/psalm --config=psalm.xml --clear-cache
-	vendor/bin/psalm --config=psalm.xml --show-info=false --stats --threads=4
+static-code-analysis: vendor ## Runs a static code analysis with phpstan/phpstan
+	vendor/bin/phpstan clear-result-cache --configuration=phpstan.neon
+	vendor/bin/phpstan --configuration=phpstan.neon --memory-limit=-1
 
 .PHONY: static-code-analysis-baseline
-static-code-analysis-baseline: vendor ## Generates a baseline for static code analysis with vimeo/psalm
-	vendor/bin/psalm --config=psalm.xml --clear-cache
-	vendor/bin/psalm --config=psalm.xml --set-baseline=psalm-baseline.xml
+static-code-analysis-baseline: vendor ## Generates a baseline for static code analysis with phpstan/phpstan
+	vendor/bin/phpstan clear-result-cache --configuration=phpstan.neon
+	vendor/bin/phpstan --allow-empty-baseline --configuration=phpstan.neon --generate-baseline=phpstan-baseline.neon --memory-limit=-1
 
 .PHONY: tests
 tests: vendor ## Runs unit and integration tests with phpunit/phpunit

@@ -190,6 +190,9 @@ jobs:
           key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
           restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
 
+      - name: "Remove incompatible dependencies with composer"
+        run: "composer remove phpstan/extension-installer --ansi --dev --no-interaction --no-progress"
+
       - name: "Install ${{ matrix.dependencies }} dependencies with composer"
         uses: "ergebnis/.github/actions/composer/install@1.9.2"
         with:
@@ -213,7 +216,7 @@ jobs:
         run: ".phive/box compile --ansi --config=box.json"
 
       - name: "Show info about composer-normalize.phar with humbug/box"
-        run: ".phive/box info ${{ env.COMPOSER_NORMALIZE_PHAR }} --ansi"
+        run: ".phive/box info ${{ env.COMPOSER_NORMALIZE_PHAR }} --ansi --list"
 
       - name: "Run composer-normalize.phar"
         run: "${{ env.COMPOSER_NORMALIZE_PHAR }} --ansi"
@@ -485,8 +488,8 @@ jobs:
         with:
           dependencies: "${{ matrix.dependencies }}"
 
-      - name: "Run vimeo/psalm"
-        run: "vendor/bin/psalm --config=psalm.xml --output-format=github --shepherd --show-info=false --stats --threads=4"
+      - name: "Run phpstan/phpstan"
+        run: "vendor/bin/phpstan --ansi --configuration=phpstan.neon --memory-limit=-1"
 
   tests:
     name: "Tests"
