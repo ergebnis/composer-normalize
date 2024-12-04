@@ -7,7 +7,6 @@
 [![Update](https://github.com/ergebnis/composer-normalize/workflows/Update/badge.svg)](https://github.com/ergebnis/composer-normalize/actions)
 
 [![Code Coverage](https://codecov.io/gh/ergebnis/composer-normalize/branch/main/graph/badge.svg)](https://codecov.io/gh/ergebnis/composer-normalize)
-[![Type Coverage](https://shepherd.dev/github/ergebnis/composer-normalize/coverage.svg)](https://shepherd.dev/github/ergebnis/composer-normalize)
 
 [![Latest Stable Version](https://poser.pugx.org/ergebnis/composer-normalize/v/stable)](https://packagist.org/packages/ergebnis/composer-normalize)
 [![Total Downloads](https://poser.pugx.org/ergebnis/composer-normalize/downloads)](https://packagist.org/packages/ergebnis/composer-normalize)

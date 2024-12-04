@@ -1,0 +1,17 @@
+includes:
+	- phpstan-baseline.neon
+
+parameters:
+	inferPrivatePropertyTypeFromConstructor: true
+
+	level: max
+
+	paths:
+		- src/
+		- test/
+		- .php-cs-fixer.php
+		- rector.php
+
+	tmpDir: .build/phpstan/
+
+	treatPhpDocTypesAsCertain: false
