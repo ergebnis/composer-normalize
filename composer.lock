@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e9c64970253c8805c3565014438ec9e7",
+    "content-hash": "9481f8bf00926c8abd3bec3d8b2ffdc0",
     "packages": [
         {
             "name": "ergebnis/json",
@@ -76,16 +76,16 @@
         },
         {
             "name": "ergebnis/json-normalizer",
-            "version": "4.8.0",
+            "version": "4.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/json-normalizer.git",
-                "reference": "e3a477b62808f377f4fc69a50f9eb66ec102747b"
+                "reference": "cc4dcf3890448572a2d9bea97133c4d860e59fb1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/json-normalizer/zipball/e3a477b62808f377f4fc69a50f9eb66ec102747b",
-                "reference": "e3a477b62808f377f4fc69a50f9eb66ec102747b",
+                "url": "https://api.github.com/repos/ergebnis/json-normalizer/zipball/cc4dcf3890448572a2d9bea97133c4d860e59fb1",
+                "reference": "cc4dcf3890448572a2d9bea97133c4d860e59fb1",
                 "shasum": ""
             },
             "require": {
@@ -154,7 +154,7 @@
                 "security": "https://github.com/ergebnis/json-normalizer/blob/main/.github/SECURITY.md",
                 "source": "https://github.com/ergebnis/json-normalizer"
             },
-            "time": "2024-12-04T16:48:55+00:00"
+            "time": "2025-04-10T13:13:04+00:00"
         },
         {
             "name": "ergebnis/json-pointer",
