@@ -491,10 +491,76 @@ jobs:
       - name: "Run phpstan/phpstan"
         run: "vendor/bin/phpstan --ansi --configuration=phpstan.neon --memory-limit=-1"
 
-  tests:
-    name: "Tests"
+  test-matrix:
+    name: "Build test matrix"
 
     runs-on: "ubuntu-latest"
+
+    timeout-minutes: 5
+
+    strategy:
+      fail-fast: false
+      matrix:
+        php-version:
+          - "7.4"
+
+        dependencies:
+          - "locked"
+
+    steps:
+      - name: "Checkout"
+        uses: "actions/checkout@v4.2.2"
+
+      - name: "Set up PHP"
+        uses: "shivammathur/setup-php@2.32.0"
+        with:
+          coverage: "none"
+          extensions: "none, ctype, curl, dom, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter"
+          php-version: "${{ matrix.php-version }}"
+
+      - name: "Set up problem matchers for PHP"
+        run: "echo \"::add-matcher::${{ runner.tool_cache }}/php.json\""
+
+      - name: "Set up problem matchers for phpunit/phpunit"
+        run: "echo \"::add-matcher::${{ runner.tool_cache }}/phpunit.json\""
+
+      - name: "Validate composer.json and composer.lock"
+        run: "composer validate --ansi --strict"
+
+      - name: "Determine composer cache directory"
+        uses: "ergebnis/.github/actions/composer/determine-cache-directory@1.9.3"
+
+      - name: "Cache dependencies installed with composer"
+        uses: "actions/cache@v4.2.3"
+        with:
+          path: "${{ env.COMPOSER_CACHE_DIR }}"
+          key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
+          restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
+
+      - name: "Install ${{ matrix.dependencies }} dependencies with composer"
+        uses: "ergebnis/.github/actions/composer/install@1.9.3"
+        with:
+          dependencies: "${{ matrix.dependencies }}"
+
+      - name: "Set matrix"
+        id: "set-matrix"
+        uses: "staabm/phpunit-github-action-matrix@main"
+        with:
+          phpunit-path: "vendor/bin/phpunit --configuration=test/phpunit.xml"
+          strategy: "suites"
+
+      - name: "Show matrix"
+        run: "echo \"${{ steps.set-matrix.outputs.phpunit-action-matrix-json }}\""
+
+    outputs:
+      command: "${{ steps.set-matrix.outputs.phpunit-action-matrix-json }}"
+
+  tests:
+    name: "Tests ${{ matrix.php-version }}"
+
+    runs-on: "ubuntu-latest"
+
+    needs: "test-matrix"
 
     timeout-minutes: 5
 
@@ -513,6 +579,8 @@ jobs:
           - "lowest"
           - "locked"
           - "highest"
+
+        script: "${{ fromJson(needs.test-matrix.outputs.command) }}"
 
     steps:
       - name: "Checkout"
@@ -553,8 +621,5 @@ jobs:
         with:
           dependencies: "${{ matrix.dependencies }}"
 
-      - name: "Run unit tests with phpunit/phpunit"
-        run: "vendor/bin/phpunit --colors=always --configuration=test/phpunit.xml --testsuite=unit"
-
-      - name: "Run integration tests with phpunit/phpunit"
-        run: "vendor/bin/phpunit --colors=always --configuration=test/phpunit.xml --testsuite=integration"
+      - name: "Run tests with phpunit/phpunit"
+        run: "${{ matrix.script }} --colors=always --configuration=test/phpunit.xml"
