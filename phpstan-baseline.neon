@@ -1,17 +1,38 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Method Ergebnis\\\\Composer\\\\Normalize\\\\Command\\\\NormalizeCommand\\:\\:indentFromExtra\\(\\) has parameter \\$extra with no value type specified in iterable type array\\.$#"
+			message: '#^Method Ergebnis\\Composer\\Normalize\\Command\\NormalizeCommand\:\:indentFromExtra\(\) has a nullable return type declaration\.$#'
+			identifier: ergebnis.noNullableReturnTypeDeclaration
 			count: 1
 			path: src/Command/NormalizeCommand.php
 
 		-
-			message: "#^Parameter \\#1 \\$json of method Ergebnis\\\\Json\\\\Printer\\\\PrinterInterface\\:\\:print\\(\\) expects string, string\\|false given\\.$#"
+			message: '#^Method Ergebnis\\Composer\\Normalize\\Command\\NormalizeCommand\:\:indentFromExtra\(\) has parameter \$extra with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
 			path: src/Command/NormalizeCommand.php
 
 		-
-			message: "#^Cannot access offset 'plugin\\-api\\-version' on mixed\\.$#"
+			message: '#^Method Ergebnis\\Composer\\Normalize\\Command\\NormalizeCommand\:\:indentFromInput\(\) has a nullable return type declaration\.$#'
+			identifier: ergebnis.noNullableReturnTypeDeclaration
+			count: 1
+			path: src/Command/NormalizeCommand.php
+
+		-
+			message: '#^Parameter \#1 \$json of method Ergebnis\\Json\\Printer\\PrinterInterface\:\:print\(\) expects string, string\|false given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Command/NormalizeCommand.php
+
+		-
+			message: '#^Cannot access offset ''plugin\-api\-version'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
 			path: test/Integration/Command/NormalizeCommand/AbstractTestCase.php
+
+		-
+			message: '#^Method Ergebnis\\Composer\\Normalize\\Test\\Util\\File\:\:__construct\(\) has parameter \$contents with a nullable type declaration\.$#'
+			identifier: ergebnis.noParameterWithNullableTypeDeclaration
+			count: 1
+			path: test/Util/File.php
 
