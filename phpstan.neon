@@ -2,6 +2,13 @@ includes:
 	- phpstan-baseline.neon
 
 parameters:
+	ergebnis:
+		noExtends:
+			classesAllowedToBeExtended:
+				- Composer\Command\BaseCommand
+				- Ergebnis\Composer\Normalize\Test\Integration\Command\NormalizeCommand\AbstractTestCase
+				- LogicException
+
 	inferPrivatePropertyTypeFromConstructor: true
 
 	level: max
