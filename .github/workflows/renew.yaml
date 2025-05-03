@@ -59,7 +59,7 @@ jobs:
       - name: "Cache cache directory for friendsofphp/php-cs-fixer"
         uses: "actions/cache@v4.2.3"
         with:
-          path: ".build/php-cs-fixer"
+          path: ".build/php-cs-fixer/"
           key: "php-${{ matrix.php-version }}-php-cs-fixer-${{ github.ref_name }}"
           restore-keys: |
             php-${{ matrix.php-version }}-php-cs-fixer-main
