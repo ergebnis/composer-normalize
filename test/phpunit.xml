@@ -15,6 +15,7 @@
     convertErrorsToExceptions="true"
     convertNoticesToExceptions="true"
     convertWarningsToExceptions="true"
+    executionOrder="random"
     stopOnError="false"
     stopOnFailure="false"
     stopOnIncomplete="false"
