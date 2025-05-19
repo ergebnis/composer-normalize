@@ -42,7 +42,7 @@
     "infection/infection": "~0.26.6",
     "phpstan/extension-installer": "^1.4.3",
     "phpstan/phpstan": "^2.1.16",
-    "phpstan/phpstan-deprecation-rules": "^2.0.2",
+    "phpstan/phpstan-deprecation-rules": "^2.0.3",
     "phpstan/phpstan-phpunit": "^2.0.6",
     "phpstan/phpstan-strict-rules": "^2.0.4",
     "phpunit/phpunit": "^9.6.20",
