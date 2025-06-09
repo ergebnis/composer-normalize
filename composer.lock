@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5f41da8e883ace9f9705807b251886e7",
+    "content-hash": "5cc2b39ec77738261ee61816b7fedbc6",
     "packages": [
         {
             "name": "ergebnis/json",
@@ -1410,16 +1410,16 @@
         },
         {
             "name": "ergebnis/phpstan-rules",
-            "version": "2.10.2",
+            "version": "2.10.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/phpstan-rules.git",
-                "reference": "ab49b11304c1c3da21e6e85b1ada1f378e608782"
+                "reference": "78c7646be7c229c6c23b02883b0015d36227150f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/phpstan-rules/zipball/ab49b11304c1c3da21e6e85b1ada1f378e608782",
-                "reference": "ab49b11304c1c3da21e6e85b1ada1f378e608782",
+                "url": "https://api.github.com/repos/ergebnis/phpstan-rules/zipball/78c7646be7c229c6c23b02883b0015d36227150f",
+                "reference": "78c7646be7c229c6c23b02883b0015d36227150f",
                 "shasum": ""
             },
             "require": {
@@ -1480,7 +1480,7 @@
                 "security": "https://github.com/ergebnis/phpstan-rules/blob/main/.github/SECURITY.md",
                 "source": "https://github.com/ergebnis/phpstan-rules"
             },
-            "time": "2025-06-02T13:26:24+00:00"
+            "time": "2025-06-07T08:06:40+00:00"
         },
         {
             "name": "ergebnis/phpunit-slow-test-detector",
