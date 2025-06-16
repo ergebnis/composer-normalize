@@ -46,7 +46,7 @@
     "phpstan/phpstan-phpunit": "^2.0.6",
     "phpstan/phpstan-strict-rules": "^2.0.4",
     "phpunit/phpunit": "^9.6.20",
-    "rector/rector": "^2.0.17",
+    "rector/rector": "^2.0.18",
     "symfony/filesystem": "^5.4.41"
   },
   "minimum-stability": "dev",
