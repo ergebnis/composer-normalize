@@ -1,0 +1,38 @@
+name: Olive CLI Scanner
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches:
+      - main
+      - feature/olive-actions
+  workflow_dispatch:
+    inputs:
+      analyze-only:
+        description: "분석만 수행 (아티팩트/코멘트 생략)"
+        required: false
+        default: "false"
+        type: choice
+        options:
+          - "true"
+          - "false"
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+  
+jobs:
+  olive-scan:
+    name: Olive CLI Scan
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Run Olive CLI Scanner
+        uses: oss-kakao/olive-actions@feature/code-structure-improvement 
+        with:
+          olive-token: ${{ secrets.OLIVE_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
