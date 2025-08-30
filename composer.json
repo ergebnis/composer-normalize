@@ -34,7 +34,7 @@
   },
   "require-dev": {
     "composer/composer": "^2.8.3",
-    "ergebnis/license": "^2.6.0",
+    "ergebnis/license": "^2.7.0",
     "ergebnis/php-cs-fixer-config": "^6.53.0",
     "ergebnis/phpstan-rules": "^2.11.0",
     "ergebnis/phpunit-slow-test-detector": "^2.20.0",
