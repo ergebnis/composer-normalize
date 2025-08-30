@@ -12,6 +12,7 @@ For a full diff see [`2.47.0...main`][2.47.0...main].
 
 - Updated `schema.json` ([#1454]), by [@ergebnis-bot]
 - Allowed installation on PHP 8.5 ([#1485]), by [@localheinz]
+- Updated `localheinz/diff` ([#1493]), by [@andrey-helldar]
 
 ## [`2.47.0`][2.47.0]
 
@@ -1302,7 +1303,9 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [#1441]: https://github.com/ergebnis/composer-normalize/pull/1441
 [#1454]: https://github.com/ergebnis/composer-normalize/pull/1454
 [#1485]: https://github.com/ergebnis/composer-normalize/pull/1485
+[#1493]: https://github.com/ergebnis/composer-normalize/pull/1493
 
+[@andrey-helldar]: https://github.com/andrey-helldar
 [@core23]: https://github.com/core23
 [@dependabot]: https://github.com/dependabot
 [@ergebnis-bot]: https://github.com/ergebnis-bot
