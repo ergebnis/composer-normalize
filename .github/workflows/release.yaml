@@ -99,8 +99,9 @@ jobs:
         run: "echo \"RELEASE_TAG=${GITHUB_REF#refs/tags/}\" >> $GITHUB_ENV"
 
       - name: "Create release"
-        uses: "ergebnis/.github/actions/github/release/create@1.9.3"
+        uses: "ergebnis/.github/actions/github/release/create@1.10.0"
         with:
+          draft: "true"
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
 
       - name: "Upload release assets"
@@ -135,6 +136,12 @@ jobs:
                 core.setFailed(error.message);
               }
             }
+
+      - name: "Publish release"
+        uses: "ergebnis/.github/actions/github/release/publish@1.10.0"
+        with:
+          github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
+          release-id: "${{ env.RELEASE_ID }}"
 
       - name: "Post to twitter.com about release"
         uses: "Eomm/why-don-t-you-tweet@v2.0.0"
