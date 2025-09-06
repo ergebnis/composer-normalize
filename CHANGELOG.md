@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`2.48.1...main`][2.48.1...main].
 
+### Fixed
+
+- Updated branch alias ([#1502]), by [@localheinz]
+
 ## [`2.48.1`][2.48.1]
 
 For a full diff see [`2.48.0...2.48.1`][2.48.0...2.48.1].
@@ -1323,6 +1327,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [#1490]: https://github.com/ergebnis/composer-normalize/pull/1490
 [#1493]: https://github.com/ergebnis/composer-normalize/pull/1493
 [#1496]: https://github.com/ergebnis/composer-normalize/pull/1496
+[#1502]: https://github.com/ergebnis/composer-normalize/pull/1502
 
 [@AlexSkrypnyk]: https://github.com/AlexSkrypnyk
 [@andrey-helldar]: https://github.com/andrey-helldar
