@@ -48,7 +48,7 @@ jobs:
         uses: "ergebnis/.github/actions/composer/determine-cache-directory@1.10.0"
 
       - name: "Cache dependencies installed with composer"
-        uses: "actions/cache@v4.2.4"
+        uses: "actions/cache@v4.3.0"
         with:
           path: "${{ env.COMPOSER_CACHE_DIR }}"
           key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
@@ -114,7 +114,7 @@ jobs:
         uses: "ergebnis/.github/actions/composer/determine-cache-directory@1.10.0"
 
       - name: "Cache dependencies installed with composer"
-        uses: "actions/cache@v4.2.4"
+        uses: "actions/cache@v4.3.0"
         with:
           path: "${{ env.COMPOSER_CACHE_DIR }}"
           key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
@@ -134,7 +134,7 @@ jobs:
         run: ".phive/composer-normalize --ansi --dry-run"
 
       - name: "Cache cache directory for friendsofphp/php-cs-fixer"
-        uses: "actions/cache@v4.2.4"
+        uses: "actions/cache@v4.3.0"
         with:
           path: ".build/php-cs-fixer/"
           key: "php-${{ matrix.php-version }}-php-cs-fixer-${{ github.ref_name }}"
@@ -184,7 +184,7 @@ jobs:
         uses: "ergebnis/.github/actions/composer/determine-cache-directory@1.10.0"
 
       - name: "Cache dependencies installed with composer"
-        uses: "actions/cache@v4.2.4"
+        uses: "actions/cache@v4.3.0"
         with:
           path: "${{ env.COMPOSER_CACHE_DIR }}"
           key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
@@ -261,7 +261,7 @@ jobs:
         uses: "ergebnis/.github/actions/composer/determine-cache-directory@1.10.0"
 
       - name: "Cache dependencies installed with composer"
-        uses: "actions/cache@v4.2.4"
+        uses: "actions/cache@v4.3.0"
         with:
           path: "${{ env.COMPOSER_CACHE_DIR }}"
           key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
@@ -316,7 +316,7 @@ jobs:
         uses: "ergebnis/.github/actions/composer/determine-cache-directory@1.10.0"
 
       - name: "Cache dependencies installed with composer"
-        uses: "actions/cache@v4.2.4"
+        uses: "actions/cache@v4.3.0"
         with:
           path: "${{ env.COMPOSER_CACHE_DIR }}"
           key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
@@ -368,7 +368,7 @@ jobs:
         uses: "ergebnis/.github/actions/composer/determine-cache-directory@1.10.0"
 
       - name: "Cache dependencies installed with composer"
-        uses: "actions/cache@v4.2.4"
+        uses: "actions/cache@v4.3.0"
         with:
           path: "${{ env.COMPOSER_CACHE_DIR }}"
           key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
@@ -380,7 +380,7 @@ jobs:
           dependencies: "${{ matrix.dependencies }}"
 
       - name: "Cache cache directory for rector/rector"
-        uses: "actions/cache@v4.2.4"
+        uses: "actions/cache@v4.3.0"
         with:
           path: ".build/rector/"
           key: "php-${{ matrix.php-version }}-rector-${{ github.ref_name }}"
@@ -427,7 +427,7 @@ jobs:
         uses: "ergebnis/.github/actions/composer/determine-cache-directory@1.10.0"
 
       - name: "Cache dependencies installed with composer"
-        uses: "actions/cache@v4.2.4"
+        uses: "actions/cache@v4.3.0"
         with:
           path: "${{ env.COMPOSER_CACHE_DIR }}"
           key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
@@ -477,7 +477,7 @@ jobs:
         uses: "ergebnis/.github/actions/composer/determine-cache-directory@1.10.0"
 
       - name: "Cache dependencies installed with composer"
-        uses: "actions/cache@v4.2.4"
+        uses: "actions/cache@v4.3.0"
         with:
           path: "${{ env.COMPOSER_CACHE_DIR }}"
           key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
@@ -489,7 +489,7 @@ jobs:
           dependencies: "${{ matrix.dependencies }}"
 
       - name: "Cache cache directory for phpstan/phpstan"
-        uses: "actions/cache@v4.2.4"
+        uses: "actions/cache@v4.3.0"
         with:
           path: ".build/phpstan/"
           key: "php-${{ matrix.php-version }}-phpstan-${{ github.ref_name }}"
@@ -548,7 +548,7 @@ jobs:
         uses: "ergebnis/.github/actions/composer/determine-cache-directory@1.10.0"
 
       - name: "Cache dependencies installed with composer"
-        uses: "actions/cache@v4.2.4"
+        uses: "actions/cache@v4.3.0"
         with:
           path: "${{ env.COMPOSER_CACHE_DIR }}"
           key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
