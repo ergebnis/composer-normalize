@@ -549,6 +549,24 @@
                                 "fail"
                             ],
                             "description": "Whether abandoned packages should be ignored, reported as problems or cause an audit failure."
+                        },
+                        "ignore-abandoned": {
+                            "anyOf": [
+                                {
+                                    "type": "object",
+                                    "description": "A list of abandoned package names (as key) mapping to a reason explaining why they are ignored.",
+                                    "additionalProperties": {
+                                        "type": "string"
+                                    }
+                                },
+                                {
+                                    "type": "array",
+                                    "description": "A set of abandoned package names that are reported but let the audit command pass.",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                }
+                            ]
                         }
                     }
                 },
@@ -644,6 +662,29 @@
                         "items": {
                             "type": "string",
                             "description": "A header in format 'Header-Name: Header-Value'"
+                        }
+                    }
+                },
+                "forgejo-token": {
+                    "type": "object",
+                    "description": "An object of domain name => forgejo username/access token, typically {\"codeberg.org\":{\"username\": \"<username>\", \"token\": \"<access-token>\"}}.",
+                    "additionalProperties": {
+                        "type": [
+                            "object"
+                        ],
+                        "required": [
+                            "username",
+                            "token"
+                        ],
+                        "properties": {
+                            "username": {
+                                "type": "string",
+                                "description": "The username used for Forgejo authentication"
+                            },
+                            "token": {
+                                "type": "string",
+                                "description": "The access token used for Forgejo authentication"
+                            }
                         }
                     }
                 },
@@ -825,6 +866,13 @@
                         "type": "string"
                     }
                 },
+                "forgejo-domains": {
+                    "type": "array",
+                    "description": "A list of domains to use in forgejo mode. This is used for custom Forgejo setups, defaults to [\"codeberg.org\"].",
+                    "items": {
+                        "type": "string"
+                    }
+                },
                 "bitbucket-oauth": {
                     "type": "object",
                     "description": "An object of domain name => {\"consumer-key\": \"...\", \"consumer-secret\": \"...\"}.",
@@ -897,6 +945,12 @@
                         "boolean"
                     ],
                     "description": "Defaults to false. If set to true, Composer will allow install when lock file is not up to date with the latest changes in composer.json."
+                },
+                "update-with-minimal-changes": {
+                    "type": [
+                        "boolean"
+                    ],
+                    "description": "Defaults to false. If set to true, Composer will only perform absolutely necessary changes to transitive dependencies during update."
                 }
             }
         },
@@ -1153,6 +1207,9 @@
                 "url"
             ],
             "properties": {
+                "name": {
+                    "type": "string"
+                },
                 "type": {
                     "type": "string",
                     "enum": [
@@ -1196,6 +1253,9 @@
                 "url"
             ],
             "properties": {
+                "name": {
+                    "type": "string"
+                },
                 "type": {
                     "type": "string",
                     "enum": [
@@ -1208,7 +1268,8 @@
                         "hg",
                         "fossil",
                         "perforce",
-                        "svn"
+                        "svn",
+                        "forgejo"
                     ]
                 },
                 "url": {
@@ -1283,6 +1344,9 @@
                 "url"
             ],
             "properties": {
+                "name": {
+                    "type": "string"
+                },
                 "type": {
                     "type": "string",
                     "enum": [
@@ -1349,6 +1413,9 @@
                 "url"
             ],
             "properties": {
+                "name": {
+                    "type": "string"
+                },
                 "type": {
                     "type": "string",
                     "enum": [
@@ -1382,6 +1449,9 @@
                 "url"
             ],
             "properties": {
+                "name": {
+                    "type": "string"
+                },
                 "type": {
                     "type": "string",
                     "enum": [
@@ -1418,6 +1488,9 @@
                 "package"
             ],
             "properties": {
+                "name": {
+                    "type": "string"
+                },
                 "type": {
                     "type": "string",
                     "enum": [
