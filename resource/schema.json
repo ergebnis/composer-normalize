@@ -1207,6 +1207,9 @@
                 "url"
             ],
             "properties": {
+                "name": {
+                    "type": "string"
+                },
                 "type": {
                     "type": "string",
                     "enum": [
@@ -1250,6 +1253,9 @@
                 "url"
             ],
             "properties": {
+                "name": {
+                    "type": "string"
+                },
                 "type": {
                     "type": "string",
                     "enum": [
@@ -1338,6 +1344,9 @@
                 "url"
             ],
             "properties": {
+                "name": {
+                    "type": "string"
+                },
                 "type": {
                     "type": "string",
                     "enum": [
@@ -1404,6 +1413,9 @@
                 "url"
             ],
             "properties": {
+                "name": {
+                    "type": "string"
+                },
                 "type": {
                     "type": "string",
                     "enum": [
@@ -1437,6 +1449,9 @@
                 "url"
             ],
             "properties": {
+                "name": {
+                    "type": "string"
+                },
                 "type": {
                     "type": "string",
                     "enum": [
@@ -1473,6 +1488,9 @@
                 "package"
             ],
             "properties": {
+                "name": {
+                    "type": "string"
+                },
                 "type": {
                     "type": "string",
                     "enum": [
