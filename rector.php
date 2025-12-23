@@ -11,14 +11,13 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/composer-normalize
  */
 
+use Ergebnis\Rector;
 use Rector\Config;
 use Rector\PHPUnit;
 use Rector\ValueObject;
 
 return static function (Config\RectorConfig $rectorConfig): void {
     $rectorConfig->cacheDirectory(__DIR__ . '/.build/rector/');
-
-    $rectorConfig->import(__DIR__ . '/vendor/fakerphp/faker/rector-migrate.php');
 
     $rectorConfig->paths([
         __DIR__ . '/bin/',
@@ -29,6 +28,10 @@ return static function (Config\RectorConfig $rectorConfig): void {
     ]);
 
     $rectorConfig->phpVersion(ValueObject\PhpVersion::PHP_74);
+
+    $rectorConfig->rules([
+        Rector\Rules\Faker\GeneratorPropertyFetchToMethodCallRector::class,
+    ]);
 
     $rectorConfig->sets([
         PHPUnit\Set\PHPUnitSetList::PHPUNIT_90,
