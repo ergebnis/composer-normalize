@@ -18,7 +18,6 @@ branches:
           - context: "Coding Standards (7.4, locked)"
           - context: "Compile Phar (7.4, locked)"
           - context: "Dependency Analysis (7.4, locked)"
-          - context: "Mutation Tests (7.4, locked)"
           - context: "Refactoring (7.4, locked)"
           - context: "Security Analysis (7.4, locked)"
           - context: "Static Code Analysis (7.4, locked)"

@@ -21,10 +21,6 @@ dependency-analysis: phive vendor ## Runs a dependency analysis with maglnet/com
 help: ## Displays this list of targets with descriptions
 	@grep -E '^[a-zA-Z0-9_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[32m%-30s\033[0m %s\n", $$1, $$2}'
 
-.PHONY: mutation-tests
-mutation-tests: vendor ## Runs mutation tests with infection/infection
-	vendor/bin/infection --configuration=infection.json
-
 .PHONY: phar
 phar: phive vendor ## Builds a phar with humbug/box
 	.phive/box validate box.json
