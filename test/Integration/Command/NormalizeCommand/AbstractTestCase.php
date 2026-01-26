@@ -85,7 +85,10 @@ abstract class AbstractTestCase extends Framework\TestCase
     {
         $application = new Application();
 
-        $application->add($command);
+        $application->addCommands([
+            $command,
+        ]);
+
         $application->setAutoExit(false);
 
         return $application;
