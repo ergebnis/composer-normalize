@@ -47,18 +47,6 @@ make dependency-analysis
 
 to run a dependency analysis.
 
-## Mutation Tests
-
-We use [`infection/infection`](https://github.com/infection/infection) to ensure a minimum quality of the tests.
-
-Enable `Xdebug` and run
-
-```sh
-make mutation-tests
-```
-
-to run mutation tests.
-
 ## Refactoring
 
 We use [`rector/rector`](https://github.com/rectorphp/rector) to automatically refactor code.
