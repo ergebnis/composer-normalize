@@ -11,6 +11,7 @@ For a full diff see [`2.48.2...main`][2.48.2...main].
 ### Changed
 
 - Updated `schema.json` ([#1507]), by [@ergebnis-bot]
+- Updated `composer/composer` ([#1416]), by [@localheinz]
 
 ## [`2.48.2`][2.48.2]
 
