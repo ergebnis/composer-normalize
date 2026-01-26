@@ -1072,6 +1072,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [2.47.0]: https://github.com/ergebnis/composer-normalize/releases/tag/2.47.0
 [2.48.0]: https://github.com/ergebnis/composer-normalize/releases/tag/2.48.0
 [2.48.1]: https://github.com/ergebnis/composer-normalize/releases/tag/2.48.1
+[2.48.2]: https://github.com/ergebnis/composer-normalize/releases/tag/2.48.2
 
 [81bc3a8...0.1.0]: https://github.com/ergebnis/composer-normalize/compare/81bc3a8...0.1.0
 [0.1.0...0.2.0]: https://github.com/ergebnis/composer-normalize/compare/0.1.0...0.2.0
