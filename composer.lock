@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f68836e5b3ee98f4d7cf3245f4f9a466",
+    "content-hash": "2a6f1a932d2dd6d420c8ae0dad1a7658",
     "packages": [
         {
             "name": "ergebnis/json",
@@ -1554,16 +1554,16 @@
         },
         {
             "name": "ergebnis/phpunit-slow-test-detector",
-            "version": "2.22.1",
+            "version": "2.22.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/phpunit-slow-test-detector.git",
-                "reference": "30d80d7cf27f2460971f4893afe07aa719423fa4"
+                "reference": "f12c69affdd4295badc4465065663059b1a26f4a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/phpunit-slow-test-detector/zipball/30d80d7cf27f2460971f4893afe07aa719423fa4",
-                "reference": "30d80d7cf27f2460971f4893afe07aa719423fa4",
+                "url": "https://api.github.com/repos/ergebnis/phpunit-slow-test-detector/zipball/f12c69affdd4295badc4465065663059b1a26f4a",
+                "reference": "f12c69affdd4295badc4465065663059b1a26f4a",
                 "shasum": ""
             },
             "require": {
@@ -1623,7 +1623,7 @@
                 "security": "https://github.com/ergebnis/phpunit-slow-test-detector/blob/main/.github/SECURITY.md",
                 "source": "https://github.com/ergebnis/phpunit-slow-test-detector"
             },
-            "time": "2026-02-08T13:42:46+00:00"
+            "time": "2026-02-13T10:00:05+00:00"
         },
         {
             "name": "ergebnis/rector-rules",
