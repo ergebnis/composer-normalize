@@ -37,7 +37,7 @@
     "ergebnis/license": "^2.7.0",
     "ergebnis/php-cs-fixer-config": "^6.60.0",
     "ergebnis/phpstan-rules": "^2.13.1",
-    "ergebnis/phpunit-slow-test-detector": "^2.22.2",
+    "ergebnis/phpunit-slow-test-detector": "^2.23.0",
     "ergebnis/rector-rules": "^1.9.0",
     "fakerphp/faker": "^1.24.1",
     "phpstan/extension-installer": "^1.4.3",
