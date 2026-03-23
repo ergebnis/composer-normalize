@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7054b0e60158f8354216ef6ea36a6310",
+    "content-hash": "2d2976af96d00b836a927604193826a3",
     "packages": [
         {
             "name": "ergebnis/json",
@@ -1627,16 +1627,16 @@
         },
         {
             "name": "ergebnis/rector-rules",
-            "version": "1.12.5",
+            "version": "1.15.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/rector-rules.git",
-                "reference": "cc66f97a8e92d618d5ac913777f095c4c97ad611"
+                "reference": "32c8fb51c018c44490cae1f1d17914d2a411e6db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/rector-rules/zipball/cc66f97a8e92d618d5ac913777f095c4c97ad611",
-                "reference": "cc66f97a8e92d618d5ac913777f095c4c97ad611",
+                "url": "https://api.github.com/repos/ergebnis/rector-rules/zipball/32c8fb51c018c44490cae1f1d17914d2a411e6db",
+                "reference": "32c8fb51c018c44490cae1f1d17914d2a411e6db",
                 "shasum": ""
             },
             "require": {
@@ -1650,7 +1650,7 @@
                 "ergebnis/data-provider": "^3.6.0",
                 "ergebnis/license": "^2.7.0",
                 "ergebnis/php-cs-fixer-config": "^6.60.2",
-                "ergebnis/phpunit-slow-test-detector": "^2.23.0",
+                "ergebnis/phpunit-slow-test-detector": "^2.24.0",
                 "phpstan/extension-installer": "^1.4.3",
                 "phpstan/phpstan-deprecation-rules": "^2.0.4",
                 "phpstan/phpstan-phpunit": "^2.0.16",
@@ -1687,7 +1687,7 @@
                 "security": "https://github.com/ergebnis/rector-rules/blob/main/.github/SECURITY.md",
                 "source": "https://github.com/ergebnis/rector-rules"
             },
-            "time": "2026-03-16T19:02:48+00:00"
+            "time": "2026-03-22T21:54:50+00:00"
         },
         {
             "name": "erickskrauch/php-cs-fixer-custom-fixers",
