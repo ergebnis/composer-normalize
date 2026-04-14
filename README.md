@@ -1,10 +1,9 @@
 # composer-normalize
 
-[![Integrate](https://github.com/ergebnis/composer-normalize/workflows/Integrate/badge.svg)](https://github.com/ergebnis/composer-normalize/actions)
-[![Merge](https://github.com/ergebnis/composer-normalize/workflows/Merge/badge.svg)](https://github.com/ergebnis/composer-normalize/actions)
-[![Release](https://github.com/ergebnis/composer-normalize/workflows/Release/badge.svg)](https://github.com/ergebnis/composer-normalize/actions)
-[![Renew](https://github.com/ergebnis/composer-normalize/workflows/Renew/badge.svg)](https://github.com/ergebnis/composer-normalize/actions)
-[![Update](https://github.com/ergebnis/composer-normalize/workflows/Update/badge.svg)](https://github.com/ergebnis/composer-normalize/actions)
+[![Integrate](https://github.com/ergebnis/composer-normalize/actions/workflows/integrate.yaml/badge.svg?branch=main)](https://github.com/ergebnis/composer-normalize/actions/workflows/integrate.yaml)
+[![Merge](https://github.com/ergebnis/composer-normalize/actions/workflows/merge.yaml/badge.svg)](https://github.com/ergebnis/composer-normalize/actions/workflows/merge.yaml)
+[![Release](https://github.com/ergebnis/composer-normalize/actions/workflows/release.yaml/badge.svg)](https://github.com/ergebnis/composer-normalize/actions/workflows/release.yaml)
+[![Renew](https://github.com/ergebnis/composer-normalize/actions/workflows/renew.yaml/badge.svg)](https://github.com/ergebnis/composer-normalize/actions/workflows/renew.yaml)
 
 [![Code Coverage](https://codecov.io/gh/ergebnis/composer-normalize/branch/main/graph/badge.svg)](https://codecov.io/gh/ergebnis/composer-normalize)
 
