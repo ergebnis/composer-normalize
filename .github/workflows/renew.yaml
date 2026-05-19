@@ -24,12 +24,12 @@ jobs:
 
     steps:
       - name: "Checkout"
-        uses: "actions/checkout@v6.0.2"
+        uses: "actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd" # v6.0.2
         with:
           token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
 
       - name: "Set up PHP"
-        uses: "shivammathur/setup-php@2.37.1"
+        uses: "shivammathur/setup-php@7c071dfe9dc99bdf297fa79cb49ea005b9fcadbc" # 2.37.1
         with:
           coverage: "none"
           extensions: "none, ctype, curl, dom, iconv, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter"
@@ -42,22 +42,22 @@ jobs:
         run: "composer validate --ansi --strict"
 
       - name: "Determine composer cache directory"
-        uses: "ergebnis/.github/actions/composer/determine-cache-directory@1.11.0"
+        uses: "ergebnis/.github/actions/composer/determine-cache-directory@9785f99b3546d64df9cb331449e7fcdc41885d25" # 1.11.0
 
       - name: "Cache dependencies installed with composer"
-        uses: "actions/cache@v5.0.5"
+        uses: "actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae" # v5.0.5
         with:
           path: "${{ env.COMPOSER_CACHE_DIR }}"
           key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
           restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
 
       - name: "Install ${{ matrix.dependencies }} dependencies with composer"
-        uses: "ergebnis/.github/actions/composer/install@1.11.0"
+        uses: "ergebnis/.github/actions/composer/install@9785f99b3546d64df9cb331449e7fcdc41885d25" # 1.11.0
         with:
           dependencies: "${{ matrix.dependencies }}"
 
       - name: "Cache cache directory for friendsofphp/php-cs-fixer"
-        uses: "actions/cache@v5.0.5"
+        uses: "actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae" # v5.0.5
         with:
           path: ".build/php-cs-fixer/"
           key: "php-${{ matrix.php-version }}-php-cs-fixer-${{ github.ref_name }}"
@@ -69,7 +69,7 @@ jobs:
         run: "vendor/bin/php-cs-fixer fix --ansi --config=.php-cs-fixer.php --diff --show-progress=dots --verbose"
 
       - name: "Commit modified files"
-        uses: "stefanzweifel/git-auto-commit-action@v7.1.0"
+        uses: "stefanzweifel/git-auto-commit-action@04702edda442b2e678b25b537cec683a1493fcb9" # v7.1.0
         with:
           commit_author: "ergebnis-bot <bot@ergebn.is>"
           commit_message: "Enhancement: Update license year"

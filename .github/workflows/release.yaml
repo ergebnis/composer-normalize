@@ -32,10 +32,10 @@ jobs:
 
     steps:
       - name: "Checkout"
-        uses: "actions/checkout@v6.0.2"
+        uses: "actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd" # v6.0.2
 
       - name: "Set up PHP"
-        uses: "shivammathur/setup-php@2.37.1"
+        uses: "shivammathur/setup-php@7c071dfe9dc99bdf297fa79cb49ea005b9fcadbc" # 2.37.1
         with:
           coverage: "none"
           extensions: "none, ctype, dom, iconv, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter"
@@ -43,17 +43,17 @@ jobs:
           tools: "phive"
 
       - name: "Determine composer cache directory"
-        uses: "ergebnis/.github/actions/composer/determine-cache-directory@1.11.0"
+        uses: "ergebnis/.github/actions/composer/determine-cache-directory@9785f99b3546d64df9cb331449e7fcdc41885d25" # 1.11.0
 
       - name: "Cache dependencies installed with composer"
-        uses: "actions/cache@v5.0.5"
+        uses: "actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae" # v5.0.5
         with:
           path: "${{ env.COMPOSER_CACHE_DIR }}"
           key: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('composer.lock') }}"
           restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
 
       - name: "Install ${{ matrix.dependencies }} dependencies with composer"
-        uses: "ergebnis/.github/actions/composer/install@1.11.0"
+        uses: "ergebnis/.github/actions/composer/install@9785f99b3546d64df9cb331449e7fcdc41885d25" # 1.11.0
         with:
           dependencies: "${{ matrix.dependencies }}"
 
@@ -64,7 +64,7 @@ jobs:
         run: "composer require composer/composer:${{ env.COMPOSER_VERSION }} --ansi --no-interaction --no-progress"
 
       - name: "Install dependencies with phive"
-        uses: "ergebnis/.github/actions/phive/install@1.11.0"
+        uses: "ergebnis/.github/actions/phive/install@9785f99b3546d64df9cb331449e7fcdc41885d25" # 1.11.0
         with:
           trust-gpg-keys: "0xC00543248C87FB13,0x033E5F8D801A2F8D,0x2DF45277AEF09A2F"
 
@@ -99,13 +99,13 @@ jobs:
         run: "echo \"RELEASE_TAG=${GITHUB_REF#refs/tags/}\" >> $GITHUB_ENV"
 
       - name: "Create release"
-        uses: "ergebnis/.github/actions/github/release/create@1.11.0"
+        uses: "ergebnis/.github/actions/github/release/create@9785f99b3546d64df9cb331449e7fcdc41885d25" # 1.11.0
         with:
           draft: "true"
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
 
       - name: "Upload release assets"
-        uses: "actions/github-script@v9.0.0"
+        uses: "actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3" # v9.0.0
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
           script: |
@@ -138,13 +138,13 @@ jobs:
             }
 
       - name: "Publish release"
-        uses: "ergebnis/.github/actions/github/release/publish@1.11.0"
+        uses: "ergebnis/.github/actions/github/release/publish@9785f99b3546d64df9cb331449e7fcdc41885d25" # 1.11.0
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
           release-id: "${{ env.RELEASE_ID }}"
 
       - name: "Post to twitter.com about release"
-        uses: "Eomm/why-don-t-you-tweet@v2.0.0"
+        uses: "Eomm/why-don-t-you-tweet@d9ec12835f4d494dda920f95f885df3dba380493" # v2.0.0
         env:
           TWITTER_ACCESS_TOKEN: "${{ secrets.ERGEBNIS_TWITTER_ACCESS_TOKEN }}"
           TWITTER_ACCESS_TOKEN_SECRET: "${{ secrets.ERGEBNIS_TWITTER_ACCESS_TOKEN_SECRET }}"

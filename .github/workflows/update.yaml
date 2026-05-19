@@ -19,10 +19,10 @@ jobs:
 
     steps:
       - name: "Checkout"
-        uses: "actions/checkout@v6.0.2"
+        uses: "actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd" # v6.0.2
 
       - name: "Set up PHP"
-        uses: "shivammathur/setup-php@2.37.1"
+        uses: "shivammathur/setup-php@7c071dfe9dc99bdf297fa79cb49ea005b9fcadbc" # 2.37.1
         with:
           coverage: "none"
           php-version: "${{ matrix.php-version }}"
@@ -37,7 +37,7 @@ jobs:
         run: "php bin/laxify-schema.php"
 
       - name: "Open pull request updating schema"
-        uses: "gr2m/create-or-update-pull-request-action@v1"
+        uses: "gr2m/create-or-update-pull-request-action@75d6bf38ebb8f2a9f44cdc444338d014da127a15" # v1
         with:
           author: "ergebnis-bot <bot@ergebn.is>"
           branch: "feature/schema"
