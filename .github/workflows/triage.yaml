@@ -7,6 +7,8 @@ on: # yamllint disable-line rule:truthy
     types:
       - "opened"
 
+permissions: {}
+
 jobs:
   label:
     name: "Label"

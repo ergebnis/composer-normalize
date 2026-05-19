@@ -9,6 +9,8 @@ on: # yamllint disable-line rule:truthy
     workflows:
       - "Integrate"
 
+permissions: {}
+
 jobs:
   merge:
     name: "Merge"

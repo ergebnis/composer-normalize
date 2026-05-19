@@ -6,6 +6,8 @@ on: # yamllint disable-line rule:truthy
   schedule:
     - cron: "0 9 * * *"
 
+permissions: {}
+
 jobs:
   schema:
     name: "Schema"
