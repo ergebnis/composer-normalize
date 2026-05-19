@@ -3,11 +3,14 @@
 name: "Merge"
 
 on: # yamllint disable-line rule:truthy
+  # zizmor: ignore[dangerous-triggers] -- merge only calls bot-token API actions.
   workflow_run:
     types:
       - "completed"
     workflows:
       - "Integrate"
+
+permissions: {}
 
 jobs:
   merge:
@@ -20,30 +23,31 @@ jobs:
     if: >
       github.event.workflow_run.event == 'pull_request' &&
       github.event.workflow_run.conclusion == 'success' &&
-      github.actor == 'dependabot[bot]' && (
+      github.event.workflow_run.actor.login == 'dependabot[bot]' &&
+      github.event.workflow_run.head_repository.full_name == github.repository && (
         startsWith(github.event.workflow_run.head_commit.message, 'composer(deps-dev)') ||
         startsWith(github.event.workflow_run.head_commit.message, 'github-actions(deps)')
       )
 
     steps:
       - name: "Request review from @ergebnis-bot"
-        uses: "ergebnis/.github/actions/github/pull-request/request-review@1.11.0"
+        uses: "ergebnis/.github/actions/github/pull-request/request-review@9785f99b3546d64df9cb331449e7fcdc41885d25" # 1.11.0
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
           reviewer: "ergebnis-bot"
 
       - name: "Assign @ergebnis-bot"
-        uses: "ergebnis/.github/actions/github/pull-request/add-assignee@1.11.0"
+        uses: "ergebnis/.github/actions/github/pull-request/add-assignee@9785f99b3546d64df9cb331449e7fcdc41885d25" # 1.11.0
         with:
           assignee: "ergebnis-bot"
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
 
       - name: "Approve pull request"
-        uses: "ergebnis/.github/actions/github/pull-request/approve@1.11.0"
+        uses: "ergebnis/.github/actions/github/pull-request/approve@9785f99b3546d64df9cb331449e7fcdc41885d25" # 1.11.0
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
 
       - name: "Merge pull request"
-        uses: "ergebnis/.github/actions/github/pull-request/merge@1.11.0"
+        uses: "ergebnis/.github/actions/github/pull-request/merge@9785f99b3546d64df9cb331449e7fcdc41885d25" # 1.11.0
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"

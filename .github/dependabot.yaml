@@ -8,6 +8,8 @@ updates:
     commit-message:
       include: "scope"
       prefix: "composer"
+    cooldown:
+      default-days: 7
     directory: "/"
     ignore:
       - dependency-name: "composer/composer"
@@ -22,6 +24,8 @@ updates:
   - commit-message:
       include: "scope"
       prefix: "github-actions"
+    cooldown:
+      default-days: 7
     directory: "/"
     labels:
       - "dependency"
