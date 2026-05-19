@@ -41,7 +41,7 @@ jobs:
         run: "php bin/laxify-schema.php"
 
       - name: "Open pull request updating schema"
-        uses: "gr2m/create-or-update-pull-request-action@75d6bf38ebb8f2a9f44cdc444338d014da127a15" # v1
+        uses: "gr2m/create-or-update-pull-request-action@483e2e5c8e68c420e72687127cfdc30a45254be7" # v1
         with:
           author: "ergebnis-bot <bot@ergebn.is>"
           branch: "feature/schema"
