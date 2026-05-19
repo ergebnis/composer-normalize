@@ -3,6 +3,7 @@
 name: "Triage"
 
 on: # yamllint disable-line rule:truthy
+  # zizmor: ignore[dangerous-triggers] -- triage only adds labels via bot token.
   pull_request_target:
     types:
       - "opened"
