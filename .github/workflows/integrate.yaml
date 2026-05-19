@@ -280,6 +280,26 @@ jobs:
       - name: "Run maglnet/composer-require-checker"
         run: ".phive/composer-require-checker check --ansi --config-file=$(pwd)/composer-require-checker.json --verbose"
 
+  github-actions-analysis:
+    name: "GitHub Actions Analysis"
+
+    runs-on: "ubuntu-latest"
+
+    timeout-minutes: 5
+
+    steps:
+      - name: "Checkout"
+        uses: "actions/checkout@v6.0.2"
+        with:
+          persist-credentials: false
+
+      - name: "Run zizmorcore/zizmor-action"
+        uses: "zizmorcore/zizmor-action@v0.5.6"
+        with:
+          advanced-security: false
+          annotations: true
+          inputs: ".github/"
+
   refactoring:
     name: "Refactoring"
 
