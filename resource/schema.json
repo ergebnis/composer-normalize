@@ -304,10 +304,12 @@
             }
         },
         "target-dir": {
+            "deprecated": true,
             "description": "DEPRECATED: Forces the package to be installed into the given subdirectory path. This is used for autoloading PSR-0 packages that do not contain their full path. Use forward slashes for cross-platform compatibility.",
             "type": "string"
         },
         "include-path": {
+            "deprecated": true,
             "type": [
                 "array"
             ],
@@ -384,7 +386,7 @@
                     "oneOf": [
                         {
                             "type": "string",
-                            "description": "If specified, this technique will be used to override the URL that PIE uses to download the asset. The default, if not specified, is composer-default.",
+                            "description": "DEPRECATED: use the array form instead. If specified, this technique will be used to override the URL that PIE uses to download the asset. The default, if not specified, is composer-default.",
                             "deprecated": true,
                             "enum": [
                                 "composer-default",
@@ -547,9 +549,12 @@
                 },
                 "audit": {
                     "type": "object",
-                    "description": "Security audit and version blocking configuration options",
+                    "deprecated": true,
+                    "description": "DEPRECATED: use 'config.policy' instead. All 'audit.*' keys still work as a fallback for now. See https://getcomposer.org/doc/06-config.md#policy",
                     "properties": {
                         "ignore": {
+                            "deprecated": true,
+                            "description": "DEPRECATED: use 'config.policy.advisories.ignore-id' for advisory IDs (CVE/GHSA/PKSA) and 'config.policy.advisories.ignore' for package names instead. The new format uses 'on-block' / 'on-audit' booleans instead of 'apply: audit|block|all'.",
                             "anyOf": [
                                 {
                                     "type": "object",
@@ -601,9 +606,12 @@
                                 "report",
                                 "fail"
                             ],
-                            "description": "Whether abandoned packages should be ignored, reported as problems or cause an audit failure. Applies only to audit reports, not to version blocking."
+                            "deprecated": true,
+                            "description": "DEPRECATED: use 'config.policy.abandoned.audit' instead. Whether abandoned packages should be ignored, reported as problems or cause an audit failure. Applies only to audit reports, not to version blocking."
                         },
                         "ignore-severity": {
+                            "deprecated": true,
+                            "description": "DEPRECATED: use 'config.policy.advisories.ignore-severity' instead. The new format uses 'on-block' / 'on-audit' booleans instead of 'apply: audit|block|all'.",
                             "anyOf": [
                                 {
                                     "type": "object",
@@ -647,19 +655,24 @@
                         },
                         "ignore-unreachable": {
                             "type": "boolean",
-                            "description": "Whether repositories that are unreachable or return a non-200 status code should be ignored or not. Applies only to the composer audit command, does not affect audit report summaries in other commands or version blocking."
+                            "deprecated": true,
+                            "description": "DEPRECATED: use 'config.policy.ignore-unreachable' instead. The new key accepts a boolean or an array of scopes ('audit', 'install', 'update') and is shared across all policy lists."
                         },
                         "block-insecure": {
                             "type": "boolean",
-                            "description": "Whether insecure versions should be blocked during a composer update/require command or not.",
+                            "deprecated": true,
+                            "description": "DEPRECATED: use 'config.policy.advisories.block' instead. Whether insecure versions should be blocked during a composer update/require command or not.",
                             "default": true
                         },
                         "block-abandoned": {
                             "type": "boolean",
-                            "description": "Whether abandoned packages should be blocked during a composer update/require command or not. Applies only if blocking of insecure versions is enabled.",
+                            "deprecated": true,
+                            "description": "DEPRECATED: use 'config.policy.abandoned.block' instead. Whether abandoned packages should be blocked during a composer update/require command or not.",
                             "default": false
                         },
                         "ignore-abandoned": {
+                            "deprecated": true,
+                            "description": "DEPRECATED: use 'config.policy.abandoned.ignore' instead. The new format uses 'on-block' / 'on-audit' booleans instead of 'apply: audit|block|all'.",
                             "anyOf": [
                                 {
                                     "type": "object",
@@ -1928,6 +1941,7 @@
                     "type": "string"
                 },
                 "target-dir": {
+                    "deprecated": true,
                     "description": "DEPRECATED: Forces the package to be installed into the given subdirectory path. This is used for autoloading PSR-0 packages that do not contain their full path. Use forward slashes for cross-platform compatibility.",
                     "type": "string"
                 },
@@ -2026,6 +2040,7 @@
                     }
                 },
                 "include-path": {
+                    "deprecated": true,
                     "type": [
                         "array"
                     ],
