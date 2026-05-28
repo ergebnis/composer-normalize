@@ -656,7 +656,7 @@
                         "ignore-unreachable": {
                             "type": "boolean",
                             "deprecated": true,
-                            "description": "DEPRECATED: use 'config.policy.ignore-unreachable' instead. The new key accepts a boolean or an array of scopes ('audit', 'install', 'update') and is shared across all policy lists."
+                            "description": "DEPRECATED: use 'config.policy.ignore-unreachable' instead. The new key accepts a boolean or an array of scopes ('audit', 'install', 'update') and is shared across all dependency policies."
                         },
                         "block-insecure": {
                             "type": "boolean",
@@ -865,15 +865,15 @@
                     "patternProperties": {
                         "^ignore(?!-unreachable$)": {
                             "not": {},
-                            "description": "Custom policy list names must not start with \"ignore\" \u2014 that prefix is reserved for future use."
+                            "description": "Custom dependency policy names must not start with \"ignore\" \u2014 that prefix is reserved for future use."
                         },
                         "^(package|packages|license|licence|licenses|licences|support|maintenance|security|minimum-release-age)$": {
                             "not": {},
-                            "description": "This name is reserved for future use and cannot be used as a custom policy list name."
+                            "description": "This name is reserved for future use and cannot be used as a custom dependency policy name."
                         }
                     },
                     "additionalProperties": {
-                        "description": "Custom policy list configuration.",
+                        "description": "Custom dependency policy configuration.",
                         "oneOf": [
                             {
                                 "type": "boolean"
@@ -892,12 +892,12 @@
                                             "report",
                                             "fail"
                                         ],
-                                        "description": "How composer audit treats packages matched by this list. Defaults to fail.",
+                                        "description": "How composer audit treats packages matched by this dependency policy. Defaults to fail.",
                                         "default": "fail"
                                     },
                                     "sources": {
                                         "type": "array",
-                                        "description": "URL sources to fetch this policy list data from.",
+                                        "description": "Sources supplying the package versions this dependency policy applies to.",
                                         "items": {
                                             "type": "object",
                                             "required": [
@@ -915,7 +915,7 @@
                                                 "url": {
                                                     "type": "string",
                                                     "pattern": "^https://",
-                                                    "description": "URL to fetch the policy list data from. Must use https://."
+                                                    "description": "URL to fetch the list of package versions from. Must use https://."
                                                 }
                                             },
                                             "additionalProperties": false
@@ -935,7 +935,8 @@
                 },
                 "source-fallback": {
                     "type": "boolean",
-                    "description": "If true (default), Composer will fall back to a different installation source (e.g., from dist to source or vice versa) when a download fails. Set to false to disable this behavior."
+                    "description": "DEPRECATED, will be removed in Composer 2.11. Defaults to false. If true, Composer will fall back to a different installation source (e.g., from dist to source or vice versa) when a download fails. Automatic source fallback has security implications, please open an issue at https://github.com/composer/composer/issues if you need this kept around.",
+                    "deprecated": true
                 },
                 "github-protocols": {
                     "type": "array",
