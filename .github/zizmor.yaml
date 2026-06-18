@@ -1,0 +1,4 @@
+rules:
+  artipacked:
+    ignore:
+      - "renew.yaml"
