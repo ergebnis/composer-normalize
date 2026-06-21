@@ -36,7 +36,7 @@ jobs:
           persist-credentials: false
 
       - name: "Set up PHP"
-        uses: "shivammathur/setup-php@7c071dfe9dc99bdf297fa79cb49ea005b9fcadbc" # 2.37.1
+        uses: "shivammathur/setup-php@f3e473d116dcccaddc5834248c87452386958240" # 2.37.2
         with:
           coverage: "xdebug"
           extensions: "none, ctype, curl, dom, iconv, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter"
@@ -109,7 +109,7 @@ jobs:
           strict: true
 
       - name: "Set up PHP"
-        uses: "shivammathur/setup-php@7c071dfe9dc99bdf297fa79cb49ea005b9fcadbc" # 2.37.1
+        uses: "shivammathur/setup-php@f3e473d116dcccaddc5834248c87452386958240" # 2.37.2
         with:
           coverage: "none"
           extensions: "none, ctype, curl, dom, iconv, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter"
@@ -186,7 +186,7 @@ jobs:
           persist-credentials: false
 
       - name: "Set up PHP"
-        uses: "shivammathur/setup-php@7c071dfe9dc99bdf297fa79cb49ea005b9fcadbc" # 2.37.1
+        uses: "shivammathur/setup-php@f3e473d116dcccaddc5834248c87452386958240" # 2.37.2
         with:
           coverage: "none"
           extensions: "none, ctype, dom, iconv, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter"
@@ -266,7 +266,7 @@ jobs:
           persist-credentials: false
 
       - name: "Set up PHP"
-        uses: "shivammathur/setup-php@7c071dfe9dc99bdf297fa79cb49ea005b9fcadbc" # 2.37.1
+        uses: "shivammathur/setup-php@f3e473d116dcccaddc5834248c87452386958240" # 2.37.2
         with:
           coverage: "none"
           extensions: "none, ctype, curl, dom, iconv, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter"
@@ -350,7 +350,7 @@ jobs:
           persist-credentials: false
 
       - name: "Set up PHP"
-        uses: "shivammathur/setup-php@7c071dfe9dc99bdf297fa79cb49ea005b9fcadbc" # 2.37.1
+        uses: "shivammathur/setup-php@f3e473d116dcccaddc5834248c87452386958240" # 2.37.2
         with:
           coverage: "none"
           extensions: "none, ctype, curl, dom, iconv, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter"
@@ -414,7 +414,7 @@ jobs:
           persist-credentials: false
 
       - name: "Set up PHP"
-        uses: "shivammathur/setup-php@7c071dfe9dc99bdf297fa79cb49ea005b9fcadbc" # 2.37.1
+        uses: "shivammathur/setup-php@f3e473d116dcccaddc5834248c87452386958240" # 2.37.2
         with:
           coverage: "none"
           extensions: "none, ctype, curl, dom, iconv, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter"
@@ -469,7 +469,7 @@ jobs:
           persist-credentials: false
 
       - name: "Set up PHP"
-        uses: "shivammathur/setup-php@7c071dfe9dc99bdf297fa79cb49ea005b9fcadbc" # 2.37.1
+        uses: "shivammathur/setup-php@f3e473d116dcccaddc5834248c87452386958240" # 2.37.2
         with:
           coverage: "none"
           extensions: "none, ctype, curl, dom, iconv, json, mbstring, opcache, pcntl, phar, posix, simplexml, tokenizer, xml, xmlwriter"
@@ -542,7 +542,7 @@ jobs:
           persist-credentials: false
 
       - name: "Set up PHP"
-        uses: "shivammathur/setup-php@7c071dfe9dc99bdf297fa79cb49ea005b9fcadbc" # 2.37.1
+        uses: "shivammathur/setup-php@f3e473d116dcccaddc5834248c87452386958240" # 2.37.2
         with:
           coverage: "none"
           extensions: "none, ctype, curl, dom, iconv, json, mbstring, phar, simplexml, tokenizer, xml, xmlwriter"
