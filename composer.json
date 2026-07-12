@@ -43,7 +43,7 @@
     "phpstan/extension-installer": "^1.4.3",
     "phpstan/phpstan": "^2.1.55",
     "phpstan/phpstan-deprecation-rules": "^2.0.4",
-    "phpstan/phpstan-phpunit": "^2.0.16",
+    "phpstan/phpstan-phpunit": "^2.0.18",
     "phpstan/phpstan-strict-rules": "^2.0.11",
     "phpunit/phpunit": "^9.6.33",
     "rector/rector": "^2.5.1",
