@@ -44,7 +44,7 @@ jobs:
         run: "composer validate --ansi --strict"
 
       - name: "Determine composer cache directory"
-        uses: "ergebnis/.github/actions/composer/determine-cache-directory@9785f99b3546d64df9cb331449e7fcdc41885d25" # 1.11.0
+        uses: "ergebnis/.github/actions/composer/determine-cache-directory@04b5426bcc1ce207abf7bea5f5dabb15dd65786a" # 1.12.0
 
       - name: "Cache dependencies installed with composer"
         uses: "actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9" # v6.1.0
