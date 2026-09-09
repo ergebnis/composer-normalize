@@ -68,7 +68,7 @@ jobs:
         run: "composer require composer/composer:${{ env.COMPOSER_VERSION }} --ansi --no-interaction --no-progress"
 
       - name: "Install dependencies with phive"
-        uses: "ergebnis/.github/actions/phive/install@9785f99b3546d64df9cb331449e7fcdc41885d25" # 1.11.0
+        uses: "ergebnis/.github/actions/phive/install@fa753ba19f89b4923380b19dfcd80ad7eca4def9" # 1.13.0
         with:
           trust-gpg-keys: "0xC00543248C87FB13,0x033E5F8D801A2F8D,0x2DF45277AEF09A2F"
 
