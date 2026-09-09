@@ -78,7 +78,7 @@
   },
   "extra": {
     "branch-alias": {
-      "dev-main": "2.52-dev"
+      "dev-main": "2.53-dev"
     },
     "class": "Ergebnis\\Composer\\Normalize\\NormalizePlugin",
     "composer-normalize": {
