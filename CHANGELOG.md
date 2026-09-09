@@ -11,6 +11,7 @@ For a full diff see [`2.52.0...main`][2.52.0...main].
 ### Changed
 
 - Updated `schema.json` ([#1623]), by [@ergebnis-bot]
+- Updated `composer/composer` ([#1672]), by [@localheinz]
 
 ## [`2.52.0`][2.52.0]
 
@@ -1389,6 +1390,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [#1614]: https://github.com/ergebnis/composer-normalize/pull/1614
 [#1616]: https://github.com/ergebnis/composer-normalize/pull/1616
 [#1623]: https://github.com/ergebnis/composer-normalize/pull/1623
+[#1672]: https://github.com/ergebnis/composer-normalize/pull/1672
 
 [@AlexSkrypnyk]: https://github.com/AlexSkrypnyk
 [@andrey-helldar]: https://github.com/andrey-helldar
