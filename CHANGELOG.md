@@ -1010,8 +1010,8 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 - Added `ConfigHashNormalizer`, which sorts entries in the `config` section by key ([#2]), by [@localheinz]
 - Added the `NormalizePlugin`, which provides the `NormalizeCommand` ([#3]), by [@localheinz]
 - Added the `PackageHashNormalizer` which sorts packages in the `conflict`, `provide`, `replaces`, `require`, `require-dev`, and `suggest` sections using the same algorithm that is used by the `sort-packages` option of composer itself ([#6]), by [@localheinz]
-- Added the `BinNormalizer`, which sorts entries in the `bin` section by
-- Added the `ComposerJsonNormalizer`, which composes all of the above normalizers along with the `SchemaNormalizer`, to normalize `composer.json` according to its underlying JSON schema ([#8] and [#10]), by [@localheinz]
+- Added the `BinNormalizer`, which sorts entries in the `bin` section by name ([#9]), by [@localheinz]
+- Added the `ComposerJsonNormalizer`, which composes all of the above normalizers along with the `SchemaNormalizer`, to normalize `composer.json` according to its underlying JSON schema ([#8], [#10]), by [@localheinz]
 
 [0.1.0]: https://github.com/ergebnis/composer-normalize/releases/tag/0.1.0
 [0.2.0]: https://github.com/ergebnis/composer-normalize/releases/tag/0.2.0
@@ -1231,6 +1231,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [#3]: https://github.com/ergebnis/composer-normalize/pull/3
 [#6]: https://github.com/ergebnis/composer-normalize/pull/6
 [#8]: https://github.com/ergebnis/composer-normalize/pull/8
+[#9]: https://github.com/ergebnis/composer-normalize/pull/9
 [#10]: https://github.com/ergebnis/composer-normalize/pull/10
 [#18]: https://github.com/ergebnis/composer-normalize/pull/18
 [#19]: https://github.com/ergebnis/composer-normalize/pull/19
@@ -1356,6 +1357,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [#1158]: https://github.com/ergebnis/composer-normalize/pull/1158
 [#1170]: https://github.com/ergebnis/composer-normalize/pull/1170
 [#1171]: https://github.com/ergebnis/composer-normalize/pull/1171
+[#1184]: https://github.com/ergebnis/composer-normalize/pull/1184
 [#1188]: https://github.com/ergebnis/composer-normalize/pull/1188
 [#1189]: https://github.com/ergebnis/composer-normalize/pull/1189
 [#1191]: https://github.com/ergebnis/composer-normalize/pull/1191
