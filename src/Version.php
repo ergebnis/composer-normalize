@@ -13,11 +13,16 @@ declare(strict_types=1);
 
 namespace Ergebnis\Composer\Normalize;
 
+use Composer\InstalledVersions;
+
 /**
  * @internal
  */
 final class Version
 {
+    private const NAME = 'ergebnis/composer-normalize';
+    private const ATTRIBUTION = 'by <info>Andreas Möller</info> and contributors';
+
     /**
      * @see https://github.com/box-project/box/blob/master/doc/configuration.md#pretty-git-tag-placeholder-git
      */
@@ -25,24 +30,40 @@ final class Version
 
     public static function long(): string
     {
-        $name = 'ergebnis/composer-normalize';
-        $attribution = 'by <info>Andreas Möller</info> and contributors';
+        $version = self::version();
 
-        $version = self::$version;
-
-        if ('@' . 'git@' === $version) {
+        if ('' === $version) {
             return \sprintf(
                 '<info>%s</info> %s',
-                $name,
-                $attribution,
+                self::NAME,
+                self::ATTRIBUTION,
             );
         }
 
         return \sprintf(
             '<info>%s</info> %s %s',
-            $name,
+            self::NAME,
             $version,
-            $attribution,
+            self::ATTRIBUTION,
         );
+    }
+
+    private static function version(): string
+    {
+        if ('@' . 'git@' !== self::$version) {
+            return self::$version;
+        }
+
+        if (!InstalledVersions::isInstalled(self::NAME)) {
+            return '';
+        }
+
+        $version = InstalledVersions::getPrettyVersion(self::NAME);
+
+        if (!\is_string($version)) {
+            return '';
+        }
+
+        return $version;
     }
 }
