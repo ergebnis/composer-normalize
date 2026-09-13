@@ -142,7 +142,7 @@ jobs:
             }
 
       - name: "Publish release"
-        uses: "ergebnis/.github/actions/github/release/publish@9785f99b3546d64df9cb331449e7fcdc41885d25" # 1.11.0
+        uses: "ergebnis/.github/actions/github/release/publish@fa753ba19f89b4923380b19dfcd80ad7eca4def9" # 1.13.0
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
           release-id: "${{ env.RELEASE_ID }}"
