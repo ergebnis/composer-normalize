@@ -9,7 +9,7 @@
 
 [![Latest Stable Version](https://poser.pugx.org/ergebnis/composer-normalize/v/stable)](https://packagist.org/packages/ergebnis/composer-normalize)
 [![Total Downloads](https://poser.pugx.org/ergebnis/composer-normalize/downloads)](https://packagist.org/packages/ergebnis/composer-normalize)
-[![Monthly Downloads](http://poser.pugx.org/ergebnis/composer-normalize/d/monthly)](https://packagist.org/packages/ergebnis/composer-normalize)
+[![Monthly Downloads](https://poser.pugx.org/ergebnis/composer-normalize/d/monthly)](https://packagist.org/packages/ergebnis/composer-normalize)
 
 This project provides a [`composer`](https://getcomposer.org) plugin for normalizing [`composer.json`](https://getcomposer.org/doc/04-schema.md).
 
