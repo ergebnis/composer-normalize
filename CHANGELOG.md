@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`2.53.0...main`][2.53.0...main].
 
+### Changed
+
+- Allowed installation on PHP 8.6 ([#1704]), by [@localheinz]
+
 ## [`2.53.0`][2.53.0]
 
 For a full diff see [`2.52.0...2.53.0`][2.52.0...2.53.0].
@@ -1404,6 +1408,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [#1623]: https://github.com/ergebnis/composer-normalize/pull/1623
 [#1672]: https://github.com/ergebnis/composer-normalize/pull/1672
 [#1685]: https://github.com/ergebnis/composer-normalize/pull/1685
+[#1704]: https://github.com/ergebnis/composer-normalize/pull/1704
 
 [@AlexSkrypnyk]: https://github.com/AlexSkrypnyk
 [@andrey-helldar]: https://github.com/andrey-helldar
