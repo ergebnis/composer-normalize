@@ -103,7 +103,7 @@ jobs:
         run: "echo \"RELEASE_TAG=${GITHUB_REF#refs/tags/}\" >> $GITHUB_ENV"
 
       - name: "Create release"
-        uses: "ergebnis/.github/actions/github/release/create@8fe79da501e53602e164c51b0555195b66e28275" # 1.13.2
+        uses: "ergebnis/.github/actions/github/release/create@07ba5718eac189644381e5972cd671c80c135ae7" # 1.13.4
         with:
           draft: "true"
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
