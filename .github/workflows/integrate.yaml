@@ -138,7 +138,7 @@ jobs:
           dependencies: "${{ matrix.dependencies }}"
 
       - name: "Install dependencies with phive"
-        uses: "ergebnis/.github/actions/phive/install@fa753ba19f89b4923380b19dfcd80ad7eca4def9" # 1.13.0
+        uses: "ergebnis/.github/actions/phive/install@07ba5718eac189644381e5972cd671c80c135ae7" # 1.13.4
         with:
           trust-gpg-keys: "0xC00543248C87FB13,0x033E5F8D801A2F8D,0x2DF45277AEF09A2F"
 
@@ -222,7 +222,7 @@ jobs:
         run: "echo $(cat box.json | jq 'del(.git)') > box.json"
 
       - name: "Install dependencies with phive"
-        uses: "ergebnis/.github/actions/phive/install@fa753ba19f89b4923380b19dfcd80ad7eca4def9" # 1.13.0
+        uses: "ergebnis/.github/actions/phive/install@07ba5718eac189644381e5972cd671c80c135ae7" # 1.13.4
         with:
           trust-gpg-keys: "0xC00543248C87FB13,0x033E5F8D801A2F8D,0x2DF45277AEF09A2F"
 
@@ -295,7 +295,7 @@ jobs:
           dependencies: "${{ matrix.dependencies }}"
 
       - name: "Install dependencies with phive"
-        uses: "ergebnis/.github/actions/phive/install@fa753ba19f89b4923380b19dfcd80ad7eca4def9" # 1.13.0
+        uses: "ergebnis/.github/actions/phive/install@07ba5718eac189644381e5972cd671c80c135ae7" # 1.13.4
         with:
           trust-gpg-keys: "0xC00543248C87FB13,0x033E5F8D801A2F8D,0x2DF45277AEF09A2F"
 
