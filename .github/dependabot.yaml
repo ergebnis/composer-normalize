@@ -27,6 +27,10 @@ updates:
     cooldown:
       default-days: 7
     directory: "/"
+    groups:
+      ergebnis:
+        patterns:
+          - "ergebnis/.github/*"
     labels:
       - "dependency"
     open-pull-requests-limit: 10
