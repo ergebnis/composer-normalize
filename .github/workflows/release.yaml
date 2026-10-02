@@ -57,7 +57,7 @@ jobs:
           restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
 
       - name: "Install ${{ matrix.dependencies }} dependencies with composer"
-        uses: "ergebnis/.github/actions/composer/install@8fe79da501e53602e164c51b0555195b66e28275" # 1.13.2
+        uses: "ergebnis/.github/actions/composer/install@07ba5718eac189644381e5972cd671c80c135ae7" # 1.13.4
         with:
           dependencies: "${{ matrix.dependencies }}"
 
@@ -142,7 +142,7 @@ jobs:
             }
 
       - name: "Publish release"
-        uses: "ergebnis/.github/actions/github/release/publish@8fe79da501e53602e164c51b0555195b66e28275" # 1.13.2
+        uses: "ergebnis/.github/actions/github/release/publish@07ba5718eac189644381e5972cd671c80c135ae7" # 1.13.4
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
           release-id: "${{ env.RELEASE_ID }}"
