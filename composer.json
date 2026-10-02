@@ -37,7 +37,7 @@
     "composer/composer": "^2.10.3",
     "ergebnis/license": "^2.8.0",
     "ergebnis/php-cs-fixer-config": "^6.63.3",
-    "ergebnis/phpstan-rules": "^2.13.1",
+    "ergebnis/phpstan-rules": "^2.14.0",
     "ergebnis/phpunit-slow-test-detector": "^2.26.0",
     "ergebnis/rector-rules": "^1.18.5",
     "fakerphp/faker": "^1.24.1",
