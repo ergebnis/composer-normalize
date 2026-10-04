@@ -147,7 +147,7 @@ jobs:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
           release-id: "${{ env.RELEASE_ID }}"
 
-      - name: "Post to twitter.com about release"
+      - name: "Post to x.com about release"
         uses: "Eomm/why-don-t-you-tweet@d9ec12835f4d494dda920f95f885df3dba380493" # v2.0.0
         env:
           TWITTER_ACCESS_TOKEN: "${{ secrets.ERGEBNIS_TWITTER_ACCESS_TOKEN }}"
