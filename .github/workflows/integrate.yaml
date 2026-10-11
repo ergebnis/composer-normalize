@@ -52,7 +52,7 @@ jobs:
         run: "composer validate --ansi --strict"
 
       - name: "Determine composer cache directory"
-        uses: "ergebnis/.github/actions/composer/determine-cache-directory@07ba5718eac189644381e5972cd671c80c135ae7" # 1.13.4
+        uses: "ergebnis/.github/actions/composer/determine-cache-directory@32cb0efd4ea19f657c4bcedf1129361d0b730c3c" # 1.14.0
 
       - name: "Cache dependencies installed with composer"
         uses: "actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9" # v6.1.0
@@ -62,7 +62,7 @@ jobs:
           restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
 
       - name: "Install ${{ matrix.dependencies }} dependencies with composer"
-        uses: "ergebnis/.github/actions/composer/install@07ba5718eac189644381e5972cd671c80c135ae7" # 1.13.4
+        uses: "ergebnis/.github/actions/composer/install@32cb0efd4ea19f657c4bcedf1129361d0b730c3c" # 1.14.0
         with:
           dependencies: "${{ matrix.dependencies }}"
 
@@ -123,7 +123,7 @@ jobs:
         run: "composer validate --ansi --strict"
 
       - name: "Determine composer cache directory"
-        uses: "ergebnis/.github/actions/composer/determine-cache-directory@07ba5718eac189644381e5972cd671c80c135ae7" # 1.13.4
+        uses: "ergebnis/.github/actions/composer/determine-cache-directory@32cb0efd4ea19f657c4bcedf1129361d0b730c3c" # 1.14.0
 
       - name: "Cache dependencies installed with composer"
         uses: "actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9" # v6.1.0
@@ -133,12 +133,12 @@ jobs:
           restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
 
       - name: "Install ${{ matrix.dependencies }} dependencies with composer"
-        uses: "ergebnis/.github/actions/composer/install@07ba5718eac189644381e5972cd671c80c135ae7" # 1.13.4
+        uses: "ergebnis/.github/actions/composer/install@32cb0efd4ea19f657c4bcedf1129361d0b730c3c" # 1.14.0
         with:
           dependencies: "${{ matrix.dependencies }}"
 
       - name: "Install dependencies with phive"
-        uses: "ergebnis/.github/actions/phive/install@07ba5718eac189644381e5972cd671c80c135ae7" # 1.13.4
+        uses: "ergebnis/.github/actions/phive/install@32cb0efd4ea19f657c4bcedf1129361d0b730c3c" # 1.14.0
         with:
           trust-gpg-keys: "0xC00543248C87FB13,0x033E5F8D801A2F8D,0x2DF45277AEF09A2F"
 
@@ -198,7 +198,7 @@ jobs:
         run: "echo \"::add-matcher::${{ runner.tool_cache }}/php.json\""
 
       - name: "Determine composer cache directory"
-        uses: "ergebnis/.github/actions/composer/determine-cache-directory@07ba5718eac189644381e5972cd671c80c135ae7" # 1.13.4
+        uses: "ergebnis/.github/actions/composer/determine-cache-directory@32cb0efd4ea19f657c4bcedf1129361d0b730c3c" # 1.14.0
 
       - name: "Cache dependencies installed with composer"
         uses: "actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9" # v6.1.0
@@ -211,7 +211,7 @@ jobs:
         run: "composer remove phpstan/extension-installer --ansi --dev --no-interaction --no-progress"
 
       - name: "Install ${{ matrix.dependencies }} dependencies with composer"
-        uses: "ergebnis/.github/actions/composer/install@07ba5718eac189644381e5972cd671c80c135ae7" # 1.13.4
+        uses: "ergebnis/.github/actions/composer/install@32cb0efd4ea19f657c4bcedf1129361d0b730c3c" # 1.14.0
         with:
           dependencies: "${{ matrix.dependencies }}"
 
@@ -222,7 +222,7 @@ jobs:
         run: "echo $(cat box.json | jq 'del(.git)') > box.json"
 
       - name: "Install dependencies with phive"
-        uses: "ergebnis/.github/actions/phive/install@07ba5718eac189644381e5972cd671c80c135ae7" # 1.13.4
+        uses: "ergebnis/.github/actions/phive/install@32cb0efd4ea19f657c4bcedf1129361d0b730c3c" # 1.14.0
         with:
           trust-gpg-keys: "0xC00543248C87FB13,0x033E5F8D801A2F8D,0x2DF45277AEF09A2F"
 
@@ -280,7 +280,7 @@ jobs:
         run: "composer validate --ansi --strict"
 
       - name: "Determine composer cache directory"
-        uses: "ergebnis/.github/actions/composer/determine-cache-directory@07ba5718eac189644381e5972cd671c80c135ae7" # 1.13.4
+        uses: "ergebnis/.github/actions/composer/determine-cache-directory@32cb0efd4ea19f657c4bcedf1129361d0b730c3c" # 1.14.0
 
       - name: "Cache dependencies installed with composer"
         uses: "actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9" # v6.1.0
@@ -290,12 +290,12 @@ jobs:
           restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
 
       - name: "Install ${{ matrix.dependencies }} dependencies with composer"
-        uses: "ergebnis/.github/actions/composer/install@07ba5718eac189644381e5972cd671c80c135ae7" # 1.13.4
+        uses: "ergebnis/.github/actions/composer/install@32cb0efd4ea19f657c4bcedf1129361d0b730c3c" # 1.14.0
         with:
           dependencies: "${{ matrix.dependencies }}"
 
       - name: "Install dependencies with phive"
-        uses: "ergebnis/.github/actions/phive/install@07ba5718eac189644381e5972cd671c80c135ae7" # 1.13.4
+        uses: "ergebnis/.github/actions/phive/install@32cb0efd4ea19f657c4bcedf1129361d0b730c3c" # 1.14.0
         with:
           trust-gpg-keys: "0xC00543248C87FB13,0x033E5F8D801A2F8D,0x2DF45277AEF09A2F"
 
@@ -363,7 +363,7 @@ jobs:
         run: "composer validate --ansi --strict"
 
       - name: "Determine composer cache directory"
-        uses: "ergebnis/.github/actions/composer/determine-cache-directory@07ba5718eac189644381e5972cd671c80c135ae7" # 1.13.4
+        uses: "ergebnis/.github/actions/composer/determine-cache-directory@32cb0efd4ea19f657c4bcedf1129361d0b730c3c" # 1.14.0
 
       - name: "Cache dependencies installed with composer"
         uses: "actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9" # v6.1.0
@@ -373,7 +373,7 @@ jobs:
           restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
 
       - name: "Install ${{ matrix.dependencies }} dependencies with composer"
-        uses: "ergebnis/.github/actions/composer/install@07ba5718eac189644381e5972cd671c80c135ae7" # 1.13.4
+        uses: "ergebnis/.github/actions/composer/install@32cb0efd4ea19f657c4bcedf1129361d0b730c3c" # 1.14.0
         with:
           dependencies: "${{ matrix.dependencies }}"
 
@@ -427,7 +427,7 @@ jobs:
         run: "composer validate --ansi --strict"
 
       - name: "Determine composer cache directory"
-        uses: "ergebnis/.github/actions/composer/determine-cache-directory@07ba5718eac189644381e5972cd671c80c135ae7" # 1.13.4
+        uses: "ergebnis/.github/actions/composer/determine-cache-directory@32cb0efd4ea19f657c4bcedf1129361d0b730c3c" # 1.14.0
 
       - name: "Cache dependencies installed with composer"
         uses: "actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9" # v6.1.0
@@ -437,7 +437,7 @@ jobs:
           restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
 
       - name: "Install ${{ matrix.dependencies }} dependencies with composer"
-        uses: "ergebnis/.github/actions/composer/install@07ba5718eac189644381e5972cd671c80c135ae7" # 1.13.4
+        uses: "ergebnis/.github/actions/composer/install@32cb0efd4ea19f657c4bcedf1129361d0b730c3c" # 1.14.0
         with:
           dependencies: "${{ matrix.dependencies }}"
 
@@ -482,7 +482,7 @@ jobs:
         run: "composer validate --ansi --strict"
 
       - name: "Determine composer cache directory"
-        uses: "ergebnis/.github/actions/composer/determine-cache-directory@07ba5718eac189644381e5972cd671c80c135ae7" # 1.13.4
+        uses: "ergebnis/.github/actions/composer/determine-cache-directory@32cb0efd4ea19f657c4bcedf1129361d0b730c3c" # 1.14.0
 
       - name: "Cache dependencies installed with composer"
         uses: "actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9" # v6.1.0
@@ -492,7 +492,7 @@ jobs:
           restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
 
       - name: "Install ${{ matrix.dependencies }} dependencies with composer"
-        uses: "ergebnis/.github/actions/composer/install@07ba5718eac189644381e5972cd671c80c135ae7" # 1.13.4
+        uses: "ergebnis/.github/actions/composer/install@32cb0efd4ea19f657c4bcedf1129361d0b730c3c" # 1.14.0
         with:
           dependencies: "${{ matrix.dependencies }}"
 
@@ -558,7 +558,7 @@ jobs:
         run: "composer validate --ansi --strict"
 
       - name: "Determine composer cache directory"
-        uses: "ergebnis/.github/actions/composer/determine-cache-directory@07ba5718eac189644381e5972cd671c80c135ae7" # 1.13.4
+        uses: "ergebnis/.github/actions/composer/determine-cache-directory@32cb0efd4ea19f657c4bcedf1129361d0b730c3c" # 1.14.0
 
       - name: "Cache dependencies installed with composer"
         uses: "actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9" # v6.1.0
@@ -572,7 +572,7 @@ jobs:
         run: "composer config platform.php --ansi --unset"
 
       - name: "Install ${{ matrix.dependencies }} dependencies with composer"
-        uses: "ergebnis/.github/actions/composer/install@07ba5718eac189644381e5972cd671c80c135ae7" # 1.13.4
+        uses: "ergebnis/.github/actions/composer/install@32cb0efd4ea19f657c4bcedf1129361d0b730c3c" # 1.14.0
         with:
           dependencies: "${{ matrix.dependencies }}"
 

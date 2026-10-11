@@ -31,13 +31,13 @@ jobs:
 
     steps:
       - name: "Request review from @ergebnis-bot"
-        uses: "ergebnis/.github/actions/github/pull-request/request-review@07ba5718eac189644381e5972cd671c80c135ae7" # 1.13.4
+        uses: "ergebnis/.github/actions/github/pull-request/request-review@32cb0efd4ea19f657c4bcedf1129361d0b730c3c" # 1.14.0
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
           reviewer: "ergebnis-bot"
 
       - name: "Assign @ergebnis-bot"
-        uses: "ergebnis/.github/actions/github/pull-request/add-assignee@07ba5718eac189644381e5972cd671c80c135ae7" # 1.13.4
+        uses: "ergebnis/.github/actions/github/pull-request/add-assignee@32cb0efd4ea19f657c4bcedf1129361d0b730c3c" # 1.14.0
         with:
           assignee: "ergebnis-bot"
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
@@ -48,6 +48,6 @@ jobs:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
 
       - name: "Approve pull request"
-        uses: "ergebnis/.github/actions/github/pull-request/approve@07ba5718eac189644381e5972cd671c80c135ae7" # 1.13.4
+        uses: "ergebnis/.github/actions/github/pull-request/approve@32cb0efd4ea19f657c4bcedf1129361d0b730c3c" # 1.14.0
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
