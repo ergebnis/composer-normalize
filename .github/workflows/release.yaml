@@ -47,7 +47,7 @@ jobs:
           tools: "phive"
 
       - name: "Determine composer cache directory"
-        uses: "ergebnis/.github/actions/composer/determine-cache-directory@07ba5718eac189644381e5972cd671c80c135ae7" # 1.13.4
+        uses: "ergebnis/.github/actions/composer/determine-cache-directory@32cb0efd4ea19f657c4bcedf1129361d0b730c3c" # 1.14.0
 
       - name: "Restore dependencies installed with composer"
         uses: "actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9" # v6.1.0
@@ -57,7 +57,7 @@ jobs:
           restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
 
       - name: "Install ${{ matrix.dependencies }} dependencies with composer"
-        uses: "ergebnis/.github/actions/composer/install@07ba5718eac189644381e5972cd671c80c135ae7" # 1.13.4
+        uses: "ergebnis/.github/actions/composer/install@32cb0efd4ea19f657c4bcedf1129361d0b730c3c" # 1.14.0
         with:
           dependencies: "${{ matrix.dependencies }}"
 
@@ -68,7 +68,7 @@ jobs:
         run: "composer require composer/composer:${{ env.COMPOSER_VERSION }} --ansi --no-interaction --no-progress"
 
       - name: "Install dependencies with phive"
-        uses: "ergebnis/.github/actions/phive/install@07ba5718eac189644381e5972cd671c80c135ae7" # 1.13.4
+        uses: "ergebnis/.github/actions/phive/install@32cb0efd4ea19f657c4bcedf1129361d0b730c3c" # 1.14.0
         with:
           trust-gpg-keys: "0xC00543248C87FB13,0x033E5F8D801A2F8D,0x2DF45277AEF09A2F"
 
@@ -103,7 +103,7 @@ jobs:
         run: "echo \"RELEASE_TAG=${GITHUB_REF#refs/tags/}\" >> $GITHUB_ENV"
 
       - name: "Create release"
-        uses: "ergebnis/.github/actions/github/release/create@07ba5718eac189644381e5972cd671c80c135ae7" # 1.13.4
+        uses: "ergebnis/.github/actions/github/release/create@32cb0efd4ea19f657c4bcedf1129361d0b730c3c" # 1.14.0
         with:
           draft: "true"
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
@@ -142,7 +142,7 @@ jobs:
             }
 
       - name: "Publish release"
-        uses: "ergebnis/.github/actions/github/release/publish@07ba5718eac189644381e5972cd671c80c135ae7" # 1.13.4
+        uses: "ergebnis/.github/actions/github/release/publish@32cb0efd4ea19f657c4bcedf1129361d0b730c3c" # 1.14.0
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
           release-id: "${{ env.RELEASE_ID }}"
