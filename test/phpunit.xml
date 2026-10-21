@@ -16,6 +16,8 @@
     convertNoticesToExceptions="true"
     convertWarningsToExceptions="true"
     executionOrder="random"
+    failOnRisky="true"
+    failOnWarning="true"
     stopOnError="false"
     stopOnFailure="false"
     stopOnIncomplete="false"
