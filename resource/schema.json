@@ -1757,6 +1757,13 @@
                 "no-api": {
                     "type": "boolean"
                 },
+                "only-branches": {
+                    "type": "array",
+                    "description": "List of branch names to load, wildcards (*) are supported. The default branch is always loaded, so an empty list loads only the default branch. Defaults to all branches.",
+                    "items": {
+                        "type": "string"
+                    }
+                },
                 "secure-http": {
                     "type": "boolean"
                 },
