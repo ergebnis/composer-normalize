@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2e3329a0152ebea2f95754f5d8b505b2",
+    "content-hash": "6a7430f58eea3c1f22a51b1f1d794cad",
     "packages": [
         {
             "name": "ergebnis/json",
@@ -1631,41 +1631,41 @@
         },
         {
             "name": "ergebnis/phpunit-slow-test-detector",
-            "version": "2.26.0",
+            "version": "2.27.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/phpunit-slow-test-detector.git",
-                "reference": "5671b07904321b3fc40a1ca9bb7a4c685cfc1c35"
+                "reference": "cb6ef166131b5e6850404b2e89f5894f53903f58"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/phpunit-slow-test-detector/zipball/5671b07904321b3fc40a1ca9bb7a4c685cfc1c35",
-                "reference": "5671b07904321b3fc40a1ca9bb7a4c685cfc1c35",
+                "url": "https://api.github.com/repos/ergebnis/phpunit-slow-test-detector/zipball/cb6ef166131b5e6850404b2e89f5894f53903f58",
+                "reference": "cb6ef166131b5e6850404b2e89f5894f53903f58",
                 "shasum": ""
             },
             "require": {
                 "ext-mbstring": "*",
-                "php": "~7.0.0 || ~7.1.0 || ~7.2.0 || ~7.3.0 || ~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0 || ~8.6.0",
+                "php": "~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0 || ~8.6.0",
                 "phpunit/phpunit": "^6.5.0 || ^7.5.0 || ^8.5.19 || ^9.0.0 || ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0"
             },
             "require-dev": {
-                "ergebnis/composer-normalize": "^2.53.0",
-                "ergebnis/license": "^2.7.0",
-                "ergebnis/php-cs-fixer-config": "^6.63.2",
-                "ergebnis/rector-rules": "^1.18.3",
+                "ergebnis/composer-normalize": "^2.54.0",
+                "ergebnis/license": "^2.8.0",
+                "ergebnis/php-cs-fixer-config": "^6.64.1",
+                "ergebnis/rector-rules": "^1.18.5",
                 "fakerphp/faker": "~1.20.0",
                 "phpstan/extension-installer": "^1.4.3",
-                "phpstan/phpstan": "^2.1.54",
+                "phpstan/phpstan": "^2.2.14",
                 "phpstan/phpstan-deprecation-rules": "^2.0.5",
-                "phpstan/phpstan-phpunit": "^2.0.18",
-                "phpstan/phpstan-strict-rules": "^2.0.12",
+                "phpstan/phpstan-phpunit": "^2.1.1",
+                "phpstan/phpstan-strict-rules": "^2.1.0",
                 "psr/container": "~1.0.0",
-                "rector/rector": "^2.6.6"
+                "rector/rector": "^2.7.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "2.26-dev"
+                    "dev-main": "2.27-dev"
                 },
                 "composer-normalize": {
                     "indent-size": 2,
@@ -1702,7 +1702,7 @@
                 "security": "https://github.com/ergebnis/phpunit-slow-test-detector/blob/main/.github/SECURITY.md",
                 "source": "https://github.com/ergebnis/phpunit-slow-test-detector"
             },
-            "time": "2026-09-24T19:43:37+00:00"
+            "time": "2026-10-18T15:50:09+00:00"
         },
         {
             "name": "ergebnis/rector-rules",
@@ -2999,16 +2999,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "9.6.37",
+            "version": "9.6.38",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "aceaa623912caf8e80bffea22fc4103a0a01565f"
+                "reference": "8b5f757e8e92071bfdbfa93943f94f84c4e31007"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/aceaa623912caf8e80bffea22fc4103a0a01565f",
-                "reference": "aceaa623912caf8e80bffea22fc4103a0a01565f",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/8b5f757e8e92071bfdbfa93943f94f84c4e31007",
+                "reference": "8b5f757e8e92071bfdbfa93943f94f84c4e31007",
                 "shasum": ""
             },
             "require": {
@@ -3082,7 +3082,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.6.37"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.6.38"
             },
             "funding": [
                 {
@@ -3090,7 +3090,7 @@
                     "type": "other"
                 }
             ],
-            "time": "2026-09-23T09:59:59+00:00"
+            "time": "2026-10-05T05:44:26+00:00"
         },
         {
             "name": "psr/container",
