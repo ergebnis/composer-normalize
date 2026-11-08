@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3d95de3f4f3633c921fe981e1f9e538e",
+    "content-hash": "f65fa9bb1a28f353819c3563b3d22610",
     "packages": [
         {
             "name": "ergebnis/json",
@@ -1688,35 +1688,35 @@
         },
         {
             "name": "ergebnis/rector-rules",
-            "version": "1.18.5",
+            "version": "1.19.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/rector-rules.git",
-                "reference": "616be34677600206ac352afc62d8a32f67353ade"
+                "reference": "a55ef4238ec5bceb1ba2f2dd786d376579a42853"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/rector-rules/zipball/616be34677600206ac352afc62d8a32f67353ade",
-                "reference": "616be34677600206ac352afc62d8a32f67353ade",
+                "url": "https://api.github.com/repos/ergebnis/rector-rules/zipball/a55ef4238ec5bceb1ba2f2dd786d376579a42853",
+                "reference": "a55ef4238ec5bceb1ba2f2dd786d376579a42853",
                 "shasum": ""
             },
             "require": {
                 "nikic/php-parser": "^4.17.1 || ^5.0.0",
                 "php": "~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0 || ~8.6.0",
                 "phpstan/phpstan": "^2.0.0",
-                "rector/rector": "^2.6.7"
+                "rector/rector": "^2.8.2"
             },
             "require-dev": {
-                "ergebnis/classy": "^3.0.0",
-                "ergebnis/composer-normalize": "^2.53.0",
-                "ergebnis/data-provider": "^3.6.0",
-                "ergebnis/license": "^2.7.0",
-                "ergebnis/php-cs-fixer-config": "^6.63.3",
-                "ergebnis/phpunit-slow-test-detector": "^2.25.0",
+                "ergebnis/classy": "^3.1.0",
+                "ergebnis/composer-normalize": "^2.54.0",
+                "ergebnis/data-provider": "^3.7.0",
+                "ergebnis/license": "^2.8.0",
+                "ergebnis/php-cs-fixer-config": "^6.64.1",
+                "ergebnis/phpunit-slow-test-detector": "^2.26.0",
                 "phpstan/extension-installer": "^1.4.3",
                 "phpstan/phpstan-deprecation-rules": "^2.0.5",
-                "phpstan/phpstan-phpunit": "^2.0.18",
-                "phpstan/phpstan-strict-rules": "^2.0.12",
+                "phpstan/phpstan-phpunit": "^2.1.1",
+                "phpstan/phpstan-strict-rules": "^2.1.0",
                 "phpunit/phpunit": "^9.6.33",
                 "sebastian/diff": "^4.0.6",
                 "symfony/filesystem": "^5.4.45",
@@ -1725,7 +1725,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "1.18-dev"
+                    "dev-main": "1.19-dev"
                 },
                 "composer-normalize": {
                     "indent-size": 2,
@@ -1755,7 +1755,7 @@
                 "security": "https://github.com/ergebnis/rector-rules/blob/main/.github/SECURITY.md",
                 "source": "https://github.com/ergebnis/rector-rules"
             },
-            "time": "2026-09-24T15:52:58+00:00"
+            "time": "2026-10-28T22:26:07+00:00"
         },
         {
             "name": "erickskrauch/php-cs-fixer-custom-fixers",
@@ -2437,11 +2437,11 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "2.3.2",
+            "version": "2.3.5",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/18bc23a0682f08591529377d271b5c4dfe9ed1dd",
-                "reference": "18bc23a0682f08591529377d271b5c4dfe9ed1dd",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/645a1bd6bead15fc1b8474137467961d0fa30a79",
+                "reference": "645a1bd6bead15fc1b8474137467961d0fa30a79",
                 "shasum": ""
             },
             "require": {
@@ -2497,7 +2497,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-10-24T11:36:00+00:00"
+            "time": "2026-11-03T12:14:22+00:00"
         },
         {
             "name": "phpstan/phpstan-deprecation-rules",
@@ -3750,21 +3750,21 @@
         },
         {
             "name": "rector/rector",
-            "version": "2.7.0",
+            "version": "2.8.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "4d6a39b7fff302cac0ce90cd959a53c2f6a32776"
+                "reference": "55acbd956d7e3907f7d21aab54edd68a310609e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/4d6a39b7fff302cac0ce90cd959a53c2f6a32776",
-                "reference": "4d6a39b7fff302cac0ce90cd959a53c2f6a32776",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/55acbd956d7e3907f7d21aab54edd68a310609e6",
+                "reference": "55acbd956d7e3907f7d21aab54edd68a310609e6",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.4|^8.0",
-                "phpstan/phpstan": "^2.3.0"
+                "phpstan/phpstan": "^2.3.5"
             },
             "conflict": {
                 "rector/rector-doctrine": "*",
@@ -3795,7 +3795,7 @@
             ],
             "support": {
                 "issues": "https://github.com/rectorphp/rector/issues",
-                "source": "https://github.com/rectorphp/rector/tree/2.7.0"
+                "source": "https://github.com/rectorphp/rector/tree/2.8.4"
             },
             "funding": [
                 {
@@ -3803,7 +3803,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-10-06T08:46:45+00:00"
+            "time": "2026-11-03T18:48:08+00:00"
         },
         {
             "name": "sebastian/cli-parser",
