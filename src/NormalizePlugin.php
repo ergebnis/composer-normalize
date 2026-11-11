@@ -19,7 +19,6 @@ use Composer\IO;
 use Composer\Plugin;
 use Ergebnis\Json\Normalizer;
 use Ergebnis\Json\Printer;
-use Localheinz\Diff;
 
 final class NormalizePlugin implements
     Plugin\Capability\CommandProvider,
@@ -61,10 +60,10 @@ final class NormalizePlugin implements
                     \realpath(__DIR__ . '/../resource/schema.json'),
                 )),
                 new Printer\Printer(),
-                new Diff\Differ(new Diff\Output\StrictUnifiedDiffOutputBuilder([
-                    'fromFile' => 'original',
-                    'toFile' => 'normalized',
-                ])),
+                new Diff\Differ(
+                    'original',
+                    'normalized',
+                ),
             ),
         ];
     }
