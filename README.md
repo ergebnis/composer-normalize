@@ -522,6 +522,10 @@ This project has a [security policy](.github/SECURITY.md).
 
 This project uses the [MIT license](LICENSE.md).
 
+## Credits
+
+The algorithm for computing the diff in [`Diff\Differ`](src/Diff/Differ.php) has been adopted from [`SebastianBergmann\Diff\MyersDiff`](https://github.com/sebastianbergmann/diff/blob/9.0.1/src/MyersDiff.php) and [`SebastianBergmann\Diff\Output\StrictUnifiedDiffOutputBuilder`](https://github.com/sebastianbergmann/diff/blob/9.0.1/src/Output/StrictUnifiedDiffOutputBuilder.php) (originally licensed under BSD-3-Clause by [Sebastian Bergmann](https://github.com/sebastianbergmann)), which implement the linear-space variant of the algorithm described by Eugene W. Myers in ["An O(ND) Difference Algorithm and Its Variations"](https://doi.org/10.1007/BF01840446).
+
 ## Social
 
 Follow [@localheinz](https://x.com/intent/follow?screen_name=localheinz) and [@ergebnis](https://x.com/intent/follow?screen_name=ergebnis) on X.

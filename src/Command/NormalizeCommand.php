@@ -18,12 +18,12 @@ use Composer\Composer;
 use Composer\Console\Application;
 use Composer\Factory;
 use Composer\IO;
+use Ergebnis\Composer\Normalize\Diff;
 use Ergebnis\Composer\Normalize\Exception;
 use Ergebnis\Composer\Normalize\Version;
 use Ergebnis\Json\Json;
 use Ergebnis\Json\Normalizer;
 use Ergebnis\Json\Printer;
-use Localheinz\Diff;
 use Symfony\Component\Console;
 
 /**

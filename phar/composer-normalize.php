@@ -16,7 +16,6 @@ use Composer\Factory;
 use Ergebnis\Composer\Normalize;
 use Ergebnis\Json\Normalizer;
 use Ergebnis\Json\Printer;
-use Localheinz\Diff;
 use Symfony\Component\Console;
 
 require_once __DIR__ . '/../vendor/autoload.php';
@@ -25,10 +24,10 @@ $command = new Normalize\Command\NormalizeCommand(
     new Factory(),
     new Normalizer\Vendor\Composer\ComposerJsonNormalizer(__DIR__ . '/../resource/schema.json'),
     new Printer\Printer(),
-    new Diff\Differ(new Diff\Output\StrictUnifiedDiffOutputBuilder([
-        'fromFile' => 'original',
-        'toFile' => 'normalized',
-    ])),
+    new Normalize\Diff\Differ(
+        'original',
+        'normalized',
+    ),
 );
 
 $application = new Application();

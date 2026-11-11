@@ -15,16 +15,17 @@ namespace Ergebnis\Composer\Normalize\Test\Integration\Command\NormalizeCommand\
 
 use Composer\Factory;
 use Ergebnis\Composer\Normalize\Command;
+use Ergebnis\Composer\Normalize\Diff;
 use Ergebnis\Composer\Normalize\Test;
 use Ergebnis\Json\Json;
 use Ergebnis\Json\Normalizer;
 use Ergebnis\Json\Printer;
-use Localheinz\Diff;
 use Symfony\Component\Console;
 
 /**
  * @covers \Ergebnis\Composer\Normalize\Command\NormalizeCommand
  *
+ * @uses \Ergebnis\Composer\Normalize\Diff\Differ
  * @uses \Ergebnis\Composer\Normalize\NormalizePlugin
  * @uses \Ergebnis\Composer\Normalize\Version
  */
@@ -63,10 +64,10 @@ final class CommandInvocationTest extends Test\Integration\Command\NormalizeComm
                 }
             },
             new Printer\Printer(),
-            new Diff\Differ(new Diff\Output\StrictUnifiedDiffOutputBuilder([
-                'fromFile' => 'original',
-                'toFile' => 'normalized',
-            ])),
+            new Diff\Differ(
+                'original',
+                'normalized',
+            ),
         ));
 
         $input = new Console\Input\ArrayInput($scenario->consoleParameters());
