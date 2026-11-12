@@ -43,6 +43,9 @@ branches:
           - context: "Tests (8.5, highest)"
           - context: "Tests (8.5, locked)"
           - context: "Tests (8.5, lowest)"
+          - context: "Tests (8.6, highest)"
+          - context: "Tests (8.6, locked)"
+          - context: "Tests (8.6, lowest)"
         strict: false
       restrictions:
 
