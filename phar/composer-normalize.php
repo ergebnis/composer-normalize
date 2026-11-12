@@ -14,6 +14,7 @@ declare(strict_types=1);
 use Composer\Console\Application;
 use Composer\Factory;
 use Ergebnis\Composer\Normalize;
+use Ergebnis\Differ;
 use Ergebnis\Json\Normalizer;
 use Ergebnis\Json\Printer;
 use Symfony\Component\Console;
@@ -24,10 +25,7 @@ $command = new Normalize\Command\NormalizeCommand(
     new Factory(),
     new Normalizer\Vendor\Composer\ComposerJsonNormalizer(__DIR__ . '/../resource/schema.json'),
     new Printer\Printer(),
-    new Normalize\Diff\Differ(
-        'original',
-        'normalized',
-    ),
+    new Differ\MyersDiffer(),
 );
 
 $application = new Application();

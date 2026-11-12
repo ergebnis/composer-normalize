@@ -15,8 +15,8 @@ namespace Ergebnis\Composer\Normalize\Test\Integration\Command\NormalizeCommand\
 
 use Composer\Factory;
 use Ergebnis\Composer\Normalize\Command;
-use Ergebnis\Composer\Normalize\Diff;
 use Ergebnis\Composer\Normalize\Test;
+use Ergebnis\Differ;
 use Ergebnis\Json\Json;
 use Ergebnis\Json\Normalizer;
 use Ergebnis\Json\Printer;
@@ -25,7 +25,6 @@ use Symfony\Component\Console;
 /**
  * @covers \Ergebnis\Composer\Normalize\Command\NormalizeCommand
  *
- * @uses \Ergebnis\Composer\Normalize\Diff\Differ
  * @uses \Ergebnis\Composer\Normalize\NormalizePlugin
  * @uses \Ergebnis\Composer\Normalize\Version
  */
@@ -64,10 +63,7 @@ final class CommandInvocationTest extends Test\Integration\Command\NormalizeComm
                 }
             },
             new Printer\Printer(),
-            new Diff\Differ(
-                'original',
-                'normalized',
-            ),
+            new Differ\MyersDiffer(),
         ));
 
         $input = new Console\Input\ArrayInput($scenario->consoleParameters());

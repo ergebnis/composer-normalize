@@ -17,6 +17,7 @@ use Composer\Composer;
 use Composer\Factory;
 use Composer\IO;
 use Composer\Plugin;
+use Ergebnis\Differ;
 use Ergebnis\Json\Normalizer;
 use Ergebnis\Json\Printer;
 
@@ -60,10 +61,7 @@ final class NormalizePlugin implements
                     \realpath(__DIR__ . '/../resource/schema.json'),
                 )),
                 new Printer\Printer(),
-                new Diff\Differ(
-                    'original',
-                    'normalized',
-                ),
+                new Differ\MyersDiffer(),
             ),
         ];
     }
