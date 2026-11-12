@@ -18,9 +18,9 @@ use Composer\Composer;
 use Composer\Console\Application;
 use Composer\Factory;
 use Composer\IO;
-use Ergebnis\Composer\Normalize\Diff;
 use Ergebnis\Composer\Normalize\Exception;
 use Ergebnis\Composer\Normalize\Version;
+use Ergebnis\Differ;
 use Ergebnis\Json\Json;
 use Ergebnis\Json\Normalizer;
 use Ergebnis\Json\Printer;
@@ -31,7 +31,7 @@ use Symfony\Component\Console;
  */
 final class NormalizeCommand extends Command\BaseCommand
 {
-    private Diff\Differ $differ;
+    private Differ\Differ $differ;
     private Printer\PrinterInterface $printer;
     private Normalizer\Normalizer $normalizer;
     private Factory $factory;
@@ -40,7 +40,7 @@ final class NormalizeCommand extends Command\BaseCommand
         Factory $factory,
         Normalizer\Normalizer $normalizer,
         Printer\PrinterInterface $printer,
-        Diff\Differ $differ
+        Differ\Differ $differ
     ) {
         $this->factory = $factory;
         $this->normalizer = $normalizer;
@@ -288,9 +288,15 @@ final class NormalizeCommand extends Command\BaseCommand
             ));
 
             $diff = $this->differ->diff(
-                $json->encoded(),
-                $normalized->encoded(),
-            );
+                Differ\From::create(
+                    Differ\Label::fromString('original'),
+                    Differ\Text::fromString($json->encoded()),
+                ),
+                Differ\To::create(
+                    Differ\Label::fromString('normalized'),
+                    Differ\Text::fromString($normalized->encoded()),
+                ),
+            )->toString();
 
             $io->write([
                 '',

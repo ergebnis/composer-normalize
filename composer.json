@@ -27,6 +27,7 @@
     "ext-json": "*",
     "composer-plugin-api": "^2.0.0",
     "composer-runtime-api": "^2.0.0",
+    "ergebnis/differ": "^1.0.0",
     "ergebnis/json": "^1.4.0",
     "ergebnis/json-normalizer": "^4.12.0",
     "ergebnis/json-printer": "^3.7.0",

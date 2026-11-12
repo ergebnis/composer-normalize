@@ -20,7 +20,6 @@ use Symfony\Component\Console;
 /**
  * @covers \Ergebnis\Composer\Normalize\Command\NormalizeCommand
  *
- * @uses \Ergebnis\Composer\Normalize\Diff\Differ
  * @uses \Ergebnis\Composer\Normalize\NormalizePlugin
  * @uses \Ergebnis\Composer\Normalize\Version
  */
