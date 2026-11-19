@@ -12,6 +12,10 @@ For a full diff see [`2.57.0...main`][2.57.0...main].
 
 - Added support for PHP 8.6 ([#1763]), by [@localheinz]
 
+### Changed
+
+- Updated `schema.json` ([#1751]), by [@ergebnis-bot]
+
 ## [`2.57.0`][2.57.0]
 
 For a full diff see [`2.56.1...2.57.0`][2.56.1...2.57.0].
@@ -1465,6 +1469,7 @@ For a full diff see [`81bc3a8...0.1.0`][81bc3a8...0.1.0].
 [#1742]: https://github.com/ergebnis/composer-normalize/pull/1742
 [#1747]: https://github.com/ergebnis/composer-normalize/pull/1747
 [#1749]: https://github.com/ergebnis/composer-normalize/pull/1749
+[#1751]: https://github.com/ergebnis/composer-normalize/pull/1751
 [#1761]: https://github.com/ergebnis/composer-normalize/pull/1761
 [#1763]: https://github.com/ergebnis/composer-normalize/pull/1763
 [#1764]: https://github.com/ergebnis/composer-normalize/pull/1764
