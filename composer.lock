@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7b99a6c56ef4c4d181fc5d571b841aca",
+    "content-hash": "e77a9bb76d03d51863fa71496c6abc57",
     "packages": [
         {
             "name": "ergebnis/differ",
