@@ -31,23 +31,23 @@ jobs:
 
     steps:
       - name: "Request review from @ergebnis-bot"
-        uses: "ergebnis/.github/actions/github/pull-request/request-review@cba36e9c813d554f82feca85bd28a1997440865d" # 1.16.0
+        uses: "ergebnis/.github/actions/github/pull-request/request-review@4a1908a951ce901345ab99b4fcc820a6e775a512" # 1.17.0
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
           reviewer: "ergebnis-bot"
 
       - name: "Assign @ergebnis-bot"
-        uses: "ergebnis/.github/actions/github/pull-request/add-assignee@cba36e9c813d554f82feca85bd28a1997440865d" # 1.16.0
+        uses: "ergebnis/.github/actions/github/pull-request/add-assignee@4a1908a951ce901345ab99b4fcc820a6e775a512" # 1.17.0
         with:
           assignee: "ergebnis-bot"
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
 
       - name: "Enable auto-merge for pull request"
-        uses: "ergebnis/.github/actions/github/pull-request/enable-auto-merge@cba36e9c813d554f82feca85bd28a1997440865d" # 1.16.0
+        uses: "ergebnis/.github/actions/github/pull-request/enable-auto-merge@4a1908a951ce901345ab99b4fcc820a6e775a512" # 1.17.0
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
 
       - name: "Approve pull request"
-        uses: "ergebnis/.github/actions/github/pull-request/approve@cba36e9c813d554f82feca85bd28a1997440865d" # 1.16.0
+        uses: "ergebnis/.github/actions/github/pull-request/approve@4a1908a951ce901345ab99b4fcc820a6e775a512" # 1.17.0
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"

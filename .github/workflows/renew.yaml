@@ -44,7 +44,7 @@ jobs:
         run: "composer validate --ansi --strict"
 
       - name: "Determine composer cache directory"
-        uses: "ergebnis/.github/actions/composer/determine-cache-directory@cba36e9c813d554f82feca85bd28a1997440865d" # 1.16.0
+        uses: "ergebnis/.github/actions/composer/determine-cache-directory@4a1908a951ce901345ab99b4fcc820a6e775a512" # 1.17.0
 
       - name: "Cache dependencies installed with composer"
         uses: "actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9" # v6.1.0
@@ -54,7 +54,7 @@ jobs:
           restore-keys: "php-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
 
       - name: "Install ${{ matrix.dependencies }} dependencies with composer"
-        uses: "ergebnis/.github/actions/composer/install@cba36e9c813d554f82feca85bd28a1997440865d" # 1.16.0
+        uses: "ergebnis/.github/actions/composer/install@4a1908a951ce901345ab99b4fcc820a6e775a512" # 1.17.0
         with:
           dependencies: "${{ matrix.dependencies }}"
 
