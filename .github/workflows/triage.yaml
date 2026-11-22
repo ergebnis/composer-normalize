@@ -20,6 +20,6 @@ jobs:
 
     steps:
       - name: "Add labels based on branch name"
-        uses: "ergebnis/.github/actions/github/pull-request/add-label-based-on-branch-name@cba36e9c813d554f82feca85bd28a1997440865d" # 1.16.0
+        uses: "ergebnis/.github/actions/github/pull-request/add-label-based-on-branch-name@4a1908a951ce901345ab99b4fcc820a6e775a512" # 1.17.0
         with:
           github-token: "${{ secrets.ERGEBNIS_BOT_TOKEN }}"
