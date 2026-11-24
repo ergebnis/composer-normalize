@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c4bd66ad001baa0dab3ff9c546bf617e",
+    "content-hash": "0637081a409308b1ca7fb857b146e3a8",
     "packages": [
         {
             "name": "ergebnis/differ",
@@ -6639,7 +6639,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0 || ~8.6.0",
+        "php": "~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0 || ~8.6.0 || ~8.7.0",
         "ext-json": "*",
         "composer-plugin-api": "^2.0.0",
         "composer-runtime-api": "^2.0.0"
