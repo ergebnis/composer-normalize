@@ -14,9 +14,7 @@ declare(strict_types=1);
 namespace Ergebnis\Composer\Normalize\Test\Integration\Command\NormalizeCommand;
 
 use Composer\Console\Application;
-use Ergebnis\Composer\Normalize\Command;
-use Ergebnis\Composer\Normalize\NormalizePlugin;
-use Ergebnis\Composer\Normalize\Test;
+use Ergebnis\Composer\Normalize;
 use PHPUnit\Framework;
 use Symfony\Component\Console;
 use Symfony\Component\Filesystem;
@@ -26,7 +24,7 @@ use Symfony\Component\Filesystem;
  */
 abstract class AbstractTestCase extends Framework\TestCase
 {
-    use Test\Util\Helper;
+    use Normalize\Test\Util\Helper;
     private string $currentWorkingDirectory;
 
     final protected function setUp(): void
@@ -50,9 +48,9 @@ abstract class AbstractTestCase extends Framework\TestCase
     }
 
     final protected static function createScenario(
-        Test\Util\CommandInvocation $commandInvocation,
+        Normalize\Test\Util\CommandInvocation $commandInvocation,
         string $fixtureDirectory
-    ): Test\Util\Scenario {
+    ): Normalize\Test\Util\Scenario {
         if (!\is_dir($fixtureDirectory)) {
             throw new \InvalidArgumentException(\sprintf(
                 'Fixture directory "%s" does not exist',
@@ -69,19 +67,19 @@ abstract class AbstractTestCase extends Framework\TestCase
             self::temporaryDirectory(),
         );
 
-        $scenario = Test\Util\Scenario::fromCommandInvocationAndInitialState(
+        $scenario = Normalize\Test\Util\Scenario::fromCommandInvocationAndInitialState(
             $commandInvocation,
-            Test\Util\State::fromDirectory(Test\Util\Directory::fromPath(self::temporaryDirectory())),
+            Normalize\Test\Util\State::fromDirectory(Normalize\Test\Util\Directory::fromPath(self::temporaryDirectory())),
         );
 
-        if ($commandInvocation->is(Test\Util\CommandInvocation::inCurrentWorkingDirectory())) {
+        if ($commandInvocation->is(Normalize\Test\Util\CommandInvocation::inCurrentWorkingDirectory())) {
             \chdir($scenario->directory()->path());
         }
 
         return $scenario;
     }
 
-    final protected static function createApplication(Command\NormalizeCommand $command): Application
+    final protected static function createApplication(Normalize\Command\NormalizeCommand $command): Application
     {
         $application = new Application();
 
@@ -96,17 +94,17 @@ abstract class AbstractTestCase extends Framework\TestCase
 
     final protected static function createApplicationWithNormalizeCommandAsProvidedByNormalizePlugin(): Application
     {
-        $plugin = new NormalizePlugin();
+        $plugin = new Normalize\NormalizePlugin();
 
         $commands = \array_filter($plugin->getCommands(), static function ($command): bool {
-            return $command instanceof Command\NormalizeCommand;
+            return $command instanceof Normalize\Command\NormalizeCommand;
         });
 
         if (0 === \count($commands)) {
             throw new \RuntimeException(\sprintf(
                 'Expected "%s" to provide an instance of "%s" as command.',
-                NormalizePlugin::class,
-                Command\NormalizeCommand::class,
+                Normalize\NormalizePlugin::class,
+                Normalize\Command\NormalizeCommand::class,
             ));
         }
 
@@ -115,35 +113,35 @@ abstract class AbstractTestCase extends Framework\TestCase
         return self::createApplication($normalizeCommand);
     }
 
-    final protected static function assertComposerJsonFileExists(Test\Util\State $state): void
+    final protected static function assertComposerJsonFileExists(Normalize\Test\Util\State $state): void
     {
         self::assertFileExists($state->composerJsonFile()->path());
     }
 
     final protected static function assertComposerJsonFileModified(
-        Test\Util\State $expected,
-        Test\Util\State $actual
+        Normalize\Test\Util\State $expected,
+        Normalize\Test\Util\State $actual
     ): void {
         self::assertComposerJsonFileExists($actual);
 
-        self::assertNotEquals(
+        self::assertNotSame(
             $expected->composerJsonFile()->contents(),
             $actual->composerJsonFile()->contents(),
             'Failed asserting that initial composer.json has been modified.',
         );
     }
 
-    final protected static function assertComposerLockFileExists(Test\Util\State $state): void
+    final protected static function assertComposerLockFileExists(Normalize\Test\Util\State $state): void
     {
         self::assertFileExists($state->composerLockFile()->path());
     }
 
-    final protected static function assertComposerLockFileNotExists(Test\Util\State $state): void
+    final protected static function assertComposerLockFileNotExists(Normalize\Test\Util\State $state): void
     {
         self::assertFileDoesNotExist($state->composerLockFile()->path());
     }
 
-    final protected static function assertComposerLockFileFresh(Test\Util\State $state): void
+    final protected static function assertComposerLockFileFresh(Normalize\Test\Util\State $state): void
     {
         self::assertComposerJsonFileExists($state);
         self::assertComposerLockFileExists($state);
@@ -156,7 +154,7 @@ abstract class AbstractTestCase extends Framework\TestCase
         ));
     }
 
-    final protected static function assertComposerLockFileNotFresh(Test\Util\State $state): void
+    final protected static function assertComposerLockFileNotFresh(Normalize\Test\Util\State $state): void
     {
         self::assertComposerJsonFileExists($state);
         self::assertComposerLockFileExists($state);
@@ -170,8 +168,8 @@ abstract class AbstractTestCase extends Framework\TestCase
     }
 
     final protected static function assertComposerLockFileModified(
-        Test\Util\State $expected,
-        Test\Util\State $actual
+        Normalize\Test\Util\State $expected,
+        Normalize\Test\Util\State $actual
     ): void {
         self::assertComposerLockFileExists($actual);
 
@@ -183,8 +181,8 @@ abstract class AbstractTestCase extends Framework\TestCase
     }
 
     final protected static function assertComposerLockFileNotModified(
-        Test\Util\State $expected,
-        Test\Util\State $actual
+        Normalize\Test\Util\State $expected,
+        Normalize\Test\Util\State $actual
     ): void {
         self::assertComposerLockFileExists($actual);
 
@@ -237,7 +235,7 @@ abstract class AbstractTestCase extends Framework\TestCase
         return $normalized;
     }
 
-    private static function validateComposer(Test\Util\State $state): int
+    private static function validateComposer(Normalize\Test\Util\State $state): int
     {
         $application = new Application();
 

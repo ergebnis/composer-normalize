@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\Composer\Normalize\Test\Integration\Command\NormalizeCommand\Extra\IsValid\Yes\UsingOptions\Yes;
 
-use Ergebnis\Composer\Normalize\Test;
+use Ergebnis\Composer\Normalize;
 use Symfony\Component\Console;
 
 /**
@@ -22,13 +22,13 @@ use Symfony\Component\Console;
  * @uses \Ergebnis\Composer\Normalize\NormalizePlugin
  * @uses \Ergebnis\Composer\Normalize\Version
  */
-final class CommandInvocationTest extends Test\Integration\Command\NormalizeCommand\AbstractTestCase
+final class CommandInvocationTest extends Normalize\Test\Integration\Command\NormalizeCommand\AbstractTestCase
 {
     /**
      * @dataProvider \Ergebnis\Composer\Normalize\Test\DataProvider\Command\NormalizeCommandProvider::commandInvocationIndentSizeAndIndentStyle
      */
     public function testSucceeds(
-        Test\Util\CommandInvocation $commandInvocation,
+        Normalize\Test\Util\CommandInvocation $commandInvocation,
         int $indentSize,
         string $indentStyle
     ): void {

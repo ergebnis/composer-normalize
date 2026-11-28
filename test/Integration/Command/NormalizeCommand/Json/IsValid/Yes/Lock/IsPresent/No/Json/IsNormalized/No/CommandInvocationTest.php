@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\Composer\Normalize\Test\Integration\Command\NormalizeCommand\Json\IsValid\Yes\Lock\IsPresent\No\Json\IsNormalized\No;
 
-use Ergebnis\Composer\Normalize\Test;
+use Ergebnis\Composer\Normalize;
 use Symfony\Component\Console;
 
 /**
@@ -22,12 +22,12 @@ use Symfony\Component\Console;
  * @uses \Ergebnis\Composer\Normalize\NormalizePlugin
  * @uses \Ergebnis\Composer\Normalize\Version
  */
-final class CommandInvocationTest extends Test\Integration\Command\NormalizeCommand\AbstractTestCase
+final class CommandInvocationTest extends Normalize\Test\Integration\Command\NormalizeCommand\AbstractTestCase
 {
     /**
      * @dataProvider \Ergebnis\Composer\Normalize\Test\DataProvider\Command\NormalizeCommandProvider::commandInvocation
      */
-    public function testSucceeds(Test\Util\CommandInvocation $commandInvocation): void
+    public function testSucceeds(Normalize\Test\Util\CommandInvocation $commandInvocation): void
     {
         $scenario = self::createScenario(
             $commandInvocation,
@@ -67,7 +67,7 @@ final class CommandInvocationTest extends Test\Integration\Command\NormalizeComm
     /**
      * @dataProvider \Ergebnis\Composer\Normalize\Test\DataProvider\Command\NormalizeCommandProvider::commandInvocation
      */
-    public function testSucceedsWhenDiffOptionIsUsed(Test\Util\CommandInvocation $commandInvocation): void
+    public function testSucceedsWhenDiffOptionIsUsed(Normalize\Test\Util\CommandInvocation $commandInvocation): void
     {
         $scenario = self::createScenario(
             $commandInvocation,
@@ -115,7 +115,7 @@ final class CommandInvocationTest extends Test\Integration\Command\NormalizeComm
     /**
      * @dataProvider \Ergebnis\Composer\Normalize\Test\DataProvider\Command\NormalizeCommandProvider::commandInvocation
      */
-    public function testFailsDryRunOptionIsUsed(Test\Util\CommandInvocation $commandInvocation): void
+    public function testFailsDryRunOptionIsUsed(Normalize\Test\Util\CommandInvocation $commandInvocation): void
     {
         $scenario = self::createScenario(
             $commandInvocation,
@@ -160,7 +160,7 @@ final class CommandInvocationTest extends Test\Integration\Command\NormalizeComm
      * @dataProvider \Ergebnis\Composer\Normalize\Test\DataProvider\Command\NormalizeCommandProvider::commandInvocationIndentSizeAndIndentStyle
      */
     public function testSucceedsWhenIndentSizeAndIndentStyleOptionsAreUsed(
-        Test\Util\CommandInvocation $commandInvocation,
+        Normalize\Test\Util\CommandInvocation $commandInvocation,
         int $indentSize,
         string $indentStyle
     ): void {
@@ -205,7 +205,7 @@ final class CommandInvocationTest extends Test\Integration\Command\NormalizeComm
     /**
      * @dataProvider \Ergebnis\Composer\Normalize\Test\DataProvider\Command\NormalizeCommandProvider::commandInvocation
      */
-    public function testSucceedsNoUpdateLockOptionIsUsed(Test\Util\CommandInvocation $commandInvocation): void
+    public function testSucceedsNoUpdateLockOptionIsUsed(Normalize\Test\Util\CommandInvocation $commandInvocation): void
     {
         $scenario = self::createScenario(
             $commandInvocation,

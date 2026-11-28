@@ -14,8 +14,7 @@ declare(strict_types=1);
 namespace Ergebnis\Composer\Normalize\Test\Integration\Command\NormalizeCommand\Normalizer\Throws;
 
 use Composer\Factory;
-use Ergebnis\Composer\Normalize\Command;
-use Ergebnis\Composer\Normalize\Test;
+use Ergebnis\Composer\Normalize;
 use Ergebnis\Differ;
 use Ergebnis\Json\Json;
 use Ergebnis\Json\Normalizer;
@@ -28,12 +27,12 @@ use Symfony\Component\Console;
  * @uses \Ergebnis\Composer\Normalize\NormalizePlugin
  * @uses \Ergebnis\Composer\Normalize\Version
  */
-final class CommandInvocationTest extends Test\Integration\Command\NormalizeCommand\AbstractTestCase
+final class CommandInvocationTest extends Normalize\Test\Integration\Command\NormalizeCommand\AbstractTestCase
 {
     /**
      * @dataProvider \Ergebnis\Composer\Normalize\Test\DataProvider\Command\NormalizeCommandProvider::commandInvocation
      */
-    public function testFailsWhenNormalizerThrowsRuntimeExceptionDuringNormalization(Test\Util\CommandInvocation $commandInvocation): void
+    public function testFailsWhenNormalizerThrowsRuntimeExceptionDuringNormalization(Normalize\Test\Util\CommandInvocation $commandInvocation): void
     {
         $scenario = self::createScenario(
             $commandInvocation,
@@ -47,7 +46,7 @@ final class CommandInvocationTest extends Test\Integration\Command\NormalizeComm
 
         $exceptionMessage = self::faker()->sentence();
 
-        $application = self::createApplication(new Command\NormalizeCommand(
+        $application = self::createApplication(new Normalize\Command\NormalizeCommand(
             new Factory(),
             new class($exceptionMessage) implements Normalizer\Normalizer {
                 private string $exceptionMessage;
