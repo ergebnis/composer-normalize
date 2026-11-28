@@ -395,8 +395,9 @@ final class NormalizeCommand extends Command\BaseCommand
     }
 
     /**
-     * @throws \RuntimeException
      * @param array<string, mixed> $extra
+     *
+     * @throws \RuntimeException
      */
     private static function indentFromExtra(array $extra): ?Normalizer\Format\Indent
     {

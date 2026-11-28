@@ -52,7 +52,7 @@ final class NormalizePlugin implements
     }
 
     /**
-     * @return Command\NormalizeCommand[]
+     * @return list<Command\NormalizeCommand>
      */
     public function getCommands(): array
     {
