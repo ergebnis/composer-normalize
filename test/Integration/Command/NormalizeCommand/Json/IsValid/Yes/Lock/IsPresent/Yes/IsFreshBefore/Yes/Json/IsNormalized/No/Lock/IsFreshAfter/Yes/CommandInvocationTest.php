@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\Composer\Normalize\Test\Integration\Command\NormalizeCommand\Json\IsValid\Yes\Lock\IsPresent\Yes\IsFreshBefore\Yes\Json\IsNormalized\No\Lock\IsFreshAfter\Yes;
 
-use Ergebnis\Composer\Normalize\Test;
+use Ergebnis\Composer\Normalize;
 use Symfony\Component\Console;
 
 /**
@@ -22,12 +22,12 @@ use Symfony\Component\Console;
  * @uses \Ergebnis\Composer\Normalize\NormalizePlugin
  * @uses \Ergebnis\Composer\Normalize\Version
  */
-final class CommandInvocationTest extends Test\Integration\Command\NormalizeCommand\AbstractTestCase
+final class CommandInvocationTest extends Normalize\Test\Integration\Command\NormalizeCommand\AbstractTestCase
 {
     /**
      * @dataProvider \Ergebnis\Composer\Normalize\Test\DataProvider\Command\NormalizeCommandProvider::commandInvocation
      */
-    public function testSucceeds(Test\Util\CommandInvocation $commandInvocation): void
+    public function testSucceeds(Normalize\Test\Util\CommandInvocation $commandInvocation): void
     {
         $scenario = self::createScenario(
             $commandInvocation,
@@ -68,7 +68,7 @@ final class CommandInvocationTest extends Test\Integration\Command\NormalizeComm
     /**
      * @dataProvider \Ergebnis\Composer\Normalize\Test\DataProvider\Command\NormalizeCommandProvider::commandInvocation
      */
-    public function testFailsWhenDryRunOptionIsUsed(Test\Util\CommandInvocation $commandInvocation): void
+    public function testFailsWhenDryRunOptionIsUsed(Normalize\Test\Util\CommandInvocation $commandInvocation): void
     {
         $scenario = self::createScenario(
             $commandInvocation,

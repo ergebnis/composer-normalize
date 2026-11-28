@@ -51,6 +51,9 @@ final class NormalizePlugin implements
         ];
     }
 
+    /**
+     * @return list<Command\NormalizeCommand>
+     */
     public function getCommands(): array
     {
         return [

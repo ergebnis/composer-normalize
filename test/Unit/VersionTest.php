@@ -14,8 +14,7 @@ declare(strict_types=1);
 namespace Ergebnis\Composer\Normalize\Test\Unit;
 
 use Composer\InstalledVersions;
-use Ergebnis\Composer\Normalize\Test;
-use Ergebnis\Composer\Normalize\Version;
+use Ergebnis\Composer\Normalize;
 use PHPUnit\Framework;
 
 /**
@@ -23,7 +22,7 @@ use PHPUnit\Framework;
  */
 final class VersionTest extends Framework\TestCase
 {
-    use Test\Util\Helper;
+    use Normalize\Test\Util\Helper;
 
     public function testLongReturnsVersionWhenPlaceholderHasBeenReplaced(): void
     {
@@ -44,7 +43,7 @@ final class VersionTest extends Framework\TestCase
             InstalledVersions::getPrettyVersion('ergebnis/composer-normalize'),
         );
 
-        self::assertSame($expected, Version::long());
+        self::assertSame($expected, Normalize\Version::long());
     }
 
     /**
@@ -54,7 +53,7 @@ final class VersionTest extends Framework\TestCase
     private static function longWithVersion(string $version): string
     {
         $property = new \ReflectionProperty(
-            Version::class,
+            Normalize\Version::class,
             'version',
         );
 
@@ -68,7 +67,7 @@ final class VersionTest extends Framework\TestCase
         );
 
         try {
-            return Version::long();
+            return Normalize\Version::long();
         } finally {
             $property->setValue(
                 null,

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "65051024680b94e30bf1ab400cbc595c",
+    "content-hash": "5a2af2988360f113e70ffed48444ef92",
     "packages": [
         {
             "name": "ergebnis/differ",
@@ -1710,45 +1710,117 @@
             "time": "2026-10-18T15:50:09+00:00"
         },
         {
-            "name": "ergebnis/rector-rules",
-            "version": "1.19.0",
+            "name": "ergebnis/rector-config",
+            "version": "0.3.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/ergebnis/rector-rules.git",
-                "reference": "a55ef4238ec5bceb1ba2f2dd786d376579a42853"
+                "url": "https://github.com/ergebnis/rector-config.git",
+                "reference": "bb3c9012fd35ab0eaa3a890ba484aad22398b4d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/rector-rules/zipball/a55ef4238ec5bceb1ba2f2dd786d376579a42853",
-                "reference": "a55ef4238ec5bceb1ba2f2dd786d376579a42853",
+                "url": "https://api.github.com/repos/ergebnis/rector-config/zipball/bb3c9012fd35ab0eaa3a890ba484aad22398b4d3",
+                "reference": "bb3c9012fd35ab0eaa3a890ba484aad22398b4d3",
+                "shasum": ""
+            },
+            "require": {
+                "ergebnis/rector-rules": "~1.22.2",
+                "php": "~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0 || ~8.6.0 || ~8.7.0",
+                "rector/rector": "~2.9.2"
+            },
+            "require-dev": {
+                "ergebnis/composer-normalize": "^2.58.0",
+                "ergebnis/data-provider": "^3.8.0",
+                "ergebnis/license": "^2.10.0",
+                "ergebnis/php-cs-fixer-config": "^6.66.0",
+                "ergebnis/phpstan-rules": "^2.18.0",
+                "ergebnis/phpunit-slow-test-detector": "^2.28.0",
+                "fakerphp/faker": "^1.24.1",
+                "infection/infection": "~0.26.6",
+                "phpstan/extension-installer": "^1.4.3",
+                "phpstan/phpstan": "^2.3.1",
+                "phpstan/phpstan-deprecation-rules": "^2.0.6",
+                "phpstan/phpstan-phpunit": "^2.1.4",
+                "phpstan/phpstan-strict-rules": "^2.1.2",
+                "phpunit/phpunit": "^9.6.38",
+                "symfony/filesystem": "^5.4.54",
+                "symfony/process": "^5.4.54"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "0.3-dev"
+                },
+                "composer-normalize": {
+                    "indent-size": 2,
+                    "indent-style": "space"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Ergebnis\\Rector\\Config\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Möller",
+                    "email": "am@localheinz.com",
+                    "homepage": "https://localheinz.com"
+                }
+            ],
+            "description": "Provides a configuration factory and rule sets for rector/rector.",
+            "homepage": "https://github.com/ergebnis/rector-config",
+            "support": {
+                "issues": "https://github.com/ergebnis/rector-config/issues",
+                "security": "https://github.com/ergebnis/rector-config/blob/main/.github/SECURITY.md",
+                "source": "https://github.com/ergebnis/rector-config"
+            },
+            "time": "2026-11-28T10:44:02+00:00"
+        },
+        {
+            "name": "ergebnis/rector-rules",
+            "version": "1.22.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ergebnis/rector-rules.git",
+                "reference": "794cdd8b3c158f545db9c63d0ad57cb73df001a9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ergebnis/rector-rules/zipball/794cdd8b3c158f545db9c63d0ad57cb73df001a9",
+                "reference": "794cdd8b3c158f545db9c63d0ad57cb73df001a9",
                 "shasum": ""
             },
             "require": {
                 "nikic/php-parser": "^4.17.1 || ^5.0.0",
-                "php": "~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0 || ~8.6.0",
+                "php": "~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0 || ~8.6.0 || ~8.7.0",
                 "phpstan/phpstan": "^2.0.0",
-                "rector/rector": "^2.8.2"
+                "rector/rector": "^2.8.4"
             },
             "require-dev": {
                 "ergebnis/classy": "^3.1.0",
-                "ergebnis/composer-normalize": "^2.54.0",
-                "ergebnis/data-provider": "^3.7.0",
-                "ergebnis/license": "^2.8.0",
-                "ergebnis/php-cs-fixer-config": "^6.64.1",
-                "ergebnis/phpunit-slow-test-detector": "^2.26.0",
+                "ergebnis/composer-normalize": "^2.57.0",
+                "ergebnis/data-provider": "^3.7.1",
+                "ergebnis/license": "^2.9.0",
+                "ergebnis/php-cs-fixer-config": "^6.65.0",
+                "ergebnis/phpunit-slow-test-detector": "^2.27.0",
                 "phpstan/extension-installer": "^1.4.3",
                 "phpstan/phpstan-deprecation-rules": "^2.0.5",
-                "phpstan/phpstan-phpunit": "^2.1.1",
-                "phpstan/phpstan-strict-rules": "^2.1.0",
+                "phpstan/phpstan-phpunit": "^2.1.2",
+                "phpstan/phpstan-strict-rules": "^2.1.1",
                 "phpunit/phpunit": "^9.6.33",
                 "sebastian/diff": "^4.0.6",
-                "symfony/filesystem": "^5.4.45",
+                "symfony/filesystem": "^5.4.56 || ^6.4.50 || ^7.4.23 || ^8.1.11",
                 "symfony/finder": "^5.4.45"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "1.19-dev"
+                    "dev-main": "1.22-dev"
                 },
                 "composer-normalize": {
                     "indent-size": 2,
@@ -1778,7 +1850,7 @@
                 "security": "https://github.com/ergebnis/rector-rules/blob/main/.github/SECURITY.md",
                 "source": "https://github.com/ergebnis/rector-rules"
             },
-            "time": "2026-10-28T22:26:07+00:00"
+            "time": "2026-11-28T10:36:28+00:00"
         },
         {
             "name": "ergebnis/version",
@@ -3850,16 +3922,16 @@
         },
         {
             "name": "rector/rector",
-            "version": "2.8.4",
+            "version": "2.9.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "55acbd956d7e3907f7d21aab54edd68a310609e6"
+                "reference": "8a06053cae42915224f9357566162ccb1076001a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/55acbd956d7e3907f7d21aab54edd68a310609e6",
-                "reference": "55acbd956d7e3907f7d21aab54edd68a310609e6",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/8a06053cae42915224f9357566162ccb1076001a",
+                "reference": "8a06053cae42915224f9357566162ccb1076001a",
                 "shasum": ""
             },
             "require": {
@@ -3895,7 +3967,7 @@
             ],
             "support": {
                 "issues": "https://github.com/rectorphp/rector/issues",
-                "source": "https://github.com/rectorphp/rector/tree/2.8.4"
+                "source": "https://github.com/rectorphp/rector/tree/2.9.2"
             },
             "funding": [
                 {
@@ -3903,7 +3975,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-11-03T18:48:08+00:00"
+            "time": "2026-11-24T23:34:02+00:00"
         },
         {
             "name": "sebastian/cli-parser",

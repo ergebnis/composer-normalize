@@ -13,15 +13,15 @@ declare(strict_types=1);
 
 namespace Ergebnis\Composer\Normalize\Test\DataProvider\Command;
 
-use Ergebnis\Composer\Normalize\Test;
+use Ergebnis\Composer\Normalize;
 use Ergebnis\Json\Normalizer\Format;
 
 final class NormalizeCommandProvider
 {
-    use Test\Util\Helper;
+    use Normalize\Test\Util\Helper;
 
     /**
-     * @return \Generator<string, array{0: Test\Util\CommandInvocation}>
+     * @return \Generator<string, array{0: Normalize\Test\Util\CommandInvocation}>
      */
     public static function commandInvocation(): \Generator
     {
@@ -33,7 +33,7 @@ final class NormalizeCommandProvider
     }
 
     /**
-     * @return \Generator<string, array{0: Test\Util\CommandInvocation, 1: string}>
+     * @return \Generator<string, array{0: Normalize\Test\Util\CommandInvocation, 1: string}>
      */
     public static function commandInvocationAndInvalidIndentSize(): \Generator
     {
@@ -65,7 +65,7 @@ final class NormalizeCommandProvider
     }
 
     /**
-     * @return \Generator<string, array{0: Test\Util\CommandInvocation, 1: int, 2: string}>
+     * @return \Generator<string, array{0: Normalize\Test\Util\CommandInvocation, 1: int, 2: string}>
      */
     public static function commandInvocationIndentSizeAndIndentStyle(): \Generator
     {
@@ -96,14 +96,14 @@ final class NormalizeCommandProvider
     }
 
     /**
-     * @return array<int, Test\Util\CommandInvocation>
+     * @return array<int, Normalize\Test\Util\CommandInvocation>
      */
     private static function commandInvocations(): array
     {
         return [
-            Test\Util\CommandInvocation::inCurrentWorkingDirectory(),
-            Test\Util\CommandInvocation::usingFileArgument(),
-            Test\Util\CommandInvocation::usingWorkingDirectoryOption(),
+            Normalize\Test\Util\CommandInvocation::inCurrentWorkingDirectory(),
+            Normalize\Test\Util\CommandInvocation::usingFileArgument(),
+            Normalize\Test\Util\CommandInvocation::usingWorkingDirectoryOption(),
         ];
     }
 }

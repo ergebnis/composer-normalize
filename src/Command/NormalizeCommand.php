@@ -18,8 +18,7 @@ use Composer\Composer;
 use Composer\Console\Application;
 use Composer\Factory;
 use Composer\IO;
-use Ergebnis\Composer\Normalize\Exception;
-use Ergebnis\Composer\Normalize\Version;
+use Ergebnis\Composer\Normalize;
 use Ergebnis\Differ;
 use Ergebnis\Json\Json;
 use Ergebnis\Json\Normalizer;
@@ -110,7 +109,7 @@ final class NormalizeCommand extends Command\BaseCommand
         $io->write([
             \sprintf(
                 'Running %s.',
-                Version::long(),
+                Normalize\Version::long(),
             ),
             '',
         ]);
@@ -119,16 +118,16 @@ final class NormalizeCommand extends Command\BaseCommand
 
         try {
             $indentFromInput = self::indentFromInput($input);
-        } catch (\RuntimeException $exception) {
+        } catch (\RuntimeException $runtimeException) {
             $io->writeError(\sprintf(
                 '<error>%s</error>',
-                $exception->getMessage(),
+                $runtimeException->getMessage(),
             ));
 
             return 1;
         }
 
-        if (null !== $indentFromInput) {
+        if ($indentFromInput instanceof \Ergebnis\Json\Normalizer\Format\Indent) {
             $indent = $indentFromInput;
         }
 
@@ -144,27 +143,27 @@ final class NormalizeCommand extends Command\BaseCommand
         );
 
         if (!$composer instanceof Composer) {
-            throw Exception\ShouldNotHappen::create();
+            throw Normalize\Exception\ShouldNotHappen::create();
         }
 
         try {
             $indentFromExtra = self::indentFromExtra($composer->getPackage()->getExtra());
-        } catch (\RuntimeException $exception) {
+        } catch (\RuntimeException $runtimeException) {
             $io->writeError(\sprintf(
                 '<error>%s</error>',
-                $exception->getMessage(),
+                $runtimeException->getMessage(),
             ));
 
             return 1;
         }
 
-        if (null !== $indentFromExtra) {
+        if ($indentFromExtra instanceof \Ergebnis\Json\Normalizer\Format\Indent) {
             $indent = $indentFromExtra;
         }
 
         if (
-            null !== $indentFromInput
-            && null !== $indentFromExtra
+            $indentFromInput instanceof \Ergebnis\Json\Normalizer\Format\Indent
+            && $indentFromExtra instanceof \Ergebnis\Json\Normalizer\Format\Indent
         ) {
             $io->write('<warning>Configuration provided via options and composer extra. Using configuration from composer extra.</warning>');
         }
@@ -200,7 +199,7 @@ final class NormalizeCommand extends Command\BaseCommand
 
         $format = Normalizer\Format\Format::fromJson($json);
 
-        if (null !== $indent) {
+        if ($indent instanceof \Ergebnis\Json\Normalizer\Format\Indent) {
             $format = $format->withIndent($indent);
         }
 
@@ -396,6 +395,8 @@ final class NormalizeCommand extends Command\BaseCommand
     }
 
     /**
+     * @param array<string, mixed> $extra
+     *
      * @throws \RuntimeException
      */
     private static function indentFromExtra(array $extra): ?Normalizer\Format\Indent
@@ -516,7 +517,7 @@ final class NormalizeCommand extends Command\BaseCommand
             );
 
             if (!\is_string($replaced)) {
-                throw Exception\ShouldNotHappen::create();
+                throw Normalize\Exception\ShouldNotHappen::create();
             }
 
             return $replaced;
